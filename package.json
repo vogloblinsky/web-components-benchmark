@@ -4,6 +4,8 @@
   "description": "Comparison on how to update DOM, pass attributes/properties and dispatch/listen to events with Web Components",
   "scripts": {
     "test": "nightwatch",
+    "serve": "http-server .",
+    "benchmark": "node benchmark.js",
     "deploy": "firebase deploy && firebase open hosting:site",
     "build:polymer": "cd polymer && polymer build",
     "build:angular": "cd angular-elements && npm run build",
@@ -23,7 +25,10 @@
   "homepage": "https://github.com/shprink/WC-Polymer-Stencil-todo#readme",
   "devDependencies": {
     "chromedriver": "^2.34.1",
+    "fs-extra": "^5.0.0",
+    "http-server": "^0.11.1",
     "nightwatch": "^0.9.19",
+    "puppeteer": "^1.0.0",
     "selenium-server-standalone-jar": "^3.8.1"
   }
 }

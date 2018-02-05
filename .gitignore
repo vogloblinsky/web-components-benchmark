@@ -58,3 +58,5 @@ typings/
 .env
 
 .e2e-results
+
+benchmarks
