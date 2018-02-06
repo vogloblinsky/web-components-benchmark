@@ -5,7 +5,8 @@
   "scripts": {
     "test": "nightwatch",
     "serve": "http-server .",
-    "benchmark": "node benchmark.js",
+    "benchmark-page-load": "node benchmarks/benchmark_page-load.js",
+    "benchmark-create-todos": "node benchmarks/benchmark_create-todos.js",
     "deploy": "firebase deploy && firebase open hosting:site",
     "build:polymer": "cd polymer && polymer build",
     "build:angular": "cd angular-elements && npm run build",
@@ -25,6 +26,7 @@
   "homepage": "https://github.com/shprink/WC-Polymer-Stencil-todo#readme",
   "devDependencies": {
     "chromedriver": "^2.34.1",
+    "devtools-timeline-model": "^1.4.0",
     "fs-extra": "^5.0.0",
     "http-server": "^0.11.1",
     "nightwatch": "^0.9.19",
