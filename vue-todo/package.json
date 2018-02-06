@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "budo src/main.js:build.js -o -l",
-    "build": "NODE_ENV=production browserify src/main.js -o build.js"
+    "build": "NODE_ENV=production browserify -g envify -e src/main.js | uglifyjs -c -m > build.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +13,8 @@
   "devDependencies": {
     "browserify": "^15.2.0",
     "budo": "^11.0.1",
+    "envify": "^4.1.0",
+    "uglify-es": "^3.3.9",
     "vueify": "^9.4.1"
   },
   "dependencies": {
