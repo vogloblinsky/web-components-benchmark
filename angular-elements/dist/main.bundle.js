@@ -286,7 +286,7 @@
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__);
 /**
- * @license Angular v5.2.2
+ * @license Angular v5.2.3
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -969,7 +969,7 @@ class Version {
 /**
  * \@stable
  */
-const VERSION = new Version('5.2.2');
+const VERSION = new Version('5.2.3');
 
 /**
  * @fileoverview added by tsickle
@@ -8377,7 +8377,7 @@ function checkAndUpdateBinding(view, def, bindingIdx, value) {
 function checkBindingNoChanges(view, def, bindingIdx, value) {
     const /** @type {?} */ oldValue = view.oldValues[def.bindingIndex + bindingIdx];
     if ((view.state & 1 /* BeforeFirstCheck */) || !devModeEqual(oldValue, value)) {
-        const /** @type {?} */ bindingName = def.bindings[def.bindingIndex].name;
+        const /** @type {?} */ bindingName = def.bindings[bindingIdx].name;
         throw expressionChangedAfterItHasBeenCheckedError(Services.createDebugContext(view, def.nodeIndex), `${bindingName}: ${oldValue}`, `${bindingName}: ${value}`, (view.state & 1 /* BeforeFirstCheck */) !== 0);
     }
 }
@@ -17823,7 +17823,7 @@ exports.root = _root;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(5);
 /**
- * @license Angular v5.2.2
+ * @license Angular v5.2.3
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -21336,7 +21336,6 @@ class FormArray extends AbstractControl {
         this.controls.splice(index, 0, control);
         this._registerControl(control);
         this.updateValueAndValidity();
-        this._onCollectionChange();
     }
     /**
      * Remove the control at the given `index` in the array.
@@ -21348,7 +21347,6 @@ class FormArray extends AbstractControl {
             this.controls[index]._registerOnCollectionChange(() => { });
         this.controls.splice(index, 1);
         this.updateValueAndValidity();
-        this._onCollectionChange();
     }
     /**
      * Replace an existing control.
@@ -23650,7 +23648,7 @@ FormBuilder.ctorParameters = () => [];
 /**
  * \@stable
  */
-const VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Version */]('5.2.2');
+const VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Version */]('5.2.3');
 
 /**
  * @fileoverview added by tsickle
@@ -23875,7 +23873,7 @@ ReactiveFormsModule.ctorParameters = () => [];
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /**
- * @license Angular v5.2.2
+ * @license Angular v5.2.3
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -27866,7 +27864,7 @@ class By {
 /**
  * \@stable
  */
-const VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["P" /* Version */]('5.2.2');
+const VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["P" /* Version */]('5.2.3');
 
 /**
  * @fileoverview added by tsickle
@@ -28228,7 +28226,7 @@ module.exports = g;
 /* unused harmony export ɵf */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /**
- * @license Angular v5.2.2
+ * @license Angular v5.2.3
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -31347,7 +31345,7 @@ NgStyle.propDecorators = {
  * `[ngTemplateOutletContext]` should be an object, the object's keys will be available for binding
  * by the local template `let` declarations.
  *
- * Note: using the key `$implicit` in the context object will set it's value as default.
+ * Note: using the key `$implicit` in the context object will set its value as default.
  *
  * ## Example
  *
@@ -34214,7 +34212,7 @@ function isPlatformWorkerUi(platformId) {
 /**
  * \@stable
  */
-const VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Version */]('5.2.2');
+const VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Version */]('5.2.3');
 
 /**
  * @fileoverview added by tsickle
