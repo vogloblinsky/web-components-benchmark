@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "budo src/main.js:build.js -o -l",
-    "build": "browserify src/main.js -o build.js"
+    "build": "NODE_ENV=production browserify src/main.js -o build.js"
   },
   "keywords": [],
   "author": "",
