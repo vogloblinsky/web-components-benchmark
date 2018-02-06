@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Web Components implementations benchmark",
   "scripts": {
+    "postinstall": "cd angular-elements && npm i && cd ../native-shadow-dom && npm i && cd ../stencil && npm i && cd ../vue.js && npm i",
     "serve": "http-server .",
     "benchmark-page-load": "node benchmarks/benchmark_page-load.js",
     "benchmark-create-todos": "node benchmarks/benchmark_create-todos.js",
