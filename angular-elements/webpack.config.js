@@ -1,6 +1,7 @@
 /* global module */
 const AotPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
 const CompressionPlugin = require("compression-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -16,6 +17,7 @@ module.exports = {
       tsConfigPath: './tsconfig.json',
       entryModule: path.resolve(__dirname, './src/todo.module#TodoModule' )
     }),
+    new UglifyJsPlugin(),
     new CompressionPlugin({
       asset: "[path].gz[query]",
       algorithm: "gzip",
