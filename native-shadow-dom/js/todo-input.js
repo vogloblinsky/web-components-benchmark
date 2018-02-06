@@ -5,7 +5,7 @@ class TodoInput extends HTMLElement {
     }
 
     connectedCallback() {
-        console.log('TodoInput ADDED TO THE DOM');
+        // console.log('TodoInput ADDED TO THE DOM');
         this._root.innerHTML = `
             <style>
                 #new-todo-form {
@@ -49,7 +49,7 @@ class TodoInput extends HTMLElement {
     }
 
     disconnectedCallback() {
-        console.log('TodoInput REMOVED TO THE DOM');
+        // console.log('TodoInput REMOVED TO THE DOM');
     }
 }
 
