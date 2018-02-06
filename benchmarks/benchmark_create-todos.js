@@ -163,7 +163,7 @@ let processRawData = (filename, i) => {
 
         filename = `benchmarks-results/vue/create-todos_vue_${i}.json`;
 
-        await page.goto('http://127.0.0.1:8080/vue-todo/dist/index.html');
+        await page.goto('http://127.0.0.1:8080/vue.js/dist/index.html');
 
         await page.tracing.start({
             path: filename

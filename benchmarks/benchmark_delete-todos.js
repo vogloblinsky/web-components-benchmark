@@ -184,7 +184,7 @@ let processRawData = (filename, i) => {
 
         filename = `benchmarks-results/vue/delete-todos_vue_${i}.json`;
 
-        await page.goto('http://127.0.0.1:8080/vue-todo/dist/index.html');
+        await page.goto('http://127.0.0.1:8080/vue.js/dist/index.html');
 
         const inputHandle = await page.evaluateHandle(`document.querySelector('todo-input').querySelector('input')`);
 

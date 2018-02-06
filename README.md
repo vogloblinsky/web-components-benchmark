@@ -1,6 +1,6 @@
-# WC-Polymer-Stencil-todo
+# Web components benchmark
 
-Benchmarks of libraries and implementation of Web components : Native, Polymer 2, Stencil, Angular Elements, Vue.js
+Benchmarks of libraries and implementation of Web Components : Native, Polymer 2, Stencil, Angular Elements, Vue.js
 
 ## Setup
 

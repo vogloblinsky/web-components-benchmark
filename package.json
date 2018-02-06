@@ -1,38 +1,33 @@
 {
-  "name": "wc-polymer-stencil-todo",
+  "name": "web-components-benchmark",
   "version": "1.0.0",
-  "description": "Comparison on how to update DOM, pass attributes/properties and dispatch/listen to events with Web Components",
+  "description": "Web Components implementations benchmark",
   "scripts": {
-    "test": "nightwatch",
     "serve": "http-server .",
     "benchmark-page-load": "node benchmarks/benchmark_page-load.js",
     "benchmark-create-todos": "node benchmarks/benchmark_create-todos.js",
     "benchmark-delete-todos": "node benchmarks/benchmark_delete-todos.js",
-    "deploy": "firebase deploy && firebase open hosting:site",
     "build:polymer": "cd polymer && polymer build",
     "build:native": "cd native-shadow-dom && npm run build",
     "build:angular": "cd angular-elements && npm run build",
     "build:stencil": "cd stencil && npm run build",
-    "build:vue": "cd vue-todo && npm run build",
+    "build:vue": "cd vue.js && npm run build",
     "build:all": "npm run build:native && npm run build:polymer && npm run build:angular && npm run build:stencil && npm run build:vue"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shprink/WC-Polymer-Stencil-todo.git"
+    "url": "git+https://github.com/vogloblinsky/web-components-benchmark.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shprink/WC-Polymer-Stencil-todo/issues"
+    "url": "https://github.com/vogloblinsky/web-components-benchmark/issues"
   },
-  "homepage": "https://github.com/shprink/WC-Polymer-Stencil-todo#readme",
+  "homepage": "https://github.com/vogloblinsky/web-components-benchmark#readme",
   "devDependencies": {
-    "chromedriver": "^2.34.1",
     "devtools-timeline-model": "^1.4.0",
     "fs-extra": "^5.0.0",
     "http-server": "^0.11.1",
-    "nightwatch": "^0.9.19",
-    "puppeteer": "^1.0.0",
-    "selenium-server-standalone-jar": "^3.8.1"
+    "puppeteer": "^1.0.0"
   }
 }

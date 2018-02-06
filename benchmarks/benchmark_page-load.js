@@ -128,7 +128,7 @@ let processRawData = (filename, i) => {
         await page.tracing.start({
             path: filename
         });
-        await page.goto('http://127.0.0.1:8080/vue-todo/dist/index.html');
+        await page.goto('http://127.0.0.1:8080/vue.js/dist/index.html');
         await page.tracing.stop();
 
         processRawData(filename, i);
