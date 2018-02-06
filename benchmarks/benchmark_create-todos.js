@@ -8,7 +8,9 @@ fs.ensureDirSync('benchmarks-results/stencil');
 fs.ensureDirSync('benchmarks-results/angular-elements');
 fs.ensureDirSync('benchmarks-results/vue');
 
-const numberOftests = 10;
+const numberOftests = 10,
+    numberOfCreation = 50,
+    selector = `document.querySelector('my-todo').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`;
 
 let browser;
 let page;
@@ -25,18 +27,27 @@ let processRawData = (filename, i) => {
     console.log(`Top down tree total time ${i}: ${topDown.totalTime}`);
 }
 
-(async () => {
-    
+(async () => {   
+
     for (let i = 0; i<numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true });
         page = await browser.newPage();
         
-        filename = `benchmarks-results/native-shadow-dom/load-page_native-shadow-dom_${i}.json`;
+        filename = `benchmarks-results/native-shadow-dom/create-todos_native-shadow-dom_${i}.json`;
+
+        await page.goto('http://localhost:8080/native-shadow-dom/dist/index.html');
 
         await page.tracing.start({
             path: filename
         });
-        await page.goto('http://localhost:8080/native-shadow-dom/dist/index.html');
+
+        const inputHandle = await page.evaluateHandle(selector);
+
+        for (let j = 0; j<numberOfCreation; j++) {            
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
+        }
+
         await page.tracing.stop();
 
         processRawData(filename, i);
@@ -54,12 +65,21 @@ let processRawData = (filename, i) => {
         browser = await puppeteer.launch({ headless: true });
         page = await browser.newPage();
 
-        filename = `benchmarks-results/polymer/load-page_polymer_${i}.json`;
+        filename = `benchmarks-results/polymer/create-todos_polymer_${i}.json`;
+
+        await page.goto('http://127.0.0.1:8080/polymer/build/es6-bundled/index.html');
 
         await page.tracing.start({
             path: filename
         });
-        await page.goto('http://127.0.0.1:8080/polymer/build/es6-bundled/index.html');
+        
+        const inputHandle = await page.evaluateHandle(selector);
+
+        for (let j = 0; j<numberOfCreation; j++) {            
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
+        }
+
         await page.tracing.stop();
 
         processRawData(filename, i);
@@ -77,12 +97,21 @@ let processRawData = (filename, i) => {
         browser = await puppeteer.launch({ headless: true });
         page = await browser.newPage();
 
-        filename = `benchmarks-results/stencil/load-page_stencil_${i}.json`;
+        filename = `benchmarks-results/stencil/create-todos_stencil_${i}.json`;
+
+        await page.goto('http://127.0.0.1:8080/stencil/www/index.html');
 
         await page.tracing.start({
             path: filename
         });
-        await page.goto('http://127.0.0.1:8080/stencil/www/index.html');
+        
+        const inputHandle = await page.evaluateHandle(`document.querySelector('todo-input').querySelector('input')`);
+
+        for (let j = 0; j<numberOfCreation; j++) {            
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
+        }
+
         await page.tracing.stop();
 
         processRawData(filename, i);
@@ -100,12 +129,21 @@ let processRawData = (filename, i) => {
         browser = await puppeteer.launch({ headless: true })
         page = await browser.newPage();
 
-        filename = `benchmarks-results/angular-elements/load-page_angular-elements_${i}.json`;
+        filename = `benchmarks-results/angular-elements/create-todos_angular-elements_${i}.json`;
+
+        await page.goto('http://127.0.0.1:8080/angular-elements/dist/index.html');
 
         await page.tracing.start({
             path: filename
         });
-        await page.goto('http://127.0.0.1:8080/angular-elements/dist/index.html');
+        
+        const inputHandle = await page.evaluateHandle(selector);
+
+        for (let j = 0; j<numberOfCreation; j++) {            
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
+        }
+
         await page.tracing.stop();
 
         processRawData(filename, i);
@@ -123,12 +161,21 @@ let processRawData = (filename, i) => {
         browser = await puppeteer.launch({ headless: true })
         page = await browser.newPage();
 
-        filename = `benchmarks-results/vue/load-page_vue_${i}.json`;
+        filename = `benchmarks-results/vue/create-todos_vue_${i}.json`;
+
+        await page.goto('http://127.0.0.1:8080/vue-todo/dist/index.html');
 
         await page.tracing.start({
             path: filename
         });
-        await page.goto('http://127.0.0.1:8080/vue-todo/dist/index.html');
+        
+        const inputHandle = await page.evaluateHandle(`document.querySelector('todo-input').querySelector('input')`);
+
+        for (let j = 0; j<numberOfCreation; j++) {            
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
+        }
+
         await page.tracing.stop();
 
         processRawData(filename, i);

@@ -7,6 +7,7 @@
     "serve": "http-server .",
     "benchmark-page-load": "node benchmarks/benchmark_page-load.js",
     "benchmark-create-todos": "node benchmarks/benchmark_create-todos.js",
+    "benchmark-delete-todos": "node benchmarks/benchmark_delete-todos.js",
     "deploy": "firebase deploy && firebase open hosting:site",
     "build:polymer": "cd polymer && polymer build",
     "build:angular": "cd angular-elements && npm run build",
