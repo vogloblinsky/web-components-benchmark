@@ -25,6 +25,9 @@ In another tab
 
 ## TODOS
 
-- add React implementation ? https://github.com/WeltN24/react-web-component
+- add SkateJS https://github.com/skatejs/skatejs
+- add slim.js https://github.com/eavichay/slim.js
 - add native + lit-html https://alligator.io/web-components/lit-html/
+
+- add React implementation ? https://github.com/WeltN24/react-web-component
 - add polymer 3 preview ? https://github.com/Polymer/polymer/tree/3.0-preview
