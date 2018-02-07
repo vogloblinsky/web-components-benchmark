@@ -3,6 +3,7 @@ const puppeteer = require('puppeteer'),
     DevtoolsTimelineModel = require('devtools-timeline-model');
 
 fs.ensureDirSync('benchmarks-results/native-shadow-dom');
+fs.ensureDirSync('benchmarks-results/native-shadow-dom_lit-html');
 fs.ensureDirSync('benchmarks-results/polymer');
 fs.ensureDirSync('benchmarks-results/stencil');
 fs.ensureDirSync('benchmarks-results/angular-elements');
@@ -25,7 +26,7 @@ let processRawData = (filename, i) => {
     var topDown = model.topDown();
     average += topDown.totalTime;
 
-    console.log(`Top down tree total time ${i}: ${topDown.totalTime}`);
+    console.log(`Top down tree total time ${i}: ${Math.ceil(topDown.totalTime)}`);
 }
 
 (async () => {   
@@ -34,7 +35,7 @@ let processRawData = (filename, i) => {
         browser = await puppeteer.launch({ headless: true });
         page = await browser.newPage();
         
-        filename = `benchmarks-results/native-shadow-dom/delete-todos_native-shadow-dom_${i}.json`;
+        filename = `benchmarks-results/native-shadow-dom/delete-todos_${i}.json`;
 
         await page.goto('http://localhost:8080/native-shadow-dom/dist/index.html');
 
@@ -63,7 +64,39 @@ let processRawData = (filename, i) => {
     
     average = average / numberOftests;
 
-    console.log(`\nAverage time for native : ${average} ms\n`);
+    console.log(`\nAverage time for native : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i<numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true });
+        page = await browser.newPage();
+        
+        filename = `benchmarks-results/native-shadow-dom_lit-html/create-todos_${i}.json`;
+
+        await page.goto('http://localhost:8080/native-shadow-dom_lit-html/dist/index.html');
+
+        await page.tracing.start({
+            path: filename
+        });
+
+        const inputHandle = await page.evaluateHandle(selectorInput);
+
+        for (let j = 0; j<numberOfCreation; j++) {            
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
+        }
+
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+    
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for native + lit-html : ${Math.ceil(average)} ms\n`);
 
     average = 0;
 
@@ -71,7 +104,7 @@ let processRawData = (filename, i) => {
         browser = await puppeteer.launch({ headless: true });
         page = await browser.newPage();
 
-        filename = `benchmarks-results/polymer/delete-todos_polymer_${i}.json`;
+        filename = `benchmarks-results/polymer/delete-todos_${i}.json`;
 
         await page.goto('http://127.0.0.1:8080/polymer/build/es6-bundled/index.html');
 
@@ -100,7 +133,7 @@ let processRawData = (filename, i) => {
 
     average = average / numberOftests;
 
-    console.log(`\nAverage time for Polymer : ${average} ms\n`);
+    console.log(`\nAverage time for Polymer : ${Math.ceil(average)} ms\n`);
 
     average = 0;
 
@@ -108,7 +141,7 @@ let processRawData = (filename, i) => {
         browser = await puppeteer.launch({ headless: true });
         page = await browser.newPage();
 
-        filename = `benchmarks-results/stencil/delete-todos_stencil_${i}.json`;
+        filename = `benchmarks-results/stencil/delete-todos_${i}.json`;
 
         await page.goto('http://127.0.0.1:8080/stencil/www/index.html');
 
@@ -137,7 +170,7 @@ let processRawData = (filename, i) => {
 
     average = average / numberOftests;
 
-    console.log(`\nAverage time for Stencil : ${average} ms\n`);
+    console.log(`\nAverage time for Stencil : ${Math.ceil(average)} ms\n`);
 
     average = 0;
 
@@ -145,7 +178,7 @@ let processRawData = (filename, i) => {
         browser = await puppeteer.launch({ headless: true })
         page = await browser.newPage();
 
-        filename = `benchmarks-results/angular-elements/delete-todos_angular-elements_${i}.json`;
+        filename = `benchmarks-results/angular-elements/delete-todos_${i}.json`;
 
         await page.goto('http://127.0.0.1:8080/angular-elements/dist/index.html');
 
@@ -174,7 +207,7 @@ let processRawData = (filename, i) => {
 
     average = average / numberOftests;
 
-    console.log(`\nAverage time for Angular elements : ${average} ms\n`);
+    console.log(`\nAverage time for Angular elements : ${Math.ceil(average)} ms\n`);
 
     average = 0;
 
@@ -182,7 +215,7 @@ let processRawData = (filename, i) => {
         browser = await puppeteer.launch({ headless: true })
         page = await browser.newPage();
 
-        filename = `benchmarks-results/vue/delete-todos_vue_${i}.json`;
+        filename = `benchmarks-results/vue/delete-todos_${i}.json`;
 
         await page.goto('http://127.0.0.1:8080/vue.js/dist/index.html');
 
@@ -213,6 +246,6 @@ let processRawData = (filename, i) => {
 
     average = average / numberOftests;
 
-    console.log(`\nAverage time for Vue : ${average} ms\n`);
+    console.log(`\nAverage time for Vue : ${Math.ceil(average)} ms\n`);
     
 })();
