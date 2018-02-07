@@ -3,7 +3,8 @@ import {
     EventEmitter,
     Input,
     Output,
-    ViewEncapsulation
+    ViewEncapsulation,
+    ChangeDetectionStrategy
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -47,6 +48,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
             box-sizing: border-box;
         }
     `],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.Native
 })
 export class TodoInput {

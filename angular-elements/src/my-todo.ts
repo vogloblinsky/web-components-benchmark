@@ -1,6 +1,7 @@
 import {
     Component,
     ViewEncapsulation,
+    ChangeDetectionStrategy
 } from '@angular/core';
 
 interface TodoItem {
@@ -46,6 +47,7 @@ interface TodoItem {
             border-top: 1px solid #e6e6e6;
         }
     `],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.Native
 })
 export class MyTodo {

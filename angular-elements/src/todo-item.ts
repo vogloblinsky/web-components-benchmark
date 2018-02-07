@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     selector: 'todo-item',
@@ -99,6 +99,7 @@ import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angu
         color: #af5b5e;
         }
     `],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.Native
 })
 export class TodoItem {
