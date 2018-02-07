@@ -109,11 +109,13 @@ class TodoItem extends HTMLElement {
         this.$checkbox = this._root.querySelector('input');
         this.$removeButton.addEventListener('click', (e) => {
             e.preventDefault();
-            this.dispatchEvent(new CustomEvent('onRemove', { detail: this.index }));
+            this.dispatchEvent(new CustomEvent('onRemove', { detail: this.index, item: this.$item }));
         });
         this.$checkbox.addEventListener('click', (e) => {
-            e.preventDefault();
-            this.dispatchEvent(new CustomEvent('onToggle', { detail: this.index }));
+            //e.preventDefault();
+            //this.dispatchEvent(new CustomEvent('onToggle', { detail: this.index }));
+            this.checked = !this._checked;
+            this._render();
         });
         this._render();
     }
@@ -139,6 +141,7 @@ class TodoItem extends HTMLElement {
     _render() {
         if (!this.$item) return;
         this.$text.textContent = this._text;
+        
         if (this._checked) {
             this.$item.classList.add('completed');
             this.$checkbox.setAttribute('checked', '');
