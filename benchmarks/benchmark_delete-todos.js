@@ -31,7 +31,7 @@ let processRawData = (filename, i) => {
 
 (async () => {   
 
-    for (let i = 0; i<numberOftests; i++) {
+    for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true });
         page = await browser.newPage();
         
@@ -68,7 +68,7 @@ let processRawData = (filename, i) => {
 
     average = 0;
 
-    for (let i = 0; i<numberOftests; i++) {
+    for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true });
         page = await browser.newPage();
         
@@ -100,7 +100,7 @@ let processRawData = (filename, i) => {
 
     average = 0;
 
-    for (let i = 0; i<numberOftests; i++) {
+    for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true });
         page = await browser.newPage();
 
@@ -137,7 +137,7 @@ let processRawData = (filename, i) => {
 
     average = 0;
 
-    for (let i = 0; i<numberOftests; i++) {
+    for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true });
         page = await browser.newPage();
 
@@ -174,7 +174,7 @@ let processRawData = (filename, i) => {
 
     average = 0;
 
-    for (let i = 0; i<numberOftests; i++) {
+    for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true })
         page = await browser.newPage();
 
@@ -211,7 +211,7 @@ let processRawData = (filename, i) => {
 
     average = 0;
 
-    for (let i = 0; i<numberOftests; i++) {
+    for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true })
         page = await browser.newPage();
 
