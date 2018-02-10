@@ -23,11 +23,9 @@ module.exports = {
   },
   methods:{
     add(item){
-      console.log(item)
       this.itens.push(item.detail[0])
     },
     remove(item){
-      console.log(item)
       this.itens = this.itens.filter(e => e.text != item.detail[0])
     }
   }

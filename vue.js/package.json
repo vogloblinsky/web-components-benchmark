@@ -4,29 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "budo src/main.js:build.js -o -l",
-    "minify-js": "NODE_ENV=production browserify -g envify -e src/main.js | uglifyjs -c -m > dist/build.js",
+    "build-todo-item": "./node_modules/.bin/vue-cli-service build --target wc --name todo-item src/todo-item.vue --dest build/todo-item",
+    "build-todo-input": "./node_modules/.bin/vue-cli-service build --target wc --name todo-input src/todo-input.vue --dest build/todo-input",
+    "build-my-todo": "./node_modules/.bin/vue-cli-service build --target wc --name my-todo src/my-todo.vue --dest build/my-todo",
+    "concat-js": "./node_modules/.bin/concat-cli -f build/todo-item/todo-item.min.js build/todo-input/todo-input.min.js build/my-todo/my-todo.min.js -o dist/build.js",
+    "minify-js": "./node_modules/.bin/uglifyjs dist/build.js -o dist/build.js",
     "minify-html": "./node_modules/.bin/html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
-    "build": "npm run minify-html && npm run minify-js"
+    "build": "npm run minify-html && npm run build-todo-item && npm run build-todo-input && npm run build-my-todo && npm run concat-js && npm run minify-js && rm -rf build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browserify": "^15.2.0",
-    "budo": "^11.0.1",
-    "envify": "^4.1.0",
-    "html-minifier": "^3.5.8",
-    "uglify-es": "^3.3.9",
-    "vueify": "^9.4.1"
+    "@vue/cli-service": "^3.0.0-alpha.11",
+    "concat-cli": "^4.0.0",
+    "html-minifier": "^3.5.9",
+    "uglify-es": "^3.3.10"
   },
   "dependencies": {
-    "vue": "^2.5.13",
-    "vue-custom-element": "^2.0.4"
-  },
-  "browserify": {
-    "transform": [
-      "vueify"
-    ]
+    "vue": "^2.5.13"
   }
 }

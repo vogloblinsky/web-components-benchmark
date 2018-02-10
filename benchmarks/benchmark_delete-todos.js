@@ -219,7 +219,7 @@ let processRawData = (filename, i) => {
 
         await page.goto('http://127.0.0.1:8080/vue.js/dist/index.html');
 
-        const inputHandle = await page.evaluateHandle(`document.querySelector('todo-input').querySelector('input')`);
+        const inputHandle = await page.evaluateHandle(selectorInput);
 
         for (let j = 0; j<numberOfCreation; j++) {            
             await inputHandle.type('New todo');
@@ -231,7 +231,8 @@ let processRawData = (filename, i) => {
         });
 
         for (let j = 0; j<numberOfCreation; j++) {
-            const buttonHandle = await page.evaluateHandle(`document.querySelector('my-todo').querySelector('button')`);
+            const buttonHandle = await page.evaluateHandle(selectorButton);
+            
             if (buttonHandle && buttonHandle.click) {
                 await buttonHandle.click();
             }
