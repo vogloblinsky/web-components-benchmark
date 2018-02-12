@@ -25,9 +25,9 @@ In another tab
 
 ## TODOS
 
-- add SkateJS https://github.com/skatejs/skatejs
-- add slim.js https://github.com/eavichay/slim.js
+~~- add SkateJS https://github.com/skatejs/skatejs~~
 - add native + lit-html https://alligator.io/web-components/lit-html/
 
+- add slim.js https://github.com/eavichay/slim.js
 - add React implementation ? https://github.com/WeltN24/react-web-component
 - add polymer 3 preview ? https://github.com/Polymer/polymer/tree/3.0-preview
