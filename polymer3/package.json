@@ -1,0 +1,20 @@
+{
+  "name": "polymer3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "flat": true,
+  "script": {
+    "build": "polymer build"
+  },
+  "dependencies": {
+    "@polymer/iron-form": "^3.0.0-pre.8",
+    "@polymer/iron-input": "^3.0.0-pre.8",
+    "@polymer/polymer": "^3.0.0-pre.9",
+    "@webcomponents/webcomponentsjs": "^1.1.0"
+  },
+  "resolutions": {
+    "@webcomponents/webcomponentsjs": "1.1.0",
+    "@polymer/polymer": "3.0.0-pre.9"
+  }
+}

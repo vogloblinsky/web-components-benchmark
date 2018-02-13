@@ -3,10 +3,11 @@ const puppeteer = require('puppeteer'),
     DevtoolsTimelineModel = require('devtools-timeline-model');
 
 fs.ensureDirSync('benchmarks-results/native-shadow-dom');
-fs.ensureDirSync('benchmarks-results/native-shadow-dom_lit-html');
+//fs.ensureDirSync('benchmarks-results/native-shadow-dom_lit-html');
 fs.ensureDirSync('benchmarks-results/polymer');
+fs.ensureDirSync('benchmarks-results/polymer3');
 fs.ensureDirSync('benchmarks-results/stencil');
-fs.ensureDirSync('benchmarks-results/angular-elements');
+//fs.ensureDirSync('benchmarks-results/angular-elements');
 fs.ensureDirSync('benchmarks-results/vue');
 
 const numberOftests = 10,
@@ -72,7 +73,7 @@ let processRawData = (filename, i) => {
 
     console.log(`\nAverage time for native : ${Math.ceil(average)} ms\n`);
 
-    average = 0;
+    /*average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true });
@@ -113,7 +114,7 @@ let processRawData = (filename, i) => {
     
     average = average / numberOftests;
 
-    console.log(`\nAverage time for native + lit-html : ${Math.ceil(average)} ms\n`);
+    console.log(`\nAverage time for native + lit-html : ${Math.ceil(average)} ms\n`);*/
 
     average = 0;
 
@@ -164,6 +165,49 @@ let processRawData = (filename, i) => {
         browser = await puppeteer.launch({ headless: true });
         page = await browser.newPage();
 
+        filename = `benchmarks-results/polymer3/edit-todos_${i}.json`;
+
+        await page.goto('http://127.0.0.1:8080/polymer3/build/es6-bundled/index.html');
+
+        await page.setViewport({width: 800, height: 6000});
+
+        const inputHandle = await page.evaluateHandle(selectorInput);
+
+        for (let j = 0; j<numberOfCreation; j++) {            
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
+        }
+
+        await page.tracing.start({
+            path: filename
+        });
+
+        // Puppeteer doesn't handle easily shadow dom childs -> https://github.com/GoogleChrome/puppeteer/issues/858
+        // Edit todos with mouse click and x/y coordinates
+
+        let incrementY = 364;
+        for (let j = 0; j<numberOfCreation; j++) {
+            await page.mouse.click(140, incrementY);
+            incrementY += 59;
+        }
+
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for Polymer 3 : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true });
+        page = await browser.newPage();
+
         filename = `benchmarks-results/stencil/edit-todos_${i}.json`;
 
         await page.goto('http://127.0.0.1:8080/stencil/www/index.html');
@@ -201,7 +245,7 @@ let processRawData = (filename, i) => {
 
     console.log(`\nAverage time for Stencil : ${Math.ceil(average)} ms\n`);
 
-    average = 0;
+    /*average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true })
@@ -242,7 +286,7 @@ let processRawData = (filename, i) => {
 
     average = average / numberOftests;
 
-    console.log(`\nAverage time for Angular elements : ${Math.ceil(average)} ms\n`);
+    console.log(`\nAverage time for Angular elements : ${Math.ceil(average)} ms\n`);*/
 
     average = 0;
 
@@ -256,7 +300,7 @@ let processRawData = (filename, i) => {
 
         await page.setViewport({width: 800, height: 6000});
 
-        const inputHandle = await page.evaluateHandle(`document.querySelector('todo-input').querySelector('input')`);
+        const inputHandle = await page.evaluateHandle(selectorInput);
 
         for (let j = 0; j<numberOfCreation; j++) {            
             await inputHandle.type('New todo');
