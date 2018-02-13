@@ -202,7 +202,7 @@ let processRawData = (filename, i) => {
             path: filename
         });
         
-        const inputHandle = await page.evaluateHandle(`document.querySelector('todo-input').querySelector('input')`);
+        const inputHandle = await page.evaluateHandle(selector);
 
         for (let j = 0; j<numberOfCreation; j++) {            
             await inputHandle.type('New todo');
