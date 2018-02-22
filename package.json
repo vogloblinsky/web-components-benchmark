@@ -29,8 +29,10 @@
   "homepage": "https://github.com/vogloblinsky/web-components-benchmark#readme",
   "devDependencies": {
     "devtools-timeline-model": "^1.4.0",
+    "express": "^4.16.2",
     "fs-extra": "^5.0.0",
     "http-server": "^0.11.1",
-    "puppeteer": "^1.0.0"
+    "puppeteer": "^1.0.0",
+    "spdy": "^3.4.7"
   }
 }
