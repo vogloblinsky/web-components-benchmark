@@ -1,37 +1,37 @@
 {
-  "name": "angular-elements-demo",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {
-    "build": "npm run minify-html && npm run minify-js",
-    "minify-js": "webpack",
-    "minify-html": "./node_modules/.bin/html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
-    "serve": "npm run build && http-server ."
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/common": "^5.2.3",
-    "@angular/compiler": "^5.2.3",
-    "@angular/core": "^5.2.3",
-    "@angular/elements": "github:angular/elements-builds#labs/elements",
-    "@angular/forms": "^5.2.3",
-    "@angular/platform-browser": "^5.2.3",
-    "@angular/platform-browser-dynamic": "^5.2.3",
-    "core-js": "^2.5.3",
-    "mutation-observer": "^1.0.3",
-    "rxjs": "^5.5.6",
-    "zone.js": "^0.8.20"
-  },
-  "devDependencies": {
-    "@angular/cli": "^1.6.6",
-    "@angular/compiler-cli": "^5.2.3",
-    "@ngtools/webpack": "^1.9.6",
-    "compression-webpack-plugin": "^1.1.3",
-    "custom-elements": "^1.0.2",
-    "html-minifier": "^3.5.8",
-    "http-server": "^0.11.1",
-    "typescript": "~2.6.2",
-    "uglifyjs-webpack-plugin": "^1.1.8",
-    "webpack": "^3.10.0"
-  }
+    "name": "angular-elements-demo",
+    "version": "0.0.0",
+    "license": "MIT",
+    "scripts": {
+        "build": "npm run minify-html && npm run minify-js",
+        "minify-js": "webpack",
+        "minify-html": "./node_modules/.bin/html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
+        "serve": "npm run build && http-server ."
+    },
+    "private": true,
+    "dependencies": {
+        "@angular/common": "5.2.6",
+        "@angular/compiler": "5.2.6",
+        "@angular/core": "5.2.6",
+        "@angular/elements": "github:angular/elements-builds#labs/elements",
+        "@angular/forms": "5.2.6",
+        "@angular/platform-browser": "5.2.6",
+        "@angular/platform-browser-dynamic": "5.2.6",
+        "core-js": "2.5.3",
+        "mutation-observer": "1.0.3",
+        "rxjs": "5.5.6",
+        "zone.js": "0.8.20"
+    },
+    "devDependencies": {
+        "@angular/cli": "1.7.1",
+        "@angular/compiler-cli": "5.2.6",
+        "@ngtools/webpack": "1.10.1",
+        "compression-webpack-plugin": "1.1.7",
+        "custom-elements": "1.0.2",
+        "html-minifier": "3.5.9",
+        "http-server": "0.11.1",
+        "typescript": "2.7.2",
+        "uglifyjs-webpack-plugin": "1.2.0",
+        "webpack": "3.11.0"
+    }
 }
