@@ -4,7 +4,7 @@
   "description": "Web Components implementations benchmark",
   "scripts": {
     "postinstall": "cd angular-elements && npm i && cd ../native-shadow-dom && npm i && cd ../stencil && npm i && cd ../vue.js && npm i",
-    "serve": "http-server .",
+    "serve": "node server.js",
     "benchmark-page-load": "node benchmarks/benchmark_page-load.js",
     "benchmark-create-todos": "node benchmarks/benchmark_create-todos.js",
     "benchmark-delete-todos": "node benchmarks/benchmark_delete-todos.js",
