@@ -21,12 +21,14 @@ let filename;
 
 let processRawData = (filename, i) => {
     let events = require('fs').readFileSync(filename, 'utf8');
-    var model = new DevtoolsTimelineModel(events);
-
-    var topDown = model.topDown();
-    average += topDown.totalTime;
-
-    console.log(`Top down tree total time ${i}: ${topDown.totalTime}`);
+    try {
+        var model = new DevtoolsTimelineModel(events);
+        var topDown = model.topDown();
+        average += topDown.totalTime;
+        console.log(`Top down tree total time ${i}: ${topDown.totalTime}`);
+    } catch (e) {
+        //console.log(e);
+    }
 };
 
 (async () => {
