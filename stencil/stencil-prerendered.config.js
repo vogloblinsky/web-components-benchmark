@@ -2,11 +2,11 @@ exports.config = {
     collections: [
         // { name: '@stencil/router' }
     ],
-    publicPath: '/stencil/www/build/app/',
+    publicPath: '/stencil/www-prerendered/build/app/',
     serviceWorker: {
         // swDest: 'stencil/',
     },
-    wwwDir: 'www'
+    wwwDir: 'www-prerendered'
 };
 
 exports.devServer = {

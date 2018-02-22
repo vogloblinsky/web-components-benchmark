@@ -6,7 +6,11 @@
         "headers": [
           {
             "name": "Link",
-            "value": "</build/app/app.fj7nbdcn.js>;rel=preload;as=script"
+            "value": "</build/app/app.d2kg5alw.js>;rel=preload;as=script"
+          },
+          {
+            "name": "Link",
+            "value": "</build/app/1g1binlm.js>;rel=preload;as=script"
           }
         ]
       },
