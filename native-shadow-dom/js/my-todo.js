@@ -51,20 +51,20 @@ class MyTodo extends HTMLElement {
     addItem(e) {
         let newTodo = { text: e.detail, checked: false, };
         this._list.push(newTodo);
-        //this._render();
-        let $item = document.createElement('todo-item');
+        this._render();
+        /*let $item = document.createElement('todo-item');
         $item.setAttribute('text', newTodo.text);
         $item.checked = newTodo.checked;
         $item.index = this._list.length - 1;
         $item.addEventListener('onRemove', this.removeItem.bind(this));
         $item.addEventListener('onToggle', this.toggleItem.bind(this));
-        this.$listContainer.appendChild($item);
+        this.$listContainer.appendChild($item);*/
     }
 
     removeItem(e) {
         this._list.splice(e.detail, 1);        
-        this.$listContainer.removeChild(e.currentTarget);
-        //this._render();
+        //this.$listContainer.removeChild(e.currentTarget);
+        this._render();
     }
 
     toggleItem(e) {
@@ -81,7 +81,7 @@ class MyTodo extends HTMLElement {
     _render() {
         if (!this.$listContainer) return;
         // empty the list
-        //this.$listContainer.innerHTML = '';
+        this.$listContainer.innerHTML = '';
         this._list.forEach((item, index) => {
             let $item = document.createElement('todo-item');
             $item.setAttribute('text', item.text);
