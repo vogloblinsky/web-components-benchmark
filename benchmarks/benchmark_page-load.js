@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer'),
     DevtoolsTimelineModel = require('devtools-timeline-model');
 
 fs.ensureDirSync('benchmarks-results/native-shadow-dom');
-//fs.ensureDirSync('benchmarks-results/native-shadow-dom_lit-html');
+fs.ensureDirSync('benchmarks-results/native-shadow-dom_lit-html');
 fs.ensureDirSync('benchmarks-results/polymer');
 fs.ensureDirSync('benchmarks-results/polymer3');
 fs.ensureDirSync('benchmarks-results/stencil');
@@ -33,6 +33,98 @@ let processRawData = (filename, i) => {
 };
 
 (async () => {
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/native-shadow-dom/load-page_${i}.json`;
+
+        await page.tracing.start({
+            path: filename
+        });
+        await page.goto(`${LOCALHOST}/native-shadow-dom/dist/index.html`);
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for native : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true });
+        page = await browser.newPage();
+        
+        filename = `benchmarks-results/native-shadow-dom_lit-html/load-page_${i}.json`;
+
+        await page.tracing.start({
+            path: filename
+        });
+        await page.goto('http://localhost:8080/native-shadow-dom_lit-html/dist/index.html');
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+    
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for native + lit-html : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/polymer/load-page_${i}.json`;
+
+        await page.tracing.start({
+            path: filename
+        });
+        await page.goto(`${LOCALHOST}/polymer/build/es6-bundled/index.html`);
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for Polymer : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/polymer3/load-page_${i}.json`;
+
+        await page.tracing.start({
+            path: filename
+        });
+        await page.goto(`${LOCALHOST}/polymer/polymer3/es6-bundled/index.html`);
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for Polymer 3 : ${Math.ceil(average)} ms\n`);
+
     average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
