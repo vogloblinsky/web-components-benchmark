@@ -21,7 +21,7 @@ export class TodoInput {
   render() {
     return (
       <form onSubmit={this.handleOnSubmit}>
-        <input
+        <input id="input-submit"
           value={this.value}
           type="text"
           placeholder="What needs to be done?"

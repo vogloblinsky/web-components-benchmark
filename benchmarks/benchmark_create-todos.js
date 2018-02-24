@@ -10,6 +10,8 @@ fs.ensureDirSync('benchmarks-results/stencil');
 fs.ensureDirSync('benchmarks-results/stencil-prerendered');
 //fs.ensureDirSync('benchmarks-results/angular-elements');
 fs.ensureDirSync('benchmarks-results/vue');
+fs.ensureDirSync('benchmarks-results/skatejs-lit-html');
+fs.ensureDirSync('benchmarks-results/skatejs-preact');
 
 const numberOftests = 10,
     numberOfCreation = 50,
@@ -28,7 +30,7 @@ let processRawData = (filename, i) => {
         var model = new DevtoolsTimelineModel(events);
         var topDown = model.topDown();
         average += topDown.totalTime;
-        console.log(`Top down tree total time ${i}: ${topDown.totalTime}`);
+        console.log(`Top down tree total time ${i}: ${Math.ceil(topDown.totalTime)}`);
     } catch (e) {
         //console.log(e);
     }
@@ -169,13 +171,17 @@ let processRawData = (filename, i) => {
 
         filename = `benchmarks-results/stencil/create-todos_${i}.json`;
 
-        await page.goto(`${LOCALHOST}/stencil/www/index.html`);
+        await page.goto(`${LOCALHOST}/stencil/www/index.html`, {
+            waitUntil: 'domcontentloaded'
+        });
+
+        await page.waitFor('#input-submit');
 
         await page.tracing.start({
             path: filename
         });
 
-        const inputHandle = await page.evaluateHandle(`document.querySelector('todo-input').querySelector('input')`);
+        const inputHandle = await page.evaluateHandle(`document.querySelector('#input-submit')`);
 
         for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
@@ -201,7 +207,9 @@ let processRawData = (filename, i) => {
 
         filename = `benchmarks-results/stencil-prerendered/create-todos_${i}.json`;
 
-        await page.goto(`${LOCALHOST}/stencil/www-prerendered/index.html`);
+        await page.goto(`${LOCALHOST}/stencil/www-prerendered/index.html`, {
+            waitUntil: 'domcontentloaded'
+        });
 
         await page.tracing.start({
             path: filename
@@ -288,4 +296,68 @@ let processRawData = (filename, i) => {
     average = average / numberOftests;
 
     console.log(`\nAverage time for Vue : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/skatejs-lit-html/create-todos_${i}.json`;
+
+        await page.goto(`${LOCALHOST}/skatejs-lit-html/index.html`);
+
+        await page.tracing.start({
+            path: filename
+        });
+
+        const inputHandle = await page.evaluateHandle(`document.querySelector('todo-app').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`);
+
+        for (let j = 0; j < numberOfCreation; j++) {
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
+        }
+
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for skatejs + lit-html : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/skatejs-preact/create-todos_${i}.json`;
+
+        await page.goto(`${LOCALHOST}/skatejs-preact/index.html`);
+
+        await page.tracing.start({
+            path: filename
+        });
+
+        const inputHandle = await page.evaluateHandle(`document.querySelector('todo-app').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`);
+
+        for (let j = 0; j < numberOfCreation; j++) {
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
+        }
+
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for skatejs + preact : ${Math.ceil(average)} ms\n`);
 })();

@@ -6,13 +6,13 @@
   "corePolyfilled": "app.vpx3p7va.js",
   "components": {
     "my-todo": {
-      "$": "1g1binlm"
+      "$": "3klnlp3d"
     },
     "todo-input": {
-      "$": "1g1binlm"
+      "$": "3klnlp3d"
     },
     "todo-item": {
-      "$": "1g1binlm"
+      "$": "3klnlp3d"
     }
   }
 }

@@ -10,6 +10,8 @@ fs.ensureDirSync('benchmarks-results/stencil');
 fs.ensureDirSync('benchmarks-results/stencil-prerendered');
 //fs.ensureDirSync('benchmarks-results/angular-elements');
 fs.ensureDirSync('benchmarks-results/vue');
+fs.ensureDirSync('benchmarks-results/skatejs-lit-html');
+fs.ensureDirSync('benchmarks-results/skatejs-preact');
 
 const numberOftests = 10;
 
@@ -26,7 +28,7 @@ let processRawData = (filename, i) => {
         var model = new DevtoolsTimelineModel(events);
         var topDown = model.topDown();
         average += topDown.totalTime;
-        console.log(`Top down tree total time ${i}: ${topDown.totalTime}`);
+        console.log(`Top down tree total time ${i}: ${Math.ceil(topDown.totalTime)}`);
     } catch (e) {
         //console.log(e);
     }
@@ -216,4 +218,51 @@ let processRawData = (filename, i) => {
     average = average / numberOftests;
 
     console.log(`\nAverage time for Vue : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/skatejs-lit-html/load-page_${i}.json`;
+
+        await page.tracing.start({
+            path: filename
+        });
+        await page.goto(`${LOCALHOST}/skatejs-lit-html/index.html`);
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for skatejs + lit-html : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/skatejs-preact/load-page_${i}.json`;
+
+        await page.tracing.start({
+            path: filename
+        });
+        await page.goto(`${LOCALHOST}/skatejs-preact/index.html`);
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for skatejs + preact : ${Math.ceil(average)} ms\n`);
+
 })();
