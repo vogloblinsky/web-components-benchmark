@@ -12,6 +12,7 @@ fs.ensureDirSync('benchmarks-results/stencil-prerendered');
 fs.ensureDirSync('benchmarks-results/vue');
 fs.ensureDirSync('benchmarks-results/skatejs-lit-html');
 fs.ensureDirSync('benchmarks-results/skatejs-preact');
+fs.ensureDirSync('benchmarks-results/svelte');
 
 const numberOftests = 10,
     numberOfCreation = 50,
@@ -33,23 +34,22 @@ let processRawData = (filename, i) => {
     average += topDown.totalTime;
 
     console.log(`Top down tree total time ${i}: ${Math.ceil(topDown.totalTime)}`);
-}
+};
 
-(async () => {   
-
+(async () => {
     for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
         page = await browser.newPage();
-        
+
         filename = `benchmarks-results/native-shadow-dom/edit-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/native-shadow-dom/dist/index.html`);
 
-        await page.setViewport({width: 800, height: 6000});
+        await page.setViewport({ width: 800, height: 6000 });
 
         const inputHandle = await page.evaluateHandle(selectorInput);
 
-        for (let j = 0; j<numberOfCreation; j++) {            
+        for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -62,7 +62,7 @@ let processRawData = (filename, i) => {
         // Edit todos with mouse click and x/y coordinates
 
         let incrementY = 364;
-        for (let j = 0; j<numberOfCreation; j++) {
+        for (let j = 0; j < numberOfCreation; j++) {
             await page.mouse.click(140, incrementY);
             incrementY += 59;
         }
@@ -73,7 +73,7 @@ let processRawData = (filename, i) => {
 
         await browser.close();
     }
-    
+
     average = average / numberOftests;
 
     console.log(`\nAverage time for native : ${Math.ceil(average)} ms\n`);
@@ -83,16 +83,16 @@ let processRawData = (filename, i) => {
     for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
         page = await browser.newPage();
-        
+
         filename = `benchmarks-results/native-shadow-dom_lit-html/edit-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/native-shadow-dom_lit-html/dist/index.html`);
 
-        await page.setViewport({width: 800, height: 6000});
+        await page.setViewport({ width: 800, height: 6000 });
 
         const inputHandle = await page.evaluateHandle(selectorInput);
 
-        for (let j = 0; j<numberOfCreation; j++) {            
+        for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -105,7 +105,7 @@ let processRawData = (filename, i) => {
         // Edit todos with mouse click and x/y coordinates
 
         let incrementY = 364;
-        for (let j = 0; j<numberOfCreation; j++) {
+        for (let j = 0; j < numberOfCreation; j++) {
             await page.mouse.click(140, incrementY);
             incrementY += 59;
         }
@@ -116,7 +116,7 @@ let processRawData = (filename, i) => {
 
         await browser.close();
     }
-    
+
     average = average / numberOftests;
 
     console.log(`\nAverage time for native + lit-html : ${Math.ceil(average)} ms\n`);
@@ -131,11 +131,11 @@ let processRawData = (filename, i) => {
 
         await page.goto(`${LOCALHOST}/polymer/build/es6-bundled/index.html`);
 
-        await page.setViewport({width: 800, height: 6000});
+        await page.setViewport({ width: 800, height: 6000 });
 
         const inputHandle = await page.evaluateHandle(selectorInput);
 
-        for (let j = 0; j<numberOfCreation; j++) {            
+        for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -148,7 +148,7 @@ let processRawData = (filename, i) => {
         // Edit todos with mouse click and x/y coordinates
 
         let incrementY = 364;
-        for (let j = 0; j<numberOfCreation; j++) {
+        for (let j = 0; j < numberOfCreation; j++) {
             await page.mouse.click(140, incrementY);
             incrementY += 59;
         }
@@ -174,11 +174,11 @@ let processRawData = (filename, i) => {
 
         await page.goto(`${LOCALHOST}/polymer3/build/es6-bundled/index.html`);
 
-        await page.setViewport({width: 800, height: 6000});
+        await page.setViewport({ width: 800, height: 6000 });
 
         const inputHandle = await page.evaluateHandle(selectorInput);
 
-        for (let j = 0; j<numberOfCreation; j++) {            
+        for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -191,7 +191,7 @@ let processRawData = (filename, i) => {
         // Edit todos with mouse click and x/y coordinates
 
         let incrementY = 364;
-        for (let j = 0; j<numberOfCreation; j++) {
+        for (let j = 0; j < numberOfCreation; j++) {
             await page.mouse.click(140, incrementY);
             incrementY += 59;
         }
@@ -221,11 +221,11 @@ let processRawData = (filename, i) => {
 
         await page.waitFor('#input-submit');
 
-        await page.setViewport({width: 800, height: 6000});
+        await page.setViewport({ width: 800, height: 6000 });
 
         const inputHandle = await page.evaluateHandle(`document.querySelector('todo-input').querySelector('input')`);
 
-        for (let j = 0; j<numberOfCreation; j++) {            
+        for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -238,7 +238,7 @@ let processRawData = (filename, i) => {
         // Edit todos with mouse click and x/y coordinates
 
         let incrementY = 364;
-        for (let j = 0; j<numberOfCreation; j++) {
+        for (let j = 0; j < numberOfCreation; j++) {
             await page.mouse.click(140, incrementY);
             incrementY += 59;
         }
@@ -268,11 +268,11 @@ let processRawData = (filename, i) => {
 
         await page.waitFor('#input-submit');
 
-        await page.setViewport({width: 800, height: 6000});
+        await page.setViewport({ width: 800, height: 6000 });
 
         const inputHandle = await page.evaluateHandle(`document.querySelector('todo-input').querySelector('input')`);
 
-        for (let j = 0; j<numberOfCreation; j++) {            
+        for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -285,7 +285,7 @@ let processRawData = (filename, i) => {
         // Edit todos with mouse click and x/y coordinates
 
         let incrementY = 364;
-        for (let j = 0; j<numberOfCreation; j++) {
+        for (let j = 0; j < numberOfCreation; j++) {
             await page.mouse.click(140, incrementY);
             incrementY += 59;
         }
@@ -347,18 +347,18 @@ let processRawData = (filename, i) => {
     average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
-        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true })
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
         page = await browser.newPage();
 
         filename = `benchmarks-results/vue/edit-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/vue.js/dist/index.html`);
 
-        await page.setViewport({width: 800, height: 6000});
+        await page.setViewport({ width: 800, height: 6000 });
 
         const inputHandle = await page.evaluateHandle(selectorInput);
 
-        for (let j = 0; j<numberOfCreation; j++) {            
+        for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -371,7 +371,7 @@ let processRawData = (filename, i) => {
         // Edit todos with mouse click and x/y coordinates
 
         let incrementY = 364;
-        for (let j = 0; j<numberOfCreation; j++) {
+        for (let j = 0; j < numberOfCreation; j++) {
             await page.mouse.click(140, incrementY);
             incrementY += 59;
         }
@@ -390,18 +390,20 @@ let processRawData = (filename, i) => {
     average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
-        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true })
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
         page = await browser.newPage();
 
         filename = `benchmarks-results/skatejs-lit-html/edit-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/skatejs-lit-html/index.html`);
 
-        await page.setViewport({width: 800, height: 6000});
+        await page.setViewport({ width: 800, height: 6000 });
 
-        const inputHandle = await page.evaluateHandle(`document.querySelector('todo-app').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`);
+        const inputHandle = await page.evaluateHandle(
+            `document.querySelector('todo-app').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`
+        );
 
-        for (let j = 0; j<numberOfCreation; j++) {            
+        for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -414,7 +416,7 @@ let processRawData = (filename, i) => {
         // Edit todos with mouse click and x/y coordinates
 
         let incrementY = 364;
-        for (let j = 0; j<numberOfCreation; j++) {
+        for (let j = 0; j < numberOfCreation; j++) {
             await page.mouse.click(140, incrementY);
             incrementY += 59;
         }
@@ -433,18 +435,20 @@ let processRawData = (filename, i) => {
     average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
-        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true })
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
         page = await browser.newPage();
 
         filename = `benchmarks-results/skatejs-preact/edit-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/skatejs-preact/index.html`);
 
-        await page.setViewport({width: 800, height: 6000});
+        await page.setViewport({ width: 800, height: 6000 });
 
-        const inputHandle = await page.evaluateHandle(`document.querySelector('todo-app').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`);
+        const inputHandle = await page.evaluateHandle(
+            `document.querySelector('todo-app').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`
+        );
 
-        for (let j = 0; j<numberOfCreation; j++) {            
+        for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -457,7 +461,7 @@ let processRawData = (filename, i) => {
         // Edit todos with mouse click and x/y coordinates
 
         let incrementY = 364;
-        for (let j = 0; j<numberOfCreation; j++) {
+        for (let j = 0; j < numberOfCreation; j++) {
             await page.mouse.click(140, incrementY);
             incrementY += 59;
         }
@@ -472,5 +476,47 @@ let processRawData = (filename, i) => {
     average = average / numberOftests;
 
     console.log(`\nAverage time for Skatejs + preact : ${Math.ceil(average)} ms\n`);
-    
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/svelte/edit-todos_${i}.json`;
+
+        await page.goto(`${LOCALHOST}/svelte/public/index.html`);
+
+        await page.setViewport({ width: 800, height: 6000 });
+
+        const inputHandle = await page.evaluateHandle(selectorInput);
+
+        for (let j = 0; j < numberOfCreation; j++) {
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
+        }
+
+        await page.tracing.start({
+            path: filename
+        });
+
+        // Puppeteer doesn't handle easily shadow dom childs -> https://github.com/GoogleChrome/puppeteer/issues/858
+        // Edit todos with mouse click and x/y coordinates
+
+        let incrementY = 364;
+        for (let j = 0; j < numberOfCreation; j++) {
+            await page.mouse.click(140, incrementY);
+            incrementY += 59;
+        }
+
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for Svelte : ${Math.ceil(average)} ms\n`);
 })();

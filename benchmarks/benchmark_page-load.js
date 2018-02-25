@@ -277,7 +277,7 @@ let processRawData = (filename, i) => {
         await page.tracing.start({
             path: filename
         });
-        await page.goto(`${LOCALHOST}/svelte/index.html`);
+        await page.goto(`${LOCALHOST}/svelte/public/index.html`);
         await page.tracing.stop();
 
         processRawData(filename, i);
