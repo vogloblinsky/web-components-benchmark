@@ -7,12 +7,18 @@
         "dev": "rollup -c -w",
         "start": "http-server public & npm run dev"
     },
-    "files": ["index.html", "public"],
+    "files": [
+        "index.html",
+        "public"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/sveltejs/svelte-todomvc.git"
     },
-    "keywords": ["svelte", "todomvc"],
+    "keywords": [
+        "svelte",
+        "todomvc"
+    ],
     "author": "Rich Harris",
     "license": "MIT",
     "bugs": {
@@ -23,7 +29,7 @@
         "svelte": "^1.56.0"
     },
     "devDependencies": {
-        "rollup": "^0.56.2",
+        "rollup": "^0.56.3",
         "rollup-plugin-filesize": "^1.2.1",
         "rollup-plugin-svelte": "^4.0.0",
         "rollup-plugin-uglify-es": "0.0.1",
