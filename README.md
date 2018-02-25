@@ -1,6 +1,8 @@
 # Web components benchmark
 
-Benchmarks of libraries and implementation of Web Components : Native, Polymer 2, Stencil, Angular Elements, Vue.js
+Benchmarks of libraries and implementation of Web Components : Native, Polymer 2, Polymer 3, Stencil, Vue.js, SkateJS, Svelte
+
+TodoMVC implementation forked from [shprink/web-components-todo](https://github.com/shprink/web-components-todo)
 
 ## Requirements
 
@@ -26,7 +28,7 @@ In another tab
 ## TODOS
 
 * ~~add SkateJS https://github.com/skatejs/skatejs~~
-* ~~add polymer 3 preview ? https://github.com/Polymer/polymer/tree/3.0-preview~~
+* ~~add polymer 3 preview https://github.com/Polymer/polymer/tree/3.0-preview~~
 * ~~add native + lit-html https://alligator.io/web-components/lit-html/~~
 * ~~add svelte https://svelte.technology/guide#custom-elements~~
 
