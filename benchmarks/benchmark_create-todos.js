@@ -12,6 +12,7 @@ fs.ensureDirSync('benchmarks-results/stencil-prerendered');
 fs.ensureDirSync('benchmarks-results/vue');
 fs.ensureDirSync('benchmarks-results/skatejs-lit-html');
 fs.ensureDirSync('benchmarks-results/skatejs-preact');
+fs.ensureDirSync('benchmarks-results/svelte');
 
 const numberOftests = 10,
     numberOfCreation = 50,
@@ -311,7 +312,9 @@ let processRawData = (filename, i) => {
             path: filename
         });
 
-        const inputHandle = await page.evaluateHandle(`document.querySelector('todo-app').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`);
+        const inputHandle = await page.evaluateHandle(
+            `document.querySelector('todo-app').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`
+        );
 
         for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
@@ -343,7 +346,9 @@ let processRawData = (filename, i) => {
             path: filename
         });
 
-        const inputHandle = await page.evaluateHandle(`document.querySelector('todo-app').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`);
+        const inputHandle = await page.evaluateHandle(
+            `document.querySelector('todo-app').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`
+        );
 
         for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
@@ -360,4 +365,36 @@ let processRawData = (filename, i) => {
     average = average / numberOftests;
 
     console.log(`\nAverage time for skatejs + preact : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/svelte/create-todos_${i}.json`;
+
+        await page.goto(`${LOCALHOST}/svelte/public/index.html`);
+
+        await page.tracing.start({
+            path: filename
+        });
+
+        const inputHandle = await page.evaluateHandle(selector);
+
+        for (let j = 0; j < numberOfCreation; j++) {
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
+        }
+
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for svelte : ${Math.ceil(average)} ms\n`);
 })();

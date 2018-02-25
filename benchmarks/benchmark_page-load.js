@@ -12,6 +12,7 @@ fs.ensureDirSync('benchmarks-results/stencil-prerendered');
 fs.ensureDirSync('benchmarks-results/vue');
 fs.ensureDirSync('benchmarks-results/skatejs-lit-html');
 fs.ensureDirSync('benchmarks-results/skatejs-preact');
+fs.ensureDirSync('benchmarks-results/svelte');
 
 const numberOftests = 10;
 
@@ -265,4 +266,26 @@ let processRawData = (filename, i) => {
 
     console.log(`\nAverage time for skatejs + preact : ${Math.ceil(average)} ms\n`);
 
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/svelte/load-page_${i}.json`;
+
+        await page.tracing.start({
+            path: filename
+        });
+        await page.goto(`${LOCALHOST}/svelte/index.html`);
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for svelte : ${Math.ceil(average)} ms\n`);
 })();
