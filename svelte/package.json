@@ -1,0 +1,32 @@
+{
+    "name": "svelte-todomvc",
+    "version": "1.0.0",
+    "description": "TodoMVC implemented in Svelte",
+    "scripts": {
+        "build": "rollup -c --environment production",
+        "dev": "rollup -c -w",
+        "start": "http-server public & npm run dev"
+    },
+    "files": ["index.html", "public"],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sveltejs/svelte-todomvc.git"
+    },
+    "keywords": ["svelte", "todomvc"],
+    "author": "Rich Harris",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/sveltejs/svelte-todomvc/issues"
+    },
+    "homepage": "https://github.com/sveltejs/svelte-todomvc",
+    "dependencies": {
+        "svelte": "^1.56.0"
+    },
+    "devDependencies": {
+        "rollup": "^0.56.2",
+        "rollup-plugin-filesize": "^1.2.1",
+        "rollup-plugin-svelte": "^4.0.0",
+        "rollup-plugin-uglify-es": "0.0.1",
+        "rollup-watch": "^4.3.1"
+    }
+}

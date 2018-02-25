@@ -1,0 +1,92 @@
+<style>
+    h1 {
+        font-size: 90px;
+        font-weight: 100;
+        text-align: center;
+        color: rgba(175, 47, 47, 0.15);
+    }
+
+    section {
+        background: #fff;
+        margin: 130px 0 40px 0;
+        position: relative;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    #list-container {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid #e6e6e6;
+    }
+</style>
+<h1>Todos Svelte</h1>
+<section>
+    <todo-input ref:input></todo-input>
+    <ul id="list-container">
+        {{#if todoList.length > 0}} {{#each todoList as todo, index @index}}
+        <TodoItem text="{{todo.text}}" checked="{{todo.checked}}" index="{{index}}" on:toggle="toggleItem(event)" on:remove="removeItem(event)"></TodoItem>
+        {{/each}} {{/if}}
+    </ul>
+</section>
+<script>
+    let todoList = [{
+            text: 'my initial todo',
+            checked: false,
+            index: 0
+        },
+        {
+            text: 'Learn about Web Components',
+            checked: true,
+            index: 1
+        }
+    ];
+
+    import TodoItem from './todo-item.html';
+
+    export default {
+        tag: 'my-todo',
+
+        components: {
+            TodoItem
+        },
+
+        data: () => ({
+            todoList
+        }),
+
+        methods: {
+            removeItem(e) {
+                const todoList = this.get('todoList');
+                todoList.splice(e.index, 1);
+                this.set({
+                    todoList
+                });
+            },
+
+            toggleItem(e) {
+                const todoList = this.get('todoList');
+                const item = todoList[e.index];
+                todoList[e.index].checked = !item.checked
+                this.set({
+                    todoList
+                });
+            }
+        },
+
+        oncreate() {
+            const input = this.refs.input;
+            input.addEventListener('create', event => {
+                let newTodo = {
+                    text: event.detail,
+                    checked: false,
+                    index: todoList.length
+                };
+                todoList.push(newTodo);
+                this.set({
+                    todoList
+                });
+            });
+        }
+    }
+</script>
