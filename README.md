@@ -4,6 +4,24 @@ Benchmarks of libraries and implementation of Web Components : Native, Polymer 2
 
 TodoMVC implementation forked from [shprink/web-components-todo](https://github.com/shprink/web-components-todo)
 
+## Current results
+
+### Page load (ms) - lower is better
+
+![page-load](./screenshots/benchmark_page-load.png)
+
+### Create 50 items (ms) - lower is better
+
+![create](./screenshots/benchmark_create.png)
+
+### Delete 50 items (ms) - lower is better
+
+![delete](./screenshots/benchmark_delete.png)
+
+### Edit 50 items (ms) - lower is better
+
+![edit](./screenshots/benchmark_edit.png)
+
 ## Requirements
 
 * `bower` and `polymer-cli` in global for polymer
