@@ -4,6 +4,10 @@ Benchmarks of libraries and implementation of Web Components : Native, Polymer 2
 
 TodoMVC implementation forked from [shprink/web-components-todo](https://github.com/shprink/web-components-todo)
 
+## Angular Elements status
+
+I wait for release of [Angular 6](https://github.com/angular/angular/milestone/81) around march/april 2018 for updating benchmark with Angular Elements results.
+
 ## Current results
 
 ### Page load (ms) - lower is better
