@@ -46,8 +46,8 @@
             },
             labels: [{
                     text: '',
-                    height: 45,
-                    width: 45,
+                    height: 40,
+                    width: 40,
                     "background-fit": "xy",
                     backgroundImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png',
                     hook: 'scale:name=scale-x,index=0',
@@ -56,12 +56,13 @@
                 },
                 {
                     text: '',
-                    height: 45,
-                    width: 45,
+                    height: 40,
+                    width: 40,
                     "background-fit": "xy",
                     backgroundImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png',
                     hook: 'scale:name=scale-x,index=1',
-                    offsetX: -95
+                    offsetX: -95,
+                    offsetY: 2
                 },
                 {
                     text: '',
@@ -83,8 +84,8 @@
                 },
                 {
                     text: '',
-                    height: 40,
-                    width: 40,
+                    height: 35,
+                    width: 35,
                     "background-fit": "xy",
                     backgroundImage: 'https://stenciljs.com/assets/img/logo.png',
                     hook: 'scale:name=scale-x,index=4',
@@ -101,8 +102,8 @@
                 },
                 {
                     text: '',
-                    height: 40,
-                    width: 40,
+                    height: 35,
+                    width: 35,
                     "background-fit": "xy",
                     backgroundImage: 'https://avatars3.githubusercontent.com/u/7636121?s=400&v=4',
                     hook: 'scale:name=scale-x,index=6',
@@ -110,8 +111,8 @@
                 },
                 {
                     text: '',
-                    height: 40,
-                    width: 40,
+                    height: 35,
+                    width: 35,
                     "background-fit": "xy",
                     backgroundImage: 'https://avatars3.githubusercontent.com/u/7636121?s=400&v=4',
                     hook: 'scale:name=scale-x,index=7',
@@ -120,11 +121,21 @@
                 },
                 {
                     text: '',
-                    height: 40,
-                    width: 40,
+                    height: 35,
+                    width: 35,
                     "background-fit": "xy",
                     backgroundImage: 'https://avatars0.githubusercontent.com/u/23617963?s=400&v=4',
                     hook: 'scale:name=scale-x,index=8',
+                    offsetX: -95,
+                    offsetY: -4
+                },
+                {
+                    text: '',
+                    height: 31,
+                    width: 45,
+                    "background-fit": "xy",
+                    backgroundImage: 'https://www.polymer-project.org/images/logos/p-logo.png',
+                    hook: 'scale:name=scale-x,index=9',
                     offsetX: -95,
                     offsetY: -4
                 }
@@ -139,7 +150,8 @@
                     'Vue.js',
                     'SkateJS\n& lit-html',
                     'SkateJS\n& Preact',
-                    'Svelte'
+                    'Svelte',
+                    'lit-element'
                 ],
                 guide: {
                     visible: true,
@@ -209,6 +221,10 @@
                         {
                             rule: '%i==8',
                             'font-color': '#aa2024'
+                        },
+                        {
+                            rule: '%i==9',
+                            'font-color': '#57a5eb'
                         }
                     ]
                 },
@@ -247,12 +263,16 @@
                     {
                         rule: '%i==8',
                         backgroundColor: '#aa2024'
+                    },
+                    {
+                        rule: '%i==9',
+                        backgroundColor: '#57a5eb'
                     }
                 ]
             }]
         };
 
-        myConfig.series[0].values = [36, 40, 103, 71, 54, 75, 60, 57, 61];
+        myConfig.series[0].values = [36, 40, 103, 71, 54, 75, 60, 57, 61, 47];
 
         zingchart.render({
             id: 'pageLoad',
@@ -261,7 +281,7 @@
             width: '1000'
         });
 
-        myConfig.series[0].values = [2.23, 5.35, 38.1, 36.6, 8, 37.31, 2.28, 7.08, 3.98];
+        myConfig.series[0].values = [2.23, 5.35, 38.1, 36.6, 8, 37.31, 2.28, 7.08, 3.98, 7.59];
 
         zingchart.render({
             id: 'assetsSize',
@@ -270,7 +290,7 @@
             width: '1000'
         });
 
-        myConfig.series[0].values = [209, 281, 395, 355, 221, 242, 371, 358, 185];
+        myConfig.series[0].values = [209, 281, 395, 355, 221, 242, 371, 358, 185, 253];
 
         zingchart.render({
             id: 'create',
@@ -279,7 +299,7 @@
             width: '1000'
         });
 
-        myConfig.series[0].values = [168, 268, 130, 138, 104, 34, 99, 132, 148];
+        myConfig.series[0].values = [168, 241, 130, 138, 104, 34, 99, 132, 148, 441];
 
         zingchart.render({
             id: 'delete',
@@ -288,7 +308,7 @@
             width: '1000'
         });
 
-        myConfig.series[0].values = [84, 91, 84, 83, 87, 57, 101, 134, 83];
+        myConfig.series[0].values = [84, 73, 84, 83, 87, 57, 101, 134, 83, 63];
 
         zingchart.render({
             id: 'edit',
@@ -297,7 +317,7 @@
             width: '1000'
         });
 
-        myConfig.series[0].values = [1348, 1364, 1780, 2166, 1324, 2020, 1422, 1416, 1384];
+        myConfig.series[0].values = [1348, 1298, 1780, 2166, 1324, 2020, 1422, 1416, 1384, 1328];
 
         zingchart.render({
             id: 'fmp',
