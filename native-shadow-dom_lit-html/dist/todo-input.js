@@ -8,6 +8,7 @@ class TodoInput extends HTMLElement {
             value: ''
         };
         this._handleSubmit = e => this.handleSubmit(e);
+        this._handleInput = e => this.handleInput(e);
     }
 
     render() {
@@ -40,7 +41,7 @@ class TodoInput extends HTMLElement {
     }
 </style>
 <form id="new-todo-form" on-submit=${this._handleSubmit}>
-    <input id="new-todo" type="text" placeholder="What needs to be done?" on-input=${this.handleInput.bind(this)} value="${this.state.value}"/>
+    <input id="new-todo" type="text" placeholder="What needs to be done?" on-input=${this._handleInput} value="${this.state.value}"/>
 </form>`;
     }
 
@@ -51,7 +52,7 @@ class TodoInput extends HTMLElement {
     handleSubmit(e) {
         e.preventDefault();
         if (!this.state.value) return;
-        this.dispatchEvent(new CustomEvent('onSubmit', { detail: this.state.value }));
+        this.dispatchEvent(new CustomEvent('submit', { detail: this.state.value }));
         this.$input = this._root.querySelector('#new-todo');
         this.$input.value = '';
         this.$input.blur();
