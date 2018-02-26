@@ -13,6 +13,7 @@ fs.ensureDirSync('benchmarks-results/vue');
 fs.ensureDirSync('benchmarks-results/skatejs-lit-html');
 fs.ensureDirSync('benchmarks-results/skatejs-preact');
 fs.ensureDirSync('benchmarks-results/svelte');
+fs.ensureDirSync('benchmarks-results/lit-element');
 
 const numberOftests = 10;
 
@@ -288,4 +289,27 @@ let processRawData = (filename, i) => {
     average = average / numberOftests;
 
     console.log(`\nAverage time for svelte : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/lit-element/load-page_${i}.json`;
+
+        await page.tracing.start({
+            path: filename
+        });
+        await page.goto(`${LOCALHOST}/lit-element/dist/index.html`);
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for lit-element : ${Math.ceil(average)} ms\n`);
 })();
