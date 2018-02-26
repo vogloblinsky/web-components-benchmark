@@ -1,0 +1,30 @@
+{
+    "name": "lit-element",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "minify-html": "./node_modules/.bin/html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
+        "copy-js": "cp js/* dist",
+        "clean-js":
+            "replace \"import { LitElement, html } from '../node_modules/@polymer/lit-element/lit-element.js';\" \"\" dist/todo-input.js dist/todo-item.js",
+        "concat-js": "./node_modules/.bin/concat-cli -f dist/my-todo.js dist/todo-input.js dist/todo-item.js -o dist/bundle_tmp.js",
+        "minify-js": "./node_modules/.bin/uglifyjs dist/bundle.js -o dist/bundle.js",
+        "rollup": "rollup -c",
+        "prebuild": "rm -rf dist/*",
+        "build": "npm run minify-html && npm run copy-js && npm run clean-js && npm run concat-js && npm run rollup && npm run minify-js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "concat-cli": "^4.0.0",
+        "html-minifier": "^3.5.8",
+        "replace": "^0.3.0",
+        "rollup": "^0.56.2",
+        "uglify-es": "^3.3.9"
+    },
+    "dependencies": {
+        "@polymer/lit-element": "^0.1.1",
+        "lit-html": "^0.9.0"
+    }
+}
