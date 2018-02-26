@@ -74,18 +74,19 @@ let processRawData = (filename, i) => {
 
     console.log(`\nAverage time for native : ${Math.ceil(average)} ms\n`);
 
-    /*average = 0;
+    average = 0;
+
     for (let i = 0; i < numberOftests; i++) {
-        browser = await puppeteer.launch({ headless: true });
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
         page = await browser.newPage();
-        
+
         filename = `benchmarks-results/native-shadow-dom_lit-html/create-todos_${i}.json`;
-        await page.goto('http://localhost:8080/native-shadow-dom_lit-html/dist/index.html');
+        await page.goto(`${LOCALHOST}/native-shadow-dom_lit-html/dist/index.html`);
         await page.tracing.start({
             path: filename
         });
         const inputHandle = await page.evaluateHandle(selectorInput);
-        for (let j = 0; j<numberOfCreation; j++) {            
+        for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -93,9 +94,9 @@ let processRawData = (filename, i) => {
         processRawData(filename, i);
         await browser.close();
     }
-    
+
     average = average / numberOftests;
-    console.log(`\nAverage time for native + lit-html : ${Math.ceil(average)} ms\n`);*/
+    console.log(`\nAverage time for native + lit-html : ${Math.ceil(average)} ms\n`);
 
     average = 0;
 
