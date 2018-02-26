@@ -13,6 +13,7 @@ fs.ensureDirSync('benchmarks-results/vue');
 fs.ensureDirSync('benchmarks-results/skatejs-lit-html');
 fs.ensureDirSync('benchmarks-results/skatejs-preact');
 fs.ensureDirSync('benchmarks-results/svelte');
+fs.ensureDirSync('benchmarks-results/lit-element');
 
 const numberOftests = 10,
     numberOfCreation = 50,
@@ -519,4 +520,47 @@ let processRawData = (filename, i) => {
     average = average / numberOftests;
 
     console.log(`\nAverage time for Svelte : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/lit-element/edit-todos_${i}.json`;
+
+        await page.goto(`${LOCALHOST}/lit-element/dist/index.html`);
+
+        await page.setViewport({ width: 800, height: 6000 });
+
+        const inputHandle = await page.evaluateHandle(selectorInput);
+
+        for (let j = 0; j < numberOfCreation; j++) {
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
+        }
+
+        await page.tracing.start({
+            path: filename
+        });
+
+        // Puppeteer doesn't handle easily shadow dom childs -> https://github.com/GoogleChrome/puppeteer/issues/858
+        // Edit todos with mouse click and x/y coordinates
+
+        let incrementY = 364;
+        for (let j = 0; j < numberOfCreation; j++) {
+            await page.mouse.click(140, incrementY);
+            incrementY += 59;
+        }
+
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for lit-element : ${Math.ceil(average)} ms\n`);
 })();
