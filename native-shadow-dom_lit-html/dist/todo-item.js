@@ -3,13 +3,16 @@
 class TodoItem extends HTMLElement {
     constructor() {
         super();
-        this._root = this.attachShadow({ 'mode': 'open' });
+        this._root = this.attachShadow({ mode: 'open' });
         this._checked = false;
         this._text = '';
+
+        this._handleOnChecked = e => this.handleOnChecked(e);
+        this._handleOnRemoved = e => this.handleOnRemoved(e);
     }
 
-    get template() {
-        const template = html`
+    render() {
+        return html`
 <style>
     :host {
         display: block;
@@ -101,11 +104,10 @@ class TodoItem extends HTMLElement {
     }
 </style>
 <li class="item">
-    <input type="checkbox" checked=${this.checked} on-change=${this.handleOnChecked.bind(this)}>
+    <input type="checkbox" checked=${this.checked} on-change=${this._handleOnChecked}>
     <label>${this.text}</label>
-    <button class="destroy" on-click=${this.handleOnRemoved.bind(this)}>x</button>
-</li>`
-        return template;
+    <button class="destroy" on-click=${this._handleOnRemoved}>x</button>
+</li>`;
     }
 
     handleOnRemoved(e) {
@@ -119,7 +121,7 @@ class TodoItem extends HTMLElement {
     connectedCallback() {
         // Workaround for lit-html
         setTimeout(() => {
-            render(this.template, this._root);
+            render(this.render(), this._root);
         }, 0);
     }
 }

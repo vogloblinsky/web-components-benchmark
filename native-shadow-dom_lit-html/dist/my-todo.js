@@ -5,16 +5,13 @@ import { repeat } from '../node_modules/lit-html/lib/repeat.js';
 class MyTodo extends HTMLElement {
     constructor() {
         super();
-        this._root = this.attachShadow({ 'mode': 'open' });
+        this._root = this.attachShadow({ mode: 'open' });
         // initial state
-        this._list = [
-            { id: 0, text: 'my initial todo', checked: false },
-            { id: 1, text: 'Learn about Web Components', checked: true }
-        ];
+        this._list = [{ id: 0, text: 'my initial todo', checked: false }, { id: 1, text: 'Learn about Web Components', checked: true }];
     }
 
-    get template() {
-        const template = html`
+    render() {
+        return html`
 <style>
 h1 {
     font-size: 100px;
@@ -41,15 +38,18 @@ section {
 <section>
     <todo-input on-submit=${this.addItem.bind(this)}></todo-input>
     <ul id="list-container">
-        ${repeat( this._list, item => item.id, (item, index) => html`<todo-item 
+        ${repeat(
+            this._list,
+            item => item.id,
+            (item, index) => html`<todo-item 
                                                                     text="${item.text}" 
                                                                     checked="${item.checked}" 
                                                                     index="${index}" 
                                                                     on-removed=${this.removeItem.bind(this)}
-                                                                    on-checked=${this.toggleItem.bind(this)}></todo-item>`)}
+                                                                    on-checked=${this.toggleItem.bind(this)}></todo-item>`
+        )}
     </ul>
-</section>`
-        return template;
+</section>`;
     }
 
     connectedCallback() {
@@ -59,7 +59,7 @@ section {
     }
 
     addItem(e) {
-        this._list = [...this._list, { id: this._list.length, text: e.detail, checked: false, }];
+        this._list = [...this._list, { id: this._list.length, text: e.detail, checked: false }];
         this._render();
     }
 
@@ -75,7 +75,7 @@ section {
     }
 
     _render() {
-        render(this.template, this._root);
+        render(this.render(), this._root);
     }
 }
 

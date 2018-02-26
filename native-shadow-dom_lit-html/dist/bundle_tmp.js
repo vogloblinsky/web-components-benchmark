@@ -5,16 +5,13 @@ import { repeat } from '../node_modules/lit-html/lib/repeat.js';
 class MyTodo extends HTMLElement {
     constructor() {
         super();
-        this._root = this.attachShadow({ 'mode': 'open' });
+        this._root = this.attachShadow({ mode: 'open' });
         // initial state
-        this._list = [
-            { id: 0, text: 'my initial todo', checked: false },
-            { id: 1, text: 'Learn about Web Components', checked: true }
-        ];
+        this._list = [{ id: 0, text: 'my initial todo', checked: false }, { id: 1, text: 'Learn about Web Components', checked: true }];
     }
 
-    get template() {
-        const template = html`
+    render() {
+        return html`
 <style>
 h1 {
     font-size: 100px;
@@ -41,15 +38,18 @@ section {
 <section>
     <todo-input on-submit=${this.addItem.bind(this)}></todo-input>
     <ul id="list-container">
-        ${repeat( this._list, item => item.id, (item, index) => html`<todo-item 
+        ${repeat(
+            this._list,
+            item => item.id,
+            (item, index) => html`<todo-item 
                                                                     text="${item.text}" 
                                                                     checked="${item.checked}" 
                                                                     index="${index}" 
                                                                     on-removed=${this.removeItem.bind(this)}
-                                                                    on-checked=${this.toggleItem.bind(this)}></todo-item>`)}
+                                                                    on-checked=${this.toggleItem.bind(this)}></todo-item>`
+        )}
     </ul>
-</section>`
-        return template;
+</section>`;
     }
 
     connectedCallback() {
@@ -59,7 +59,7 @@ section {
     }
 
     addItem(e) {
-        this._list = [...this._list, { id: this._list.length, text: e.detail, checked: false, }];
+        this._list = [...this._list, { id: this._list.length, text: e.detail, checked: false }];
         this._render();
     }
 
@@ -75,24 +75,26 @@ section {
     }
 
     _render() {
-        render(this.template, this._root);
+        render(this.render(), this._root);
     }
 }
 
 window.customElements.define('my-todo', MyTodo);
 
 
+
 class TodoInput extends HTMLElement {
     constructor() {
         super();
-        this._root = this.attachShadow({ 'mode': 'open' });
+        this._root = this.attachShadow({ mode: 'open' });
         this.state = {
-            value: ""
+            value: ''
         };
-    } 
+        this._handleSubmit = e => this.handleSubmit(e);
+    }
 
-    get template() {
-        const template = html`
+    render() {
+        return html`
 <style>
     #new-todo-form {
         position: relative;
@@ -120,10 +122,9 @@ class TodoInput extends HTMLElement {
         box-sizing: border-box;
     }
 </style>
-<form id="new-todo-form" on-submit=${this.handleSubmit.bind(this)}>
+<form id="new-todo-form" on-submit=${this._handleSubmit}>
     <input id="new-todo" type="text" placeholder="What needs to be done?" on-input=${this.handleInput.bind(this)} value="${this.state.value}"/>
-</form>`
-        return template;
+</form>`;
     }
 
     handleInput(e) {
@@ -140,23 +141,27 @@ class TodoInput extends HTMLElement {
     }
 
     connectedCallback() {
-        render(this.template, this._root);
+        render(this.render(), this._root);
     }
 }
 
 window.customElements.define('todo-input', TodoInput);
 
 
+
 class TodoItem extends HTMLElement {
     constructor() {
         super();
-        this._root = this.attachShadow({ 'mode': 'open' });
+        this._root = this.attachShadow({ mode: 'open' });
         this._checked = false;
         this._text = '';
+
+        this._handleOnChecked = e => this.handleOnChecked(e);
+        this._handleOnRemoved = e => this.handleOnRemoved(e);
     }
 
-    get template() {
-        const template = html`
+    render() {
+        return html`
 <style>
     :host {
         display: block;
@@ -248,11 +253,10 @@ class TodoItem extends HTMLElement {
     }
 </style>
 <li class="item">
-    <input type="checkbox" checked=${this.checked} on-change=${this.handleOnChecked.bind(this)}>
+    <input type="checkbox" checked=${this.checked} on-change=${this._handleOnChecked}>
     <label>${this.text}</label>
-    <button class="destroy" on-click=${this.handleOnRemoved.bind(this)}>x</button>
-</li>`
-        return template;
+    <button class="destroy" on-click=${this._handleOnRemoved}>x</button>
+</li>`;
     }
 
     handleOnRemoved(e) {
@@ -266,7 +270,7 @@ class TodoItem extends HTMLElement {
     connectedCallback() {
         // Workaround for lit-html
         setTimeout(() => {
-            render(this.template, this._root);
+            render(this.render(), this._root);
         }, 0);
     }
 }

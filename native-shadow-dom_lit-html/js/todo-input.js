@@ -3,14 +3,15 @@ import { html, render } from '../node_modules/lit-html/lib/lit-extended.js';
 class TodoInput extends HTMLElement {
     constructor() {
         super();
-        this._root = this.attachShadow({ 'mode': 'open' });
+        this._root = this.attachShadow({ mode: 'open' });
         this.state = {
-            value: ""
+            value: ''
         };
-    } 
+        this._handleSubmit = e => this.handleSubmit(e);
+    }
 
-    get template() {
-        const template = html`
+    render() {
+        return html`
 <style>
     #new-todo-form {
         position: relative;
@@ -38,10 +39,9 @@ class TodoInput extends HTMLElement {
         box-sizing: border-box;
     }
 </style>
-<form id="new-todo-form" on-submit=${this.handleSubmit.bind(this)}>
+<form id="new-todo-form" on-submit=${this._handleSubmit}>
     <input id="new-todo" type="text" placeholder="What needs to be done?" on-input=${this.handleInput.bind(this)} value="${this.state.value}"/>
-</form>`
-        return template;
+</form>`;
     }
 
     handleInput(e) {
@@ -58,7 +58,7 @@ class TodoInput extends HTMLElement {
     }
 
     connectedCallback() {
-        render(this.template, this._root);
+        render(this.render(), this._root);
     }
 }
 
