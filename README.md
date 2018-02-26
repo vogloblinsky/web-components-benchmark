@@ -1,6 +1,6 @@
 # Web components benchmark
 
-Benchmarks of libraries and implementation of Web Components : Native, Polymer 2, Polymer 3, Stencil, Vue.js, SkateJS, Svelte
+Benchmarks of libraries and implementation of Web Components : Native, Polymer 2, Polymer 3, Stencil, Vue.js, SkateJS, Svelte, lit-element
 
 TodoMVC implementation forked from [shprink/web-components-todo](https://github.com/shprink/web-components-todo)
 
