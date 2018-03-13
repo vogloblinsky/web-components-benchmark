@@ -16,12 +16,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@vue/cli-service": "^3.0.0-alpha.11",
+    "@vue/cli-service": "^3.0.0-beta.6",
     "concat-cli": "^4.0.0",
-    "html-minifier": "^3.5.9",
+    "html-minifier": "^3.5.10",
     "uglify-es": "^3.3.10"
   },
   "dependencies": {
-    "vue": "^2.5.13"
+    "vue": "^2.5.15"
   }
 }
