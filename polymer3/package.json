@@ -13,14 +13,14 @@
         "postminify-es6": "rm -rf build/es6-bundled/src_tmp"
     },
     "dependencies": {
-        "@polymer/iron-form": "^3.0.0-pre.11",
-        "@polymer/iron-input": "^3.0.0-pre.11",
-        "@polymer/polymer": "^3.0.0-pre.11",
+        "@polymer/iron-form": "^3.0.0-pre.12",
+        "@polymer/iron-input": "^3.0.0-pre.12",
+        "@polymer/polymer": "^3.0.0-pre.12",
         "@webcomponents/webcomponentsjs": "^1.1.0"
     },
     "resolutions": {
         "@webcomponents/webcomponentsjs": "1.1.0",
-        "@polymer/polymer": "3.0.0-pre.10"
+        "@polymer/polymer": "3.0.0-pre.12"
     },
     "devDependencies": {
         "rollup": "^0.56.5",
