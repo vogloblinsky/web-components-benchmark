@@ -1,5 +1,6 @@
 let $triangleContainer = document.querySelector('#triangle-container');
 let _length = 100;
+let _cache = {};
 
 document.querySelector('#ten').addEventListener('click', () => {
     render(10);
@@ -42,17 +43,20 @@ function _render() {
     $triangleContainer.innerHTML = '';
 
     initialData.forEach((line, index) => {
-        /*let $line = document.createElement('triangle-line');
-        $line.setAttribute('items', line);
-        $triangleContainer.appendChild($line);*/
         let $line = document.createElement('div');
-        line.forEach((item, index) => {                
-            let $item = document.createElement('triangle-item');
-            $item.setAttribute('text', item);
+        let $item;
+        line.forEach((item, index) => {    
+            if (typeof _cache[item] === 'undefined') {
+                $item = document.createElement('triangle-item');
+                $item.setAttribute('text', item);
+                _cache[item] = $item;
+            } else {
+                $item = _cache[item].cloneNode();
+            }
             $line.appendChild($item);
         });
         $triangleContainer.appendChild($line);
-    });
+    });    
 }
 
 _render();

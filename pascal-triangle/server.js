@@ -18,8 +18,8 @@ http.createServer(app).listen(3000, () => {
 spdy
     .createServer(
         {
-            key: fs.readFileSync(path.join(__dirname, 'http2-keys/server.key')),
-            cert: fs.readFileSync(path.join(__dirname, 'http2-keys/server.crt')),
+            key: fs.readFileSync(path.join(__dirname, '../http2-keys/server.key')),
+            cert: fs.readFileSync(path.join(__dirname, '../http2-keys/server.crt')),
             spdy: { protocols: ['h2', 'http/1.1', 'http/1.0'] }
         },
         app
