@@ -8,7 +8,7 @@ fs.ensureDirSync('benchmarks-results/polymer');
 fs.ensureDirSync('benchmarks-results/polymer3');
 fs.ensureDirSync('benchmarks-results/stencil');
 fs.ensureDirSync('benchmarks-results/stencil-prerendered');
-//fs.ensureDirSync('benchmarks-results/angular-elements');
+fs.ensureDirSync('benchmarks-results/angular-elements');
 fs.ensureDirSync('benchmarks-results/vue');
 fs.ensureDirSync('benchmarks-results/skatejs-lit-html');
 fs.ensureDirSync('benchmarks-results/skatejs-preact');
@@ -175,10 +175,10 @@ let processRawData = (filename, i) => {
 
     console.log(`\nAverage time for Stencil with PR : ${Math.ceil(average)} ms\n`);
 
-    /*average = 0;
+    average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
-        browser = await puppeteer.launch({ headless: true })
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true })
         page = await browser.newPage();
 
         filename = `benchmarks-results/angular-elements/load-page_${i}.json`;
@@ -186,7 +186,7 @@ let processRawData = (filename, i) => {
         await page.tracing.start({
             path: filename
         });
-        await page.goto('${LOCALHOST}/angular-elements/dist/index.html');
+        await page.goto(`${LOCALHOST}/angular-elements/dist/index.html`);
         await page.tracing.stop();
 
         processRawData(filename, i);
@@ -196,7 +196,7 @@ let processRawData = (filename, i) => {
 
     average = average / numberOftests;
 
-    console.log(`\nAverage time for Angular elements : ${Math.ceil(average)} ms\n`);*/
+    console.log(`\nAverage time for Angular elements : ${Math.ceil(average)} ms\n`);
 
     average = 0;
 
