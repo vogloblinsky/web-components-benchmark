@@ -4,103 +4,108 @@
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
 
+import '@stencil/core';
 
 declare global {
+  namespace JSX {
+    interface Element {}
+    export interface IntrinsicElements {}
+  }
+  namespace JSXElements {}
+
   interface HTMLStencilElement extends HTMLElement {
     componentOnReady(): Promise<this>;
     componentOnReady(done: (ele?: this) => void): void;
+
+    forceUpdate(): void;
   }
+
+  interface HTMLAttributes {}
 }
 
 
-
-import {
-  MyTodo as MyTodo
-} from './components/my-todo/my-todo';
-
 declare global {
-  interface HTMLMyTodoElement extends MyTodo, HTMLStencilElement {
+  interface HTMLMyTodoElement extends HTMLStencilElement {
+
   }
   var HTMLMyTodoElement: {
     prototype: HTMLMyTodoElement;
     new (): HTMLMyTodoElement;
   };
   interface HTMLElementTagNameMap {
-    "my-todo": HTMLMyTodoElement;
+    'my-todo': HTMLMyTodoElement;
   }
   interface ElementTagNameMap {
-    "my-todo": HTMLMyTodoElement;
+    'my-todo': HTMLMyTodoElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "my-todo": JSXElements.MyTodoAttributes;
+      'my-todo': JSXElements.MyTodoAttributes;
     }
   }
   namespace JSXElements {
     export interface MyTodoAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  TodoInput as TodoInput
-} from './components/todo-input/todo-input';
-
 declare global {
-  interface HTMLTodoInputElement extends TodoInput, HTMLStencilElement {
+  interface HTMLTodoInputElement extends HTMLStencilElement {
+
   }
   var HTMLTodoInputElement: {
     prototype: HTMLTodoInputElement;
     new (): HTMLTodoInputElement;
   };
   interface HTMLElementTagNameMap {
-    "todo-input": HTMLTodoInputElement;
+    'todo-input': HTMLTodoInputElement;
   }
   interface ElementTagNameMap {
-    "todo-input": HTMLTodoInputElement;
+    'todo-input': HTMLTodoInputElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "todo-input": JSXElements.TodoInputAttributes;
+      'todo-input': JSXElements.TodoInputAttributes;
     }
   }
   namespace JSXElements {
     export interface TodoInputAttributes extends HTMLAttributes {
-      
+      'onOnTodoInputSubmit'?: (event: CustomEvent) => void;
     }
   }
 }
 
 
-import {
-  TodoItem as TodoItem
-} from './components/todo-item/todo-item';
-
 declare global {
-  interface HTMLTodoItemElement extends TodoItem, HTMLStencilElement {
+  interface HTMLTodoItemElement extends HTMLStencilElement {
+    'checked': boolean;
+    'index': number;
+    'text': string;
   }
   var HTMLTodoItemElement: {
     prototype: HTMLTodoItemElement;
     new (): HTMLTodoItemElement;
   };
   interface HTMLElementTagNameMap {
-    "todo-item": HTMLTodoItemElement;
+    'todo-item': HTMLTodoItemElement;
   }
   interface ElementTagNameMap {
-    "todo-item": HTMLTodoItemElement;
+    'todo-item': HTMLTodoItemElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "todo-item": JSXElements.TodoItemAttributes;
+      'todo-item': JSXElements.TodoItemAttributes;
     }
   }
   namespace JSXElements {
     export interface TodoItemAttributes extends HTMLAttributes {
-      checked?: boolean;
-      index?: number;
-      text?: string;
+      'checked'?: boolean;
+      'index'?: number;
+      'onOnTodoItemChecked'?: (event: CustomEvent) => void;
+      'onOnTodoItemRemove'?: (event: CustomEvent) => void;
+      'text'?: string;
     }
   }
 }

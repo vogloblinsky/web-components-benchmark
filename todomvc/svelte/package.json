@@ -26,12 +26,12 @@
     },
     "homepage": "https://github.com/sveltejs/svelte-todomvc",
     "dependencies": {
-        "svelte": "^1.57.3"
+        "svelte": "^1.60.3"
     },
     "devDependencies": {
-        "rollup": "^0.56.3",
+        "rollup": "^0.57.1",
         "rollup-plugin-filesize": "^1.2.1",
-        "rollup-plugin-svelte": "^4.0.0",
+        "rollup-plugin-svelte": "^4.1.0",
         "rollup-plugin-uglify-es": "0.0.1",
         "rollup-watch": "^4.3.1"
     }

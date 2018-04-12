@@ -2,17 +2,17 @@
   "namespace": "App",
   "fsNamespace": "app",
   "loader": "../app.js",
-  "core": "app.fj7nbdcn.js",
-  "corePolyfilled": "app.vpx3p7va.js",
+  "core": "app.rskj0xqt.js",
+  "corePolyfilled": "app.monrlfgs.js",
   "components": {
     "my-todo": {
-      "$": "3klnlp3d"
+      "$": "swobkn9n"
     },
     "todo-input": {
-      "$": "3klnlp3d"
+      "$": "swobkn9n"
     },
     "todo-item": {
-      "$": "3klnlp3d"
+      "$": "swobkn9n"
     }
   }
 }

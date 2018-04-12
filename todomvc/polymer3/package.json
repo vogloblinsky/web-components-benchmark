@@ -16,15 +16,15 @@
         "@polymer/iron-form": "^3.0.0-pre.12",
         "@polymer/iron-input": "^3.0.0-pre.12",
         "@polymer/polymer": "^3.0.0-pre.12",
-        "@webcomponents/webcomponentsjs": "^1.1.0"
+        "@webcomponents/webcomponentsjs": "^1.2.0"
     },
     "resolutions": {
-        "@webcomponents/webcomponentsjs": "1.1.0",
+        "@webcomponents/webcomponentsjs": "1.2.0",
         "@polymer/polymer": "3.0.0-pre.12"
     },
     "devDependencies": {
-        "rollup": "^0.56.5",
-        "rollup-plugin-node-resolve": "^3.2.0",
+        "rollup": "^0.57.1",
+        "rollup-plugin-node-resolve": "^3.3.0",
         "uglify-es": "^3.3.10"
     }
 }
