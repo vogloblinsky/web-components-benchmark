@@ -53,7 +53,7 @@ In another tab
 * ~~add polymer 3 preview https://github.com/Polymer/polymer/tree/3.0-preview~~
 * ~~add native + lit-html https://alligator.io/web-components/lit-html/~~
 * ~~add svelte https://svelte.technology/guide#custom-elements~~
+* ~~add hyperHTML https://github.com/WebReflection/hyperHTML~~
 
-* add hyperHTML https://github.com/WebReflection/hyperHTML
 * add slim.js https://github.com/eavichay/slim.js
 * add React implementation ? https://github.com/WeltN24/react-web-component
