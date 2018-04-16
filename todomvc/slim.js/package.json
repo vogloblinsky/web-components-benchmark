@@ -13,7 +13,7 @@
         "build": "npm run minify-html && npm run copy-js && npm run concat-js && npm run rollup && npm run minify-js"
     },
     "author": "",
-    "license": "ISC",
+    "license": "MIT",
     "devDependencies": {
         "concat-cli": "^4.0.0",
         "html-minifier": "^3.5.8",
