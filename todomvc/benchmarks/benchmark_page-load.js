@@ -14,6 +14,9 @@ fs.ensureDirSync('benchmarks-results/skatejs-lit-html');
 fs.ensureDirSync('benchmarks-results/skatejs-preact');
 fs.ensureDirSync('benchmarks-results/svelte');
 fs.ensureDirSync('benchmarks-results/lit-element');
+fs.ensureDirSync('benchmarks-results/riot');
+fs.ensureDirSync('benchmarks-results/slim');
+fs.ensureDirSync('benchmarks-results/hyperhtml');
 
 const numberOftests = 10;
 
@@ -30,9 +33,9 @@ let processRawData = (filename, i) => {
         var model = new DevtoolsTimelineModel(events);
         var topDown = model.topDown();
         average += topDown.totalTime;
-        console.log(`Top down tree total time ${i}: ${Math.ceil(topDown.totalTime)}`);
+        // console.log(`Top down tree total time ${i}: ${Math.ceil(topDown.totalTime)}`);
     } catch (e) {
-        //console.log(e);
+        // console.log(e);
     }
 };
 
@@ -312,4 +315,71 @@ let processRawData = (filename, i) => {
     average = average / numberOftests;
 
     console.log(`\nAverage time for lit-element : ${Math.ceil(average)} ms\n`);
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/hyperhtml/load-page_${i}.json`;
+
+        await page.tracing.start({
+            path: filename
+        });
+        await page.goto(`${LOCALHOST}/native-shadow-dom_hyperHTML/dist/index.html`);
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for hyperhtml : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/riot/load-page_${i}.json`;
+
+        await page.tracing.start({
+            path: filename
+        });
+        await page.goto(`${LOCALHOST}/riot/dist/index.html`);
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for riot : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/slim/load-page_${i}.json`;
+
+        await page.tracing.start({
+            path: filename
+        });
+        await page.goto(`${LOCALHOST}/slim.js/dist/index.html`);
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for slim.js : ${Math.ceil(average)} ms\n`);
 })();
