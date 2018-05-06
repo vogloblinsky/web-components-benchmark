@@ -30,7 +30,7 @@ let processRawData = (filename, i) => {
         var model = new DevtoolsTimelineModel(events);
         var topDown = model.topDown();
         average += topDown.totalTime;
-        console.log(`Top down tree total time ${i}: ${Math.ceil(topDown.totalTime)}`);
+        //console.log(`Top down tree total time ${i}: ${Math.ceil(topDown.totalTime)}`);
     } catch (e) {
         //console.log(e);
     }
@@ -83,7 +83,7 @@ let processRawData = (filename, i) => {
 
     console.log(`\nAverage time for native + lit-html : ${Math.ceil(average)} ms\n`);
 
-    /*average = 0;
+    average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
@@ -106,7 +106,7 @@ let processRawData = (filename, i) => {
 
     console.log(`\nAverage time for Polymer : ${Math.ceil(average)} ms\n`);
 
-    average = 0;
+    /*average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
