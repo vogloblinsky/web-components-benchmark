@@ -88,9 +88,9 @@
         color: #af5b5e;
     }
 </style>
-<li class="item {{statusClass}}">
-    <input type="checkbox" checked="{{checked}}" on:click='fire("toggle", { index })'>
-    <label>{{text}}</label>
+<li class="item {statusClass}">
+    <input type="checkbox" checked="{checked}" on:click='fire("toggle", { index })'>
+    <label>{text}</label>
     <button class="destroy" on:click='fire("remove", { index })'>x</button>
 </li>
 <script>
@@ -99,8 +99,8 @@
         props: ['text', 'checked', 'index'],
         oncreate() {},
         computed: {
-            statusClass: checked => {
-                return (checked) ? 'completed' : '';
+            statusClass: data => {
+                return (data.checked) ? 'completed' : '';
             }
         },
         methods: {

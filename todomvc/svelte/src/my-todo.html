@@ -24,9 +24,11 @@
 <section>
     <todo-input ref:input></todo-input>
     <ul id="list-container">
-        {{#if todoList.length > 0}} {{#each todoList as todo, index @index}}
-        <TodoItem text="{{todo.text}}" checked="{{todo.checked}}" index="{{index}}" on:toggle="toggleItem(event)" on:remove="removeItem(event)"></TodoItem>
-        {{/each}} {{/if}}
+        {#if todoList.length > 0}
+            {#each todoList as todo, index}
+                <TodoItem text="{todo.text}" checked="{todo.checked}" index="{index}" on:toggle="toggleItem(event)" on:remove="removeItem(event)"></TodoItem>
+            {/each}
+        {/if}
     </ul>
 </section>
 <script>
@@ -57,7 +59,7 @@
 
         methods: {
             removeItem(e) {
-                const todoList = this.get('todoList');
+                const { todoList } = this.get();
                 todoList.splice(e.index, 1);
                 this.set({
                     todoList
@@ -65,7 +67,7 @@
             },
 
             toggleItem(e) {
-                const todoList = this.get('todoList');
+                const { todoList } = this.get();
                 const item = todoList[e.index];
                 todoList[e.index].checked = !item.checked
                 this.set({
