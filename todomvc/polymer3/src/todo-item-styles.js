@@ -1,8 +1,3 @@
-import {
-  Element as PolymerElement
-}
-from '../node_modules/@polymer/polymer/polymer-element.js';
-
 const todoItemStyleElement = document.createElement('dom-module');
 todoItemStyleElement.innerHTML =
   `<template>

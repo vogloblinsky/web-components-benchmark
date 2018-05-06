@@ -1,5 +1,5 @@
 import {
-    Element as PolymerElement
+    PolymerElement
 }
 from '../node_modules/@polymer/polymer/polymer-element.js';
 
