@@ -22,7 +22,7 @@ class TodoItem extends LitElement {
         super.ready();
     }
 
-    render({ checked, index, text }) {
+    _render({ checked, index, text }) {
         return html`
 <style>
     :host {

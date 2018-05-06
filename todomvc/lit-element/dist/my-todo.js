@@ -20,7 +20,7 @@ class MyTodo extends LitElement {
         super.ready();
     }
 
-    render() {
+    _render() {
         return html`
 <style>
 h1 {

@@ -20,7 +20,7 @@ class MyTodo extends LitElement {
         super.ready();
     }
 
-    render() {
+    _render() {
         return html`
 <style>
 h1 {
@@ -97,7 +97,7 @@ class TodoInput extends LitElement {
         super.ready();
     }
 
-    render() {
+    _render() {
         return html`
 <style>
     #new-todo-form {
@@ -170,7 +170,7 @@ class TodoItem extends LitElement {
         super.ready();
     }
 
-    render({ checked, index, text }) {
+    _render({ checked, index, text }) {
         return html`
 <style>
     :host {

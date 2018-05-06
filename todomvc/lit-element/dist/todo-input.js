@@ -17,7 +17,7 @@ class TodoInput extends LitElement {
         super.ready();
     }
 
-    render() {
+    _render() {
         return html`
 <style>
     #new-todo-form {
