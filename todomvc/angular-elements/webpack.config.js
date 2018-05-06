@@ -31,5 +31,9 @@ module.exports = {
     filename: 'main.bundle.js'
   },
   mode: 'production',
-  performance: { hints: false }
+  performance: { hints: false },
+  stats: {
+    assets: true,
+    warnings: false
+  }
 };
