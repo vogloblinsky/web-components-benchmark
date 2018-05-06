@@ -106,7 +106,7 @@ let processRawData = (filename, i) => {
 
     console.log(`\nAverage time for Polymer : ${Math.ceil(average)} ms\n`);
 
-    /*average = 0;
+    average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
@@ -129,7 +129,7 @@ let processRawData = (filename, i) => {
 
     console.log(`\nAverage time for Polymer 3 : ${Math.ceil(average)} ms\n`);
 
-    average = 0;
+    /*average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
