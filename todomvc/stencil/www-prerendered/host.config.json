@@ -2,20 +2,20 @@
   "hosting": {
     "rules": [
       {
-        "include": "/",
+        "include": "/stencil/www-prerendered/",
         "headers": [
           {
             "name": "Link",
-            "value": "</build/app/app.monrlfgs.js>;rel=preload;as=script"
+            "value": "</stencil/www-prerendered/build/app/app.favbuwc1.js>;rel=preload;as=script"
           },
           {
             "name": "Link",
-            "value": "</build/app/swobkn9n.js>;rel=preload;as=script"
+            "value": "</stencil/www-prerendered/build/app/swobkn9n.js>;rel=preload;as=script"
           }
         ]
       },
       {
-        "include": "/build/app/**",
+        "include": "/stencil/www-prerendered/build/app/**",
         "headers": [
           {
             "name": "Cache-Control",
@@ -24,7 +24,7 @@
         ]
       },
       {
-        "include": "/sw.js",
+        "include": "/stencil/www-prerendered/sw.js",
         "headers": [
           {
             "name": "Cache-Control",

@@ -8,12 +8,10 @@
  * The rest of the code is auto-generated. Please don't update this file
  * directly; instead, make changes to your Workbox build configuration
  * and re-run your build process.
- * See https://goo.gl/YYPcyY
+ * See https://goo.gl/2aRDsh
  */
 
-importScripts(
-  "https://storage.googleapis.com/workbox-cdn/releases/3.0.0-alpha.6/workbox-sw.js"
-);
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
@@ -31,15 +29,15 @@ self.__precacheManifest = [
   },
   {
     "url": "build/app.js",
-    "revision": "5573d0eaaab58c19fc7fd3a45b48539f"
+    "revision": "3ba4c1f2fedbad3bf8c93509ea7a66b5"
   },
   {
-    "url": "build/app/app.monrlfgs.js",
-    "revision": "214a5e7ea679a1fb4c768a009221e30b"
+    "url": "build/app/app.favbuwc1.js",
+    "revision": "cfbc85d3a68b36bb59880ef1f71d23b8"
   },
   {
-    "url": "build/app/app.rskj0xqt.js",
-    "revision": "1e7e84b4beaf3c7d1c05115925bc923d"
+    "url": "build/app/app.gvgyosp3.js",
+    "revision": "dc0ff3fdd2c311089046ba41cabec1c4"
   },
   {
     "url": "build/app/swobkn9n.es5.js",
@@ -51,7 +49,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "cfa9beddc170a1e4e13a515992a5c526"
+    "revision": "9ade5f4ec67a9e9bfb0221754adf06b0"
   },
   {
     "url": "manifest.json",

@@ -25,9 +25,15 @@ declare global {
 
 
 declare global {
-  interface HTMLMyTodoElement extends HTMLStencilElement {
 
+  namespace StencilComponents {
+    interface MyTodo {
+
+    }
   }
+
+  interface HTMLMyTodoElement extends StencilComponents.MyTodo, HTMLStencilElement {}
+
   var HTMLMyTodoElement: {
     prototype: HTMLMyTodoElement;
     new (): HTMLMyTodoElement;
@@ -52,9 +58,15 @@ declare global {
 
 
 declare global {
-  interface HTMLTodoInputElement extends HTMLStencilElement {
 
+  namespace StencilComponents {
+    interface TodoInput {
+
+    }
   }
+
+  interface HTMLTodoInputElement extends StencilComponents.TodoInput, HTMLStencilElement {}
+
   var HTMLTodoInputElement: {
     prototype: HTMLTodoInputElement;
     new (): HTMLTodoInputElement;
@@ -79,11 +91,17 @@ declare global {
 
 
 declare global {
-  interface HTMLTodoItemElement extends HTMLStencilElement {
-    'checked': boolean;
-    'index': number;
-    'text': string;
+
+  namespace StencilComponents {
+    interface TodoItem {
+      'checked': boolean;
+      'index': number;
+      'text': string;
+    }
   }
+
+  interface HTMLTodoItemElement extends StencilComponents.TodoItem, HTMLStencilElement {}
+
   var HTMLTodoItemElement: {
     prototype: HTMLTodoItemElement;
     new (): HTMLTodoItemElement;

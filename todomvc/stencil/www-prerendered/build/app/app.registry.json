@@ -2,8 +2,9 @@
   "namespace": "App",
   "fsNamespace": "app",
   "loader": "../app.js",
-  "core": "app.rskj0xqt.js",
-  "corePolyfilled": "app.monrlfgs.js",
+  "global": "app.global.js",
+  "core": "app.kid4ytaa.js",
+  "corePolyfilled": "app.favbuwc1.js",
   "components": {
     "my-todo": {
       "$": "swobkn9n"
