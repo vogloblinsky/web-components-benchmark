@@ -5,17 +5,17 @@
     "start": "webpack --mode development --watch"
   },
   "dependencies": {
-    "@skatejs/renderer-preact": "^0.2.5",
-    "preact": "^8.2.7",
-    "skatejs": "^5.1.1"
+    "@skatejs/renderer-preact": "^0.3.2",
+    "preact": "^8.2.9",
+    "skatejs": "^5.1.2"
   },
   "devDependencies": {
-    "babel-loader": "^7.1.2",
+    "babel-loader": "^7.1.4",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "prettier": "^1.10.2",
+    "prettier": "^1.12.1",
     "prettier-eslint": "^8.8.1",
-    "webpack": "^4.0.0-beta.2",
-    "webpack-cli": "^2.0.6"
+    "webpack": "^4.7.0",
+    "webpack-cli": "^2.1.2"
   }
 }
