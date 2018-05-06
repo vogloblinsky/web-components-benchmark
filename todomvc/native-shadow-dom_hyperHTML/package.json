@@ -17,13 +17,13 @@
     "license": "MIT",
     "devDependencies": {
         "concat-cli": "^4.0.0",
-        "html-minifier": "^3.5.8",
+        "html-minifier": "^3.5.15",
         "replace": "^0.3.0",
-        "rollup": "^0.56.2",
+        "rollup": "^0.58.2",
         "uglify-es": "^3.3.9"
     },
     "dependencies": {
-        "hyperhtml": "^2.9.0",
+        "hyperhtml": "^2.10.0",
         "hyperhtml-element": "^1.7.0"
     }
 }
