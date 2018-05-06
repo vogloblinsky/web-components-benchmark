@@ -1,32 +1,14 @@
 # Web components benchmark
 
-Benchmarks of libraries and implementation of Web Components : Native, Polymer 2, Polymer 3, Stencil, Vue.js, SkateJS, Svelte, lit-element
+Benchmarks of libraries and implementation of Web Components : Native, Polymer 2, Polymer 3, Stencil, Vue.js, SkateJS, Svelte, lit-element, lit-html, riot, stencil, Dojo 2
 
-TodoMVC implementation forked from [shprink/web-components-todo](https://github.com/shprink/web-components-todo)
+The benchmark consists of two different applications :
 
-## Angular Elements status
+- TodoMVC implementation forked from [shprink/web-components-todo](https://github.com/shprink/web-components-todo)
 
-I wait for release of [Angular 6](https://github.com/angular/angular/milestone/81) around march/april 2018 for updating benchmark with Angular Elements results.
+- Pascal triangle
 
-## Current results
-
-### Page load (ms) - lower is better
-
-![page-load](./screenshots/benchmark_page-load.png)
-
-### Create 50 items (ms) - lower is better
-
-![create](./screenshots/benchmark_create.png)
-
-### Delete 50 items (ms) - lower is better
-
-![delete](./screenshots/benchmark_delete.png)
-
-### Edit 50 items (ms) - lower is better
-
-![edit](./screenshots/benchmark_edit.png)
-
-## Requirements
+# Requirements
 
 * `bower` and `polymer-cli` in global for polymer
 
@@ -47,12 +29,24 @@ In another tab
 
 > npm run benchmark-create-todos
 
-## TODOS
+# Current results
 
-* ~~add SkateJS https://github.com/skatejs/skatejs~~
-* ~~add polymer 3 preview https://github.com/Polymer/polymer/tree/3.0-preview~~
-* ~~add native + lit-html https://alligator.io/web-components/lit-html/~~
-* ~~add svelte https://svelte.technology/guide#custom-elements~~
-* ~~add hyperHTML https://github.com/WebReflection/hyperHTML~~
-* ~~add slim.js https://github.com/eavichay/slim.js~~
-* ~~add Riot.js https://github.com/riot/riot~~
+## Pascal Triangle
+
+## TodoMVC
+
+### Page load (ms) - lower is better
+
+![page-load](./screenshots/benchmark_page-load.png)
+
+### Create 50 items (ms) - lower is better
+
+![create](./screenshots/benchmark_create.png)
+
+### Delete 50 items (ms) - lower is better
+
+![delete](./screenshots/benchmark_delete.png)
+
+### Edit 50 items (ms) - lower is better
+
+![edit](./screenshots/benchmark_edit.png)
