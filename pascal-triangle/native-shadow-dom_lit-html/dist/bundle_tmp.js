@@ -57,9 +57,6 @@ class PascalTriangle extends HTMLElement {
         this._length = _length;
         this._list = generateData(_length);
 
-        console.log(this._list);
-        
-
         this._handleLoad = e => this.handleLoad(e);
     }
 
