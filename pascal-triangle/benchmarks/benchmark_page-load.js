@@ -129,7 +129,7 @@ let processRawData = (filename, i) => {
 
     console.log(`\nAverage time for Polymer 3 : ${Math.ceil(average)} ms\n`);
 
-    /*average = 0;
+    average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
@@ -152,7 +152,7 @@ let processRawData = (filename, i) => {
 
     console.log(`\nAverage time for Stencil without PR : ${Math.ceil(average)} ms\n`);
 
-    average = 0;
+    /*average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
@@ -173,12 +173,12 @@ let processRawData = (filename, i) => {
 
     average = average / numberOftests;
 
-    console.log(`\nAverage time for Stencil with PR : ${Math.ceil(average)} ms\n`);
+    console.log(`\nAverage time for Stencil with PR : ${Math.ceil(average)} ms\n`);*/
 
     average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
-        browser = await puppeteer.launch({ headless: true })
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true, timeout: 60000 })
         page = await browser.newPage();
 
         filename = `benchmarks-results/angular-elements/load-page_${i}.json`;
@@ -186,7 +186,7 @@ let processRawData = (filename, i) => {
         await page.tracing.start({
             path: filename
         });
-        await page.goto('${LOCALHOST}/angular-elements/dist/index.html');
+        await page.goto(`${LOCALHOST}/angular-elements/index.html`);
         await page.tracing.stop();
 
         processRawData(filename, i);
@@ -198,7 +198,7 @@ let processRawData = (filename, i) => {
 
     console.log(`\nAverage time for Angular elements : ${Math.ceil(average)} ms\n`);
 
-    average = 0;
+    /*average = 0;
 
     for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
