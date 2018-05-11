@@ -2,10 +2,8 @@ import { DNode, WidgetProperties } from '@dojo/widget-core/interfaces';
 import { ThemedMixin, theme } from '@dojo/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { v, w } from '@dojo/widget-core/d';
-import Button from '@dojo/widgets/button';
 
 import { customElement } from '@dojo/widget-core/decorators/customElement';
-import * as css from './styles/pascaltriangle.m.css';
 
 /**
  * @type PascalTriangleProperties
@@ -43,7 +41,6 @@ function generateData(rows) {
     properties: [],
     events: []
 })
-@theme(css)
 export class PascalTriangle<P extends PascalTriangleProperties = PascalTriangleProperties> extends WidgetBase<WidgetProperties> {
 	length: number;
 	list;
@@ -51,22 +48,32 @@ export class PascalTriangle<P extends PascalTriangleProperties = PascalTriangleP
 	constructor() {
 		super();
 		this.length = _length;
+		this.list = generateData(this.length);
 	}
 
     protected render(): DNode | DNode[] {
-        return v('div', [
-			v('button', {
-				'data-value': '10',
-				onclick: this.handleLoad
-			}, ['Load 10']),
-			v('button', {
-				'data-value': '100',
-				onclick: this.handleLoad
-			}, ['Load 100']),
-			v('button', {
-				'data-value': '500',
-				onclick: this.handleLoad
-			}, ['Load 500'])
+		return v('div', [
+			v('div', [
+				v('button', {
+					'data-value': '10',
+					onclick: this.handleLoad
+				}, ['Load 10']),
+				v('button', {
+					'data-value': '100',
+					onclick: this.handleLoad
+				}, ['Load 100']),
+				v('button', {
+					'data-value': '500',
+					onclick: this.handleLoad
+				}, ['Load 500'])
+			]),
+			v('div', this.list.map((line) => 
+				v('div', line.map((item) => 
+					v('triangle-item', {
+						'text': `${item}`
+					})
+				))
+			))
 		]);
 	}
 	

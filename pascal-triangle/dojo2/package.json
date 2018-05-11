@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-triangle-item": "dojo build --mode dist -e src/triangleitem/TriangleItem.ts",
+    "build-pascal-triangle": "dojo build --mode dist -e src/pascaltriangle/PascalTriangle.ts",
+    "build": "npm run build-pascal-triangle && npm run build-triangle-item",
+    "postbuild": "cp src/index.html output"
   },
   "author": "",
   "license": "ISC",

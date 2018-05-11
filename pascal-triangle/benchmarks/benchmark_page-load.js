@@ -14,6 +14,7 @@ fs.ensureDirSync('benchmarks-results/skatejs-lit-html');
 fs.ensureDirSync('benchmarks-results/skatejs-preact');
 fs.ensureDirSync('benchmarks-results/svelte');
 fs.ensureDirSync('benchmarks-results/lit-element');
+fs.ensureDirSync('benchmarks-results/dojo2');
 
 const numberOftests = 10;
 
@@ -312,4 +313,27 @@ let processRawData = (filename, i) => {
     average = average / numberOftests;
 
     console.log(`\nAverage time for lit-element : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/dojo2/load-page_${i}.json`;
+
+        await page.tracing.start({
+            path: filename
+        });
+        await page.goto(`${LOCALHOST}/dojo2/output/index.html`);
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    console.log(`\nAverage time for dojo2 : ${Math.ceil(average)} ms\n`);
 })();
