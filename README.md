@@ -50,3 +50,7 @@ In another tab
 ### Edit 50 items (ms) - lower is better
 
 ![edit](./screenshots/benchmark_edit.png)
+
+# TODOS
+
+- [ ] add https://glimmerjs.com/guides/using-glimmer-as-web-components
