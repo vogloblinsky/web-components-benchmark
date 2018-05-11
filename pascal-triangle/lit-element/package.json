@@ -1,0 +1,27 @@
+{
+    "name": "native-shadow-dom-lit-element",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "minify-html": "./node_modules/.bin/html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
+        "minify-js": "./node_modules/.bin/uglifyjs dist/bundle.js -o dist/bundle.js",
+        "rollup": "rollup -c",
+        "watch": "rollup -c --watch",
+        "prebuild": "rm -rf dist/*",
+        "build": "npm run minify-html && npm run rollup && npm run minify-js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "concat-cli": "^4.0.0",
+        "html-minifier": "^3.5.15",
+        "replace": "^0.3.0",
+        "rollup": "^0.58.2",
+        "rollup-plugin-node-resolve": "^3.3.0",
+        "uglify-es": "^3.3.9"
+    },
+    "dependencies": {
+        "@polymer/lit-element": "^0.5.1"
+    }
+}
