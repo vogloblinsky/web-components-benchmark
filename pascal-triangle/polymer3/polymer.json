@@ -1,7 +1,7 @@
 {
   "builds": [
     {
-      "preset": "es6-bundled"
+      "preset": "es6-unbundled"
     }
   ]
 }

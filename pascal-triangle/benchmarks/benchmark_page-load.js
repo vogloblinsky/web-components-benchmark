@@ -117,7 +117,7 @@ let processRawData = (filename, i) => {
         await page.tracing.start({
             path: filename
         });
-        await page.goto(`${LOCALHOST}/polymer3/build/es6-bundled/index.html`);
+        await page.goto(`${LOCALHOST}/polymer3/build/index.html`);
         await page.tracing.stop();
 
         processRawData(filename, i);
@@ -288,7 +288,7 @@ let processRawData = (filename, i) => {
 
     average = average / numberOftests;
 
-    console.log(`\nAverage time for svelte : ${Math.ceil(average)} ms\n`);
+    console.log(`\nAverage time for svelte : ${Math.ceil(average)} ms\n`);*/
 
     average = 0;
 
@@ -311,5 +311,5 @@ let processRawData = (filename, i) => {
 
     average = average / numberOftests;
 
-    console.log(`\nAverage time for lit-element : ${Math.ceil(average)} ms\n`);*/
+    console.log(`\nAverage time for lit-element : ${Math.ceil(average)} ms\n`);
 })();
