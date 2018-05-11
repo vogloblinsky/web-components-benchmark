@@ -6,7 +6,8 @@ exports.config = {
         {
           type: 'www',
           dir: 'www-prerendered',
-          baseUrl: '/stencil/www-prerendered/'
+          baseUrl: '/stencil/www-prerendered/',
+          serviceWorker: false
         }
     ]
 };
