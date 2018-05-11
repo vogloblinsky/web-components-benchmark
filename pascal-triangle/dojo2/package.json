@@ -1,0 +1,30 @@
+{
+  "name": "dojo2-pascal-triangle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@dojo/core": "^2.0.0",
+    "@dojo/has": "^2.0.0",
+    "@dojo/i18n": "^2.0.0",
+    "@dojo/widget-core": "^2.0.0",
+    "@dojo/widgets": "^2.0.0"
+  },
+  "devDependencies": {
+    "@dojo/loader": "^2.0.0",
+    "@dojo/webpack-contrib": "^2.0.0",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "imports-loader": "^0.8.0",
+    "json-css-module-loader": "^1.0.2",
+    "postcss-loader": "^2.1.5",
+    "source-map-loader-cli": "0.0.1",
+    "style-loader": "^0.21.0",
+    "umd-compat-loader": "^2.1.1"
+  }
+}
