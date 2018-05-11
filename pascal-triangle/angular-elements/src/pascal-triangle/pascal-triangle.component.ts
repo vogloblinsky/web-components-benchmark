@@ -3,7 +3,8 @@ import {
     EventEmitter,
     Input,
     Output,
-    ViewEncapsulation
+    ViewEncapsulation,
+    ChangeDetectionStrategy
 } from '@angular/core';
 import { _length, generateData } from './utils';
 
@@ -19,7 +20,8 @@ import { _length, generateData } from './utils';
     <div *ngFor="let line of _list">
         <triangle-item *ngFor="let item of line" text="{{item}}"></triangle-item>
     </div>
-</div>`
+</div>`,
+changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PascalTriangleComponent {
     _length = _length;

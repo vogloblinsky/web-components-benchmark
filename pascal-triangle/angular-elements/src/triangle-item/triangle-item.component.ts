@@ -1,14 +1,12 @@
 import {
     Component,
     EventEmitter,
-    Input,
-    ViewEncapsulation
+    Input
 } from '@angular/core';
 
 @Component({
     selector: 'triangle-item',
-    template: `
-    <span>{{text}}</span>`
+    template: `<span>{{text}}</span>`
 })
 export class TriangleItemComponent {
     @Input()
