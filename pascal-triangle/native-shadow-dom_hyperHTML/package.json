@@ -1,0 +1,30 @@
+{
+    "name": "native-shadow-dom-hyper-html",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "minify-html": "./node_modules/.bin/html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
+        "copy-js": "cp js/* dist",
+        "clean-js": "replace \"import HyperHTMLElement from '../node_modules/hyperhtml-element/esm/index.js';\" \"\" dist/triangle-item.js",
+        "concat-js": "./node_modules/.bin/concat-cli -f dist/pascal-triangle.js dist/triangle-item.js -o dist/bundle_tmp.js",
+        "minify-js": "./node_modules/.bin/uglifyjs dist/bundle.js -o dist/bundle.js",
+        "rollup": "rollup -c",
+        "prebuild": "rm -rf dist && mkdir dist",
+        "build": "npm run minify-html && npm run copy-js && npm run clean-js && npm run concat-js && npm run rollup && npm run minify-js"
+    },
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "concat-cli": "^4.0.0",
+        "html-minifier": "^3.5.16",
+        "replace": "^1.0.0",
+        "rollup": "^0.59.4",
+        "rollup-plugin-node-resolve": "^3.3.0",
+        "uglify-es": "^3.3.10"
+    },
+    "dependencies": {
+        "hyperhtml": "^2.10.2",
+        "hyperhtml-element": "^1.7.0"
+    }
+}
