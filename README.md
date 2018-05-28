@@ -1,6 +1,21 @@
 # Web components benchmark
 
-Benchmarks of libraries and implementation of Web Components : Native, Polymer 2, Polymer 3, Stencil, Vue.js, SkateJS, Svelte, lit-element, lit-html, riot, stencil, Dojo 2
+Benchmarks of libraries and implementation of Web Components : 
+
+- native
+- Polymer 2
+- Polymer 3
+- Stencil
+- Vue.js
+- SkateJS
+- Svelte
+- lit-element
+- lit-html
+- hyperHTML
+- riot
+- Stencil
+- Dojo 2
+- Slim.js
 
 The benchmark consists of two different applications :
 
@@ -33,23 +48,25 @@ In another tab
 
 ## Pascal Triangle
 
+TODO
+
 ## TodoMVC
 
 ### Page load (ms) - lower is better
 
-![page-load](./screenshots/benchmark_page-load.png)
+![page-load](./todomvc/screenshots/benchmark_page-load.png)
 
 ### Create 50 items (ms) - lower is better
 
-![create](./screenshots/benchmark_create.png)
+![create](./todomvc/screenshots/benchmark_create.png)
 
 ### Delete 50 items (ms) - lower is better
 
-![delete](./screenshots/benchmark_delete.png)
+![delete](./todomvc/screenshots/benchmark_delete.png)
 
 ### Edit 50 items (ms) - lower is better
 
-![edit](./screenshots/benchmark_edit.png)
+![edit](./todomvc/screenshots/benchmark_edit.png)
 
 # TODOS
 
