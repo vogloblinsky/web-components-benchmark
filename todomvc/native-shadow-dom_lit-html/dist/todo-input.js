@@ -3,7 +3,9 @@
 class TodoInput extends HTMLElement {
     constructor() {
         super();
-        this._root = this.attachShadow({ mode: 'open' });
+        this._root = this.attachShadow({
+            mode: 'open'
+        });
         this.state = {
             value: ''
         };
@@ -12,7 +14,7 @@ class TodoInput extends HTMLElement {
     }
 
     render() {
-        return html`
+        return html `
 <style>
     #new-todo-form {
         position: relative;
@@ -40,19 +42,23 @@ class TodoInput extends HTMLElement {
         box-sizing: border-box;
     }
 </style>
-<form id="new-todo-form" on-submit=${this._handleSubmit}>
-    <input id="new-todo" type="text" placeholder="What needs to be done?" on-input=${this._handleInput} value="${this.state.value}"/>
+<form id="new-todo-form" @submit=${this._handleSubmit}>
+    <input id="new-todo" type="text" placeholder="What needs to be done?" @input=${this._handleInput} value="${this.state.value}"/>
 </form>`;
     }
 
     handleInput(e) {
-        this.state = { value: e.target.value };
+        this.state = {
+            value: e.target.value
+        };
     }
 
     handleSubmit(e) {
         e.preventDefault();
         if (!this.state.value) return;
-        this.dispatchEvent(new CustomEvent('submit', { detail: this.state.value }));
+        this.dispatchEvent(new CustomEvent('submit', {
+            detail: this.state.value
+        }));
         this.$input = this._root.querySelector('#new-todo');
         this.$input.value = '';
         this.$input.blur();

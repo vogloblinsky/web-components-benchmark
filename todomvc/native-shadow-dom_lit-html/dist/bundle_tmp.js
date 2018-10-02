@@ -1,12 +1,27 @@
-import { html, render } from '../node_modules/lit-html/lib/lit-extended.js';
-import { repeat } from '../node_modules/lit-html/lib/repeat.js';
+import {
+    html,
+    render
+} from '../node_modules/lit-html/lit-html.js';
+import {
+    repeat
+} from '../node_modules/lit-html/directives/repeat.js';
 
 class MyTodo extends HTMLElement {
     constructor() {
         super();
-        this._root = this.attachShadow({ mode: 'open' });
+        this._root = this.attachShadow({
+            mode: 'open'
+        });
         // initial state
-        this._list = [{ id: 0, text: 'my initial todo', checked: false }, { id: 1, text: 'Learn about Web Components', checked: true }];
+        this._list = [{
+            id: 0,
+            text: 'my initial todo',
+            checked: false
+        }, {
+            id: 1,
+            text: 'Learn about Web Components',
+            checked: true
+        }];
 
         this._addItem = e => this.addItem(e);
         this._removeItem = e => this.removeItem(e);
@@ -14,7 +29,7 @@ class MyTodo extends HTMLElement {
     }
 
     render() {
-        return html`
+        return html `
 <style>
 h1 {
     font-size: 100px;
@@ -39,17 +54,17 @@ section {
 </style>
 <h1>Todos WC</h1>
 <section>
-    <todo-input on-submit=${this._addItem}></todo-input>
+    <todo-input @submit=${this._addItem}></todo-input>
     <ul id="list-container">
         ${repeat(
             this._list,
             item => item.id,
             (item, index) => html`<todo-item 
-                                    text="${item.text}" 
-                                    checked="${item.checked}" 
-                                    index="${index}" 
-                                    on-removed=${this._removeItem}
-                                    on-checked=${this._toggleItem}></todo-item>`
+                                    .text="${item.text}" 
+                                    .checked=${item.checked} 
+                                    .index="${index}" 
+                                    @removed=${this._removeItem}
+                                    @checked=${this._toggleItem}></todo-item>`
         )}
     </ul>
 </section>`;
@@ -60,7 +75,11 @@ section {
     }
 
     addItem(e) {
-        this._list = [...this._list, { id: this._list.length, text: e.detail, checked: false }];
+        this._list = [...this._list, {
+            id: this._list.length,
+            text: e.detail,
+            checked: false
+        }];
         this._render();
     }
 
@@ -71,7 +90,9 @@ section {
 
     toggleItem(e) {
         const item = this._list[e.detail];
-        this._list[e.detail] = Object.assign({}, item, { checked: !item.checked });
+        this._list[e.detail] = Object.assign({}, item, {
+            checked: !item.checked
+        });
         this._render();
     }
 
@@ -83,11 +104,12 @@ section {
 window.customElements.define('my-todo', MyTodo);
 
 
-
 class TodoInput extends HTMLElement {
     constructor() {
         super();
-        this._root = this.attachShadow({ mode: 'open' });
+        this._root = this.attachShadow({
+            mode: 'open'
+        });
         this.state = {
             value: ''
         };
@@ -96,7 +118,7 @@ class TodoInput extends HTMLElement {
     }
 
     render() {
-        return html`
+        return html `
 <style>
     #new-todo-form {
         position: relative;
@@ -124,19 +146,23 @@ class TodoInput extends HTMLElement {
         box-sizing: border-box;
     }
 </style>
-<form id="new-todo-form" on-submit=${this._handleSubmit}>
-    <input id="new-todo" type="text" placeholder="What needs to be done?" on-input=${this._handleInput} value="${this.state.value}"/>
+<form id="new-todo-form" @submit=${this._handleSubmit}>
+    <input id="new-todo" type="text" placeholder="What needs to be done?" @input=${this._handleInput} value="${this.state.value}"/>
 </form>`;
     }
 
     handleInput(e) {
-        this.state = { value: e.target.value };
+        this.state = {
+            value: e.target.value
+        };
     }
 
     handleSubmit(e) {
         e.preventDefault();
         if (!this.state.value) return;
-        this.dispatchEvent(new CustomEvent('submit', { detail: this.state.value }));
+        this.dispatchEvent(new CustomEvent('submit', {
+            detail: this.state.value
+        }));
         this.$input = this._root.querySelector('#new-todo');
         this.$input.value = '';
         this.$input.blur();
@@ -150,20 +176,21 @@ class TodoInput extends HTMLElement {
 window.customElements.define('todo-input', TodoInput);
 
 
-
 class TodoItem extends HTMLElement {
     constructor() {
         super();
-        this._root = this.attachShadow({ mode: 'open' });
-        this._checked = false;
-        this._text = '';
+        this._root = this.attachShadow({
+            mode: 'open'
+        });
+        this.checked = false;
+        this.text = '';
 
         this._handleOnChecked = e => this.handleOnChecked(e);
         this._handleOnRemoved = e => this.handleOnRemoved(e);
     }
 
     render() {
-        return html`
+        return html `
 <style>
     :host {
         display: block;
@@ -255,18 +282,24 @@ class TodoItem extends HTMLElement {
     }
 </style>
 <li class="item">
-    <input type="checkbox" checked=${this.checked} on-change=${this._handleOnChecked}>
+    <input type="checkbox" ?checked=${this.checked} @change=${this._handleOnChecked}>
     <label>${this.text}</label>
-    <button class="destroy" on-click=${this._handleOnRemoved}>x</button>
+    <button class="destroy" @click=${this._handleOnRemoved}>x</button>
 </li>`;
     }
 
     handleOnRemoved(e) {
-        this.dispatchEvent(new CustomEvent('removed', { detail: this.index }));
+        console.log('_handleOnRemoved: ', this.index, this.checked);
+        this.dispatchEvent(new CustomEvent('removed', {
+            detail: this.index
+        }));
     }
 
     handleOnChecked(e) {
-        this.dispatchEvent(new CustomEvent('checked', { detail: this.index }));
+        console.log('handleOnChecked: ', this.index, this.checked);
+        this.dispatchEvent(new CustomEvent('checked', {
+            detail: this.index
+        }));
     }
 
     connectedCallback() {

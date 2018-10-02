@@ -3,16 +3,18 @@
 class TodoItem extends HTMLElement {
     constructor() {
         super();
-        this._root = this.attachShadow({ mode: 'open' });
-        this._checked = false;
-        this._text = '';
+        this._root = this.attachShadow({
+            mode: 'open'
+        });
+        this.checked = false;
+        this.text = '';
 
         this._handleOnChecked = e => this.handleOnChecked(e);
         this._handleOnRemoved = e => this.handleOnRemoved(e);
     }
 
     render() {
-        return html`
+        return html `
 <style>
     :host {
         display: block;
@@ -104,18 +106,24 @@ class TodoItem extends HTMLElement {
     }
 </style>
 <li class="item">
-    <input type="checkbox" checked=${this.checked} on-change=${this._handleOnChecked}>
+    <input type="checkbox" ?checked=${this.checked} @change=${this._handleOnChecked}>
     <label>${this.text}</label>
-    <button class="destroy" on-click=${this._handleOnRemoved}>x</button>
+    <button class="destroy" @click=${this._handleOnRemoved}>x</button>
 </li>`;
     }
 
     handleOnRemoved(e) {
-        this.dispatchEvent(new CustomEvent('removed', { detail: this.index }));
+        console.log('_handleOnRemoved: ', this.index, this.checked);
+        this.dispatchEvent(new CustomEvent('removed', {
+            detail: this.index
+        }));
     }
 
     handleOnChecked(e) {
-        this.dispatchEvent(new CustomEvent('checked', { detail: this.index }));
+        console.log('handleOnChecked: ', this.index, this.checked);
+        this.dispatchEvent(new CustomEvent('checked', {
+            detail: this.index
+        }));
     }
 
     connectedCallback() {
