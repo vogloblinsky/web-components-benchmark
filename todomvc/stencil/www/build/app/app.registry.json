@@ -2,18 +2,23 @@
   "namespace": "App",
   "fsNamespace": "app",
   "loader": "../app.js",
-  "global": "app.global.js",
-  "core": "app.gvgyosp3.js",
-  "corePolyfilled": "app.favbuwc1.js",
+  "core": "app.bbrcbl5v.js",
+  "corePolyfilled": "app.r8fjemt0.js",
   "components": {
     "my-todo": {
-      "$": "swobkn9n"
+      "bundleIds": {
+        "$": "2wcui3iv"
+      }
     },
     "todo-input": {
-      "$": "swobkn9n"
+      "bundleIds": {
+        "$": "2wcui3iv"
+      }
     },
     "todo-item": {
-      "$": "swobkn9n"
+      "bundleIds": {
+        "$": "2wcui3iv"
+      }
     }
   }
 }
