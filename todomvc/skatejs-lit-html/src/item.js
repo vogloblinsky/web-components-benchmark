@@ -1,5 +1,5 @@
 import { props } from "skatejs/dist/esnext";
-import { html } from "lit-html/lib/lit-extended";
+import { html } from "lit-html";
 import { Component } from "./util";
 
 export default class extends Component {
@@ -109,9 +109,9 @@ export default class extends Component {
         }
       </style>
       <li class="${checked ? "completed" : ""}">
-        <input type="checkbox" checked="${checked}" on-change="${handleCheck}" />
+        <input type="checkbox" ?checked="${checked}" @change="${handleCheck}" />
         <label><slot></slot></label>
-        <button on-click="${handleRemove}">x</button>
+        <button @click="${handleRemove}">x</button>
       </li>
     `;
   }

@@ -1,5 +1,5 @@
 import { props } from "skatejs/dist/esnext";
-import { html } from "lit-html/lib/lit-extended";
+import { html } from "lit-html";
 import { Component } from "./util";
 
 export default class extends Component {
@@ -55,15 +55,15 @@ export default class extends Component {
       </style>
       <h1>SkateJS & lit-html</h1>
       <section>
-        <todo-input on-submit="${handleSubmit}"></todo-input>
+        <todo-input @submit="${handleSubmit}"></todo-input>
         <ul id="list-container">
           ${this.state.list.map(
             ({ checked, text }, index) => html`
               <todo-item
-                checked="${checked}"
-                index="${index}"
-                on-check="${handleCheck}"
-                on-remove="${handleRemove}"
+                .checked="${checked}"
+                .index="${index}"
+                @check="${handleCheck}"
+                @remove="${handleRemove}"
               >${text}</todo-item>
             `
           )}

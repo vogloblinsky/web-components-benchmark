@@ -1,5 +1,5 @@
 import { props } from "skatejs/dist/esnext";
-import { html } from "lit-html/lib/lit-extended";
+import { html } from "lit-html";
 import { Component } from "./util";
 
 export default class extends Component {
@@ -51,12 +51,12 @@ export default class extends Component {
           box-sizing: border-box;
         }
       </style>
-      <form on-submit="${handleSubmit}">
+      <form @submit="${handleSubmit}">
         <input
           value="${this.state.value}"
           type="text"
           placeholder="What needs to be done?"
-          on-input="${handleInput}"
+          @input="${handleInput}"
         />
       </form>
     `;
