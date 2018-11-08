@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "minify-html": "./node_modules/.bin/html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
-        "copy-js": "cp js/* dist && cp ./node_modules/slim-js/Slim.min.js dist",
-        "concat-js": "./node_modules/.bin/concat-cli -f dist/Slim.min.js dist/todo-input.js dist/todo-item.js dist/my-todo.js -o dist/bundle_tmp.js",
+        "copy-js": "cp js/* dist && cp ./node_modules/slim-js/Slim.nomodule.js dist && cp ./node_modules/slim-js/directives/repeat.nomodule.js dist",
+        "concat-js": "./node_modules/.bin/concat-cli -f dist/Slim.nomodule.js dist/repeat.nomodule.js dist/todo-input.js dist/todo-item.js dist/my-todo.js -o dist/bundle_tmp.js",
         "minify-js": "./node_modules/.bin/uglifyjs dist/bundle.js -o dist/bundle.js",
         "rollup": "rollup -c",
         "prebuild": "rm -rf dist/*",
@@ -16,11 +16,11 @@
     "license": "MIT",
     "devDependencies": {
         "concat-cli": "^4.0.0",
-        "html-minifier": "^3.5.15",
-        "rollup": "^0.58.2",
+        "html-minifier": "^3.5.21",
+        "rollup": "^0.67.0",
         "uglify-es": "^3.3.9"
     },
     "dependencies": {
-        "slim-js": "^3.2.9"
+        "slim-js": "^4.0.5"
     }
 }
