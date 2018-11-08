@@ -17,7 +17,7 @@ class TodoInput extends LitElement {
         super.ready();
     }
 
-    _render() {
+    render() {
         return html`
 <style>
     #new-todo-form {
@@ -46,8 +46,8 @@ class TodoInput extends LitElement {
         box-sizing: border-box;
     }
 </style>
-<form id="new-todo-form" on-submit=${this._handleSubmit}>
-    <input id="new-todo" type="text" placeholder="What needs to be done?" value="" on-input=${this._handleInput}/>
+<form id="new-todo-form" @submit=${this._handleSubmit}>
+    <input id="new-todo" type="text" placeholder="What needs to be done?" value="" @input=${this._handleInput}/>
 </form>`;
     }
 
