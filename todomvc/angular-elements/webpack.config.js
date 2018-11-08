@@ -10,28 +10,34 @@ module.exports = {
     mainFields: ['es2015', 'browser', 'module', 'main']
   },
   module: {
-    rules: [{ test: /\.ts$/, loaders: ['@ngtools/webpack'] }]
+    rules: [{
+      test: /\.ts$/,
+      loaders: ['@ngtools/webpack']
+    }]
   },
   plugins: [
     new AotPlugin({
       tsConfigPath: './tsconfig.json',
-      entryModule: path.resolve(__dirname, './src/todo.module#TodoModule' )
-    }),
-    new UglifyJsPlugin(),
-    new CompressionPlugin({
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
-      test: /\.js$|\.css$/,
-      threshold: 10240,
-      minRatio: 0.8
+      entryModule: path.resolve(__dirname, './src/todo.module#TodoModule')
     })
+    /*,
+        new UglifyJsPlugin(),
+        new CompressionPlugin({
+          filename: "[path].gz[query]",
+          algorithm: "gzip",
+          test: /\.js$|\.css$/,
+          threshold: 10240,
+          minRatio: 0.8
+        })*/
   ],
   output: {
     path: __dirname + '/dist',
     filename: 'main.bundle.js'
   },
   mode: 'production',
-  performance: { hints: false },
+  performance: {
+    hints: false
+  },
   stats: {
     assets: true,
     warnings: false
