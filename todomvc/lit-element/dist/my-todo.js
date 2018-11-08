@@ -1,5 +1,5 @@
 import { LitElement, html } from '../node_modules/@polymer/lit-element/lit-element.js';
-import { repeat } from '../node_modules/lit-html/lib/repeat.js';
+import { repeat } from '../node_modules/lit-html/directives/repeat.js';
 
 class MyTodo extends LitElement {
     static get properties() {
@@ -20,7 +20,7 @@ class MyTodo extends LitElement {
         super.ready();
     }
 
-    _render() {
+    render() {
         return html`
 <style>
 h1 {
@@ -46,17 +46,17 @@ section {
 </style>
 <h1>Todos WC</h1>
 <section>
-    <todo-input on-submit=${this._addItem}></todo-input>
+    <todo-input @submit=${this._addItem}></todo-input>
     <ul id="list-container">
         ${repeat(
             this.list,
             item => item.id,
             (item, index) => html`<todo-item 
-                                    text="${item.text}" 
-                                    checked="${item.checked}" 
-                                    index="${index}" 
-                                    on-removed=${this._removeItem}
-                                    on-checked=${this._toggleItem}></todo-item>`
+                                    .text="${item.text}" 
+                                    .checked="${item.checked}" 
+                                    .index="${index}" 
+                                    @removed=${this._removeItem}
+                                    @checked=${this._toggleItem}></todo-item>`
         )}
     </ul>
 </section>`;

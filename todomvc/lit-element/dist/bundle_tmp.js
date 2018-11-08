@@ -1,5 +1,5 @@
 import { LitElement, html } from '../node_modules/@polymer/lit-element/lit-element.js';
-import { repeat } from '../node_modules/lit-html/lib/repeat.js';
+import { repeat } from '../node_modules/lit-html/directives/repeat.js';
 
 class MyTodo extends LitElement {
     static get properties() {
@@ -20,7 +20,7 @@ class MyTodo extends LitElement {
         super.ready();
     }
 
-    _render() {
+    render() {
         return html`
 <style>
 h1 {
@@ -46,17 +46,17 @@ section {
 </style>
 <h1>Todos WC</h1>
 <section>
-    <todo-input on-submit=${this._addItem}></todo-input>
+    <todo-input @submit=${this._addItem}></todo-input>
     <ul id="list-container">
         ${repeat(
             this.list,
             item => item.id,
             (item, index) => html`<todo-item 
-                                    text="${item.text}" 
-                                    checked="${item.checked}" 
-                                    index="${index}" 
-                                    on-removed=${this._removeItem}
-                                    on-checked=${this._toggleItem}></todo-item>`
+                                    .text="${item.text}" 
+                                    .checked="${item.checked}" 
+                                    .index="${index}" 
+                                    @removed=${this._removeItem}
+                                    @checked=${this._toggleItem}></todo-item>`
         )}
     </ul>
 </section>`;
@@ -97,7 +97,7 @@ class TodoInput extends LitElement {
         super.ready();
     }
 
-    _render() {
+    render() {
         return html`
 <style>
     #new-todo-form {
@@ -126,8 +126,8 @@ class TodoInput extends LitElement {
         box-sizing: border-box;
     }
 </style>
-<form id="new-todo-form" on-submit=${this._handleSubmit}>
-    <input id="new-todo" type="text" placeholder="What needs to be done?" value="" on-input=${this._handleInput}/>
+<form id="new-todo-form" @submit=${this._handleSubmit}>
+    <input id="new-todo" type="text" placeholder="What needs to be done?" value="" @input=${this._handleInput}/>
 </form>`;
     }
 
@@ -151,9 +151,16 @@ window.customElements.define('todo-input', TodoInput);
 class TodoItem extends LitElement {
     static get properties() {
         return {
-            checked: Boolean,
-            index: Number,
-            text: String
+            checked: {
+                type: Boolean,
+                attrName: 'checked'
+            },
+            index: {
+                type: Number
+            },
+            text: {
+                type: String
+            }
         };
     }
 
@@ -170,7 +177,8 @@ class TodoItem extends LitElement {
         super.ready();
     }
 
-    _render({ checked, index, text }) {
+    render() {
+        const {checked, text} = this;
         return html`
 <style>
     :host {
@@ -263,9 +271,9 @@ class TodoItem extends LitElement {
     }
 </style>
 <li class="item">
-    <input type="checkbox" checked=${checked} on-change=${this._handleOnChecked}>
+    <input type="checkbox" .checked=${checked} @change=${this._handleOnChecked}>
     <label>${text}</label>
-    <button class="destroy" on-click=${this._handleOnRemoved}>x</button>
+    <button class="destroy" @click=${this._handleOnRemoved}>x</button>
 </li>`;
     }
 

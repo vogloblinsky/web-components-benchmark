@@ -3,9 +3,16 @@ import { LitElement, html } from '../node_modules/@polymer/lit-element/lit-eleme
 class TodoItem extends LitElement {
     static get properties() {
         return {
-            checked: Boolean,
-            index: Number,
-            text: String
+            checked: {
+                type: Boolean,
+                attrName: 'checked'
+            },
+            index: {
+                type: Number
+            },
+            text: {
+                type: String
+            }
         };
     }
 
@@ -22,7 +29,8 @@ class TodoItem extends LitElement {
         super.ready();
     }
 
-    _render({ checked, index, text }) {
+    render() {
+        const {checked, text} = this;
         return html`
 <style>
     :host {
@@ -115,9 +123,9 @@ class TodoItem extends LitElement {
     }
 </style>
 <li class="item">
-    <input type="checkbox" checked=${checked} on-change=${this._handleOnChecked}>
+    <input type="checkbox" .checked=${checked} @change=${this._handleOnChecked}>
     <label>${text}</label>
-    <button class="destroy" on-click=${this._handleOnRemoved}>x</button>
+    <button class="destroy" @click=${this._handleOnRemoved}>x</button>
 </li>`;
     }
 
