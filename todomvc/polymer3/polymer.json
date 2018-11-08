@@ -1,4 +1,10 @@
 {
+  "npm": true,
+  "lint": {
+    "rules": [
+      "polymer-3"
+    ]
+  },
   "builds": [
     {
       "preset": "es6-bundled"
