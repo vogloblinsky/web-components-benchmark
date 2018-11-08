@@ -60,3 +60,7 @@ typings/
 .e2e-results
 
 benchmarks-results
+
+dist
+
+results/*.json
