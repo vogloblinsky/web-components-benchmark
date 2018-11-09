@@ -1,0 +1,29 @@
+{
+  "name": "web-components-benchmark",
+  "version": "1.0.0",
+  "description": "Benchmarks of libraries and implementation of Web Components :",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vogloblinsky/web-components-benchmark.git"
+  },
+  "author": "vogloblinsky-sii <vogloblinsky@sii.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vogloblinsky/web-components-benchmark/issues"
+  },
+  "homepage": "https://github.com/vogloblinsky/web-components-benchmark#readme",
+  "devDependencies": {
+    "devtools-timeline-model": "^1.4.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "fs-extra": "^7.0.1",
+    "http-server": "^0.11.1",
+    "npm-run-all": "^4.1.3",
+    "puppeteer": "^1.10.0",
+    "spdy": "^4.0.0"
+  }
+}

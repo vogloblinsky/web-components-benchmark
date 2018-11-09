@@ -1,40 +1,35 @@
 # Web components benchmark
 
-Benchmarks of libraries and implementation of Web Components : 
+Benchmarks of libraries and implementation of Web Components :
 
-- native
-- Polymer 2
-- Polymer 3
-- Stencil
-- Vue.js
-- SkateJS
-- Svelte
-- lit-element
-- lit-html
-- hyperHTML
-- riot
-- Stencil
-- Dojo 2
-- Slim.js
+-   native
+-   Polymer 3
+-   Stencil
+-   Vue.js
+-   SkateJS
+-   Svelte
+-   lit-element
+-   hyperHTML
+-   riot
+-   Dojo 2
+-   Slim.js
 
 The benchmark consists of two different applications :
 
-- TodoMVC implementation forked from [shprink/web-components-todo](https://github.com/shprink/web-components-todo)
+-   TodoMVC implementation forked from [shprink/web-components-todo](https://github.com/shprink/web-components-todo)
 
-- Pascal triangle
+-   Pascal triangle
 
 # Requirements
 
-* `bower` and `polymer-cli` in global for polymer
-
-> npm install -g bower
-> npm install -g polymer-cli
+Node.js
 
 ## Setup
 
-> npm i
+> cd todomvc && npm i
+> cd pascal-triangle && npm i
 
-## Run
+## Run for todos
 
 In one tab
 
@@ -67,7 +62,3 @@ TODO
 ### Edit 50 items (ms) - lower is better
 
 ![edit](./todomvc/screenshots/benchmark_edit.png)
-
-# TODOS
-
-- [ ] add https://glimmerjs.com/guides/using-glimmer-as-web-components
