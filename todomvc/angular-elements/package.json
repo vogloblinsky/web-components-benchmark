@@ -5,8 +5,8 @@
     "scripts": {
         "build": "npm run minify-html && npm run build-js && npm run minify-js",
         "build-js": "webpack",
-        "minify-js": "./node_modules/.bin/uglifyjs dist/main.bundle.js -o dist/main.bundle.js",
-        "minify-html": "./node_modules/.bin/html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
+        "minify-js": "npx uglifyjs dist/main.bundle.js -o dist/main.bundle.js",
+        "minify-html": "npx html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
         "serve": "npm run build && http-server ."
     },
     "private": true,
@@ -29,11 +29,8 @@
         "@angular/compiler-cli": "7.0.3",
         "@ngtools/webpack": "7.0.4",
         "compression-webpack-plugin": "2.0.0",
-        "html-minifier": "3.5.21",
         "http-server": "0.11.1",
         "typescript": "3.1.6",
-        "uglify-es": "^3.3.9",
-        "uglifyjs-webpack-plugin": "2.0.1",
         "webpack": "4.25.1",
         "webpack-cli": "3.1.2"
     }
