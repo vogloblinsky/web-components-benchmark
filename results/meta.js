@@ -45,12 +45,16 @@ module.exports = {
         version: require('../todomvc/svelte/package.json').dependencies['svelte']
     }],
     fw: [{
+        name: 'Angular Elements',
+        slug: 'angular-elements',
+        version: require('../todomvc/angular-elements/package.json').dependencies['@angular/core']
+    }, {
         name: 'Vue.js',
         slug: 'vue.js',
         version: require('../todomvc/vue.js/package.json').dependencies.vue
     }, {
-        name: 'Angular Elements',
-        slug: 'angular-elements',
-        version: require('../todomvc/angular-elements/package.json').dependencies['@angular/core']
+        name: 'Dojo',
+        slug: 'dojo2',
+        version: require('../todomvc/dojo2/package.json').dependencies['@dojo/core']
     }]
 };

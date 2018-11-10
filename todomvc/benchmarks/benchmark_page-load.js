@@ -18,6 +18,7 @@ fs.ensureDirSync('benchmarks-results/riot');
 fs.ensureDirSync('benchmarks-results/slim');
 fs.ensureDirSync('benchmarks-results/hyperhtml');
 fs.ensureDirSync('benchmarks-results/atomico');
+fs.ensureDirSync('benchmarks-results/dojo2');
 
 const numberOftests = 10;
 
@@ -482,6 +483,34 @@ let processRawData = (filename, i) => {
     results['atomico'] = Math.ceil(average);
 
     console.log(`\nAverage time for atomico : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({
+            headless: true,
+            ignoreHTTPSErrors: true
+        });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/dojo2/load-page_${i}.json`;
+
+        await page.tracing.start({
+            path: filename
+        });
+        await page.goto(`${LOCALHOST}/dojo2/output/index.html`);
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    results['dojo2'] = Math.ceil(average);
+
+    console.log(`\nAverage time for dojo2 : ${Math.ceil(average)} ms\n`);
 
     fs.outputJsonSync(resultsFile, results);
 })();

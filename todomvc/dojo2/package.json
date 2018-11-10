@@ -1,0 +1,35 @@
+{
+  "name": "dojo2-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-todo-app": "npx dojo build widget --elements=src/todo-app/TodoApp src/todo-input/TodoInput src/todo-item/TodoItem",
+    "build": "npm run build-todo-app",
+    "postbuild": "cp src/index.html output"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@dojo/core": "^2.0.0",
+    "@dojo/has": "^2.0.0",
+    "@dojo/i18n": "^2.0.0",
+    "@dojo/widget-core": "^2.0.0",
+    "@dojo/widgets": "^4.0.1"
+  },
+  "devDependencies": {
+    "@dojo/cli": "^4.0.0",
+    "@dojo/cli-build-widget": "^4.0.0",
+    "@dojo/loader": "^2.0.0",
+    "@dojo/webpack-contrib": "^4.0.2",
+    "css-loader": "^1.0.1",
+    "file-loader": "^2.0.0",
+    "imports-loader": "^0.8.0",
+    "json-css-module-loader": "^1.0.2",
+    "postcss-loader": "^3.0.0",
+    "source-map-loader-cli": "0.0.1",
+    "style-loader": "^0.23.1",
+    "typescript": "^3.1.6",
+    "umd-compat-loader": "^2.1.1"
+  }
+}

@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git+https://github.com/vogloblinsky/web-components-benchmark.git"
   },
+  "scripts": {
+    "compile-results": "node results/generate-index.js"
+  },
   "author": "Vincent Oogloblinsky",
   "license": "MIT",
   "bugs": {
