@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "description": "TodoMVC implemented in Svelte",
     "scripts": {
-        "build": "rollup -c --environment production",
-        "dev": "rollup -c -w",
-        "start": "http-server public & npm run dev"
+        "build": "npx rollup -c --environment production",
+        "dev": "npx rollup -c -w",
+        "start": "npx http-server public & npm run dev"
     },
     "files": [
         "index.html",
@@ -29,10 +29,6 @@
         "svelte": "^2.15.3"
     },
     "devDependencies": {
-        "rollup": "^0.67.0",
-        "rollup-plugin-filesize": "^5.0.1",
-        "rollup-plugin-svelte": "^4.3.2",
-        "rollup-plugin-uglify-es": "0.0.1",
-        "rollup-watch": "^4.3.1"
+        "rollup-plugin-svelte": "^4.3.2"
     }
 }

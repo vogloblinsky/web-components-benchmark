@@ -1,16 +1,12 @@
 {
   "name": "web-components-benchmark",
   "version": "1.0.0",
-  "description": "Benchmarks of libraries and implementation of Web Components :",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Benchmarks of libraries and implementation of Web Components",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vogloblinsky/web-components-benchmark.git"
   },
-  "author": "vogloblinsky-sii <vogloblinsky@sii.fr>",
+  "author": "Vincent Oogloblinsky",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vogloblinsky/web-components-benchmark/issues"
@@ -18,6 +14,8 @@
   "homepage": "https://github.com/vogloblinsky/web-components-benchmark#readme",
   "devDependencies": {
     "compression-webpack-plugin": "^2.0.0",
+    "concat-cli": "^4.0.0",
+    "cssnano": "^4.1.7",
     "devtools-timeline-model": "^1.4.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
@@ -26,9 +24,17 @@
     "http-server": "^0.11.1",
     "npm-run-all": "^4.1.3",
     "puppeteer": "^1.10.0",
+    "rollup": "^0.67.0",
+    "rollup-plugin-buble": "^0.19.4",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-copy": "^0.2.3",
+    "rollup-plugin-filesize": "^5.0.1",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-postcss": "^1.6.2",
+    "rollup-plugin-terser": "3.0.0",
+    "rollup-plugin-uglify-es": "0.0.1",
+    "rollup-prepare": "^0.0.0",
     "spdy": "^4.0.0",
-    "uglify-es": "^3.3.9",
-    "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "uglify-es": "^3.3.9"
   }
 }

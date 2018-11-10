@@ -13,8 +13,6 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-stage-0": "^6.24.1",
-    "prettier": "^1.12.1",
-    "prettier-eslint": "^8.8.1",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2"
   }

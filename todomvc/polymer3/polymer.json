@@ -5,9 +5,21 @@
       "polymer-3"
     ]
   },
-  "builds": [
-    {
-      "preset": "es6-bundled"
-    }
-  ]
+  "builds": [{
+    "name": "es6-unbundled",
+    "browserCapabilities": ["es2015", "push"],
+    "js": {
+      "minify": true,
+      "compile": false
+    },
+    "css": {
+      "minify": true
+    },
+    "html": {
+      "minify": false
+    },
+    "bundle": false,
+    "addServiceWorker": false,
+    "addPushManifest": false
+  }]
 }

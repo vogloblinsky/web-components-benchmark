@@ -138,7 +138,7 @@ let processRawData = (filename, i) => {
         await page.tracing.start({
             path: filename
         });
-        await page.goto(`${LOCALHOST}/polymer3/build/es6-bundled/index.html`);
+        await page.goto(`${LOCALHOST}/polymer3/build/es6-unbundled/index.html`);
         await page.tracing.stop();
 
         processRawData(filename, i);

@@ -12,8 +12,8 @@
   },
   "scripts": {
     "prebuild": "npm prune && npm install",
-    "watch": "rollup -c -w",
-    "build": "rollup -c"
+    "watch": "npx rollup -c -w",
+    "build": "npx rollup -c"
   },
   "dependencies": {
     "atomico": "^0.5.3"
@@ -21,16 +21,5 @@
   "globals": {
     "atomico": "atomico"
   },
-  "devDependencies": {
-    "cssnano": "^4.1.7",
-    "rollup": "^0.67.0",
-    "rollup-plugin-buble": "^0.19.4",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-copy": "^0.2.3",
-    "rollup-plugin-filesize": "^5.0.1",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-postcss": "^1.6.2",
-    "rollup-plugin-terser": "3.0.0",
-    "rollup-prepare": "^0.0.0"
-  }
+  "devDependencies": {}
 }

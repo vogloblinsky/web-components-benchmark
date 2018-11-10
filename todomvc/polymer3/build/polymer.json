@@ -10,25 +10,24 @@
   ],
   "builds": [
     {
-      "name": "es6-bundled",
+      "name": "es6-unbundled",
       "browserCapabilities": [
-        "es2015"
+        "es2015",
+        "push"
       ],
       "js": {
         "minify": true,
-        "compile": "es2015",
-        "transformModulesToAmd": true
+        "compile": false
       },
       "css": {
         "minify": true
       },
       "html": {
-        "minify": true
+        "minify": false
       },
-      "bundle": true,
-      "addServiceWorker": true,
-      "addPushManifest": false,
-      "preset": "es6-bundled"
+      "bundle": false,
+      "addServiceWorker": false,
+      "addPushManifest": false
     }
   ],
   "lint": {
