@@ -18,6 +18,7 @@ fs.ensureDirSync('benchmarks-results/riot');
 fs.ensureDirSync('benchmarks-results/slim');
 fs.ensureDirSync('benchmarks-results/hyperhtml');
 fs.ensureDirSync('benchmarks-results/atomico');
+fs.ensureDirSync('benchmarks-results/dojo2');
 
 const numberOftests = 10,
     numberOfCreation = 50,
@@ -165,7 +166,7 @@ let processRawData = (filename, i) => {
 
         filename = `benchmarks-results/polymer3/create-todos_${i}.json`;
 
-        await page.goto(`${LOCALHOST}/polymer3/build/es6-bundled/index.html`);
+        await page.goto(`${LOCALHOST}/polymer3/build/es6-unbundled/index.html`);
 
         await page.tracing.start({
             path: filename
@@ -586,6 +587,8 @@ let processRawData = (filename, i) => {
             path: filename
         });
 
+        await page.waitFor('my-todo todo-input input');
+
         const inputHandle = await page.evaluateHandle(`document.querySelector('my-todo todo-input input')`);
 
         for (let j = 0; j < numberOfCreation; j++) {
@@ -642,6 +645,43 @@ let processRawData = (filename, i) => {
     results['atomico'] = Math.ceil(average);
 
     console.log(`\nAverage time for atomico : ${Math.ceil(average)} ms\n`);
+
+    average = 0;
+
+    for (let i = 0; i < numberOftests; i++) {
+        browser = await puppeteer.launch({
+            headless: true,
+            ignoreHTTPSErrors: true
+        });
+        page = await browser.newPage();
+
+        filename = `benchmarks-results/dojo2/create-todos_${i}.json`;
+
+        await page.goto(`${LOCALHOST}/dojo2/output/index.html`);
+
+        await page.tracing.start({
+            path: filename
+        });
+
+        const inputHandle = await page.evaluateHandle(`document.querySelector('todo-app todo-input input')`);
+
+        for (let j = 0; j < numberOfCreation; j++) {
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
+        }
+
+        await page.tracing.stop();
+
+        processRawData(filename, i);
+
+        await browser.close();
+    }
+
+    average = average / numberOftests;
+
+    results['dojo2'] = Math.ceil(average);
+
+    console.log(`\nAverage time for dojo2 : ${Math.ceil(average)} ms\n`);
 
     fs.outputJsonSync(resultsFile, results);
 })();
