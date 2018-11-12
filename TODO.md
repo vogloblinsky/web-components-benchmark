@@ -1,6 +1,5 @@
 Todomvc
 
-[] dojo 2
 [] omi
 [] glimmerjs
 [] hybrids
