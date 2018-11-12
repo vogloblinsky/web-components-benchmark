@@ -8,6 +8,7 @@
         "benchmark:create-todos": "node benchmarks/benchmark_create-todos.js",
         "benchmark:delete-todos": "node benchmarks/benchmark_delete-todos.js",
         "benchmark:edit-todos": "node benchmarks/benchmark_edit-todos.js",
+        "benchmark:tti": "node benchmarks/benchmark_load-metrics.js",
         "build:angular": "cd angular-elements && npm run build",
         "build:atomico": "cd atomico && npm run build",
         "build:dojo2": "cd dojo2 && npm run build",

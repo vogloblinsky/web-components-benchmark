@@ -41,66 +41,11 @@
             <h4>Libraries or compilers</h4>
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Assets size Gzipped<br>(in Kb)</th>
-                        <th scope="col">Page load<br>(in ms)</th>
-                        <th scope="col">First meaningful paint<br>(in ms)</th>
-                        <th scope="col">Create 50 todos<br>(in ms)</th>
-                        <th scope="col">Delete 50 todos<br>(in ms)</th>
-                        <th scope="col">Edit 50 todos<br>(in ms)</th>
-                    </tr>
+                    <%- include('table_header'); %>
                 </thead>
                 <tbody>
                     <% todo.WClibraries.forEach(function(library){ %>
-                    <tr>
-                        <th scope="row">
-                            <%= library.name %><br />
-                            <%= library.version %>
-                        </th>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-1" role="progressbar" style="width: <%= Math.floor((library.size / todo.max.size) * 100)%>%">
-                                    <%= library.size %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-2" role="progressbar" style="width: <%= Math.floor((library.load / todo.max.load) * 100)%>%">
-                                    <%= library.load %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-3" role="progressbar" style="width: <%= Math.floor((library.fmp / todo.max.fmp) * 100)%>%">
-                                    <%= library.fmp %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-4" role="progressbar" style="width: <%= Math.floor((library.create / todo.max.create) * 100)%>%">
-                                    <%= library.create %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-5" role="progressbar" style="width: <%= Math.floor((library.delete / todo.max.delete) * 100)%>%">
-                                    <%= library.delete %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-6" role="progressbar" style="width: <%= Math.floor((library.edit / todo.max.edit) * 100)%>%">
-                                    <%= library.edit %>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                    <%- include('table', {library: library}); %>
                     <% }); %>
                 </tbody>
             </table>
@@ -108,66 +53,11 @@
             <h4>Classic frameworks exporting to Web Components</h4>
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Assets size Gzipped<br>(in Kb)</th>
-                        <th scope="col">Page load<br>(in ms)</th>
-                        <th scope="col">First meaningful paint<br>(in ms)</th>
-                        <th scope="col">Create 50 todos<br>(in ms)</th>
-                        <th scope="col">Delete 50 todos<br>(in ms)</th>
-                        <th scope="col">Edit 50 todos<br>(in ms)</th>
-                    </tr>
+                    <%- include('table_header'); %>
                 </thead>
                 <tbody>
                     <% todo.FW.forEach(function(library){ %>
-                    <tr>
-                        <th scope="row">
-                            <%= library.name %><br />
-                            <%= library.version %>
-                        </th>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-1" role="progressbar" style="width: <%= Math.floor((library.size / todo.max.size) * 100)%>%">
-                                    <%= library.size %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-2" role="progressbar" style="width: <%= Math.floor((library.load / todo.max.load) * 100)%>%">
-                                    <%= library.load %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-3" role="progressbar" style="width: <%= Math.floor((library.fmp / todo.max.fmp) * 100)%>%">
-                                    <%= library.fmp %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-4" role="progressbar" style="width: <%= Math.floor((library.create / todo.max.create) * 100)%>%">
-                                    <%= library.create %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-5" role="progressbar" style="width: <%= Math.floor((library.delete / todo.max.delete) * 100)%>%">
-                                    <%= library.delete %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-6" role="progressbar" style="width: <%= Math.floor((library.edit / todo.max.edit) * 100)%>%">
-                                    <%= library.edit %>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                    <%- include('table', {library: library}); %>
                     <% }); %>
                 </tbody>
             </table>
@@ -175,71 +65,16 @@
         <div class="py-5 text-center">
             <a id="pascal"></a>
             <h2 class="text-primary">Pascal triangle</h2>
-            <p>This benchmark disaply a Pascal Triangle</p>
+            <p>This benchmark display a Pascal Triangle</p>
             <br />
             <h4>Libraries or compilers</h4>
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Assets size Gzipped<br>(in Kb)</th>
-                        <th scope="col">Page load<br>(in ms)</th>
-                        <th scope="col">First meaningful paint<br>(in ms)</th>
-                        <th scope="col">Create 50 todos<br>(in ms)</th>
-                        <th scope="col">Delete 50 todos<br>(in ms)</th>
-                        <th scope="col">Edit 50 todos<br>(in ms)</th>
-                    </tr>
+                    <%- include('table_header'); %>
                 </thead>
                 <tbody>
                     <% pascal.WClibraries.forEach(function(library){ %>
-                    <tr>
-                        <th scope="row">
-                            <%= library.name %><br />
-                            <%= library.version %>
-                        </th>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-1" role="progressbar" style="width: <%= Math.floor((library.size / pascal.max.size) * 100)%>%">
-                                    <%= library.size %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-2" role="progressbar" style="width: <%= Math.floor((library.load / pascal.max.load) * 100)%>%">
-                                    <%= library.load %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-3" role="progressbar" style="width: <%= Math.floor((library.fmp / pascal.max.fmp) * 100)%>%">
-                                    <%= library.fmp %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-4" role="progressbar" style="width: <%= Math.floor((library.create / pascal.max.create) * 100)%>%">
-                                    <%= library.create %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-5" role="progressbar" style="width: <%= Math.floor((library.delete / pascal.max.delete) * 100)%>%">
-                                    <%= library.delete %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-6" role="progressbar" style="width: <%= Math.floor((library.edit / pascal.max.edit) * 100)%>%">
-                                    <%= library.edit %>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                    <%- include('table', {library: library}); %>
                     <% }); %>
                 </tbody>
             </table>
@@ -247,66 +82,11 @@
             <h4>Classic frameworks exporting to Web Components</h4>
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Assets size Gzipped<br>(in Kb)</th>
-                        <th scope="col">Page load<br>(in ms)</th>
-                        <th scope="col">First meaningful paint<br>(in ms)</th>
-                        <th scope="col">Create 50 todos<br>(in ms)</th>
-                        <th scope="col">Delete 50 todos<br>(in ms)</th>
-                        <th scope="col">Edit 50 todos<br>(in ms)</th>
-                    </tr>
+                    <%- include('table_header'); %>
                 </thead>
                 <tbody>
                     <% pascal.FW.forEach(function(library){ %>
-                    <tr>
-                        <th scope="row">
-                            <%= library.name %><br />
-                            <%= library.version %>
-                        </th>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-1" role="progressbar" style="width: <%= Math.floor((library.size / pascal.max.size) * 100)%>%">
-                                    <%= library.size %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-2" role="progressbar" style="width: <%= Math.floor((library.load / pascal.max.load) * 100)%>%">
-                                    <%= library.load %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-3" role="progressbar" style="width: <%= Math.floor((library.fmp / pascal.max.fmp) * 100)%>%">
-                                    <%= library.fmp %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-4" role="progressbar" style="width: <%= Math.floor((library.create / pascal.max.create) * 100)%>%">
-                                    <%= library.create %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-5" role="progressbar" style="width: <%= Math.floor((library.delete / pascal.max.delete) * 100)%>%">
-                                    <%= library.delete %>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <div class="progress">
-                                <div class="progress-bar bg-6" role="progressbar" style="width: <%= Math.floor((library.edit / pascal.max.edit) * 100)%>%">
-                                    <%= library.edit %>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                    <%- include('table', {library: library}); %>
                     <% }); %>
                 </tbody>
             </table>
@@ -368,7 +148,28 @@
         .bg-6 {
             background-color: #079992 !important;
         }
+
+        .light {
+            font-weight: normal;
+        }
+
+        .element-infos {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .element-infos__stars {
+            display: flex;
+            justify-content: center;
+            font-weight: normal;
+        }
+
+        .element-infos__stars ion-icon[name="star"] {
+            color: #FF9800;
+            margin-top: 2px;
+        }
     </style>
+    <script src="https://unpkg.com/ionicons@4.4.6/dist/ionicons.js"></script>
 </body>
 
 </html>
