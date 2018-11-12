@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-todo-app": "npx dojo build widget --elements=src/todo-app/TodoApp src/todo-input/TodoInput src/todo-item/TodoItem",
+    "build-todo-app": "npx dojo build widget --mode dev",
     "build": "npm run build-todo-app",
-    "postbuild": "cp src/index.html output"
+    "concat-js": "npx concat-cli -f output/dev/**/*.js -o output/dev/bundle.js",
+    "concat-css": "npx concat-cli -f output/dev/**/*.css -o output/dev/bundle.css",
+    "minify-js": "npx google-closure-compiler --warning_level=QUIET --language_out=ECMASCRIPT_2015 --js=output/dev/bundle.js --js_output_file=output/dev/bundle.min.js",
+    "minify-css": "npx uglifycss output/dev/bundle.css --output output/dev/bundle.min.css",
+    "postbuild": "cp src/index.html output && npm run concat-js && npm run minify-js && npm run concat-css&& npm run minify-css"
   },
   "author": "",
   "license": "ISC",

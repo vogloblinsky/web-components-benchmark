@@ -1,4 +1,10 @@
 {
-	"build-widget": {},
+	"build-widget": {
+		"elements": [
+			"src/todo-app/TodoApp",
+			"src/todo-item/TodoItem",
+			"src/todo-input/TodoInput"
+		]
+	},
 	"create-widget": {}
 }

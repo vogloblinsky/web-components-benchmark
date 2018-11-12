@@ -23,6 +23,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "fs-extra": "^7.0.1",
+    "google-closure-compiler": "^20181028.0.1",
     "html-minifier": "^3.5.21",
     "http-server": "^0.11.1",
     "lighthouse": "2.9.4",
@@ -39,6 +40,7 @@
     "rollup-plugin-uglify-es": "0.0.1",
     "rollup-prepare": "^0.0.0",
     "spdy": "^4.0.0",
-    "uglify-es": "^3.3.9"
+    "uglify-es": "^3.3.9",
+    "uglifycss": "0.0.29"
   }
 }
