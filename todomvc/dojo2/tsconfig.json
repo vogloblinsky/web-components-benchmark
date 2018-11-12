@@ -20,7 +20,7 @@
 		"sourceMap": true,
 		"strict": true,
 		"target": "es5",
-		"types": [ ]
+		"types": []
 	},
 	"include": [
 		"./src/**/*.ts"
