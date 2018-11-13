@@ -171,7 +171,7 @@ module.exports = {
         todo: {
             url: 'dojo2/output/index.html',
             paths: [
-                'todomvc/dojo2/output/dev/bundle.min.js'
+                'todomvc/dojo2/output/dist/index/index-1.0.0.js'
             ]
         }
     }]
