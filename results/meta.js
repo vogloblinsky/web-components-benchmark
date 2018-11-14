@@ -159,6 +159,7 @@ module.exports = {
         todo: {
             url: 'vue.js/dist/index.html',
             paths: [
+                'todomvc/vue.js/node_modules/vue/dist/vue.min.js',
                 'todomvc/vue.js/dist/build.js'
             ]
         }
