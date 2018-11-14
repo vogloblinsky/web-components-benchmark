@@ -4,10 +4,8 @@ const puppeteer = require('puppeteer'),
 
 fs.ensureDirSync('benchmarks-results/native-shadow-dom');
 fs.ensureDirSync('benchmarks-results/atomico');
-//fs.ensureDirSync('benchmarks-results/native-shadow-dom_lit-html');
 fs.ensureDirSync('benchmarks-results/hyperhtml');
 fs.ensureDirSync('benchmarks-results/lit-element');
-//fs.ensureDirSync('benchmarks-results/polymer');
 fs.ensureDirSync('benchmarks-results/polymer3');
 fs.ensureDirSync('benchmarks-results/riot');
 fs.ensureDirSync('benchmarks-results/skatejs-lit-html');
@@ -15,7 +13,6 @@ fs.ensureDirSync('benchmarks-results/skatejs-preact');
 fs.ensureDirSync('benchmarks-results/slim');
 fs.ensureDirSync('benchmarks-results/stencil');
 fs.ensureDirSync('benchmarks-results/svelte');
-//fs.ensureDirSync('benchmarks-results/stencil-prerendered');
 fs.ensureDirSync('benchmarks-results/angular-elements');
 fs.ensureDirSync('benchmarks-results/vue.js');
 fs.ensureDirSync('benchmarks-results/dojo2');
