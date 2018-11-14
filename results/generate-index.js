@@ -95,7 +95,7 @@ metas.fw.forEach(lib => {
         size: lib.todo.size,
         tti: todoTTIResults[lib.slug]
     });
-    if ((lib.todo.size > maxTodo.size) && lib.name !== 'Angular Elements') {
+    if ((lib.todo.size > maxTodo.size)) {
         maxTodo.size = lib.todo.size;
     }
     if (todoLoadResults[lib.slug] > maxTodo.load) {
