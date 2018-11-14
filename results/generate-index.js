@@ -113,7 +113,7 @@ data.todo.max = maxTodo;
 data.pascal.max = maxTodo;
 
 ejs.renderFile('./results/index.ejs', data, {}, function(err, str) {
-    fs.writeFile('./dist/index.html', str, (err) => {
+    fs.writeFile('./docs/index.html', str, (err) => {
         if (err) throw err;
         console.log('The file has been saved!');
     });

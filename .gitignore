@@ -61,6 +61,4 @@ typings/
 
 benchmarks-results
 
-dist
-
 results/*.json

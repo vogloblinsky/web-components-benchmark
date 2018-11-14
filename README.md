@@ -3,16 +3,18 @@
 Benchmarks of libraries and implementation of Web Components :
 
 -   native
--   Polymer 3
--   Stencil
--   Vue.js
--   SkateJS
--   Svelte
--   lit-element
+-   Atomico
 -   hyperHTML
+-   lit-element
+-   Polymer 3
 -   riot
--   Dojo 2
+-   SkateJS
 -   Slim.js
+-   Stencil
+-   Svelte
+-   Angular Elements
+-   Vue.js
+-   Dojo 2
 
 The benchmark consists of two different applications :
 
@@ -26,6 +28,7 @@ Node.js
 
 ## Setup
 
+> npm i
 > cd todomvc && npm i
 > cd pascal-triangle && npm i
 
@@ -33,32 +36,19 @@ Node.js
 
 In one tab
 
+> cd todomvc
 > npm run serve
 
 In another tab
 
-> npm run benchmark-create-todos
+> npm run benchmark:create-todos
 
 # Current results
+
+## TodoMVC
+
+TODO
 
 ## Pascal Triangle
 
 TODO
-
-## TodoMVC
-
-### Page load (ms) - lower is better
-
-![page-load](./todomvc/screenshots/benchmark_page-load.png)
-
-### Create 50 items (ms) - lower is better
-
-![create](./todomvc/screenshots/benchmark_create.png)
-
-### Delete 50 items (ms) - lower is better
-
-![delete](./todomvc/screenshots/benchmark_delete.png)
-
-### Edit 50 items (ms) - lower is better
-
-![edit](./todomvc/screenshots/benchmark_edit.png)
