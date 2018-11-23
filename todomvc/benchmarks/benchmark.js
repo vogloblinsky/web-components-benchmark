@@ -8,8 +8,7 @@ const {
     benchTti
 } = require('./helpers');
 
-const FW = [
-    /*{
+const FW = [{
         name: 'Angular Elements',
         slug: 'angular-elements',
         github: 'https://github.com/angular/angular',
@@ -21,7 +20,7 @@ const FW = [
                 'todomvc/angular-elements/dist/main.bundle.js'
             ]
         }
-    }*/
+    },
     {
         name: 'Native',
         slug: 'native',
@@ -38,38 +37,48 @@ const FW = [
 ];
 
 (async () => {
-    const resultsFileLoad = '../results/todo-load.json';
-    let resultsLoad = {};
-    let averageLoad = await benchPageLoad(FW[0].slug, FW[0].todo.url);
-    console.log(`\nAverage time for Page Load - ${FW[0].name} : ${Math.ceil(averageLoad)} ms\n`);
-    resultsLoad[FW[0].slug] = Math.ceil(averageLoad);
-    fs.outputJsonSync(resultsFileLoad, resultsLoad);
 
-    const resultsFileTti = '../results/todo-tti.json';
-    let resultsTti = {};
-    let averageTti = await benchTti(FW[0].todo.url);
-    console.log(`\nAverage time for time to interactive - ${FW[0].name} : ${Math.ceil(averageTti)} ms\n`);
-    resultsTti[FW[0].slug] = Math.ceil(averageTti);
-    fs.outputJsonSync(resultsFileTti, resultsTti);
+    for (let i = 0; i < FW.length; i++) {
 
-    const resultsFileCreate = '../results/todo-create.json';
-    let resultsCreate = {};
-    let averageCreate = await benchCreate(FW[0].slug, FW[0].todo.url);
-    console.log(`\nAverage time for creation - ${FW[0].name} : ${Math.ceil(averageCreate)} ms\n`);
-    resultsCreate[FW[0].slug] = Math.ceil(averageCreate);
-    fs.outputJsonSync(resultsFileCreate, resultsCreate);
+        let element = FW[i];
 
-    const resultsFileDelete = '../results/todo-delete.json';
-    let resultsDelete = {};
-    let averageDelete = await benchDelete(FW[0].slug, FW[0].todo.url);
-    console.log(`\nAverage time for delete - ${FW[0].name} : ${Math.ceil(averageDelete)} ms\n`);
-    resultsDelete[FW[0].slug] = Math.ceil(averageDelete);
-    fs.outputJsonSync(resultsFileDelete, resultsDelete);
+        console.log('********************');
+        console.log('* ' + element.name);
+        console.log('********************');
 
-    const resultsFileEdit = '../results/todo-edit.json';
-    let resultsEdit = {};
-    let averageEdit = await benchEdit(FW[0].slug, FW[0].todo.url);
-    console.log(`\nAverage time for edition - ${FW[0].name} : ${Math.ceil(averageEdit)} ms\n`);
-    resultsEdit[FW[0].slug] = Math.ceil(averageEdit);
-    fs.outputJsonSync(resultsFileEdit, resultsEdit);
+        const resultsFileLoad = '../results/todo-load.json';
+        let resultsLoad = fs.readJsonSync(resultsFileLoad);
+        let averageLoad = await benchPageLoad(element.slug, element.todo.url);
+        console.log(`\nAverage time for Page Load : ${Math.ceil(averageLoad)} ms\n`);
+        resultsLoad[element.slug] = Math.ceil(averageLoad);
+        fs.outputJsonSync(resultsFileLoad, resultsLoad);
+
+        const resultsFileTti = '../results/todo-tti.json';
+        let resultsTti = fs.readJsonSync(resultsFileTti);
+        let averageTti = await benchTti(element.todo.url);
+        console.log(`\nAverage time for time to interactive : ${Math.ceil(averageTti)} ms\n`);
+        resultsTti[element.slug] = Math.ceil(averageTti);
+        fs.outputJsonSync(resultsFileTti, resultsTti);
+
+        const resultsFileCreate = '../results/todo-create.json';
+        let resultsCreate = fs.readJsonSync(resultsFileCreate);
+        let averageCreate = await benchCreate(element.slug, element.todo.url);
+        console.log(`\nAverage time for creation : ${Math.ceil(averageCreate)} ms\n`);
+        resultsCreate[element.slug] = Math.ceil(averageCreate);
+        fs.outputJsonSync(resultsFileCreate, resultsCreate);
+
+        const resultsFileDelete = '../results/todo-delete.json';
+        let resultsDelete = fs.readJsonSync(resultsFileDelete);
+        let averageDelete = await benchDelete(element.slug, element.todo.url);
+        console.log(`\nAverage time for delete : ${Math.ceil(averageDelete)} ms\n`);
+        resultsDelete[element.slug] = Math.ceil(averageDelete);
+        fs.outputJsonSync(resultsFileDelete, resultsDelete);
+
+        const resultsFileEdit = '../results/todo-edit.json';
+        let resultsEdit = fs.readJsonSync(resultsFileEdit);
+        let averageEdit = await benchEdit(element.slug, element.todo.url);
+        console.log(`\nAverage time for edition : ${Math.ceil(averageEdit)} ms\n`);
+        resultsEdit[element.slug] = Math.ceil(averageEdit);
+        fs.outputJsonSync(resultsFileEdit, resultsEdit);
+    }
 })();

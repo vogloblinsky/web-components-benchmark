@@ -11,6 +11,7 @@ const perfConfig = require('./config.performance.js');
 
 const LOCALHOST = 'https://localhost:3001';
 const numberOftests = 10;
+const selectorInput = `document.querySelector('my-todo').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`;
 
 async function gatherLighthouseMetrics(page, config) {
     // Port is in formаt: ws://127.0.0.1:52046/devtools/browser/675a2fad-4ccf-412b-81bb-170fdb2cc39c
@@ -69,7 +70,6 @@ async function benchPageLoad(slug, url) {
 
 async function benchCreate(slug, url) {
     const numberOfCreation = 50;
-    const selector = `document.querySelector('my-todo').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -85,14 +85,14 @@ async function benchCreate(slug, url) {
         });
         page = await browser.newPage();
 
-        filename = `benchmarks-results/${slug}/load-page_${i}.json`;
+        filename = `benchmarks-results/${slug}/create-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/${url}`);
 
+        const inputHandle = await page.evaluateHandle(selectorInput);
         await page.tracing.start({
             path: filename
         });
-        const inputHandle = await page.evaluateHandle(selector);
 
         for (let j = 0; j < numberOfCreation; j++) {
             await inputHandle.type('New todo');
@@ -110,9 +110,7 @@ async function benchCreate(slug, url) {
 }
 
 async function benchDelete(slug, url) {
-    const numberOfCreation = 50;
-    const selectorInput = `document.querySelector('my-todo').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`;
-    const selectorButton = `document.querySelector('my-todo').shadowRoot.querySelector('todo-item').shadowRoot.querySelector('button')`;
+    const numberOfDelete = 50;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -128,13 +126,18 @@ async function benchDelete(slug, url) {
         });
         page = await browser.newPage();
 
-        filename = `benchmarks-results/${slug}/load-page_${i}.json`;
+        filename = `benchmarks-results/${slug}/delete-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/${url}`);
 
+        await page.setViewport({
+            width: 800,
+            height: 6000
+        });
+
         const inputHandle = await page.evaluateHandle(selectorInput);
 
-        for (let j = 0; j < numberOfCreation; j++) {
+        for (let j = 0; j < numberOfDelete; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -143,9 +146,8 @@ async function benchDelete(slug, url) {
             path: filename
         });
 
-        for (let j = 0; j < numberOfCreation; j++) {
-            const buttonHandle = await page.evaluateHandle(selectorButton);
-            await buttonHandle.click();
+        for (let j = 0; j < numberOfDelete; j++) {
+            await page.mouse.click(646, 362);
         }
 
         await page.tracing.stop();
@@ -160,8 +162,6 @@ async function benchDelete(slug, url) {
 
 async function benchEdit(slug, url) {
     const numberOfCreation = 50;
-    const selectorInput = `document.querySelector('my-todo').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`;
-    const selectorItems = `document.querySelector('my-todo').shadowRoot.querySelectorAll('todo-item')`;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -177,7 +177,7 @@ async function benchEdit(slug, url) {
         });
         page = await browser.newPage();
 
-        filename = `benchmarks-results/${slug}/load-page_${i}.json`;
+        filename = `benchmarks-results/${slug}/edit-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/${url}`);
 
