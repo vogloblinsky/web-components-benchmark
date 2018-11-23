@@ -8,6 +8,8 @@ const queryStars = require('./query-stars');
 
 const todoLoadResults = require('./todo-load.json');
 const todoCreateResults = require('./todo-create.json');
+const todoDeleteResults = require('./todo-delete.json');
+const todoEditResults = require('./todo-edit.json');
 const todoTTIResults = require('./todo-tti.json');
 
 const data = {
@@ -58,12 +60,10 @@ metas.wc.forEach((lib) => {
         name: lib.name,
         stars: lib.stars,
         version: cleanVersion(lib.version),
-        size: 0,
         load: todoLoadResults[lib.slug],
-        fmp: 0,
         create: todoCreateResults[lib.slug],
-        delete: 0,
-        edit: 0,
+        delete: todoDeleteResults[lib.slug],
+        edit: todoEditResults[lib.slug],
         size: lib.todo.size,
         tti: todoTTIResults[lib.slug]
     });
@@ -76,6 +76,12 @@ metas.wc.forEach((lib) => {
     if (todoCreateResults[lib.slug] > maxTodo.create) {
         maxTodo.create = todoCreateResults[lib.slug];
     }
+    if (todoDeleteResults[lib.slug] > maxTodo.delete) {
+        maxTodo.delete = todoDeleteResults[lib.slug];
+    }
+    if (todoEditResults[lib.slug] > maxTodo.edit) {
+        maxTodo.edit = todoEditResults[lib.slug];
+    }
     if (todoTTIResults[lib.slug] > maxTodo.tti) {
         maxTodo.tti = todoTTIResults[lib.slug];
     }
@@ -86,12 +92,10 @@ metas.fw.forEach(lib => {
         name: lib.name,
         stars: lib.stars,
         version: cleanVersion(lib.version),
-        size: 0,
         load: todoLoadResults[lib.slug],
-        fmp: 0,
         create: todoCreateResults[lib.slug],
-        delete: 0,
-        edit: 0,
+        delete: todoDeleteResults[lib.slug],
+        edit: todoEditResults[lib.slug],
         size: lib.todo.size,
         tti: todoTTIResults[lib.slug]
     });
@@ -103,6 +107,12 @@ metas.fw.forEach(lib => {
     }
     if (todoCreateResults[lib.slug] > maxTodo.create) {
         maxTodo.create = todoCreateResults[lib.slug];
+    }
+    if (todoDeleteResults[lib.slug] > maxTodo.delete) {
+        maxTodo.delete = todoDeleteResults[lib.slug];
+    }
+    if (todoEditResults[lib.slug] > maxTodo.edit) {
+        maxTodo.edit = todoEditResults[lib.slug];
     }
     if (todoTTIResults[lib.slug] > maxTodo.tti) {
         maxTodo.tti = todoTTIResults[lib.slug];
