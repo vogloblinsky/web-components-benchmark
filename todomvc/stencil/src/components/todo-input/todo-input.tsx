@@ -3,25 +3,26 @@ import { Component, State, Event, EventEmitter } from '@stencil/core';
 @Component({
   tag: 'todo-input',
   styleUrl: 'todo-input.css',
-  //shadow: true,
+  shadow: true
 })
 export class TodoInput {
   @Event() onTodoInputSubmit: EventEmitter;
   @State() value: string;
 
-  handleOnSubmit = (e) => {
+  handleOnSubmit = e => {
     e.preventDefault();
     if (!this.value) return;
     this.onTodoInputSubmit.emit(this.value);
     this.value = '';
-  }
+  };
 
-  handleInputChange = (event) => this.value = event.target.value;
+  handleInputChange = event => (this.value = event.target.value);
 
   render() {
     return (
       <form onSubmit={this.handleOnSubmit}>
-        <input id="input-submit"
+        <input
+          id="input-submit"
           value={this.value}
           type="text"
           placeholder="What needs to be done?"
