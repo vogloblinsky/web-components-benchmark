@@ -12,7 +12,7 @@ export interface TodoAppProperties {
 
 @theme(css)
 @customElement<TodoAppProperties>({
-    tag: 'todo-app',
+    tag: 'my-todo',
     events: [],
     attributes: [],
     properties: []

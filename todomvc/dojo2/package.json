@@ -21,7 +21,7 @@
   "devDependencies": {
     "@dojo/cli": "^4.0.0",
     "@dojo/cli-build-widget": "^4.0.0",
-    "@dojo/framework": "^4.0.0",
+    "@dojo/framework": "^4.0.2",
     "@dojo/loader": "^2.0.0",
     "@dojo/webpack-contrib": "^4.0.2",
     "chalk": "^2.4.1",
