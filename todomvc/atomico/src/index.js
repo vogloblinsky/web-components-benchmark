@@ -4,9 +4,9 @@ import TagItem from "./todo-item";
 
 import style from "./style.css";
 
-export const TAG_TODO = "atom-todo";
-export const TAG_ITEM = "atom-todo-item";
-export const TAG_INPUT = "atom-todo-input";
+export const TAG_TODO = "my-todo";
+export const TAG_ITEM = "todo-item";
+export const TAG_INPUT = "todo-input";
 
 export default class TagTodo extends Element {
     constructor() {
@@ -24,7 +24,7 @@ export default class TagTodo extends Element {
                 <h1>Todos Atomico</h1>
                 <section>
                     <style>{style}</style>
-                    <atom-todo-input
+                    <todo-input
                         placeholder="What needs to be done?"
                         create={({ detail }) => {
                             this.setState({
@@ -37,7 +37,7 @@ export default class TagTodo extends Element {
                     />
                     <div id="list-container">
                         {list.map(({ text, checked }, localIndex) => (
-                            <atom-todo-item
+                            <todo-item
                                 text={text}
                                 checked={checked}
                                 remove={() => {
