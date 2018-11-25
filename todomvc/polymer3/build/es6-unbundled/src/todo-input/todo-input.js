@@ -41,4 +41,4 @@ import"../../node_modules/@polymer/iron-form/iron-form.js";import"../../node_mod
                 </iron-input>
             </form>
         </iron-form>
-      `}static get properties(){return{text:{type:String,value:""}}}ready(){super.ready();this.$form=this.shadowRoot.querySelector("iron-form");this.$form.addEventListener("iron-form-submit",()=>{if(!this.text)return;this.dispatchEvent(new CustomEvent("onSubmit",{detail:this.text}));this.text=""})}}customElements.define("todo-input",TodoInput);
+      `}static get properties(){return{text:{type:String,value:""}}}ready(){super.ready();this.$form=this.shadowRoot.querySelector("iron-form");this.$form.addEventListener("iron-form-submit",e=>{if(!this.text)return;this.dispatchEvent(new CustomEvent("onSubmit",{detail:this.text}));this.text=""})}}customElements.define("todo-input",TodoInput);

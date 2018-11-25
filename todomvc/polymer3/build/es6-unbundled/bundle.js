@@ -62,7 +62,7 @@ window.JSCompiler_renameProperty=function(prop,obj){return prop};let CSS_URL_RX=
           </template>
         </ul>
       </section>
-    `}static get properties(){return{list:{type:Array,value:[{text:"my initial todo",checked:!1},{text:"Learn about Web Components",checked:!0}]}}}ready(){super.ready();this.$input=this.shadowRoot.querySelector("todo-input");this.$input.addEventListener("onSubmit",this.addItem.bind(this))}addItem(e){this.set("list",[...this.list,{text:e.detail,checked:!1}])}removeItem(e){this.set("list",[...this.list.slice(0,e.detail),...this.list.slice(e.detail+1)])}toggleItem(e){const list=[...this.list],item=list[e.detail];list[e.detail]=Object.assign({},item,{checked:!item.checked});this.set("list",list)}}window.customElements.define("todo-app",TodoApp);class TodoInput extends PolymerElement{static get template(){return html`
+    `}static get properties(){return{list:{type:Array,value:[{text:"my initial todo",checked:!1},{text:"Learn about Web Components",checked:!0}]}}}ready(){super.ready();this.$input=this.shadowRoot.querySelector("todo-input");this.$input.addEventListener("onSubmit",this.addItem.bind(this))}addItem(e){this.set("list",[...this.list,{text:e.detail,checked:!1}])}removeItem(e){this.set("list",[...this.list.slice(0,e.detail),...this.list.slice(e.detail+1)])}toggleItem(e){const list=[...this.list],item=list[e.detail];list[e.detail]=Object.assign({},item,{checked:!item.checked});this.set("list",list)}}window.customElements.define("my-todo",TodoApp);class TodoInput extends PolymerElement{static get template(){return html`
         <style>
             :host {
                 display: block;
@@ -105,7 +105,7 @@ window.JSCompiler_renameProperty=function(prop,obj){return prop};let CSS_URL_RX=
                 </iron-input>
             </form>
         </iron-form>
-      `}static get properties(){return{text:{type:String,value:""}}}ready(){super.ready();this.$form=this.shadowRoot.querySelector("iron-form");this.$form.addEventListener("iron-form-submit",()=>{if(!this.text)return;this.dispatchEvent(new CustomEvent("onSubmit",{detail:this.text}));this.text=""})}}customElements.define("todo-input",TodoInput);class TodoItem extends PolymerElement{static get template(){return html`
+      `}static get properties(){return{text:{type:String,value:""}}}ready(){super.ready();this.$form=this.shadowRoot.querySelector("iron-form");this.$form.addEventListener("iron-form-submit",e=>{if(!this.text)return;this.dispatchEvent(new CustomEvent("onSubmit",{detail:this.text}));this.text=""})}}customElements.define("todo-input",TodoInput);class TodoItem extends PolymerElement{static get template(){return html`
         <style>
         :host {
             display: block;
@@ -201,4 +201,4 @@ window.JSCompiler_renameProperty=function(prop,obj){return prop};let CSS_URL_RX=
             <label>{{text}}</label>
             <button class="destroy" on-click="handleOnRemove">x</button>
         </li>
-      `}static get properties(){return{checked:{type:Boolean,value:!1},index:{type:Number},text:{type:String,value:""}}}handleOnRemove(){this.dispatchEvent(new CustomEvent("remove",{detail:this.index}))}handleOnChecked(){this.dispatchEvent(new CustomEvent("toggle",{detail:this.index}))}isCompleted(completed){return completed?"completed":""}}customElements.define("todo-item",TodoItem);export{TodoInput,TodoItem};
+      `}static get properties(){return{checked:{type:Boolean,value:!1},index:{type:Number},text:{type:String,value:""}}}handleOnRemove(e){this.dispatchEvent(new CustomEvent("remove",{detail:this.index}))}handleOnChecked(e){this.dispatchEvent(new CustomEvent("toggle",{detail:this.index}))}isCompleted(completed){return completed?"completed":""}}customElements.define("todo-item",TodoItem);export{TodoInput,TodoItem};

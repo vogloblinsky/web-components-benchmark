@@ -94,4 +94,4 @@ export class TodoItem extends PolymerElement{static get template(){return html`
             <label>{{text}}</label>
             <button class="destroy" on-click="handleOnRemove">x</button>
         </li>
-      `}static get properties(){return{checked:{type:Boolean,value:!1},index:{type:Number},text:{type:String,value:""}}}handleOnRemove(){this.dispatchEvent(new CustomEvent("remove",{detail:this.index}))}handleOnChecked(){this.dispatchEvent(new CustomEvent("toggle",{detail:this.index}))}isCompleted(completed){return completed?"completed":""}}customElements.define("todo-item",TodoItem);
+      `}static get properties(){return{checked:{type:Boolean,value:!1},index:{type:Number},text:{type:String,value:""}}}handleOnRemove(e){this.dispatchEvent(new CustomEvent("remove",{detail:this.index}))}handleOnChecked(e){this.dispatchEvent(new CustomEvent("toggle",{detail:this.index}))}isCompleted(completed){return completed?"completed":""}}customElements.define("todo-item",TodoItem);

@@ -15,9 +15,9 @@
     "@polymer/polymer": "^3.1.0"
   },
   "devDependencies": {
-    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "@webcomponents/webcomponentsjs": "^2.2.0",
     "concat-cli": "^4.0.0",
-    "polymer-cli": "^1.8.1",
+    "polymer-cli": "^1.9.1",
     "replace": "^1.0.0",
     "uglify-es": "^3.3.9",
     "wct-browser-legacy": "^1.0.0"

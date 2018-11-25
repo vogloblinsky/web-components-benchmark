@@ -90,4 +90,4 @@ class TodoApp extends PolymerElement {
   }
 }
 
-window.customElements.define('todo-app', TodoApp);
+window.customElements.define('my-todo', TodoApp);
