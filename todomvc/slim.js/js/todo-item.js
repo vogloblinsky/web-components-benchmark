@@ -1,6 +1,6 @@
 Slim.tag(
-    'todo-item',
-    `
+  'todo-item',
+  `
     <style>
       :host {
         display: block;
@@ -96,9 +96,12 @@ Slim.tag(
         <label bind>{{data.text}}</label>
         <button class="destroy" click="handleDeleteClick">x</button>
     </li>`,
-    class TodoItem extends Slim {
-        handleDeleteClick() {
-            this.callAttribute('on-remove', this.data.index);
-        }
+  class TodoItem extends Slim {
+    get useShadow() {
+      return true
     }
+    handleDeleteClick() {
+      this.callAttribute('on-remove', this.data.index);
+    }
+  }
 );

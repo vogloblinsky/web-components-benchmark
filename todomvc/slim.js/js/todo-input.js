@@ -32,6 +32,9 @@ Slim.tag(
         <input id="new-todo" s:id="new_item_input" type="text" keydown="handleKeyDown" placeholder="What needs to be done?" />
     </form>`,
     class TodoInput extends Slim {
+        get useShadow() {
+            return true
+        }
         handleKeyDown(e) {
             if (e.which === 13) {
                 e.preventDefault();

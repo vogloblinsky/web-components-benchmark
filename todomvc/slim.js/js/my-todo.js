@@ -1,4 +1,3 @@
-
 Slim.tag(
     'my-todo',
     `
@@ -32,11 +31,25 @@ Slim.tag(
         </ul>
     </section>`,
     class MyTag extends Slim {
+        get useShadow() {
+            return true
+        }
         onBeforeCreated() {
-            this.items = [{ text: 'my initial todo', checked: false, index: 0 }, { text: 'Learn about Web Components', checked: true, index: 1 }];
+            this.items = [{
+                text: 'my initial todo',
+                checked: false,
+                index: 0
+            }, {
+                text: 'Learn about Web Components',
+                checked: true,
+                index: 1
+            }];
         }
         handleAdd(text) {
-            this.items = [...this.items, { index: this.items.length, text: text }];
+            this.items = [...this.items, {
+                index: this.items.length,
+                text: text
+            }];
         }
         handleRemove(index) {
             this.items = [...this.items.slice(0, index), ...this.items.slice(index + 1)];
