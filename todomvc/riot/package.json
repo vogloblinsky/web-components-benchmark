@@ -22,6 +22,6 @@
         "uglify-es": "^3.3.9"
     },
     "dependencies": {
-        "riot": "^3.13.1"
+        "riot": "^3.13.2"
     }
 }
