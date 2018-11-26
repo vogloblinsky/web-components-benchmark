@@ -16,11 +16,11 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
-        "replace": "^0.3.0",
+        "replace": "^1.0.0",
         "uglify-es": "^3.3.9"
     },
     "dependencies": {
-        "hyperhtml": "^2.10.0",
-        "hyperhtml-element": "^1.7.0"
+        "hyperhtml": "^2.18.0",
+        "hyperhtml-element": "^3.1.0"
     }
 }
