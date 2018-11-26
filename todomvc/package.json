@@ -4,6 +4,7 @@
     "description": "Web Components implementations benchmark",
     "scripts": {
         "serve": "node server.js",
+        "benchmark": "node benchmarks/benchmark.js",
         "benchmark:page-load": "node benchmarks/benchmark_page-load.js",
         "benchmark:create-todos": "node benchmarks/benchmark_create-todos.js",
         "benchmark:delete-todos": "node benchmarks/benchmark_delete-todos.js",

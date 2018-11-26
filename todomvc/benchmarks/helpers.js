@@ -11,7 +11,9 @@ const perfConfig = require('./config.performance.js');
 
 const LOCALHOST = 'https://localhost:3001';
 const numberOftests = 10;
+const numberOfModifications = 50;
 const selectorInput = `document.querySelector('my-todo').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`;
+const selectorInputNoShadowDom = `document.querySelector('my-todo').querySelector('todo-input').querySelector('input')`;
 
 async function gatherLighthouseMetrics(page, config) {
     // Port is in formаt: ws://127.0.0.1:52046/devtools/browser/675a2fad-4ccf-412b-81bb-170fdb2cc39c
@@ -37,7 +39,8 @@ function processRawData(filename, i) {
     }
 }
 
-async function benchPageLoad(slug, url) {
+async function benchPageLoad(element, url) {
+    const slug = element.slug;
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
     let browser;
@@ -68,8 +71,9 @@ async function benchPageLoad(slug, url) {
     return average / numberOftests;
 }
 
-async function benchCreate(slug, url) {
-    const numberOfCreation = 50;
+async function benchCreate(element, url) {
+    const slug = element.slug;
+    const selector = (element.noshadowdom) ? selectorInputNoShadowDom : selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -87,14 +91,18 @@ async function benchCreate(slug, url) {
 
         filename = `benchmarks-results/${slug}/create-todos_${i}.json`;
 
-        await page.goto(`${LOCALHOST}/${url}`);
+        await page.goto(`${LOCALHOST}/${url}`, {
+            waitUntil: 'load'
+        });
 
-        const inputHandle = await page.evaluateHandle(selectorInput);
+        await page.waitFor(500);
+
+        const inputHandle = await page.evaluateHandle(selector);
         await page.tracing.start({
             path: filename
         });
 
-        for (let j = 0; j < numberOfCreation; j++) {
+        for (let j = 0; j < numberOfModifications; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -109,8 +117,9 @@ async function benchCreate(slug, url) {
     return average / numberOftests;
 }
 
-async function benchDelete(slug, url) {
-    const numberOfDelete = 50;
+async function benchDelete(element, url) {
+    const slug = element.slug;
+    const selector = (element.noshadowdom) ? selectorInputNoShadowDom : selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -128,16 +137,20 @@ async function benchDelete(slug, url) {
 
         filename = `benchmarks-results/${slug}/delete-todos_${i}.json`;
 
-        await page.goto(`${LOCALHOST}/${url}`);
+        await page.goto(`${LOCALHOST}/${url}`, {
+            waitUntil: 'load'
+        });
 
         await page.setViewport({
             width: 800,
             height: 6000
         });
 
-        const inputHandle = await page.evaluateHandle(selectorInput);
+        await page.waitFor(500);
 
-        for (let j = 0; j < numberOfDelete; j++) {
+        const inputHandle = await page.evaluateHandle(selector);
+
+        for (let j = 0; j < numberOfModifications; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -146,7 +159,7 @@ async function benchDelete(slug, url) {
             path: filename
         });
 
-        for (let j = 0; j < numberOfDelete; j++) {
+        for (let j = 0; j < numberOfModifications; j++) {
             await page.mouse.click(646, 362);
         }
 
@@ -160,8 +173,9 @@ async function benchDelete(slug, url) {
     return average / numberOftests;
 }
 
-async function benchEdit(slug, url) {
-    const numberOfCreation = 50;
+async function benchEdit(element, url) {
+    const slug = element.slug;
+    const selector = (element.noshadowdom) ? selectorInputNoShadowDom : selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -179,16 +193,20 @@ async function benchEdit(slug, url) {
 
         filename = `benchmarks-results/${slug}/edit-todos_${i}.json`;
 
-        await page.goto(`${LOCALHOST}/${url}`);
+        await page.goto(`${LOCALHOST}/${url}`, {
+            waitUntil: 'load'
+        });
 
         await page.setViewport({
             width: 800,
             height: 6000
         });
 
-        const inputHandle = await page.evaluateHandle(selectorInput);
+        await page.waitFor(500);
 
-        for (let j = 0; j < numberOfCreation; j++) {
+        const inputHandle = await page.evaluateHandle(selector);
+
+        for (let j = 0; j < numberOfModifications; j++) {
             await inputHandle.type('New todo');
             await inputHandle.press('Enter');
         }
@@ -201,7 +219,7 @@ async function benchEdit(slug, url) {
         // Edit todos with mouse click and x/y coordinates
 
         let incrementY = 364;
-        for (let j = 0; j < numberOfCreation; j++) {
+        for (let j = 0; j < numberOfModifications; j++) {
             await page.mouse.click(140, incrementY);
             incrementY += 59;
         }

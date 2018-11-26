@@ -68,6 +68,7 @@ module.exports = {
         github: 'https://github.com/riot/riot',
         version: require('../todomvc/riot/package.json').dependencies['riot'],
         stars: 13320,
+        noshadowdom: true,
         todo: {
             url: 'riot/dist/index.html',
             paths: [
@@ -169,6 +170,7 @@ module.exports = {
         github: 'https://github.com/dojo/framework',
         version: require('../todomvc/dojo2/package.json').dependencies['@dojo/core'],
         stars: 80,
+        noshadowdom: true,
         todo: {
             url: 'dojo2/output/index.html',
             paths: [
