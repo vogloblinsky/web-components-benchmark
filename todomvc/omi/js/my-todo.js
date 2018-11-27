@@ -60,7 +60,7 @@ class MyTodo extends WeElement {
       <div>
         <h1>Todos Omi</h1>
         <section>
-          <todo-input name="sjs" onSubmit={this.addItem.bind(this)}></todo-input>
+          <todo-input onSubmit={this.addItem.bind(this)}></todo-input>
           <ul id="list-container">
           {
             this.store.data.list.map(todo => (
@@ -80,7 +80,6 @@ define('my-todo', MyTodo)
 
 const store = {
   data: {
-    name: 'Omi',
     list: [{
         id: 0,
         text: 'my initial todo',
@@ -95,6 +94,6 @@ const store = {
 render(
   <div>
     <a href="../" id="back">⬅ Back to other implementations</a>
-    <my-todo name="world"></my-todo>
+    <my-todo></my-todo>
   </div>
 , 'body', store)
