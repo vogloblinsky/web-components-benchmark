@@ -1,0 +1,29 @@
+{
+  "name": "omi-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "minify-html": "./node_modules/.bin/html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
+    "copy-js": "cp js/* dist",
+    "clean-js": "replace \"import { WeElement, h, define } from 'omi'\" \"\" dist/todo-input.js dist/todo-item.js",
+    "concat-js": "./node_modules/.bin/concat-cli -f dist/todo-input.js dist/todo-item.js dist/my-todo.js -o dist/bundle_tmp.js",
+    "minify-js": "./node_modules/.bin/uglifyjs dist/bundle.js -o dist/bundle.js",
+    "rollup": "rollup -c",
+    "prebuild": "rm -rf dist && mkdir dist",
+    "build": "npm run minify-html && npm run copy-js && npm run clean-js && npm run concat-js && npm run rollup && npm run minify-js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "omi": "^5.0.2"
+  },
+  "devDependencies": {
+    "concat-cli": "^4.0.0",
+    "html-minifier": "^3.5.21",
+    "replace": "^1.0.0",
+    "rollup": "^0.67.0",
+    "rollup-plugin-jsx": "^1.0.3",
+    "uglify-es": "^3.3.9"
+  }
+}

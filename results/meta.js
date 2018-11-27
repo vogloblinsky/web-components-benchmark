@@ -51,6 +51,18 @@ module.exports = {
             ]
         }
     }, {
+        name: 'Omi',
+        slug: 'omi',
+        github: 'https://github.com/Tencent/omi',
+        version: require('../todomvc/omi/package.json').dependencies['@polymer/polymer'],
+        stars: 5304,
+        todo: {
+            url: 'omi/dist/index.html',
+            paths: [
+                'todomvc/omi/dist/bundle.js'
+            ]
+        }
+    }, {
         name: 'Polymer 3',
         slug: 'polymer-3',
         github: 'https://github.com/Polymer/polymer',
