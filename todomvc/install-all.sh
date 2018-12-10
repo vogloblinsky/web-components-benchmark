@@ -22,7 +22,7 @@ cd ../riot
 npm i
 cd ../skatejs-lit-html
 npm i
-cd ../skatejs-lit-preact
+cd ../skatejs-preact
 npm i
 cd ../slim.js
 npm i
