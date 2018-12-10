@@ -22,7 +22,7 @@
         "build:stencil": "cd stencil && npm run build",
         "build:svelte": "cd svelte && npm run build",
         "build:vue": "cd vue.js && npm run build",
-        "build:all": "run-s build:angular build:atomico build:dojo2 build:litelement build:native build:hyperhtml build:polymer3 build:riot build:skatejs:lithtml build:skatejs:preact build:slim build:stencil build:vue"
+        "build:all": "run-s build:angular build:atomico build:dojo2 build:litelement build:native build:hyperhtml build:polymer3 build:riot build:skatejs:lithtml build:skatejs:preact build:slim build:stencil build:vue build:svelte"
     },
     "repository": {
         "type": "git",
