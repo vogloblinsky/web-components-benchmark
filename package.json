@@ -1,46 +1,46 @@
 {
-  "name": "web-components-benchmark",
-  "version": "1.0.0",
-  "description": "Benchmarks of libraries and implementation of Web Components",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vogloblinsky/web-components-benchmark.git"
-  },
-  "scripts": {
-    "compile-results": "node results/generate-index.js"
-  },
-  "author": "Vincent Oogloblinsky",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/vogloblinsky/web-components-benchmark/issues"
-  },
-  "homepage": "https://github.com/vogloblinsky/web-components-benchmark#readme",
-  "devDependencies": {
-    "compression-webpack-plugin": "^2.0.0",
-    "concat-cli": "^4.0.0",
-    "cssnano": "^4.1.7",
-    "devtools-timeline-model": "^1.4.0",
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
-    "fs-extra": "^7.0.1",
-    "google-closure-compiler": "^20181028.0.1",
-    "html-minifier": "^3.5.21",
-    "http-server": "^0.11.1",
-    "lighthouse": "2.9.4",
-    "npm-run-all": "^4.1.3",
-    "puppeteer": "1.4.0",
-    "rollup": "^0.67.0",
-    "rollup-plugin-buble": "^0.19.4",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-copy": "^0.2.3",
-    "rollup-plugin-filesize": "^5.0.1",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-postcss": "^1.6.2",
-    "rollup-plugin-terser": "3.0.0",
-    "rollup-plugin-uglify-es": "0.0.1",
-    "rollup-prepare": "^0.0.0",
-    "spdy": "^4.0.0",
-    "uglify-es": "^3.3.9",
-    "uglifycss": "0.0.29"
-  }
+    "name": "web-components-benchmark",
+    "version": "1.0.0",
+    "description": "Benchmarks of libraries and implementation of Web Components",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vogloblinsky/web-components-benchmark.git"
+    },
+    "scripts": {
+        "compile-results": "node results/generate-index.js"
+    },
+    "author": "Vincent Oogloblinsky",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/vogloblinsky/web-components-benchmark/issues"
+    },
+    "homepage": "https://github.com/vogloblinsky/web-components-benchmark#readme",
+    "devDependencies": {
+        "compression-webpack-plugin": "^2.0.0",
+        "concat-cli": "^4.0.0",
+        "cssnano": "^4.1.7",
+        "devtools-timeline-model": "^1.4.0",
+        "ejs": "^2.6.1",
+        "express": "^4.16.4",
+        "fs-extra": "^7.0.1",
+        "google-closure-compiler": "^20181125.0.1",
+        "html-minifier": "^3.5.21",
+        "http-server": "^0.11.1",
+        "lighthouse": "2.9.4",
+        "npm-run-all": "^4.1.5",
+        "puppeteer": "1.4.0",
+        "rollup": "^0.67.4",
+        "rollup-plugin-buble": "^0.19.6",
+        "rollup-plugin-commonjs": "^9.2.0",
+        "rollup-plugin-copy": "^0.2.3",
+        "rollup-plugin-filesize": "^5.0.1",
+        "rollup-plugin-node-resolve": "^4.0.0",
+        "rollup-plugin-postcss": "^1.6.3",
+        "rollup-plugin-terser": "3.0.0",
+        "rollup-plugin-uglify-es": "0.0.1",
+        "rollup-prepare": "^0.0.0",
+        "spdy": "^4.0.0",
+        "uglify-es": "^3.3.9",
+        "uglifycss": "0.0.29"
+    }
 }
