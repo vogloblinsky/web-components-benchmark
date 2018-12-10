@@ -6,6 +6,7 @@ node_js:
 script:
     # 1. build todomvc projects
     - cd todomvc
+    - echo $TRAVIS_BUILD_DIR
     - npm run build:all
     # 2. run local server
     # 3. start benchmark
