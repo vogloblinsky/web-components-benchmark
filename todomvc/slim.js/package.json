@@ -9,7 +9,7 @@
         "concat-js": "npx concat-cli -f dist/Slim.nomodule.js dist/repeat.nomodule.js dist/todo-input.js dist/todo-item.js dist/my-todo.js -o dist/bundle_tmp.js",
         "minify-js": "npx uglifyjs dist/bundle.js -o dist/bundle.js",
         "rollup": "npx rollup -c",
-        "prebuild": "rm -rf dist/*",
+        "prebuild": "rm -rf dist/* && mkdir dist",
         "build": "npm run minify-html && npm run copy-js && npm run concat-js && npm run rollup && npm run minify-js"
     },
     "author": "",
