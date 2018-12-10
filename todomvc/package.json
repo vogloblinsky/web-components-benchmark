@@ -10,7 +10,7 @@
         "benchmark:delete-todos": "node benchmarks/benchmark_delete-todos.js",
         "benchmark:edit-todos": "node benchmarks/benchmark_edit-todos.js",
         "benchmark:tti": "node benchmarks/benchmark_load-metrics.js",
-        "install:all": "cd angular-elements && npm i && cd atomico && npm i && cd dojo2 && npm i && cd lit-element && npm i && cd native-shadow-dom_hyperHTML && npm i && cd native-shadow-dom_lit-html && npm i",
+        "install:all": "./install-all.sh",
         "build:angular": "cd angular-elements && npm run build",
         "build:atomico": "cd atomico && npm run build",
         "build:dojo2": "cd dojo2 && npm run build",

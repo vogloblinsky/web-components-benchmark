@@ -1,0 +1,32 @@
+#!/bin/bash
+
+cd angular-elements
+npm i
+cd ../atomico
+npm i
+cd ../dojo2
+npm i
+cd ../lit-element
+npm i
+cd ../native-shadow-dom_hyperHTML 
+npm i
+cd ../native-shadow-dom_lit-html
+npm i
+cd ../omi
+npm i
+cd ../polymer-3
+npm i
+cd ../riot
+npm i
+cd ../skatejs-lit-html
+npm i
+cd ../skatejs-lit-preact
+npm i
+cd ../slim.js
+npm i
+cd ../stencil
+npm i
+cd ../svelte
+npm i
+cd ../vue.js
+npm i
