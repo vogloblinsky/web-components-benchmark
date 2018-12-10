@@ -4,18 +4,28 @@ language: node_js
 install: true
 node_js:
     - '9'
-script:
-    - echo '0. Global install'
-    - npm i
-    - echo '1. todomvc global install'
-    - cd todomvc
-    - npm i
-    - bash install-all.sh
-    - npm run build:all
-    - npm run run:benchmark
-    - cd ../
-    - npm run compile-results
-    - bash scripts/deploy.sh
+
+jobs:
+    include:
+        - stage: Installation
+          script: npm i
+        - stage: Assets generation
+          script:
+              - cd todomvc
+              - npm i
+              - bash install-all.sh
+              - npm run build:all
+        - stage: Benchmark
+          script:
+              - npm run run:benchmark
+        - stage: Results compilation
+          script:
+              - cd ../
+              - npm run compile-results
+        - stage: deployment
+          script:
+              - bash scripts/deploy.sh
+
 branches:
     only:
         - master
