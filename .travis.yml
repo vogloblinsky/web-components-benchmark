@@ -1,0 +1,16 @@
+os:
+    - linux
+language: node_js
+node_js:
+    - '10'
+script:
+    # 1. build todomvc projects
+    - cd todomvc
+    - npm run build:all
+    # 2. run local server
+    # 3. start benchmark
+    # 4. run results generation
+    # 5. update gh-pages
+branches:
+    only:
+        - develop
