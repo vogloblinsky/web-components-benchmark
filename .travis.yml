@@ -5,13 +5,13 @@ node_js:
     - '9'
 script:
     - echo '0. Global install'
-    - npm i
+    #- npm i
     # 1. build todomvc projects
-    - echo '1. todomvc global install'
-    - cd todomvc
-    - echo $TRAVIS_BUILD_DIR
-    - npm i
-    - npm run build:all
+    #- echo '1. todomvc global install'
+    #- cd todomvc
+    #- echo $TRAVIS_BUILD_DIR
+    #- npm i
+    #- npm run build:all
     # 2. run local server
     # 3. start benchmark
     # 4. run results generation
