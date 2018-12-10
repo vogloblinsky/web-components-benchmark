@@ -1,6 +1,7 @@
 os:
     - linux
 language: node_js
+install: false
 node_js:
     - '9'
 script:
