@@ -11,6 +11,7 @@ script:
     - echo '1. todomvc global install'
     - cd todomvc
     - npm i
+    - npm run install:all
     - npm run build:all
     # 2. run local server
     # 3. start benchmark
