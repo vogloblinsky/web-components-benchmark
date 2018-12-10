@@ -13,4 +13,4 @@ script:
     # 5. update gh-pages
 branches:
     only:
-        - develop
+        - master
