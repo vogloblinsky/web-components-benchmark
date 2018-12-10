@@ -8,6 +8,8 @@ cd ../dojo2
 npm i
 cd ../lit-element
 npm i
+cd ../native-shadow-dom
+npm i
 cd ../native-shadow-dom_hyperHTML 
 npm i
 cd ../native-shadow-dom_lit-html
