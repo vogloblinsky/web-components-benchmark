@@ -16,7 +16,7 @@ cd ../native-shadow-dom_lit-html
 npm i
 cd ../omi
 npm i
-cd ../polymer-3
+cd ../polymer3
 npm i
 cd ../riot
 npm i
