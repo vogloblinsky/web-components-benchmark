@@ -24,6 +24,7 @@ ls -al $TEMP_DIRECTORY || exit 1
 echo "Copying newly generated static content"
 cp -r $TEMP_DIRECTORY/* . || exit 1
 cp $TEMP_DIRECTORY/.gitignore . || exit 1
+rm -rf todomvc || exit 1
 
 echo "Pushing new content to $ORIGIN_URL"
 git config user.name "Travis-CI" || exit 1
