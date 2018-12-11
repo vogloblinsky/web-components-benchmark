@@ -10,6 +10,7 @@
     "concat-js": "npx concat-cli -f build/todo-item/todo-item.min.js build/todo-input/todo-input.min.js build/my-todo/my-todo.min.js -o dist/build.js",
     "minify-js": "npx uglifyjs dist/build.js -o dist/build.js",
     "minify-html": "npx html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
+    "prebuild": "rm -rf dist && mkdir dist",
     "build": "npm run minify-html && npm run build-todo-item && npm run build-todo-input && npm run build-my-todo && npm run concat-js && npm run minify-js && rm -rf build"
   },
   "keywords": [],
@@ -18,11 +19,11 @@
   "devDependencies": {
     "@vue/cli-service": "^3.2.0",
     "concat-cli": "^4.0.0",
-    "uglify-es": "^3.3.10",
-    "vue-template-compiler": "^2.5.19",
+    "uglify-es": "3.3.10",
+    "vue-template-compiler": "^2.5.20",
     "webpack": "^4.27.1"
   },
   "dependencies": {
-    "vue": "^2.5.19"
+    "vue": "^2.5.20"
   }
 }
