@@ -18,13 +18,16 @@ git checkout -B gh-pages || exit 1
 echo "Removing old static content"
 git rm -rf . || exit 1
 
-echo "Static content"
+echo "Static content TEMP_DIRECTORY"
 ls -al $TEMP_DIRECTORY || exit 1
 
 echo "Copying newly generated static content"
 cp -r $TEMP_DIRECTORY/* . || exit 1
 cp $TEMP_DIRECTORY/.gitignore . || exit 1
 rm -rf todomvc || exit 1
+
+echo "Static content"
+ls -al . || exit 1
 
 echo "Pushing new content to $ORIGIN_URL"
 git config user.name "Travis-CI" || exit 1
