@@ -16,7 +16,7 @@
     "build": "npx rollup -c"
   },
   "dependencies": {
-    "atomico": "^0.5.4"
+    "atomico": "^0.7.3"
   },
   "globals": {
     "atomico": "atomico"
