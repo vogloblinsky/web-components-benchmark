@@ -1,19 +1,20 @@
 {
   "private": true,
+  "name": "todomvc-skatejs-lit-html",
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack --mode development --watch"
   },
   "dependencies": {
     "@skatejs/renderer-lit-html": "^0.2.2",
-    "lit-html": "^0.13.0",
+    "lit-html": "^0.14.0",
     "skatejs": "^5.2.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^7.1.5",
     "babel-preset-stage-0": "^6.24.1",
-    "webpack": "^4.26.0",
+    "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2"
   }
 }
