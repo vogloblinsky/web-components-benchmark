@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
+        "prebuild": "rm -rf dist && mkdir dist",
         "build": "npm run minify-html && npm run build-js && npm run minify-js",
         "build-js": "webpack",
         "minify-js": "npx uglifyjs dist/main.bundle.js -o dist/main.bundle.js",
@@ -27,7 +28,7 @@
     },
     "devDependencies": {
         "@angular/compiler-cli": "7.1.2",
-        "@ngtools/webpack": "7.0.5",
+        "@ngtools/webpack": "7.1.2",
         "compression-webpack-plugin": "2.0.0",
         "typescript": "3.1.6",
         "uglify-es": "^3.3.9",
