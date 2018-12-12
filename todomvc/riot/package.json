@@ -10,7 +10,7 @@
         "concat-js": "npx concat-cli -f dist/riot.min.js dist/my-todo.js dist/todo-input.js dist/todo-item.js dist/app.js -o dist/bundle_tmp.js",
         "minify-js": "npx uglifyjs dist/bundle_tmp.js -o dist/bundle.js",
         "rollup": "rollup -c",
-        "prebuild": "rm -rf dist/*",
+        "prebuild": "rm -rf dist && mkdir dist",
         "build": "npm run minify-html && npm run compile-riot && npm run copy-js && npm run concat-js && npm run minify-js",
         "postbuild": "rm dist/riot.min.js && rm dist/my-todo.js && rm dist/todo-input.js && rm dist/todo-item.js && rm dist/app.js && rm dist/bundle_tmp.js"
     },
