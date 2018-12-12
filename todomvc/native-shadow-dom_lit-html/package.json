@@ -10,7 +10,7 @@
         "concat-js": "./node_modules/.bin/concat-cli -f dist/my-todo.js dist/todo-input.js dist/todo-item.js -o dist/bundle_tmp.js",
         "minify-js": "./node_modules/.bin/uglifyjs dist/bundle.js -o dist/bundle.js",
         "rollup": "rollup -c",
-        "prebuild": "rm -rf dist/*",
+        "prebuild": "rm -rf dist && mkdir dist",
         "build": "npm run minify-html && npm run copy-js && npm run clean-js && npm run concat-js && npm run rollup && npm run minify-js"
     },
     "author": "",
@@ -19,10 +19,10 @@
         "concat-cli": "^4.0.0",
         "html-minifier": "^3.5.21",
         "replace": "^1.0.0",
-        "rollup": "^0.67.0",
+        "rollup": "^0.67.4",
         "uglify-es": "^3.3.9"
     },
     "dependencies": {
-        "lit-html": "^0.12.0"
+        "lit-html": "^0.14.0"
     }
 }
