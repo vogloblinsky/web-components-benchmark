@@ -12,6 +12,12 @@ const todoDeleteResults = require('./todo-delete.json');
 const todoEditResults = require('./todo-edit.json');
 const todoTTIResults = require('./todo-tti.json');
 
+console.log(todoLoadResults);
+console.log(todoCreateResults);
+console.log(todoDeleteResults);
+console.log(todoEditResults);
+console.log(todoTTIResults);
+
 const data = {
     todo: {
         WClibraries: [],
