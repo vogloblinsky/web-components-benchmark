@@ -20,10 +20,10 @@
     "@vue/cli-service": "^3.2.0",
     "concat-cli": "^4.0.0",
     "uglify-es": "3.3.10",
-    "vue-template-compiler": "^2.5.20",
+    "vue-template-compiler": "^2.5.21",
     "webpack": "^4.27.1"
   },
   "dependencies": {
-    "vue": "^2.5.20"
+    "vue": "^2.5.21"
   }
 }
