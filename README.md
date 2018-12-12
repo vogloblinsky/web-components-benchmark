@@ -3,18 +3,19 @@
 Benchmarks of libraries and implementation of Web Components :
 
 -   native
+-   Angular Elements
 -   Atomico
--   hyperHTML
+-   Dojo 2
 -   lit-element
+-   hyperHTML
+-   omi
 -   Polymer 3
 -   riot
 -   SkateJS
 -   Slim.js
 -   Stencil
 -   Svelte
--   Angular Elements
 -   Vue.js
--   Dojo 2
 
 The benchmark consists of two different applications :
 
@@ -28,27 +29,30 @@ Node.js
 
 ## Setup
 
+```
 > npm i
 > cd todomvc && npm i
-> cd pascal-triangle && npm i
+> bash install-all.sh
+> npm run build:all
+```
 
 ## Run for todos
 
 In one tab
 
+```
 > cd todomvc
 > npm run serve
+```
 
 In another tab
 
-> npm run benchmark:create-todos
+```
+> npm run run:benchmark
+```
 
 # Current results
 
 ## TodoMVC
 
-TODO
-
-## Pascal Triangle
-
-TODO
+https://vogloblinsky.github.io/web-components-benchmark/#todo
