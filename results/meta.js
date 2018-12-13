@@ -29,8 +29,8 @@ module.exports = {
             }
         },
         {
-            name: 'hybrids',
-            slug: 'Hybrids',
+            name: 'Hybrids',
+            slug: 'hybrids',
             github: 'https://github.com/hybridsjs/hybrids',
             version: require('../todomvc/hybrids/package.json')
                 .dependencies['hybrids'],
