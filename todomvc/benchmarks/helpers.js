@@ -107,7 +107,7 @@ async function benchCreate(element, url) {
             waitUntil: 'load'
         });
 
-        await page.waitFor('my-todo');
+        await page.waitFor(2000);
 
         console.log('benchCreate selector: ', selector);
 
