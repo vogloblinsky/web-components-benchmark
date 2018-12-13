@@ -82,7 +82,6 @@ async function benchPageLoad(element, url) {
 }
 
 async function benchCreate(element, url) {
-    console.log(url);
     const slug = element.slug;
     const selector = element.noshadowdom
         ? selectorInputNoShadowDom
