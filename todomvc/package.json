@@ -1,7 +1,7 @@
 {
-    "name": "web-components-benchmark",
+    "name": "web-components-benchmark-todo",
     "version": "1.0.0",
-    "description": "Web Components implementations benchmark",
+    "description": "Web Components implementations benchmark todo benchmark",
     "scripts": {
         "serve": "node server.js",
         "benchmark": "node benchmarks/benchmark.js",
