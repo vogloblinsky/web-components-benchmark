@@ -107,9 +107,7 @@ async function benchCreate(element, url) {
             waitUntil: 'load'
         });
 
-        await page.waitFor(2000);
-
-        console.log('benchCreate selector: ', selector);
+        await page.waitFor('my-todo');
 
         const inputHandle = await page.evaluateHandle(selector);
         await page.tracing.start({
