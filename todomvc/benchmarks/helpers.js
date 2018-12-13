@@ -23,8 +23,7 @@ async function gatherLighthouseMetrics(page, config) {
         .split(':')[2]
         .split('/')[0];
     return await lighthouse(
-        page.url(),
-        {
+        page.url(), {
             port: port
         },
         config
@@ -83,9 +82,9 @@ async function benchPageLoad(element, url) {
 
 async function benchCreate(element, url) {
     const slug = element.slug;
-    const selector = element.noshadowdom
-        ? selectorInputNoShadowDom
-        : selectorInput;
+    const selector = element.noshadowdom ?
+        selectorInputNoShadowDom :
+        selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -107,7 +106,7 @@ async function benchCreate(element, url) {
             waitUntil: 'load'
         });
 
-        await page.waitFor(500);
+        await page.waitFor(1000);
 
         const inputHandle = await page.evaluateHandle(selector);
         await page.tracing.start({
@@ -131,9 +130,9 @@ async function benchCreate(element, url) {
 
 async function benchDelete(element, url) {
     const slug = element.slug;
-    const selector = element.noshadowdom
-        ? selectorInputNoShadowDom
-        : selectorInput;
+    const selector = element.noshadowdom ?
+        selectorInputNoShadowDom :
+        selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -160,7 +159,7 @@ async function benchDelete(element, url) {
             height: 6000
         });
 
-        await page.waitFor(500);
+        await page.waitFor(1000);
 
         const inputHandle = await page.evaluateHandle(selector);
 
@@ -192,9 +191,9 @@ async function benchDelete(element, url) {
 
 async function benchEdit(element, url) {
     const slug = element.slug;
-    const selector = element.noshadowdom
-        ? selectorInputNoShadowDom
-        : selectorInput;
+    const selector = element.noshadowdom ?
+        selectorInputNoShadowDom :
+        selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -221,7 +220,7 @@ async function benchEdit(element, url) {
             height: 6000
         });
 
-        await page.waitFor(500);
+        await page.waitFor(1000);
 
         const inputHandle = await page.evaluateHandle(selector);
 
