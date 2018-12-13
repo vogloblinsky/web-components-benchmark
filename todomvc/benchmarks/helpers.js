@@ -106,7 +106,7 @@ async function benchCreate(element, url) {
             waitUntil: 'load'
         });
 
-        await page.waitFor(1000);
+        await page.waitFor('my-todo');
 
         const inputHandle = await page.evaluateHandle(selector);
         await page.tracing.start({
@@ -159,7 +159,7 @@ async function benchDelete(element, url) {
             height: 6000
         });
 
-        await page.waitFor(1000);
+        await page.waitFor('my-todo');
 
         const inputHandle = await page.evaluateHandle(selector);
 
@@ -220,7 +220,7 @@ async function benchEdit(element, url) {
             height: 6000
         });
 
-        await page.waitFor(1000);
+        await page.waitFor('my-todo');
 
         const inputHandle = await page.evaluateHandle(selector);
 
