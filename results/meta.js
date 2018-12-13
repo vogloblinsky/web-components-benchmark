@@ -1,8 +1,7 @@
 const stencilTodoInfos = require('../todomvc/stencil/www/build/app/app.registry.json');
 
 module.exports = {
-    wc: [
-        {
+    wc: [{
             name: 'Native',
             slug: 'native',
             version: '',
@@ -27,6 +26,18 @@ module.exports = {
                     'todomvc/atomico/public/atomico.umd.js',
                     'todomvc/atomico/public/atom-todo.iife.js'
                 ]
+            }
+        },
+        {
+            name: 'hybrids',
+            slug: 'Hybrids',
+            github: 'https://github.com/hybridsjs/hybrids',
+            version: require('../todomvc/hybrids/package.json')
+                .dependencies['hybrids'],
+            stars: 840,
+            todo: {
+                url: 'hybrids/dist/index.html',
+                paths: ['todomvc/hybrids/dist/bundle.js']
             }
         },
         {
@@ -166,8 +177,7 @@ module.exports = {
             }
         }
     ],
-    fw: [
-        {
+    fw: [{
             name: 'Angular Elements',
             slug: 'angular-elements',
             github: 'https://github.com/angular/angular',

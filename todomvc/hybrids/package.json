@@ -7,12 +7,12 @@
         "minify-html": "npx html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
         "copy-js": "cp js/* dist",
         "clean-js": "npx replace \"import { html, define } from 'hybrids';\" \"\" dist/my-todo.js",
-        "concat-js": "npx concat-cli -f node_modules/hybrids/dist/hybrids.js dist/my-todo.js -o dist/bundle.js",
+        "concat-js": "npx concat-cli -f node_modules/hybrids/dist/hybrids.js dist/my-todo.js dist/todo-input.js dist/todo-item.js -o dist/bundle.js",
         "concat-hybrids": "npx concat-cli -f node_modules/hybrids/dist/hybrids.js dist/bundle.js -o dist/bundle.js",
         "minify-js": "npx uglifyjs dist/bundle.js -o dist/bundle.js",
         "rollup": "npx rollup -c",
         "prebuild": "rm -rf dist && mkdir dist",
-        "build": "npm run minify-html && npm run copy-js && npm run clean-js && npm run concat-js"
+        "build": "npm run minify-html && npm run copy-js && npm run concat-js"
     },
     "author": "",
     "license": "MIT",
