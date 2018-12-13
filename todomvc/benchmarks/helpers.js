@@ -17,10 +17,18 @@ const selectorInputNoShadowDom = `document.querySelector('my-todo').querySelecto
 
 async function gatherLighthouseMetrics(page, config) {
     // Port is in formаt: ws://127.0.0.1:52046/devtools/browser/675a2fad-4ccf-412b-81bb-170fdb2cc39c
-    const port = await page.browser().wsEndpoint().split(':')[2].split('/')[0];
-    return await lighthouse(page.url(), {
-        port: port
-    }, config).then(results => {
+    const port = await page
+        .browser()
+        .wsEndpoint()
+        .split(':')[2]
+        .split('/')[0];
+    return await lighthouse(
+        page.url(),
+        {
+            port: port
+        },
+        config
+    ).then(results => {
         delete results.artifacts;
         return results;
     });
@@ -31,7 +39,9 @@ function processRawData(filename, i) {
     try {
         var model = new DevtoolsTimelineModel(events);
         var topDown = model.topDown();
-        // console.log(`Top down tree total time ${i}: ${Math.ceil(topDown.totalTime)}`);
+        /*console.log(
+            `Top down tree total time ${i}: ${Math.ceil(topDown.totalTime)}`
+        );*/
         return topDown.totalTime;
     } catch (e) {
         // console.log(e);
@@ -72,8 +82,11 @@ async function benchPageLoad(element, url) {
 }
 
 async function benchCreate(element, url) {
+    console.log(url);
     const slug = element.slug;
-    const selector = (element.noshadowdom) ? selectorInputNoShadowDom : selectorInput;
+    const selector = element.noshadowdom
+        ? selectorInputNoShadowDom
+        : selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -119,7 +132,9 @@ async function benchCreate(element, url) {
 
 async function benchDelete(element, url) {
     const slug = element.slug;
-    const selector = (element.noshadowdom) ? selectorInputNoShadowDom : selectorInput;
+    const selector = element.noshadowdom
+        ? selectorInputNoShadowDom
+        : selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -161,6 +176,9 @@ async function benchDelete(element, url) {
 
         for (let j = 0; j < numberOfModifications; j++) {
             await page.mouse.click(646, 362);
+            if (slug === 'omi') {
+                await page.waitFor(50); // It seems delete operations are too fast for omi
+            }
         }
 
         await page.tracing.stop();
@@ -175,7 +193,9 @@ async function benchDelete(element, url) {
 
 async function benchEdit(element, url) {
     const slug = element.slug;
-    const selector = (element.noshadowdom) ? selectorInputNoShadowDom : selectorInput;
+    const selector = element.noshadowdom
+        ? selectorInputNoShadowDom
+        : selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -243,7 +263,10 @@ async function benchTti(url) {
 
     await page.goto(`${LOCALHOST}/${url}`);
     const lighthouseMetrics = await gatherLighthouseMetrics(page, perfConfig);
-    const firstInteractive = parseInt(lighthouseMetrics.audits['first-interactive']['rawValue'], 10);
+    const firstInteractive = parseInt(
+        lighthouseMetrics.audits['first-interactive']['rawValue'],
+        10
+    );
 
     await browser.close();
 

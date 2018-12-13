@@ -51,7 +51,7 @@ module.exports = {
                 ]
             }
         }
-        /*, {
+        , {
                 name: 'Omi',
                 slug: 'omi',
                 github: 'https://github.com/Tencent/omi',
@@ -63,7 +63,7 @@ module.exports = {
                         'todomvc/omi/dist/bundle.js'
                     ]
                 }
-            }*/
+            }
         , {
             name: 'Polymer 3',
             slug: 'polymer-3',
