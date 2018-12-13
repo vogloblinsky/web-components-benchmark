@@ -11,9 +11,9 @@
         "build:angular": "cd angular-elements && npm run build",
         "build:atomico": "cd atomico && npm run build",
         "build:dojo2": "cd dojo2 && npm run build",
+        "build:hybrids": "cd hybrids && npm run build",
         "build:litelement": "cd lit-element && npm run build",
         "build:native": "cd native-shadow-dom && npm run build",
-        "build:hybrids": "cd hybrids && npm run build",
         "build:hyperhtml": "cd native-shadow-dom_hyperHTML && npm run build",
         "build:polymer3": "cd polymer3 && npm run build",
         "build:riot": "cd riot && npm run build",
@@ -24,7 +24,7 @@
         "build:stencil": "cd stencil && npm run build",
         "build:svelte": "cd svelte && npm run build",
         "build:vue": "cd vue.js && npm run build",
-        "build:all": "run-s build:angular build:atomico build:dojo2 build:litelement build:native build:hybrids build:hyperhtml build:omi build:polymer3 build:riot build:skatejs:lithtml build:skatejs:preact build:slim build:stencil build:vue build:svelte"
+        "build:all": "run-s build:angular build:atomico build:dojo2 build:hybrids build:litelement build:native build:hyperhtml build:omi build:polymer3 build:riot build:skatejs:lithtml build:skatejs:preact build:slim build:stencil build:svelte build:vue"
     },
     "repository": {
         "type": "git",

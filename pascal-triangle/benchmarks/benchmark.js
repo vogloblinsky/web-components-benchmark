@@ -29,9 +29,9 @@ if (requestedElements) {
     });
 }
 
-console.log('**********************');
-console.log('* TODO MVC BENCHMARK *');
-console.log('**********************');
+console.log('*****************************');
+console.log('* PASCAL TRIANGLE BENCHMARK *');
+console.log('*****************************');
 
 (async () => {
     for (let i = 0; i < ELEMENTS.length; i++) {
@@ -41,7 +41,7 @@ console.log('**********************');
         console.log('* ' + element.name);
         console.log('********************');
 
-        const resultsFileLoad = '../results/todo-load.json';
+        const resultsFileLoad = '../results/pascal-triangle-load.json';
         if (!fs.pathExistsSync(resultsFileLoad)) {
             fs.outputJsonSync(resultsFileLoad, {});
         }
@@ -53,7 +53,7 @@ console.log('**********************');
         resultsLoad[element.slug] = Math.ceil(averageLoad);
         fs.outputJsonSync(resultsFileLoad, resultsLoad);
 
-        const resultsFileTti = '../results/todo-tti.json';
+        const resultsFileTti = '../results/pascal-triangle-tti.json';
         if (!fs.pathExistsSync(resultsFileTti)) {
             fs.outputJsonSync(resultsFileTti, {});
         }
@@ -66,41 +66,5 @@ console.log('**********************');
         );
         resultsTti[element.slug] = Math.ceil(averageTti);
         fs.outputJsonSync(resultsFileTti, resultsTti);
-
-        const resultsFileCreate = '../results/todo-create.json';
-        if (!fs.pathExistsSync(resultsFileCreate)) {
-            fs.outputJsonSync(resultsFileCreate, {});
-        }
-        let resultsCreate = fs.readJsonSync(resultsFileCreate);
-        let averageCreate = await benchCreate(element, element.todo.url);
-        console.log(
-            `\nAverage time for creation : ${Math.ceil(averageCreate)} ms\n`
-        );
-        resultsCreate[element.slug] = Math.ceil(averageCreate);
-        fs.outputJsonSync(resultsFileCreate, resultsCreate);
-
-        const resultsFileDelete = '../results/todo-delete.json';
-        if (!fs.pathExistsSync(resultsFileDelete)) {
-            fs.outputJsonSync(resultsFileDelete, {});
-        }
-        let resultsDelete = fs.readJsonSync(resultsFileDelete);
-        let averageDelete = await benchDelete(element, element.todo.url);
-        console.log(
-            `\nAverage time for delete : ${Math.ceil(averageDelete)} ms\n`
-        );
-        resultsDelete[element.slug] = Math.ceil(averageDelete);
-        fs.outputJsonSync(resultsFileDelete, resultsDelete);
-
-        const resultsFileEdit = '../results/todo-edit.json';
-        if (!fs.pathExistsSync(resultsFileEdit)) {
-            fs.outputJsonSync(resultsFileEdit, {});
-        }
-        let resultsEdit = fs.readJsonSync(resultsFileEdit);
-        let averageEdit = await benchEdit(element, element.todo.url);
-        console.log(
-            `\nAverage time for edition : ${Math.ceil(averageEdit)} ms\n`
-        );
-        resultsEdit[element.slug] = Math.ceil(averageEdit);
-        fs.outputJsonSync(resultsFileEdit, resultsEdit);
     }
 })();

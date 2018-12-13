@@ -18,6 +18,9 @@ console.log(todoDeleteResults);
 console.log(todoEditResults);
 console.log(todoTTIResults);
 
+const pascalLoadResults = require('./pascal-triangle-load.json');
+const pascalTTIResults = require('./pascal-triangle-tti.json');
+
 const data = {
     todo: {
         WClibraries: [],
@@ -31,20 +34,22 @@ const data = {
     }
 };
 
-const cleanVersion = (version) => version.replace('^', '');
+const cleanVersion = version => version.replace('^', '');
 
-const filesizeGzipped = (project) => {
+const filesizeGzipped = project => {
     if (project.paths) {
-        return (project.paths.reduce((previous, current) => {
-            const exists = fs.existsSync(`${current}`);
-            if (!exists) return undefined;
-            const fileContents = fs.readFileSync(`${current}`);
-            const zippedContent = zlib.gzipSync(fileContents.toString());
-            fs.writeFileSync(`${current}.gzip`, zippedContent);
-            const size = previous + fs.statSync(`${current}.gzip`).size;
-            fs.unlinkSync(`${current}.gzip`);
-            return size;
-        }, 0) / 1000).toFixed(1);
+        return (
+            project.paths.reduce((previous, current) => {
+                const exists = fs.existsSync(`${current}`);
+                if (!exists) return undefined;
+                const fileContents = fs.readFileSync(`${current}`);
+                const zippedContent = zlib.gzipSync(fileContents.toString());
+                fs.writeFileSync(`${current}.gzip`, zippedContent);
+                const size = previous + fs.statSync(`${current}.gzip`).size;
+                fs.unlinkSync(`${current}.gzip`);
+                return size;
+            }, 0) / 1000
+        ).toFixed(1);
     } else {
         return 0;
     }
@@ -60,7 +65,7 @@ let maxTodo = {
     edit: 0
 };
 
-metas.wc.forEach((lib) => {
+metas.wc.forEach(lib => {
     lib.todo.size = parseFloat(filesizeGzipped(lib.todo));
     data.todo.WClibraries.push({
         name: lib.name,
@@ -105,7 +110,7 @@ metas.fw.forEach(lib => {
         size: lib.todo.size,
         tti: todoTTIResults[lib.slug]
     });
-    if ((lib.todo.size > maxTodo.size)) {
+    if (lib.todo.size > maxTodo.size) {
         maxTodo.size = lib.todo.size;
     }
     if (todoLoadResults[lib.slug] > maxTodo.load) {
@@ -129,7 +134,7 @@ data.todo.max = maxTodo;
 data.pascal.max = maxTodo;
 
 ejs.renderFile('./results/index.ejs', data, {}, function(err, str) {
-    fs.writeFile('./docs/index.html', str, (err) => {
+    fs.writeFile('./docs/index.html', str, err => {
         if (err) throw err;
         console.log('The file has been saved!');
     });
