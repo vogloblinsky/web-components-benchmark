@@ -36,7 +36,7 @@ module.exports = {
                 .dependencies['hybrids'],
             stars: 840,
             todo: {
-                url: 'hybrids/dist/index.html',
+                url: 'hybrids/index.html',
                 paths: ['todomvc/hybrids/dist/bundle.js']
             }
         },
