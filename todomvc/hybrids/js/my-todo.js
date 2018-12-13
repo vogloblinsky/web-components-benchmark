@@ -1,3 +1,8 @@
+import {
+    html,
+    define
+} from 'hybrids';
+
 const onAddItem = (host, e) => {
     host.list = [...host.list, {
         id: host.list.length,
@@ -31,7 +36,7 @@ const MyTodo = {
     }],
     render: ({
         list
-    }) => window.hybrids.html `
+    }) => html `
     <style>
     h1 {
         font-size: 100px;
@@ -57,9 +62,9 @@ const MyTodo = {
     <h1>Todos WC</h1>
     <todo-input onsubmit=${onAddItem}></todo-input>
     <ul id="list-container">
-        ${list.map((element, index) => window.hybrids.html`<todo-item text="${element.text}" checked="${element.checked}" index="${index}" onremoved="${onItemRemoved}" onchecked=${onItemChecked}></todo-item>`)}
+        ${list.map((element, index) => html`<todo-item text="${element.text}" checked="${element.checked}" index="${index}" onremoved="${onItemRemoved}" onchecked=${onItemChecked}></todo-item>`)}
     </ul>
     `,
 };
 
-window.hybrids.define('my-todo', MyTodo);
+define('my-todo', MyTodo);

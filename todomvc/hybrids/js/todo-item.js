@@ -1,3 +1,9 @@
+import {
+    html,
+    define,
+    property
+} from 'hybrids';
+
 const onchange = (host, event) => {
     host.dispatchEvent(new CustomEvent('checked', {
         detail: parseInt(host.index)
@@ -11,12 +17,12 @@ const onclick = (host, event) => {
 };
 
 const TodoItem = {
-    text: window.hybrids.property('text'),
-    checked: window.hybrids.property('checked'),
-    index: window.hybrids.property('index'),
+    text: property('text'),
+    checked: property('checked'),
+    index: property('index'),
     render: ({
         text
-    }) => window.hybrids.html `
+    }) => html `
     <style>
     :host {
         display: block;
@@ -114,4 +120,4 @@ const TodoItem = {
 </li>`,
 };
 
-window.hybrids.define('todo-item', TodoItem);
+define('todo-item', TodoItem);

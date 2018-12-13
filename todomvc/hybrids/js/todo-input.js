@@ -1,3 +1,8 @@
+import {
+    html,
+    define
+} from 'hybrids';
+
 const onInput = (host, e) => {
     host.val = e.target.value;
 }
@@ -14,7 +19,7 @@ const onSubmit = (host, e) => {
 
 const TodoInput = {
     val: '',
-    render: () => window.hybrids.html `
+    render: () => html `
     <style>
     #new-todo-form {
         position: relative;
@@ -48,4 +53,4 @@ const TodoInput = {
       `,
 };
 
-window.hybrids.define('todo-input', TodoInput);
+define('todo-input', TodoInput);
