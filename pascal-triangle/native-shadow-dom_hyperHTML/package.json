@@ -9,7 +9,7 @@
         "clean-js": "replace \"import HyperHTMLElement from '../node_modules/hyperhtml-element/esm/index.js';\" \"\" dist/triangle-item.js",
         "concat-js": "npx concat-cli -f dist/pascal-triangle.js dist/triangle-item.js -o dist/bundle_tmp.js",
         "minify-js": "npx uglifyjs dist/bundle.js -o dist/bundle.js",
-        "rollup": "rollup -c",
+        "rollup": "npx rollup -c",
         "prebuild": "rm -rf dist && mkdir dist",
         "build": "npm run minify-html && npm run copy-js && npm run clean-js && npm run concat-js && npm run rollup && npm run minify-js"
     },
