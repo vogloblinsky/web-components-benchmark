@@ -4,24 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-triangle-item": "./node_modules/.bin/vue-cli-service build --target wc --name triangle-item src/triangle-item.vue --dest build/triangle-item",
-    "build-pascal-triangle": "./node_modules/.bin/vue-cli-service build --target wc --name pascal-triangle src/pascal-triangle.vue --dest build/pascal-triangle",
-    "concat-js": "./node_modules/.bin/concat-cli -f build/triangle-item/triangle-item.min.js build/pascal-triangle/pascal-triangle.min.js -o dist/build.js",
-    "minify-js": "./node_modules/.bin/uglifyjs dist/build.js -o dist/build.js",
-    "minify-html": "rm -rf dist && mkdir dist && ./node_modules/.bin/html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
+    "build-triangle-item": "npx vue-cli-service build --target wc --name triangle-item src/triangle-item.vue --dest build/triangle-item",
+    "build-pascal-triangle": "npx vue-cli-service build --target wc --name pascal-triangle src/pascal-triangle.vue --dest build/pascal-triangle",
+    "concat-js": "npx concat-cli -f build/triangle-item/triangle-item.min.js build/pascal-triangle/pascal-triangle.min.js -o dist/build.js",
+    "minify-js": "npx uglifyjs dist/build.js -o dist/build.js",
+    "minify-html": "rm -rf dist && mkdir dist && npx html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
+    "prebuild": "rm -rf dist && mkdir dist",
     "build": "npm run minify-html && npm run build-triangle-item && npm run build-pascal-triangle && npm run concat-js && npm run minify-js && rm -rf build"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@vue/cli-service": "^3.0.0-beta.10",
+    "@vue/cli-service": "^3.2.0",
     "concat-cli": "^4.0.0",
-    "html-minifier": "^3.5.15",
     "uglify-es": "^3.3.10",
-    "webpack": "^4.8.2"
+    "vue-template-compiler": "^2.5.21",
+    "webpack": "^4.27.1"
   },
   "dependencies": {
-    "vue": "^2.5.16"
+    "vue": "^2.5.21"
   }
 }
