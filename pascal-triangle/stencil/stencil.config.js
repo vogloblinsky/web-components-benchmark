@@ -1,18 +1,16 @@
 exports.config = {
-  bundles: [
-    { components: ['pascal-triangle', 'triangle-item'] }
+  collections: [
+    // { name: '@stencil/router' }
   ],
-  outputTargets:[
-    { 
-      type: 'www',
-      dir: 'www',
-      baseUrl: '/stencil/www/',
-      serviceWorker: false
-    }
-  ]
+  outputTargets: [{
+    type: 'www',
+    dir: 'www',
+    baseUrl: '/stencil/www/',
+    serviceWorker: false
+  }]
 };
 
 exports.devServer = {
   root: 'www',
   watchGlob: '**/**'
-}
+};
