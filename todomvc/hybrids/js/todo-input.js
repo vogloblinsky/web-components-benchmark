@@ -1,6 +1,7 @@
 import {
     html,
-    define
+    define,
+    dispatch
 } from 'hybrids';
 
 const onInput = (host, e) => {
@@ -9,9 +10,9 @@ const onInput = (host, e) => {
 
 const onSubmit = (host, e) => {
     e.preventDefault();
-    host.dispatchEvent(new CustomEvent('submit', {
+    dispatch(host, 'submit', {
         detail: host.val
-    }));
+    });
     let $input = host.shadowRoot.querySelector('#new-todo');
     $input.value = '';
     $input.blur();

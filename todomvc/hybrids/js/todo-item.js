@@ -1,19 +1,20 @@
 import {
     html,
     define,
-    property
+    property,
+    dispatch
 } from 'hybrids';
 
 const onchange = (host, event) => {
-    host.dispatchEvent(new CustomEvent('checked', {
+    dispatch(host, 'checked', {
         detail: parseInt(host.index)
-    }));
+    });
 };
 
 const onclick = (host, event) => {
-    host.dispatchEvent(new CustomEvent('removed', {
+    dispatch(host, 'removed', {
         detail: parseInt(host.index)
-    }));
+    });
 };
 
 const TodoItem = {
