@@ -4,14 +4,21 @@ import { v } from '@dojo/framework/widget-core/d';
 import { ThemedMixin } from '@dojo/framework/widget-core/mixins/Themed';
 
 @customElement({
-    tag: 'triangle-item',
+    tag: 'the-test',
     events: [],
-    attributes: ['text'],
+    attributes: [],
     properties: []
 })
-export default class TriangleItem extends ThemedMixin(WidgetBase) {
+export default class TestItem extends ThemedMixin(WidgetBase) {
     protected render() {
-        const { text } = this.properties;
-        return v('span', {}, [text]);
+        return [
+            v('form', {}, [
+                v('input', {
+                    type: 'text',
+                    value: '',
+                    placeholder: 'What needs to be done ???'
+                })
+            ])
+        ];
     }
 }
