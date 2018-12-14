@@ -1,6 +1,14 @@
 import { LitElement, html } from '../node_modules/@polymer/lit-element/lit-element.js';
 
 class TriangleItem extends LitElement {
+    static get properties() {
+        return {
+            text: {
+                type: String
+            }
+        };
+    }
+
     constructor() {
         super();
         this.text = '';
@@ -12,8 +20,9 @@ class TriangleItem extends LitElement {
         };
     }
 
-    _render() {
-        return html`<span>${this.text}</span>`;
+    render() {
+        const {text} = this;
+        return html`<span>${text}</span>`;
     }
 
     ready() {
