@@ -1,3 +1,5 @@
+const format = require('date-fns/format');
+
 const fs = require('fs');
 const ejs = require('ejs');
 const zlib = require('zlib');
@@ -18,8 +20,8 @@ console.log(todoDeleteResults);
 console.log(todoEditResults);
 console.log(todoTTIResults);
 
-const pascalLoadResults = require('./pascal-triangle-load.json');
-const pascalTTIResults = require('./pascal-triangle-tti.json');
+// const pascalLoadResults = require('./pascal-triangle-load.json');
+// const pascalTTIResults = require('./pascal-triangle-tti.json');
 
 const data = {
     todo: {
@@ -132,6 +134,7 @@ metas.fw.forEach(lib => {
 
 data.todo.max = maxTodo;
 data.pascal.max = maxTodo;
+data.buildDateAndTime = format(new Date(), 'DD/MM/YYYY - HH:mm:ss');
 
 ejs.renderFile('./results/index.ejs', data, {}, function(err, str) {
     fs.writeFile('./docs/index.html', str, err => {

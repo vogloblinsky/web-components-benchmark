@@ -42,5 +42,8 @@
         "spdy": "^4.0.0",
         "uglify-es": "^3.3.9",
         "uglifycss": "0.0.29"
+    },
+    "dependencies": {
+        "date-fns": "^1.30.1"
     }
 }
