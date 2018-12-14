@@ -20,8 +20,8 @@ console.log(todoDeleteResults);
 console.log(todoEditResults);
 console.log(todoTTIResults);
 
-// const pascalLoadResults = require('../results/pascal-triangle-load.json');
-// const pascalTTIResults = require('../results/pascal-triangle-tti.json');
+const pascalLoadResults = require('../results/pascal-triangle-load.json');
+const pascalTTIResults = require('../results/pascal-triangle-tti.json');
 
 const data = {
     todo: {
@@ -51,9 +51,9 @@ const filesizeGzipped = (project, namespace) => {
                 break;
         }
     }
-    if (project.paths) {
+    if (paths) {
         return (
-            project.paths.reduce((previous, current) => {
+            paths.reduce((previous, current) => {
                 const exists = fs.existsSync(`${namespace}/${current}`);
                 if (!exists) return undefined;
                 const fileContents = fs.readFileSync(`${namespace}/${current}`);
@@ -117,8 +117,28 @@ metas.wc.forEach(lib => {
         maxTodo.tti = todoTTIResults[lib.slug];
     }
 
-    /*lib.pascal = {};
-    lib.pascal.size = parseFloat(filesizeGzipped(lib, 'pascal-triangle'));*/
+    lib.pascal = {};
+    lib.pascal.size = parseFloat(filesizeGzipped(lib, 'pascal-triangle'));
+
+    if (pascalLoadResults[lib.slug]) {
+        data.pascal.WClibraries.push({
+            name: lib.name,
+            stars: lib.stars,
+            version: cleanVersion(lib.version),
+            load: pascalLoadResults[lib.slug],
+            size: lib.pascal.size,
+            tti: pascalTTIResults[lib.slug]
+        });
+        if (lib.pascal.size > maxPascal.size) {
+            maxPascal.size = lib.pascal.size;
+        }
+        if (pascalLoadResults[lib.slug] > maxPascal.load) {
+            maxPascal.load = pascalLoadResults[lib.slug];
+        }
+        if (pascalTTIResults[lib.slug] > maxPascal.tti) {
+            maxPascal.tti = pascalTTIResults[lib.slug];
+        }
+    }
 });
 metas.fw.forEach(lib => {
     lib.todo = {};
@@ -152,10 +172,33 @@ metas.fw.forEach(lib => {
     if (todoTTIResults[lib.slug] > maxTodo.tti) {
         maxTodo.tti = todoTTIResults[lib.slug];
     }
+
+    lib.pascal = {};
+    lib.pascal.size = parseFloat(filesizeGzipped(lib, 'pascal-triangle'));
+
+    if (pascalLoadResults[lib.slug]) {
+        data.pascal.FW.push({
+            name: lib.name,
+            stars: lib.stars,
+            version: cleanVersion(lib.version),
+            load: pascalLoadResults[lib.slug],
+            size: lib.pascal.size,
+            tti: pascalTTIResults[lib.slug]
+        });
+        if (lib.pascal.size > maxPascal.size) {
+            maxPascal.size = lib.pascal.size;
+        }
+        if (pascalLoadResults[lib.slug] > maxPascal.load) {
+            maxPascal.load = pascalLoadResults[lib.slug];
+        }
+        if (pascalTTIResults[lib.slug] > maxPascal.tti) {
+            maxPascal.tti = pascalTTIResults[lib.slug];
+        }
+    }
 });
 
 data.todo.max = maxTodo;
-data.pascal.max = maxTodo;
+data.pascal.max = maxPascal;
 data.buildDateAndTime = format(new Date(), 'DD/MM/YYYY - HH:mm:ss');
 
 ejs.renderFile('./common/index.ejs', data, {}, function(err, str) {

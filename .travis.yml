@@ -13,12 +13,12 @@ script:
     - bash install-all.sh
     - npm run build:all
     - npm run run:benchmark
-    #- cd ../
-    #- cd pascal-triangle
-    #- npm i
-    #- bash install-all.sh
-    #- npm run build:all
-    #- npm run run:benchmark
+    - cd ../
+    - cd pascal-triangle
+    - npm i
+    - bash install-all.sh
+    - npm run build:all
+    - npm run run:benchmark
     - cd ../
     - npm run compile-results
     - bash scripts/deploy.sh
