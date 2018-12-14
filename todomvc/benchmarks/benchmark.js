@@ -1,6 +1,6 @@
 const fs = require('fs-extra');
 
-const meta = require('../../results/meta');
+const meta = require('../../common/meta');
 
 const {
     benchPageLoad,
@@ -8,7 +8,7 @@ const {
     benchDelete,
     benchEdit,
     benchTti
-} = require('./helpers');
+} = require('../../common/helpers');
 
 let ELEMENTS = [...meta.wc, ...meta.fw];
 
@@ -46,7 +46,7 @@ console.log('**********************');
             fs.outputJsonSync(resultsFileLoad, {});
         }
         let resultsLoad = fs.readJsonSync(resultsFileLoad);
-        let averageLoad = await benchPageLoad(element, element.todo.url);
+        let averageLoad = await benchPageLoad(element, element.url);
         console.log(
             `\nAverage time for Page Load : ${Math.ceil(averageLoad)} ms\n`
         );
@@ -58,7 +58,7 @@ console.log('**********************');
             fs.outputJsonSync(resultsFileTti, {});
         }
         let resultsTti = fs.readJsonSync(resultsFileTti);
-        let averageTti = await benchTti(element.todo.url);
+        let averageTti = await benchTti(element.url);
         console.log(
             `\nAverage time for time to interactive : ${Math.ceil(
                 averageTti
@@ -72,7 +72,7 @@ console.log('**********************');
             fs.outputJsonSync(resultsFileCreate, {});
         }
         let resultsCreate = fs.readJsonSync(resultsFileCreate);
-        let averageCreate = await benchCreate(element, element.todo.url);
+        let averageCreate = await benchCreate(element, element.url);
         console.log(
             `\nAverage time for creation : ${Math.ceil(averageCreate)} ms\n`
         );
@@ -84,7 +84,7 @@ console.log('**********************');
             fs.outputJsonSync(resultsFileDelete, {});
         }
         let resultsDelete = fs.readJsonSync(resultsFileDelete);
-        let averageDelete = await benchDelete(element, element.todo.url);
+        let averageDelete = await benchDelete(element, element.url);
         console.log(
             `\nAverage time for delete : ${Math.ceil(averageDelete)} ms\n`
         );
@@ -96,7 +96,7 @@ console.log('**********************');
             fs.outputJsonSync(resultsFileEdit, {});
         }
         let resultsEdit = fs.readJsonSync(resultsFileEdit);
-        let averageEdit = await benchEdit(element, element.todo.url);
+        let averageEdit = await benchEdit(element, element.url);
         console.log(
             `\nAverage time for edition : ${Math.ceil(averageEdit)} ms\n`
         );

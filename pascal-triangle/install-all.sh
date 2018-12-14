@@ -14,8 +14,8 @@ npm i
 #npm i
 cd ../native-shadow-dom_hyperHTML 
 npm i
-cd ../native-shadow-dom_lit-html
-npm i
+#cd ../native-shadow-dom_lit-html
+#npm i
 #cd ../omi
 #npm i
 cd ../polymer3

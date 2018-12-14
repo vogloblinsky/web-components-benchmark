@@ -1,4 +1,5 @@
 const stencilTodoInfos = require('../todomvc/stencil/www/build/app/app.registry.json');
+const stencilPascalInfos = require('../pascal-triangle/stencil/www/build/app/app.registry.json');
 
 module.exports = {
     wc: [{
@@ -7,10 +8,8 @@ module.exports = {
             version: '',
             github: 'https://github.com/webcomponents/webcomponentsjs',
             stars: '',
-            todo: {
-                url: 'native-shadow-dom/dist/index.html',
-                paths: ['todomvc/native-shadow-dom/dist/bundle.js']
-            }
+            url: 'native-shadow-dom/dist/index.html',
+            paths: ['native-shadow-dom/dist/bundle.js']
         },
         {
             name: 'Atomico',
@@ -20,13 +19,11 @@ module.exports = {
                 'atomico'
             ],
             stars: 160,
-            todo: {
-                url: 'atomico/public/index.html',
-                paths: [
-                    'todomvc/atomico/public/atomico.umd.js',
-                    'todomvc/atomico/public/atom-todo.iife.js'
-                ]
-            }
+            url: 'atomico/public/index.html',
+            paths: [
+                'atomico/public/atomico.umd.js',
+                'atomico/public/atom-todo.iife.js'
+            ]
         },
         {
             name: 'Hybrids',
@@ -35,10 +32,8 @@ module.exports = {
             version: require('../todomvc/hybrids/package.json')
                 .dependencies['hybrids'],
             stars: 840,
-            todo: {
-                url: 'hybrids/index.html',
-                paths: ['todomvc/hybrids/dist/bundle.js']
-            }
+            url: 'hybrids/index.html',
+            paths: ['hybrids/dist/bundle.js']
         },
         {
             name: 'hyperHTML',
@@ -47,10 +42,8 @@ module.exports = {
             version: require('../todomvc/native-shadow-dom_hyperHTML/package.json')
                 .dependencies['hyperhtml'],
             stars: 2045,
-            todo: {
-                url: 'native-shadow-dom_hyperHTML/dist/index.html',
-                paths: ['todomvc/native-shadow-dom_hyperHTML/dist/bundle.js']
-            }
+            url: 'native-shadow-dom_hyperHTML/dist/index.html',
+            paths: ['native-shadow-dom_hyperHTML/dist/bundle.js']
         },
         {
             name: 'LitElement',
@@ -59,10 +52,8 @@ module.exports = {
             version: require('../todomvc/lit-element/package.json')
                 .dependencies['@polymer/lit-element'],
             stars: 897,
-            todo: {
-                url: 'lit-element/dist/index.html',
-                paths: ['todomvc/lit-element/dist/bundle.js']
-            }
+            url: 'lit-element/dist/index.html',
+            paths: ['lit-element/dist/bundle.js']
         },
         {
             name: 'Omi',
@@ -70,10 +61,8 @@ module.exports = {
             github: 'https://github.com/Tencent/omi',
             version: require('../todomvc/omi/package.json').dependencies['omi'],
             stars: 5304,
-            todo: {
-                url: 'omi/dist/index.html',
-                paths: ['todomvc/omi/dist/bundle.js']
-            }
+            url: 'omi/dist/index.html',
+            paths: ['omi/dist/bundle.js']
         },
         {
             name: 'Polymer 3',
@@ -83,10 +72,8 @@ module.exports = {
                 '@polymer/polymer'
             ],
             stars: 20380,
-            todo: {
-                url: 'polymer3/build/es6-unbundled/index.html',
-                paths: ['todomvc/polymer3/build/es6-unbundled/bundle.js']
-            }
+            url: 'polymer3/build/es6-unbundled/index.html',
+            paths: ['polymer3/build/es6-unbundled/bundle.js']
         },
         {
             name: 'Riot',
@@ -97,10 +84,8 @@ module.exports = {
             ],
             stars: 13320,
             noshadowdom: true,
-            todo: {
-                url: 'riot/dist/index.html',
-                paths: ['todomvc/riot/dist/bundle.js']
-            }
+            url: 'riot/dist/index.html',
+            paths: ['riot/dist/bundle.js']
         },
         {
             name: 'SkateJS & lit-html',
@@ -109,10 +94,8 @@ module.exports = {
             version: require('../todomvc/skatejs-lit-html/package.json')
                 .dependencies['@skatejs/renderer-lit-html'],
             stars: 2796,
-            todo: {
-                url: 'skatejs-lit-html/',
-                paths: ['todomvc/skatejs-lit-html/dist/main.js']
-            }
+            url: 'skatejs-lit-html/',
+            paths: ['skatejs-lit-html/dist/main.js']
         },
         {
             name: 'SkateJS & Preact',
@@ -121,10 +104,8 @@ module.exports = {
             version: require('../todomvc/skatejs-preact/package.json')
                 .dependencies['@skatejs/renderer-preact'],
             stars: 2796,
-            todo: {
-                url: 'skatejs-preact/',
-                paths: ['todomvc/skatejs-preact/dist/main.js']
-            }
+            url: 'skatejs-preact/',
+            paths: ['skatejs-preact/dist/main.js']
         },
         {
             name: 'Slim.js',
@@ -134,10 +115,8 @@ module.exports = {
                 'slim-js'
             ],
             stars: 548,
-            todo: {
-                url: 'slim.js/dist/index.html',
-                paths: ['todomvc/slim.js/dist/bundle.js']
-            }
+            url: 'slim.js/dist/index.html',
+            paths: ['slim.js/dist/bundle.js']
         },
         {
             name: 'Stencil',
@@ -147,21 +126,28 @@ module.exports = {
                 '@stencil/core'
             ],
             stars: 4238,
-            todo: {
-                url: 'stencil/www/index.html',
-                paths: [
-                    `todomvc/stencil/www/build/app/${stencilTodoInfos.core}`,
-                    `todomvc/stencil/www/build/app/${
+            url: 'stencil/www/index.html',
+            pathsTodo: [
+                `stencil/www/build/app/${stencilTodoInfos.core}`,
+                `stencil/www/build/app/${
                         stencilTodoInfos.components['my-todo'].bundleIds.$
                     }.entry.js`,
-                    `todomvc/stencil/www/build/app/${
+                `stencil/www/build/app/${
                         stencilTodoInfos.components['todo-input'].bundleIds.$
                     }.entry.js`,
-                    `todomvc/stencil/www/build/app/${
+                `stencil/www/build/app/${
                         stencilTodoInfos.components['todo-item'].bundleIds.$
                     }.entry.js`
-                ]
-            }
+            ],
+            pathsPascal: [
+                `stencil/www/build/app/${stencilPascalInfos.core}`,
+                `stencil/www/build/app/${
+                    stencilPascalInfos.components['pascal-triangle'].bundleIds.$
+                    }.entry.js`,
+                `stencil/www/build/app/${
+                    stencilPascalInfos.components['triangle-item'].bundleIds.$
+                    }.entry.js`
+            ]
         },
         {
             name: 'Svelte',
@@ -171,10 +157,8 @@ module.exports = {
                 'svelte'
             ],
             stars: 8306,
-            todo: {
-                url: 'svelte/public/index.html',
-                paths: ['todomvc/svelte/public/bundle.js']
-            }
+            url: 'svelte/public/index.html',
+            paths: ['svelte/public/bundle.js']
         }
     ],
     fw: [{
@@ -184,10 +168,8 @@ module.exports = {
             version: require('../todomvc/angular-elements/package.json')
                 .dependencies['@angular/core'],
             stars: 42492,
-            todo: {
-                url: 'angular-elements/dist/index.html',
-                paths: ['todomvc/angular-elements/dist/main.bundle.js']
-            }
+            url: 'angular-elements/dist/index.html',
+            paths: ['angular-elements/dist/main.bundle.js']
         },
         {
             name: 'Vue.js',
@@ -195,13 +177,11 @@ module.exports = {
             github: 'https://github.com/vuejs/vue',
             version: require('../todomvc/vue.js/package.json').dependencies.vue,
             stars: 118622,
-            todo: {
-                url: 'vue.js/dist/index.html',
-                paths: [
-                    'todomvc/vue.js/node_modules/vue/dist/vue.min.js',
-                    'todomvc/vue.js/dist/build.js'
-                ]
-            }
+            url: 'vue.js/dist/index.html',
+            paths: [
+                'vue.js/node_modules/vue/dist/vue.min.js',
+                'vue.js/dist/build.js'
+            ]
         },
         {
             name: 'Dojo',
@@ -212,10 +192,8 @@ module.exports = {
             ],
             stars: 80,
             noshadowdom: true,
-            todo: {
-                url: 'dojo2/output/index.html',
-                paths: ['todomvc/dojo2/output/dist/index/index-1.0.0.js']
-            }
+            url: 'dojo2/output/index.html',
+            paths: ['dojo2/output/dist/index/index-1.0.0.js']
         }
     ]
 };

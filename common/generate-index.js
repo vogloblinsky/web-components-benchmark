@@ -8,11 +8,11 @@ const metas = require('./meta');
 
 const queryStars = require('./query-stars');
 
-const todoLoadResults = require('./todo-load.json');
-const todoCreateResults = require('./todo-create.json');
-const todoDeleteResults = require('./todo-delete.json');
-const todoEditResults = require('./todo-edit.json');
-const todoTTIResults = require('./todo-tti.json');
+const todoLoadResults = require('../results/todo-load.json');
+const todoCreateResults = require('../results/todo-create.json');
+const todoDeleteResults = require('../results/todo-delete.json');
+const todoEditResults = require('../results/todo-edit.json');
+const todoTTIResults = require('../results/todo-tti.json');
 
 console.log(todoLoadResults);
 console.log(todoCreateResults);
@@ -20,8 +20,8 @@ console.log(todoDeleteResults);
 console.log(todoEditResults);
 console.log(todoTTIResults);
 
-// const pascalLoadResults = require('./pascal-triangle-load.json');
-// const pascalTTIResults = require('./pascal-triangle-tti.json');
+// const pascalLoadResults = require('../results/pascal-triangle-load.json');
+// const pascalTTIResults = require('../results/pascal-triangle-tti.json');
 
 const data = {
     todo: {
@@ -38,17 +38,29 @@ const data = {
 
 const cleanVersion = version => version.replace('^', '');
 
-const filesizeGzipped = project => {
+const filesizeGzipped = (project, namespace) => {
+    let paths = project.paths;
+    if (project.slug === 'stencil') {
+        switch (namespace) {
+            case 'pascal-triangle':
+                paths = project.pathsPascal;
+                break;
+            case 'todomvc':
+                paths = project.pathsTodo;
+            default:
+                break;
+        }
+    }
     if (project.paths) {
         return (
             project.paths.reduce((previous, current) => {
-                const exists = fs.existsSync(`${current}`);
+                const exists = fs.existsSync(`${namespace}/${current}`);
                 if (!exists) return undefined;
-                const fileContents = fs.readFileSync(`${current}`);
+                const fileContents = fs.readFileSync(`${namespace}/${current}`);
                 const zippedContent = zlib.gzipSync(fileContents.toString());
-                fs.writeFileSync(`${current}.gzip`, zippedContent);
-                const size = previous + fs.statSync(`${current}.gzip`).size;
-                fs.unlinkSync(`${current}.gzip`);
+                fs.writeFileSync(`${namespace}/${current}.gzip`, zippedContent);
+                const size = previous + fs.statSync(`${namespace}/${current}.gzip`).size;
+                fs.unlinkSync(`${namespace}/${current}.gzip`);
                 return size;
             }, 0) / 1000
         ).toFixed(1);
@@ -61,14 +73,20 @@ let maxTodo = {
     size: 0,
     load: 0,
     tti: 0,
-    fmp: 0,
     create: 0,
     delete: 0,
     edit: 0
 };
 
+let maxPascal = {
+    size: 0,
+    load: 0,
+    tti: 0
+};
+
 metas.wc.forEach(lib => {
-    lib.todo.size = parseFloat(filesizeGzipped(lib.todo));
+    lib.todo = {};
+    lib.todo.size = parseFloat(filesizeGzipped(lib, 'todomvc'));
     data.todo.WClibraries.push({
         name: lib.name,
         stars: lib.stars,
@@ -98,9 +116,13 @@ metas.wc.forEach(lib => {
     if (todoTTIResults[lib.slug] > maxTodo.tti) {
         maxTodo.tti = todoTTIResults[lib.slug];
     }
+
+    /*lib.pascal = {};
+    lib.pascal.size = parseFloat(filesizeGzipped(lib, 'pascal-triangle'));*/
 });
 metas.fw.forEach(lib => {
-    lib.todo.size = parseFloat(filesizeGzipped(lib.todo));
+    lib.todo = {};
+    lib.todo.size = parseFloat(filesizeGzipped(lib, 'todomvc'));
     data.todo.FW.push({
         name: lib.name,
         stars: lib.stars,
@@ -136,7 +158,7 @@ data.todo.max = maxTodo;
 data.pascal.max = maxTodo;
 data.buildDateAndTime = format(new Date(), 'DD/MM/YYYY - HH:mm:ss');
 
-ejs.renderFile('./results/index.ejs', data, {}, function(err, str) {
+ejs.renderFile('./common/index.ejs', data, {}, function(err, str) {
     fs.writeFile('./docs/index.html', str, err => {
         if (err) throw err;
         console.log('The file has been saved!');
