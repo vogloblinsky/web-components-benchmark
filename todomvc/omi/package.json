@@ -16,7 +16,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "omi": "^5.0.10"
+    "omi": "^5.0.13"
   },
   "devDependencies": {
     "concat-cli": "^4.0.0",
