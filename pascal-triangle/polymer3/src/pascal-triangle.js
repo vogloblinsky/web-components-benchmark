@@ -1,8 +1,8 @@
 import {
     PolymerElement, html
 }
-from '../node_modules/@polymer/polymer/polymer-element.js';
-import '../node_modules/@polymer/polymer/lib/elements/dom-repeat.js';
+from '../../node_modules/@polymer/polymer/polymer-element.js';
+import '../../node_modules/@polymer/polymer/lib/elements/dom-repeat.js';
 
 let _length = 100;
 

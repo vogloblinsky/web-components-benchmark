@@ -1,8 +1,16 @@
+import nodeResolve from 'rollup-plugin-node-resolve';
+
 export default {
-    input: 'src/index.js',
+    input: 'build/es6-unbundled/bundle_tmp.js',
     output: {
-        file: 'build/src_tmp/index.js',
+        file: 'build/es6-unbundled/bundle.js',
         format: 'es',
         sourcemap: false
-    }
+    },
+    plugins: [
+        nodeResolve({
+            jsnext: true,
+            main: true
+        })
+    ]
 };

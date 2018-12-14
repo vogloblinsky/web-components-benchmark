@@ -1,25 +1,25 @@
 {
-    "name": "polymer3",
-    "version": "1.0.0",
-    "main": "index.js",
-    "license": "MIT",
-    "flat": true,
+    "name": "pascal-triangle",
     "scripts": {
-        "prebuild": "rm -rf build/",
-        "build": "npm run build-es6 && npm run minify-es6",
-        "build-es6": "rollup -c rollup.config.js",
-        "postbuild-es6": "cp index.html build/",
-        "preminify-es6": "mkdir build/src",
-        "minify-es6": "uglifyjs build/src_tmp/index.js -o build/src/index.js -c -m",
-        "postminify-es6": "rm -rf build/src_tmp"
+        "build:polymer": "npx polymer build",
+        "build": "npm run build:polymer && npm run clean-js && npm run concat-js && npm run rollup && npm run minify-js && npm run minify-html",
+        "clean-js": "npx replace 'import{html,PolymerElement}from\"../../node_modules/@polymer/polymer/polymer-element.js\";' \"\" build/es6-unbundled/src/triangle-item.js",
+        "concat-js": "npx concat-cli -f build/es6-unbundled/src/pascal-triangle.js build/es6-unbundled/src/triangle-item.js -o build/es6-unbundled/bundle_tmp.js",
+        "rollup": "npx rollup -c",
+        "minify-js": "npx uglifyjs build/es6-unbundled/bundle.js -o build/es6-unbundled/bundle.js",
+        "minify-html": "npx html-minifier index.dist.html -o build/es6-unbundled/index.html --collapse-whitespace --remove-comments"
     },
     "dependencies": {
-        "@polymer/polymer": "^3.0.2",
-        "@webcomponents/webcomponentsjs": "^1.2.0"
+        "@polymer/iron-form": "^3.0.1",
+        "@polymer/iron-input": "^3.0.1",
+        "@polymer/polymer": "^3.1.0"
     },
     "devDependencies": {
-        "rollup": "^0.58.2",
-        "rollup-plugin-node-resolve": "^3.3.0",
-        "uglify-es": "^3.3.9"
+        "@webcomponents/webcomponentsjs": "^2.2.1",
+        "concat-cli": "^4.0.0",
+        "polymer-cli": "^1.9.2",
+        "replace": "^1.0.0",
+        "uglify-es": "^3.3.9",
+        "wct-browser-legacy": "^1.0.0"
     }
 }

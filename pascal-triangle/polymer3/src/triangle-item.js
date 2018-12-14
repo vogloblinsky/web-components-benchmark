@@ -1,7 +1,4 @@
-import {
-    PolymerElement, html
-}
-from '../node_modules/@polymer/polymer/polymer-element.js';
+import{html,PolymerElement}from"../../node_modules/@polymer/polymer/polymer-element.js";
 
 export class TriangleItem extends PolymerElement {
     static get is() {
