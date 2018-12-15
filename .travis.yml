@@ -3,7 +3,7 @@ os:
 language: node_js
 install: true
 node_js:
-    - '9'
+    - '10'
 script:
     - echo '0. Global install'
     - npm i
