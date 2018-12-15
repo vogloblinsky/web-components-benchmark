@@ -1,3 +1,7 @@
+echo ""
+echo "TODO"
+echo ""
+
 cd todomvc
 cd angular-elements
 npm outdated
@@ -32,7 +36,11 @@ npm outdated
 cd ../vue.js
 npm outdated
 
-cd ../pascal-triangle
+echo ""
+echo "PASCAL-TRIANGLE"
+echo ""
+
+cd ../../pascal-triangle
 cd angular-elements
 npm outdated
 #cd ../atomico
@@ -63,4 +71,3 @@ npm outdated
 #npm outdated
 cd ../vue.js
 npm outdated
-
