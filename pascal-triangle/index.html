@@ -1,91 +1,108 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Pascal's triangle implementations with Web components</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+        />
+        <meta name="theme-color" content="#16161d" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
 
-<head>
-    <meta charset="utf-8">
-    <title>Pascal's triangle implementations with Web components</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-    <meta name="theme-color" content="#16161d">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    </head>
 
-    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
-</head>
+    <body>
+        <div id="centered">
+            <h1>Pascal triangle</h1>
+            <ul>
+                <li>
+                    <a href="./native-shadow-dom/dist/index.html"
+                        >Native Web Component</a
+                    >
+                </li>
+                <!--
+                    <li>
+                        <a href="./native-shadow-dom_lit-html/dist/index.html">Native Web Component + lit-html</a>
+                    </li>
+                -->
+                <li><a href="./hybrids/index.html">Hybrids</a></li>
+                <li>
+                    <a href="./native-shadow-dom_hyperHTML/dist/index.html"
+                        >Native Web Component + hyperHTML</a
+                    >
+                </li>
+                <li>
+                    <a href="./lit-element/dist/index.html"
+                        >Native Web Component + lit-element</a
+                    >
+                </li>
+                <!--
+                    <li>
+                        <a href="./polymer/build/es6-bundled/index.html">Polymer</a>
+                    </li>
+                -->
+                <li>
+                    <a href="./polymer3/build/es6-unbundled/index.html"
+                        >Polymer 3</a
+                    >
+                </li>
+                <!--
+                    <li>
+                        <a href="./stencil/www-prerendered/index.html">StencilJS With Prerendering (out of the box)</a>
+                    </li>
+                -->
+                <li>
+                    <a href="./stencil/www/index.html"
+                        >StencilJS Without Prerendering</a
+                    >
+                </li>
+                <!--
+                    <li>
+                        <a href="./skatejs-lit-html">SkateJS + lit-html</a>
+                    </li>
+                    <li>
+                        <a href="./skatejs-preact">SkateJS + Preact</a>
+                    </li>
+                    <li>
+                        <a href="./svelte/public/index.html">Svelte WC</a>
+                    </li>
+                -->
+            </ul>
+            <ul>
+                <li>
+                    <a href="./angular-elements/dist/index.html"
+                        >Angular Elements</a
+                    >
+                </li>
+                <li><a href="./vue.js/dist/index.html">Vue</a></li>
+                <li><a href="./dojo2/output/index.html">Dojo2</a></li>
+            </ul>
+        </div>
 
-<body>
-    <div id="centered">
-        <h1>Pascal triangle</h1>
-        <ul>
-            <li>
-                <a href="./native-shadow-dom/dist/index.html">Native Web Component</a>
-            </li>
-            <!--<li>
-                <a href="./native-shadow-dom_lit-html/dist/index.html">Native Web Component + lit-html</a>
-            </li>-->
-            <li>
-                <a href="./native-shadow-dom_hyperHTML/dist/index.html">Native Web Component + hyperHTML</a>
-            </li>
-            <li>
-                <a href="./lit-element/dist/index.html">Native Web Component + lit-element</a>
-            </li>
-            <!--<li>
-                <a href="./polymer/build/es6-bundled/index.html">Polymer</a>
-            </li>-->
-            <li>
-                <a href="./polymer3/build/es6-unbundled/index.html">Polymer 3</a>
-            </li>
-            <!--<li>
-                <a href="./stencil/www-prerendered/index.html">StencilJS With Prerendering (out of the box)</a>
-            </li>-->
-            <li>
-                <a href="./stencil/www/index.html">StencilJS Without Prerendering</a>
-            </li>
-            <!--<li>
-                <a href="./skatejs-lit-html">SkateJS + lit-html</a>
-            </li>
-            <li>
-                <a href="./skatejs-preact">SkateJS + Preact</a>
-            </li>
-            <li>
-                <a href="./svelte/public/index.html">Svelte WC</a>
-            </li>-->
-        </ul>
-        <ul>
-            <li>
-                <a href="./angular-elements/dist/index.html">Angular Elements</a>
-            </li>
-            <li>
-                <a href="./vue.js/dist/index.html">Vue</a>
-            </li>
-            <li>
-                <a href="./dojo2/output/index.html">Dojo2</a>
-            </li>
-        </ul>
-    </div>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+            }
 
+            body {
+                font: 25px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                line-height: 1.4em;
+                background: #f5f5f5;
+                color: #4d4d4d;
+            }
 
-    <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-
-        body {
-            font: 25px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            line-height: 1.4em;
-            background: #f5f5f5;
-            color: #4d4d4d;
-        }
-
-        #centered {
-            display: flex;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-    </style>
-</body>
-
+            #centered {
+                display: flex;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+        </style>
+    </body>
 </html>

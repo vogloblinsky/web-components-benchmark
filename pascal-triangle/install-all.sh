@@ -10,8 +10,8 @@ cd ../lit-element
 npm ci
 cd ../native-shadow-dom
 npm ci
-#cd ../hybrids
-#npm ci
+cd ../hybrids
+npm ci
 cd ../native-shadow-dom_hyperHTML 
 npm ci
 #cd ../native-shadow-dom_lit-html
