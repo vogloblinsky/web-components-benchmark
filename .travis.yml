@@ -6,15 +6,15 @@ node_js:
     - '10'
 script:
     - echo '0. Global install'
-    - npm ci
+    - npm i
     - echo '1. todomvc global install'
     - cd todomvc
-    - npm ci
+    - npm i
     - bash install-all.sh
     - npm run build:all
     - cd ../
     - cd pascal-triangle
-    - npm ci
+    - npm i
     - bash install-all.sh
     - npm run build:all
     - npm run run:benchmark
