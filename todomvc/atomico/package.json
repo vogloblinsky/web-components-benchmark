@@ -1,25 +1,27 @@
 {
-  "name": "atom-todo",
-  "version": "0.0.1",
-  "description": "This is a small skeleton to create distributable components based on Atomico",
-  "iife": "public/atom-todo.iife.js",
-  "source": "src/index.js",
-  "author": "Matias Trujillo Olivares",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/UpperCod/atomico-starter-component.git"
-  },
-  "scripts": {
-    "prebuild": "npm prune && npm install",
-    "watch": "npx rollup -c -w",
-    "build": "npx rollup -c"
-  },
-  "dependencies": {
-    "atomico": "0.5.4"
-  },
-  "globals": {
-    "atomico": "atomico"
-  },
-  "devDependencies": {}
+    "name": "atom-todo",
+    "version": "0.0.1",
+    "description": "This is a small skeleton to create distributable components based on Atomico",
+    "iife": "public/atom-todo.iife.js",
+    "source": "src/index.js",
+    "author": "Matias Trujillo Olivares",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/UpperCod/atomico-starter-component.git"
+    },
+    "scripts": {
+        "prebuild": "npm prune && npm install",
+        "watch": "npx rollup -c -w",
+        "build": "npx rollup -c"
+    },
+    "dependencies": {
+        "atomico": "0.5.4"
+    },
+    "globals": {
+        "atomico": "atomico"
+    },
+    "devDependencies": {
+        "uglify-es": "3.3.9"
+    }
 }

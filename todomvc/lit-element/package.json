@@ -17,7 +17,7 @@
     "license": "MIT",
     "devDependencies": {
         "replace": "^1.0.0",
-        "uglify-es": "^3.3.9"
+        "uglify-es": "3.3.9"
     },
     "dependencies": {
         "@polymer/lit-element": "^0.6.5",

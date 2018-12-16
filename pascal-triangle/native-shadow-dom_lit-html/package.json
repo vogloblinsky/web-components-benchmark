@@ -20,7 +20,7 @@
         "html-minifier": "^3.5.15",
         "replace": "^0.3.0",
         "rollup": "^0.58.2",
-        "uglify-es": "^3.3.9"
+        "uglify-es": "3.3.9"
     },
     "dependencies": {
         "lit-html": "^0.10.0"

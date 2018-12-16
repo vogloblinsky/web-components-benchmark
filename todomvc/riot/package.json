@@ -19,7 +19,7 @@
     "devDependencies": {
         "concat-cli": "^4.0.0",
         "replace": "^1.0.0",
-        "uglify-es": "^3.3.9"
+        "uglify-es": "3.3.9"
     },
     "dependencies": {
         "riot": "^3.13.2"

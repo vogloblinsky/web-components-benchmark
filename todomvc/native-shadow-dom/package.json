@@ -1,17 +1,17 @@
 {
-  "name": "native-shadow-dom",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "minify-html": "npx html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
-    "concat-js": "npx concat-cli -f js/*.js -o dist/bundle.js",
-    "minify-js": "npx uglifyjs dist/bundle.js -o dist/bundle.js",
-    "build": "npm run minify-html && npm run concat-js && npm run minify-js"
-  },
-  "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "uglify-es": "^3.3.9"
-  }
+    "name": "native-shadow-dom",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "minify-html": "npx html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
+        "concat-js": "npx concat-cli -f js/*.js -o dist/bundle.js",
+        "minify-js": "npx uglifyjs dist/bundle.js -o dist/bundle.js",
+        "build": "npm run minify-html && npm run concat-js && npm run minify-js"
+    },
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "uglify-es": "3.3.9"
+    }
 }

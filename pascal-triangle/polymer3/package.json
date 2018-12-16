@@ -19,7 +19,7 @@
         "concat-cli": "^4.0.0",
         "polymer-cli": "^1.9.2",
         "replace": "^1.0.0",
-        "uglify-es": "^3.3.9",
+        "uglify-es": "3.3.9",
         "wct-browser-legacy": "^1.0.0"
     }
 }

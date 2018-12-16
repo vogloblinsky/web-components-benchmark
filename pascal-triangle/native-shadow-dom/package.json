@@ -1,19 +1,19 @@
 {
-  "name": "native-shadow-dom",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "minify-html": "./node_modules/.bin/html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
-    "concat-js": "./node_modules/.bin/concat-cli -f js/*.js -o dist/bundle.js",
-    "minify-js": "./node_modules/.bin/uglifyjs dist/bundle.js -o dist/bundle.js",
-    "build": "npm run minify-html && npm run concat-js && npm run minify-js"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "concat-cli": "^4.0.0",
-    "html-minifier": "^3.5.8",
-    "uglify-es": "^3.3.9"
-  }
+    "name": "native-shadow-dom",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "minify-html": "./node_modules/.bin/html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
+        "concat-js": "./node_modules/.bin/concat-cli -f js/*.js -o dist/bundle.js",
+        "minify-js": "./node_modules/.bin/uglifyjs dist/bundle.js -o dist/bundle.js",
+        "build": "npm run minify-html && npm run concat-js && npm run minify-js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "concat-cli": "^4.0.0",
+        "html-minifier": "^3.5.8",
+        "uglify-es": "3.3.9"
+    }
 }
