@@ -14,11 +14,11 @@ const todoDeleteResults = require('../results/todo-delete.json');
 const todoEditResults = require('../results/todo-edit.json');
 const todoTTIResults = require('../results/todo-tti.json');
 
-console.log(todoLoadResults);
+/*console.log(todoLoadResults);
 console.log(todoCreateResults);
 console.log(todoDeleteResults);
 console.log(todoEditResults);
-console.log(todoTTIResults);
+console.log(todoTTIResults);*/
 
 const pascalLoadResults = require('../results/pascal-triangle-load.json');
 const pascalTTIResults = require('../results/pascal-triangle-tti.json');
@@ -90,6 +90,7 @@ metas.wc.forEach(lib => {
     data.todo.WClibraries.push({
         name: lib.name,
         stars: lib.stars,
+        slug: lib.slug,
         version: cleanVersion(lib.version),
         load: todoLoadResults[lib.slug],
         create: todoCreateResults[lib.slug],
@@ -124,6 +125,7 @@ metas.wc.forEach(lib => {
         data.pascal.WClibraries.push({
             name: lib.name,
             stars: lib.stars,
+            slug: lib.slug,
             version: cleanVersion(lib.version),
             load: pascalLoadResults[lib.slug],
             size: lib.pascal.size,
@@ -146,6 +148,7 @@ metas.fw.forEach(lib => {
     data.todo.FW.push({
         name: lib.name,
         stars: lib.stars,
+        slug: lib.slug,
         version: cleanVersion(lib.version),
         load: todoLoadResults[lib.slug],
         create: todoCreateResults[lib.slug],
@@ -180,6 +183,7 @@ metas.fw.forEach(lib => {
         data.pascal.FW.push({
             name: lib.name,
             stars: lib.stars,
+            slug: lib.slug,
             version: cleanVersion(lib.version),
             load: pascalLoadResults[lib.slug],
             size: lib.pascal.size,

@@ -62,3 +62,7 @@ typings/
 benchmarks-results
 
 results/*.json
+
+demos
+
+docs
