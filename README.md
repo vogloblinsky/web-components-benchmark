@@ -80,8 +80,6 @@ In another tab
 
 https://vogloblinsky.github.io/web-components-benchmark/#todo
 
-# Current results
-
 ## Pascal triangle
 
 https://vogloblinsky.github.io/web-components-benchmark/#pascal
