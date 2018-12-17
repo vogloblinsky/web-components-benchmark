@@ -93,7 +93,7 @@ const store = {
 }
 render(
   <div>
-    <a href="../../" id="back">⬅ Back to other implementations</a>
+    <a href="../" id="back">⬅ Back to other implementations</a>
     <my-todo></my-todo>
   </div>
 , 'body', store)
