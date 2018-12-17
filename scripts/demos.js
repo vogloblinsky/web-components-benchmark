@@ -5,9 +5,21 @@ const pascalLoadResults = require('../results/pascal-triangle-load.json');
 
 metas.wc.forEach(lib => {
     console.log(lib.slug);
-    fs.ensureDirSync(`demos/todomvc/${lib.slug}`);
+    const finalTodoDemoPath = `demos/todomvc/${lib.slug}`;
+    fs.ensureDirSync(finalTodoDemoPath);
 
-    fs.ensureDirSync(`demos/pascal-triangle/${lib.slug}`);
+    const originalTodoDemoPath = `todomvc/${lib.slug}/dist`;
 
-    // if (pascalLoadResults[lib.slug]) {
+    if (fs.existsSync(originalTodoDemoPath)) {
+        fs.copySync(originalTodoDemoPath, finalTodoDemoPath)
+    }
+
+    const originalPascalDemoPath = `pascal-triangle/${lib.slug}/dist`;
+    const finalPascalDemoPath = `demos/pascal-triangle/${lib.slug}`;
+
+    fs.ensureDirSync(finalPascalDemoPath);
+
+    if (pascalLoadResults[lib.slug] && fs.existsSync(originalPascalDemoPath)) {
+        fs.copySync(originalPascalDemoPath, finalPascalDemoPath)
+    }
 });

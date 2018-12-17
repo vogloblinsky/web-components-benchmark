@@ -12,12 +12,16 @@ import postcss from "rollup-plugin-postcss";
 import copy from 'rollup-plugin-copy';
 import cssnano from "cssnano";
 
-export default {
+const rollupConfig = {
     ...prepare({
         pkg
     }),
     plugins: plugins(false)
 };
+
+rollupConfig.output[0].sourcemap = false;
+
+export default rollupConfig;
 
 /**
  * Returns the generic plugins to be used for packaging

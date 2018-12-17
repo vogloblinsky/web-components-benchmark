@@ -8,7 +8,7 @@ module.exports = {
             version: '',
             github: 'https://github.com/webcomponents/webcomponentsjs',
             stars: '',
-            url: 'native-shadow-dom/dist/index.html',
+            url: 'native-shadow-dom/dist',
             paths: ['native-shadow-dom/dist/bundle.js']
         },
         {
@@ -19,7 +19,7 @@ module.exports = {
                 'atomico'
             ],
             stars: 160,
-            url: 'atomico/public/index.html',
+            url: 'atomico/dist',
             paths: [
                 'atomico/public/atomico.umd.js',
                 'atomico/public/atom-todo.iife.js'
