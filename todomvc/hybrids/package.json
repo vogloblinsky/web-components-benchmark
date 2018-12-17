@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "prebuild": "rm -rf dist && mkdir dist",
-        "build": "npx webpack"
+        "build": "npx webpack",
+        "postbuild": "cp index.html dist"
     },
     "author": "",
     "license": "MIT",

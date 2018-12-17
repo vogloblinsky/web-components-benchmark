@@ -8,8 +8,8 @@ module.exports = {
             version: '',
             github: 'https://github.com/webcomponents/webcomponentsjs',
             stars: '',
-            url: 'native-shadow-dom/dist',
-            paths: ['native-shadow-dom/dist/bundle.js']
+            url: 'native/dist',
+            paths: ['native/dist/bundle.js']
         },
         {
             name: 'Atomico',
@@ -21,8 +21,8 @@ module.exports = {
             stars: 160,
             url: 'atomico/dist',
             paths: [
-                'atomico/public/atomico.umd.js',
-                'atomico/public/atom-todo.iife.js'
+                'atomico/dist/atomico.umd.js',
+                'atomico/dist/atom-todo.iife.js'
             ]
         },
         {
@@ -32,18 +32,18 @@ module.exports = {
             version: require('../todomvc/hybrids/package.json')
                 .dependencies['hybrids'],
             stars: 840,
-            url: 'hybrids/index.html',
+            url: 'hybrids/dist',
             paths: ['hybrids/dist/bundle.js']
         },
         {
             name: 'hyperHTML',
             slug: 'hyperhtml',
             github: 'https://github.com/WebReflection/hyperHTML',
-            version: require('../todomvc/native-shadow-dom_hyperHTML/package.json')
+            version: require('../todomvc/hyperhtml/package.json')
                 .dependencies['hyperhtml'],
             stars: 2045,
-            url: 'native-shadow-dom_hyperHTML/dist/index.html',
-            paths: ['native-shadow-dom_hyperHTML/dist/bundle.js']
+            url: 'hyperhtml/dist',
+            paths: ['hyperhtml/dist/bundle.js']
         },
         {
             name: 'LitElement',
