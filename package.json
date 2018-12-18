@@ -9,7 +9,7 @@
     "scripts": {
         "compile-results": "node common/generate-index.js",
         "copy-demos": "node scripts/demos.js",
-        "serve": "npx http-server ."
+        "serve": "node server.js"
     },
     "author": "Vincent Oogloblinsky",
     "license": "MIT",
@@ -23,6 +23,7 @@
         "cssnano": "^4.1.7",
         "devtools-timeline-model": "^1.4.0",
         "ejs": "^2.6.1",
+        "express": "^4.16.4",
         "fs-extra": "^7.0.1",
         "google-closure-compiler": "^20181125.0.1",
         "html-minifier": "^3.5.21",
