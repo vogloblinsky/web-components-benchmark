@@ -2,12 +2,14 @@
     "name": "todo",
     "scripts": {
         "build:polymer": "npx polymer build",
+        "prebuild": "rm -rf dist && mkdir dist",
         "build": "npm run build:polymer && npm run clean-js && npm run concat-js && npm run rollup && npm run minify-js && npm run minify-html",
+        "postbuild": "cp build/es6-unbundled/bundle.js dist",
         "clean-js": "npx replace 'import{html,PolymerElement}from\"../../node_modules/@polymer/polymer/polymer-element.js\";' \"\" build/es6-unbundled/src/todo-input/todo-input.js build/es6-unbundled/src/todo-item/todo-item.js",
         "concat-js": "npx concat-cli -f build/es6-unbundled/src/todo-app/todo-app.js build/es6-unbundled/src/todo-input/todo-input.js build/es6-unbundled/src/todo-item/todo-item.js -o build/es6-unbundled/bundle_tmp.js",
         "rollup": "npx rollup -c",
         "minify-js": "npx uglifyjs build/es6-unbundled/bundle.js -o build/es6-unbundled/bundle.js",
-        "minify-html": "npx html-minifier index.dist.html -o build/es6-unbundled/index.html --collapse-whitespace --remove-comments"
+        "minify-html": "npx html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments"
     },
     "dependencies": {
         "@polymer/iron-form": "^3.0.1",
