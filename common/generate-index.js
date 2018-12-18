@@ -12,14 +12,17 @@ const todoDeleteResults = require('../results/todo-delete.json');
 const todoEditResults = require('../results/todo-edit.json');
 const todoTTIResults = require('../results/todo-tti.json');
 
-/*console.log(todoLoadResults);
+console.log(todoLoadResults);
 console.log(todoCreateResults);
 console.log(todoDeleteResults);
 console.log(todoEditResults);
-console.log(todoTTIResults);*/
+console.log(todoTTIResults);
 
 const pascalLoadResults = require('../results/pascal-triangle-load.json');
 const pascalTTIResults = require('../results/pascal-triangle-tti.json');
+
+console.log(pascalLoadResults);
+console.log(pascalTTIResults);
 
 const data = {
     todo: {

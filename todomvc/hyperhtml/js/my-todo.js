@@ -69,7 +69,7 @@ class MyTodo extends HyperHTMLElement {
             border-top: 1px solid #e6e6e6;
         }
         </style>
-        <h1>Todos WC</h1>
+        <h1>Todos hyperHTML</h1>
         <section>
             <todo-input onsubmit=${this._addItem}></todo-input>
             <ul id="list-container">

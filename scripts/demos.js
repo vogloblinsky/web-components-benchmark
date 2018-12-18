@@ -1,5 +1,6 @@
 const metas = require('../common/meta');
 const fs = require('fs-extra');
+const replace = require("replace");
 
 const onElement = (lib) => {
     console.log(lib.slug);
@@ -24,3 +25,12 @@ const onElement = (lib) => {
 metas.wc.forEach(onElement);
 
 metas.fw.forEach(onElement);
+
+fs.copySync('pascal-triangle/index.html', 'demos/pascal-triangle/index.html');
+fs.copySync('todomvc/index.html', 'demos/todomvc/index.html');
+
+replace({
+    regex: '/dist',
+    replacement: '/',
+    paths: ['demos/todomvc/index.html', 'demos/pascal-triangle/index.html']
+})

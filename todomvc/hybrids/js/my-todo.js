@@ -59,7 +59,7 @@ const MyTodo = {
         border-top: 1px solid #e6e6e6;
     }
     </style>
-    <h1>Todos WC</h1>
+    <h1>Todos Hybrids</h1>
     <todo-input onsubmit=${onAddItem}></todo-input>
     <ul id="list-container">
         ${list.map((element, index) => html`<todo-item text="${element.text}" checked="${element.checked}" index="${index}" onremoved="${onItemRemoved}" onchecked=${onItemChecked}></todo-item>`)}

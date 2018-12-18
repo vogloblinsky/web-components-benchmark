@@ -29,6 +29,7 @@ script:
     - npm run run:benchmark:todomvc
     - echo '8. compile results'
     - npm run compile-results
+    - npm run fix-stencil
     - bash scripts/deploy.sh
 branches:
     only:

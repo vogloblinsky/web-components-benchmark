@@ -23,7 +23,7 @@ Slim.tag(
             border-top: 1px solid #e6e6e6;
         }
     </style>
-    <h1>Todos WC</h1>
+    <h1>Todos Slim.js</h1>
     <section>
         <todo-input on-add="handleAdd"></todo-input>
         <ul id="list-container">
