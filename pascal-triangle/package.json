@@ -15,7 +15,7 @@
         "build:polymer3": "cd polymer-3 && npm run build",
         "build:stencil": "cd stencil && npm run build",
         "build:vue": "cd vue.js && npm run build",
-        "build:all": "run-s build:angular build:dojo2 build:hybrids build:litelement build:hyperhtml build:polymer3 build:stencil build:vue"
+        "build:all": "run-s build:native build:angular build:dojo2 build:hybrids build:litelement build:hyperhtml build:polymer3 build:stencil build:vue"
     },
     "repository": {
         "type": "git",
