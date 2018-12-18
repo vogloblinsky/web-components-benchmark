@@ -15,7 +15,7 @@
         "@dojo/has": "^2.0.0",
         "@dojo/i18n": "^2.0.0",
         "@dojo/shim": "^2.0.0",
-        "@dojo/widget-core": "^2.0.0",
+        "@dojo/widget-core": "^2.0.7",
         "@dojo/widgets": "^4.0.1"
     },
     "devDependencies": {

@@ -10,6 +10,7 @@ ORIGIN_URL_WITH_CREDENTIALS=${ORIGIN_URL/\/\/github.com/\/\/$GITHUB_TOKEN@github
 echo "Compiling new static content"
 mkdir $TEMP_DIRECTORY || exit 1
 cp docs/index.html $TEMP_DIRECTORY || exit 1
+cp -R demos $TEMP_DIRECTORY || exit 1
 cp .gitignore $TEMP_DIRECTORY || exit 1
 
 echo "Checking out gh-pages branch"
@@ -25,6 +26,7 @@ echo "Copying newly generated static content"
 cp -r $TEMP_DIRECTORY/* . || exit 1
 cp $TEMP_DIRECTORY/.gitignore . || exit 1
 rm -rf todomvc || exit 1
+rm -rf pascal-triangle || exit 1
 
 echo "Static content"
 ls -al . || exit 1

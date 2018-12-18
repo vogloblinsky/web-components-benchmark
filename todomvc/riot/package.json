@@ -18,7 +18,7 @@
     "license": "MIT",
     "devDependencies": {
         "concat-cli": "^4.0.0",
-        "replace": "^1.0.0",
+        "replace": "^1.0.1",
         "uglify-es": "3.3.9"
     },
     "dependencies": {

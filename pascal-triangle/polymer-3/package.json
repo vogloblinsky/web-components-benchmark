@@ -20,7 +20,7 @@
         "@webcomponents/webcomponentsjs": "^2.2.1",
         "concat-cli": "^4.0.0",
         "polymer-cli": "^1.9.2",
-        "replace": "^1.0.0",
+        "replace": "^1.0.1",
         "uglify-es": "3.3.9",
         "wct-browser-legacy": "^1.0.0"
     }

@@ -17,7 +17,7 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "replace": "^1.0.0",
+        "replace": "^1.0.1",
         "uglify-es": "3.3.9"
     },
     "dependencies": {

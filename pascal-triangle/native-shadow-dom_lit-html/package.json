@@ -17,12 +17,12 @@
     "license": "ISC",
     "devDependencies": {
         "concat-cli": "^4.0.0",
-        "html-minifier": "^3.5.15",
-        "replace": "^0.3.0",
-        "rollup": "^0.58.2",
+        "html-minifier": "^3.5.21",
+        "replace": "^1.0.1",
+        "rollup": "^0.68.0",
         "uglify-es": "3.3.9"
     },
     "dependencies": {
-        "lit-html": "^0.10.0"
+        "lit-html": "^0.14.0"
     }
 }
