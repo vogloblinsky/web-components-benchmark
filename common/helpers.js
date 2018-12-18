@@ -9,7 +9,7 @@ const DevtoolsTimelineModel = require('devtools-timeline-model');
 
 const perfConfig = require('./config.performance.js');
 
-const LOCALHOST = 'https://localhost:3001';
+const LOCALHOST = 'http://localhost:8081';
 const numberOftests = 10;
 const numberOfModifications = 50;
 const selectorInput = `document.querySelector('my-todo').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`;
@@ -23,8 +23,7 @@ async function gatherLighthouseMetrics(page, config) {
         .split(':')[2]
         .split('/')[0];
     return await lighthouse(
-        page.url(),
-        {
+        page.url(), {
             port: port
         },
         config
@@ -49,7 +48,7 @@ function processRawData(filename, i) {
     }
 }
 
-async function benchPageLoad(element, url) {
+async function benchPageLoad(element, context) {
     const slug = element.slug;
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -70,7 +69,7 @@ async function benchPageLoad(element, url) {
         await page.tracing.start({
             path: filename
         });
-        await page.goto(`${LOCALHOST}/${url}`);
+        await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`);
         await page.tracing.stop();
 
         average += processRawData(filename, i);
@@ -81,11 +80,11 @@ async function benchPageLoad(element, url) {
     return average / numberOftests;
 }
 
-async function benchCreate(element, url) {
+async function benchCreate(element, context) {
     const slug = element.slug;
-    const selector = element.noshadowdom
-        ? selectorInputNoShadowDom
-        : selectorInput;
+    const selector = element.noshadowdom ?
+        selectorInputNoShadowDom :
+        selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -103,7 +102,7 @@ async function benchCreate(element, url) {
 
         filename = `benchmarks-results/${slug}/create-todos_${i}.json`;
 
-        await page.goto(`${LOCALHOST}/${url}`, {
+        await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`, {
             waitUntil: 'load'
         });
 
@@ -129,11 +128,11 @@ async function benchCreate(element, url) {
     return average / numberOftests;
 }
 
-async function benchDelete(element, url) {
+async function benchDelete(element, context) {
     const slug = element.slug;
-    const selector = element.noshadowdom
-        ? selectorInputNoShadowDom
-        : selectorInput;
+    const selector = element.noshadowdom ?
+        selectorInputNoShadowDom :
+        selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -151,7 +150,7 @@ async function benchDelete(element, url) {
 
         filename = `benchmarks-results/${slug}/delete-todos_${i}.json`;
 
-        await page.goto(`${LOCALHOST}/${url}`, {
+        await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`, {
             waitUntil: 'load'
         });
 
@@ -190,11 +189,11 @@ async function benchDelete(element, url) {
     return average / numberOftests;
 }
 
-async function benchEdit(element, url) {
+async function benchEdit(element, context) {
     const slug = element.slug;
-    const selector = element.noshadowdom
-        ? selectorInputNoShadowDom
-        : selectorInput;
+    const selector = element.noshadowdom ?
+        selectorInputNoShadowDom :
+        selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -212,7 +211,7 @@ async function benchEdit(element, url) {
 
         filename = `benchmarks-results/${slug}/edit-todos_${i}.json`;
 
-        await page.goto(`${LOCALHOST}/${url}`, {
+        await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`, {
             waitUntil: 'load'
         });
 
@@ -253,14 +252,14 @@ async function benchEdit(element, url) {
     return average / numberOftests;
 }
 
-async function benchTti(url) {
+async function benchTti(element, context) {
     const browser = await puppeteer.launch({
         headless: true,
         ignoreHTTPSErrors: true
     });
     const page = await browser.newPage();
 
-    await page.goto(`${LOCALHOST}/${url}`);
+    await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`);
     const lighthouseMetrics = await gatherLighthouseMetrics(page, perfConfig);
     const firstInteractive = parseInt(
         lighthouseMetrics.audits['first-interactive']['rawValue'],

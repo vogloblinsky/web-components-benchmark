@@ -8,7 +8,6 @@ module.exports = {
             version: '',
             github: 'https://github.com/webcomponents/webcomponentsjs',
             stars: '',
-            url: 'native/dist',
             paths: ['native/dist/bundle.js']
         },
         {
@@ -19,7 +18,6 @@ module.exports = {
                 'atomico'
             ],
             stars: 160,
-            url: 'atomico/dist',
             paths: [
                 'atomico/dist/atomico.umd.js',
                 'atomico/dist/atom-todo.iife.js'
@@ -32,7 +30,6 @@ module.exports = {
             version: require('../todomvc/hybrids/package.json')
                 .dependencies['hybrids'],
             stars: 840,
-            url: 'hybrids/dist',
             paths: ['hybrids/dist/bundle.js']
         },
         {
@@ -42,7 +39,6 @@ module.exports = {
             version: require('../todomvc/hyperhtml/package.json')
                 .dependencies['hyperhtml'],
             stars: 2045,
-            url: 'hyperhtml/dist',
             paths: ['hyperhtml/dist/bundle.js']
         },
         {
@@ -52,7 +48,6 @@ module.exports = {
             version: require('../todomvc/lit-element/package.json')
                 .dependencies['@polymer/lit-element'],
             stars: 897,
-            url: 'lit-element/dist/index.html',
             paths: ['lit-element/dist/bundle.js']
         },
         {
@@ -61,7 +56,6 @@ module.exports = {
             github: 'https://github.com/Tencent/omi',
             version: require('../todomvc/omi/package.json').dependencies['omi'],
             stars: 5304,
-            url: 'omi/dist/index.html',
             paths: ['omi/dist/bundle.js']
         },
         {
@@ -72,7 +66,6 @@ module.exports = {
                 '@polymer/polymer'
             ],
             stars: 20380,
-            url: 'polymer-3/dist/index.html',
             paths: ['polymer-3/dist/bundle.js']
         },
         {
@@ -84,7 +77,6 @@ module.exports = {
             ],
             stars: 13320,
             noshadowdom: true,
-            url: 'riot/dist',
             paths: ['riot/dist/bundle.js']
         },
         {
@@ -94,7 +86,6 @@ module.exports = {
             version: require('../todomvc/skatejs-lit-html/package.json')
                 .dependencies['@skatejs/renderer-lit-html'],
             stars: 2796,
-            url: 'skatejs-lit-html/dist',
             paths: ['skatejs-lit-html/dist/main.js']
         },
         {
@@ -104,7 +95,6 @@ module.exports = {
             version: require('../todomvc/skatejs-preact/package.json')
                 .dependencies['@skatejs/renderer-preact'],
             stars: 2796,
-            url: 'skatejs-preact/dist',
             paths: ['skatejs-preact/dist/main.js']
         },
         {
@@ -115,7 +105,6 @@ module.exports = {
                 'slim-js'
             ],
             stars: 548,
-            url: 'slim.js/dist',
             paths: ['slim.js/dist/bundle.js']
         },
         {
@@ -126,7 +115,6 @@ module.exports = {
                 '@stencil/core'
             ],
             stars: 4238,
-            url: 'stencil/dist',
             pathsTodo: [
                 `stencil/dist/${stencilTodoInfos.core}`,
                 `stencil/dist/${
@@ -157,7 +145,6 @@ module.exports = {
                 'svelte'
             ],
             stars: 8306,
-            url: 'svelte/dist',
             paths: ['svelte/dist/bundle.js']
         }
     ],
@@ -168,7 +155,6 @@ module.exports = {
             version: require('../todomvc/angular-elements/package.json')
                 .dependencies['@angular/core'],
             stars: 42492,
-            url: 'angular-elements/dist',
             paths: ['angular-elements/dist/main.bundle.js']
         },
         {
@@ -177,7 +163,6 @@ module.exports = {
             github: 'https://github.com/vuejs/vue',
             version: require('../todomvc/vue.js/package.json').dependencies.vue,
             stars: 118622,
-            url: 'vue.js/dist',
             paths: [
                 'vue.js/node_modules/vue/dist/vue.min.js',
                 'vue.js/dist/build.js'
@@ -192,7 +177,6 @@ module.exports = {
             ],
             stars: 80,
             noshadowdom: true,
-            url: 'dojo2/dist',
             paths: ['dojo2/dist/index/index-1.0.0.js']
         }
     ]

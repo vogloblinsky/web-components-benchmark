@@ -1,8 +1,6 @@
 const metas = require('../common/meta');
 const fs = require('fs-extra');
 
-const pascalLoadResults = require('../results/pascal-triangle-load.json');
-
 const onElement = (lib) => {
     console.log(lib.slug);
     const finalTodoDemoPath = `demos/todomvc/${lib.slug}`;
@@ -17,7 +15,7 @@ const onElement = (lib) => {
     const originalPascalDemoPath = `pascal-triangle/${lib.slug}/dist`;
     const finalPascalDemoPath = `demos/pascal-triangle/${lib.slug}`;
 
-    if (pascalLoadResults[lib.slug] && fs.existsSync(originalPascalDemoPath)) {
+    if (fs.existsSync(originalPascalDemoPath)) {
         fs.ensureDirSync(finalPascalDemoPath);
         fs.copySync(originalPascalDemoPath, finalPascalDemoPath)
     }

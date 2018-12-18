@@ -3,11 +3,10 @@
     "version": "1.0.0",
     "description": "Web Components implementations benchmark todo benchmark",
     "scripts": {
-        "serve": "node server.js",
         "benchmark": "node benchmarks/benchmark.js",
         "benchmark:tti": "node benchmarks/benchmark_load-metrics.js",
         "install:all": "./install-all.sh",
-        "run:benchmark": "run-p --race serve benchmark",
+        "run:benchmark": "npm run benchmark",
         "build:angular": "cd angular-elements && npm run build",
         "build:atomico": "cd atomico && npm run build",
         "build:dojo2": "cd dojo2 && npm run build",
