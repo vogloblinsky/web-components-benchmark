@@ -23,13 +23,11 @@ script:
     - cd ../
     - echo '5. copy demos'
     - npm run copy-demos
-    - npm run serve
-    - cd pascal-triangle
     - echo '6. pascal-triangle / run benchmark'
-    - npm run run:benchmark
+    - npm run run:benchmark:pascaltriangle
     - cd ../todomvc
     - echo '7. todomvc / run benchmark'
-    - npm run run:benchmark
+    - npm run run:benchmark:todomvc
     - cd ../
     - echo '8. compile results'
     - npm run compile-results

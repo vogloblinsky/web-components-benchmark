@@ -9,7 +9,11 @@
     "scripts": {
         "compile-results": "node common/generate-index.js",
         "copy-demos": "node scripts/demos.js",
-        "serve": "node server.js"
+        "serve": "node server.js",
+        "benchmark:todomvc": "cd todomvc && npm run run:benchmark",
+        "benchmark:pascaltriangle": "cd pascal-triangle && npm run run:benchmark",
+        "run:benchmark:todomvc": "run-p --race serve benchmark:todomvc",
+        "run:benchmark:pascaltriangle": "run-p --race serve benchmark:pascaltriangle"
     },
     "author": "Vincent Oogloblinsky",
     "license": "MIT",
