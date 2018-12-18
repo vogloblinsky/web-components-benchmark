@@ -7,6 +7,7 @@
         "minify-html": "npx html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
         "concat-js": "npx concat-cli -f js/*.js -o dist/bundle.js",
         "minify-js": "npx uglifyjs dist/bundle.js -o dist/bundle.js",
+        "prebuild": "rm -rf dist && mkdir dist",
         "build": "npm run minify-html && npm run concat-js && npm run minify-js"
     },
     "author": "",
