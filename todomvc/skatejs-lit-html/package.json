@@ -2,7 +2,9 @@
   "private": true,
   "name": "todomvc-skatejs-lit-html",
   "scripts": {
-    "build": "webpack --mode production",
+    "prebuild": "rm -rf dist && mkdir dist",
+    "postbuild": "cp index.html dist",
+    "build": "npx webpack --mode production",
     "start": "webpack --mode development --watch"
   },
   "dependencies": {

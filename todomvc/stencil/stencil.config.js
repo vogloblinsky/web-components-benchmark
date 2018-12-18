@@ -4,8 +4,8 @@ exports.config = {
   ],
   outputTargets: [{
     type: 'www',
-    dir: 'www',
-    baseUrl: '/stencil/www/',
+    dir: 'dist',
+    baseUrl: '/demos/todomvc/stencil/',
     serviceWorker: false
   }]
 };

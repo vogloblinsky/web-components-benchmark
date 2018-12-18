@@ -1,5 +1,5 @@
-const stencilTodoInfos = require('../todomvc/stencil/www/build/app/app.registry.json');
-const stencilPascalInfos = require('../pascal-triangle/stencil/www/build/app/app.registry.json');
+const stencilTodoInfos = require('../todomvc/stencil/dist/build/app/app.registry.json');
+const stencilPascalInfos = require('../pascal-triangle/stencil/dist/build/app/app.registry.json');
 
 module.exports = {
     wc: [{
@@ -68,12 +68,12 @@ module.exports = {
             name: 'Polymer 3',
             slug: 'polymer-3',
             github: 'https://github.com/Polymer/polymer',
-            version: require('../todomvc/polymer3/package.json').dependencies[
+            version: require('../todomvc/polymer-3/package.json').dependencies[
                 '@polymer/polymer'
             ],
             stars: 20380,
-            url: 'polymer3/build/es6-unbundled/index.html',
-            paths: ['polymer3/build/es6-unbundled/bundle.js']
+            url: 'polymer-3/dist/index.html',
+            paths: ['polymer-3/dist/bundle.js']
         },
         {
             name: 'Riot',
@@ -84,17 +84,17 @@ module.exports = {
             ],
             stars: 13320,
             noshadowdom: true,
-            url: 'riot/dist/index.html',
+            url: 'riot/dist',
             paths: ['riot/dist/bundle.js']
         },
         {
             name: 'SkateJS & lit-html',
-            slug: 'skatejs-lithtml',
+            slug: 'skatejs-lit-html',
             github: 'https://github.com/skatejs/skatejs',
             version: require('../todomvc/skatejs-lit-html/package.json')
                 .dependencies['@skatejs/renderer-lit-html'],
             stars: 2796,
-            url: 'skatejs-lit-html/',
+            url: 'skatejs-lit-html/dist',
             paths: ['skatejs-lit-html/dist/main.js']
         },
         {
@@ -104,7 +104,7 @@ module.exports = {
             version: require('../todomvc/skatejs-preact/package.json')
                 .dependencies['@skatejs/renderer-preact'],
             stars: 2796,
-            url: 'skatejs-preact/',
+            url: 'skatejs-preact/dist',
             paths: ['skatejs-preact/dist/main.js']
         },
         {
@@ -115,7 +115,7 @@ module.exports = {
                 'slim-js'
             ],
             stars: 548,
-            url: 'slim.js/dist/index.html',
+            url: 'slim.js/dist',
             paths: ['slim.js/dist/bundle.js']
         },
         {
@@ -126,25 +126,25 @@ module.exports = {
                 '@stencil/core'
             ],
             stars: 4238,
-            url: 'stencil/www/index.html',
+            url: 'stencil/dist',
             pathsTodo: [
-                `stencil/www/build/app/${stencilTodoInfos.core}`,
-                `stencil/www/build/app/${
+                `stencil/dist/${stencilTodoInfos.core}`,
+                `stencil/dist/${
                         stencilTodoInfos.components['my-todo'].bundleIds.$
                     }.entry.js`,
-                `stencil/www/build/app/${
+                `stencil/dist/${
                         stencilTodoInfos.components['todo-input'].bundleIds.$
                     }.entry.js`,
-                `stencil/www/build/app/${
+                `stencil/dist/${
                         stencilTodoInfos.components['todo-item'].bundleIds.$
                     }.entry.js`
             ],
             pathsPascal: [
-                `stencil/www/build/app/${stencilPascalInfos.core}`,
-                `stencil/www/build/app/${
+                `stencil/dist/${stencilPascalInfos.core}`,
+                `stencil/dist/${
                     stencilPascalInfos.components['pascal-triangle'].bundleIds.$
                     }.entry.js`,
-                `stencil/www/build/app/${
+                `stencil/dist/${
                     stencilPascalInfos.components['triangle-item'].bundleIds.$
                     }.entry.js`
             ]
@@ -157,8 +157,8 @@ module.exports = {
                 'svelte'
             ],
             stars: 8306,
-            url: 'svelte/public/index.html',
-            paths: ['svelte/public/bundle.js']
+            url: 'svelte/dist',
+            paths: ['svelte/dist/bundle.js']
         }
     ],
     fw: [{
@@ -168,7 +168,7 @@ module.exports = {
             version: require('../todomvc/angular-elements/package.json')
                 .dependencies['@angular/core'],
             stars: 42492,
-            url: 'angular-elements/dist/index.html',
+            url: 'angular-elements/dist',
             paths: ['angular-elements/dist/main.bundle.js']
         },
         {
@@ -177,7 +177,7 @@ module.exports = {
             github: 'https://github.com/vuejs/vue',
             version: require('../todomvc/vue.js/package.json').dependencies.vue,
             stars: 118622,
-            url: 'vue.js/dist/index.html',
+            url: 'vue.js/dist',
             paths: [
                 'vue.js/node_modules/vue/dist/vue.min.js',
                 'vue.js/dist/build.js'
@@ -192,8 +192,8 @@ module.exports = {
             ],
             stars: 80,
             noshadowdom: true,
-            url: 'dojo2/output/index.html',
-            paths: ['dojo2/output/dist/index/index-1.0.0.js']
+            url: 'dojo2/dist',
+            paths: ['dojo2/dist/index/index-1.0.0.js']
         }
     ]
 };
