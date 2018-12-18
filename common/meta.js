@@ -116,23 +116,23 @@ module.exports = {
             ],
             stars: 4238,
             pathsTodo: [
-                `stencil/dist/${stencilTodoInfos.core}`,
-                `stencil/dist/${
+                `stencil/dist/build/app/${stencilTodoInfos.core}`,
+                `stencil/dist/build/app/${
                         stencilTodoInfos.components['my-todo'].bundleIds.$
                     }.entry.js`,
-                `stencil/dist/${
+                `stencil/dist/build/app/${
                         stencilTodoInfos.components['todo-input'].bundleIds.$
                     }.entry.js`,
-                `stencil/dist/${
+                `stencil/dist/build/app/${
                         stencilTodoInfos.components['todo-item'].bundleIds.$
                     }.entry.js`
             ],
             pathsPascal: [
-                `stencil/dist/${stencilPascalInfos.core}`,
-                `stencil/dist/${
+                `stencil/dist/build/app/${stencilPascalInfos.core}`,
+                `stencil/dist/build/app/${
                     stencilPascalInfos.components['pascal-triangle'].bundleIds.$
                     }.entry.js`,
-                `stencil/dist/${
+                `stencil/dist/build/app/${
                     stencilPascalInfos.components['triangle-item'].bundleIds.$
                     }.entry.js`
             ]
@@ -177,7 +177,7 @@ module.exports = {
             ],
             stars: 80,
             noshadowdom: true,
-            paths: ['dojo2/dist/index/index-1.0.0.js']
+            paths: ['dojo2/dist/dist/index/index-1.0.0.js']
         }
     ]
 };

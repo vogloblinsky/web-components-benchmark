@@ -6,8 +6,6 @@ const zlib = require('zlib');
 
 const metas = require('./meta');
 
-const queryStars = require('./query-stars');
-
 const todoLoadResults = require('../results/todo-load.json');
 const todoCreateResults = require('../results/todo-create.json');
 const todoDeleteResults = require('../results/todo-delete.json');
