@@ -20,7 +20,7 @@ if (process.env.production) {
 export default {
     input: 'src/main.js',
     output: {
-        file: 'public/bundle.js',
+        file: 'dist/bundle.js',
         format: 'iife',
         sourcemap: process.env.production ? false : true
     },

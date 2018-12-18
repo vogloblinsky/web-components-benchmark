@@ -3,7 +3,8 @@
   "name": "todomvc-skatejs-preact",
   "scripts": {
     "prebuild": "rm -rf dist && mkdir dist",
-    "build": "webpack --mode production",
+    "postbuild": "cp index.html dist",
+    "build": "npx webpack --mode production",
     "start": "webpack --mode development --watch"
   },
   "dependencies": {

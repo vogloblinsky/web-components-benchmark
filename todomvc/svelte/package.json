@@ -4,6 +4,7 @@
     "description": "TodoMVC implemented in Svelte",
     "scripts": {
         "build": "npx rollup -c --environment production",
+        "postbuild": "cp public/index.html dist",
         "dev": "npx rollup -c -w",
         "start": "npx http-server public & npm run dev"
     },

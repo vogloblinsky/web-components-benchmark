@@ -1,5 +1,7 @@
 'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
 const webpack = require('webpack');
 const path = require('path');
 const fs_1 = require('fs');
@@ -14,12 +16,13 @@ const srcPath = path.join(basePath, 'src');
 const testPath = path.join(basePath, 'tests');
 const allPaths = [srcPath, testPath];
 const packageJsonPath = path.join(basePath, 'package.json');
-const packageJson = fs_1.existsSync(packageJsonPath)
-    ? require(packageJsonPath)
-    : {};
+const packageJson = fs_1.existsSync(packageJsonPath) ?
+    require(packageJsonPath) :
+    {};
 const packageName = packageJson.name || '';
 const tsLintPath = path.join(basePath, 'tslint.json');
 const tsLint = fs_1.existsSync(tsLintPath) ? require(tsLintPath) : false;
+
 function getJsonpFunctionName(name) {
     name = name
         .replace(/[^a-z0-9_]/g, ' ')
@@ -27,8 +30,11 @@ function getJsonpFunctionName(name) {
         .replace(/\s+/g, '_');
     return `dojoWebpackJsonp${name}`;
 }
+
 function getUMDCompatLoader(options) {
-    const { bundles = {} } = options;
+    const {
+        bundles = {}
+    } = options;
     return {
         loader: 'umd-compat-loader',
         options: {
@@ -50,6 +56,7 @@ function getUMDCompatLoader(options) {
         }
     };
 }
+
 function getLocalIdent(loaderContext, localIdentName, localName, options) {
     if (!options.context) {
         if (
@@ -82,25 +89,30 @@ Copyright [JS Foundation](https://js.foundation/) & contributors
 [New BSD license](https://github.com/dojo/meta/blob/master/LICENSE)
 All rights reserved
 `;
+
 function colorToColorMod(style) {
     style.walkDecls(decl => {
         decl.value = decl.value.replace('color(', 'color-mod(');
     });
 }
+
 function webpackConfigFactory(args) {
     const elements = args.element ? [args.element] : args.elements;
     const jsonpIdent = args.element ? args.element.name : 'custom-elements';
-    const extensions = args.legacy
-        ? ['.ts', '.tsx', '.js']
-        : ['.ts', '.tsx', '.mjs', '.js'];
-    const compilerOptions = args.legacy
-        ? {}
-        : { target: 'es6', module: 'esnext' };
+    const extensions = args.legacy ?
+        ['.ts', '.tsx', '.js'] :
+        ['.ts', '.tsx', '.mjs', '.js'];
+    const compilerOptions = args.legacy ?
+        {} :
+        {
+            target: 'es6',
+            module: 'esnext'
+        };
     const features = args.legacy ? args.features : ['chrome'];
     const postcssPresetConfig = {
-        browsers: args.legacy
-            ? ['last 2 versions', 'ie >= 10']
-            : ['last 2 versions'],
+        browsers: args.legacy ?
+            ['last 2 versions', 'ie >= 10'] :
+            ['last 2 versions'],
         insertBefore: {
             'color-mod-function': colorToColorMod
         },
@@ -123,7 +135,12 @@ function webpackConfigFactory(args) {
             ];
             return entry;
         }, {}),
-        node: { dgram: 'empty', net: 'empty', tls: 'empty', fs: 'empty' },
+        node: {
+            dgram: 'empty',
+            net: 'empty',
+            tls: 'empty',
+            fs: 'empty'
+        },
         output: {
             chunkFilename: `[name]-${packageJson.version}.js`,
             filename: `[name]-${packageJson.version}.js`,
@@ -131,14 +148,16 @@ function webpackConfigFactory(args) {
                 `-${packageName}-${jsonpIdent}`
             ),
             libraryTarget: 'jsonp',
-            path: path.resolve('./output')
+            path: path.resolve('./dist')
         },
         resolve: {
             modules: [basePath, path.join(basePath, 'node_modules')],
             extensions
         },
         devtool: false,
-        watchOptions: { ignored: /node_modules/ },
+        watchOptions: {
+            ignored: /node_modules/
+        },
         plugins: removeEmpty([
             new CssModulePlugin_1.default(basePath),
             new webpack.BannerPlugin(banner),
@@ -166,7 +185,9 @@ function webpackConfigFactory(args) {
                     test: /@dojo\/.*\.js$/,
                     enforce: 'pre',
                     loader: 'source-map-loader-cli',
-                    options: { includeModulePaths: true }
+                    options: {
+                        includeModulePaths: true
+                    }
                 },
                 {
                     include: allPaths,
@@ -178,8 +199,7 @@ function webpackConfigFactory(args) {
                     include: allPaths,
                     test: /.*\.m\.css?$/,
                     enforce: 'pre',
-                    loader:
-                        '@dojo/webpack-contrib/css-module-dts-loader?type=css'
+                    loader: '@dojo/webpack-contrib/css-module-dts-loader?type=css'
                 },
                 {
                     include: allPaths,
@@ -187,9 +207,13 @@ function webpackConfigFactory(args) {
                     use: removeEmpty([
                         features && {
                             loader: '@dojo/webpack-contrib/static-build-loader',
-                            options: { features }
+                            options: {
+                                features
+                            }
                         },
-                        getUMDCompatLoader({ bundles: args.bundles }),
+                        getUMDCompatLoader({
+                            bundles: args.bundles
+                        }),
                         {
                             loader: 'ts-loader',
                             options: {
@@ -203,21 +227,21 @@ function webpackConfigFactory(args) {
                 },
                 {
                     test: /\.mjs$/,
-                    use: removeEmpty([
-                        {
-                            loader: '@dojo/webpack-contrib/static-build-loader',
-                            options: {
-                                features
-                            }
+                    use: removeEmpty([{
+                        loader: '@dojo/webpack-contrib/static-build-loader',
+                        options: {
+                            features
                         }
-                    ])
+                    }])
                 },
                 {
                     test: /\.js?$/,
                     use: removeEmpty([
                         features && {
                             loader: '@dojo/webpack-contrib/static-build-loader',
-                            options: { features }
+                            options: {
+                                features
+                            }
                         },
                         'umd-compat-loader'
                     ])
@@ -228,8 +252,7 @@ function webpackConfigFactory(args) {
                 },
                 {
                     test: /.*\.(gif|png|jpe?g|svg|eot|ttf|woff|woff2)$/i,
-                    loader:
-                        'file-loader?hash=sha512&digest=hex&name=[hash:base64:8].[ext]'
+                    loader: 'file-loader?hash=sha512&digest=hex&name=[hash:base64:8].[ext]'
                 },
                 {
                     test: /\.css$/,
@@ -257,8 +280,7 @@ function webpackConfigFactory(args) {
                                     modules: true,
                                     sourceMap: true,
                                     importLoaders: 1,
-                                    localIdentName:
-                                        '[name]__[local]__[hash:base64:5]',
+                                    localIdentName: '[name]__[local]__[hash:base64:5]',
                                     getLocalIdent
                                 }
                             },

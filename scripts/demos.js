@@ -17,9 +17,8 @@ const onElement = (lib) => {
     const originalPascalDemoPath = `pascal-triangle/${lib.slug}/dist`;
     const finalPascalDemoPath = `demos/pascal-triangle/${lib.slug}`;
 
-    fs.ensureDirSync(finalPascalDemoPath);
-
     if (pascalLoadResults[lib.slug] && fs.existsSync(originalPascalDemoPath)) {
+        fs.ensureDirSync(finalPascalDemoPath);
         fs.copySync(originalPascalDemoPath, finalPascalDemoPath)
     }
 }

@@ -6,7 +6,7 @@
     "scripts": {
         "build-pascal-triangle": "npx webpack --config ./config/build-widget/ejected.config.js --env.mode=dist",
         "build": "npm run build-pascal-triangle",
-        "postbuild": "cp src/index.html output"
+        "postbuild": "cp src/index.html dist && rm -rf dist/info"
     },
     "author": "",
     "license": "ISC",

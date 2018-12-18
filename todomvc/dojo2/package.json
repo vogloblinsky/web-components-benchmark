@@ -5,9 +5,10 @@
     "main": "index.js",
     "scripts": {
         "build-todo-app": "npx webpack --config ./config/build-widget/ejected.config.js --env.mode=dist",
+        "prebuild": "rm -rf dist && mkdir dist",
         "build": "npm run build-todo-app",
-        "minify-css": "npx uglifycss output/dist/index/index-1.0.0.css --output output/dist/index/index-1.0.0.css",
-        "postbuild": "cp src/index.html output && npm run minify-css"
+        "minify-css": "npx uglifycss dist/dist/index/index-1.0.0.css --output dist/dist/index/index-1.0.0.css",
+        "postbuild": "cp src/index.html dist && npm run minify-css && rm -rf dist/info"
     },
     "author": "",
     "license": "ISC",

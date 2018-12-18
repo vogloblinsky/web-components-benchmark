@@ -11,7 +11,8 @@
     "minify-js": "npx uglifyjs dist/build.js -o dist/build.js",
     "minify-html": "npx html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
     "prebuild": "rm -rf dist && mkdir dist",
-    "build": "npm run minify-html && npm run build-todo-item && npm run build-todo-input && npm run build-my-todo && npm run concat-js && npm run minify-js && rm -rf build"
+    "build": "npm run minify-html && npm run build-todo-item && npm run build-todo-input && npm run build-my-todo && npm run concat-js && npm run minify-js && rm -rf build",
+    "postbuild": "cp node_modules/vue/dist/vue.min.js dist"
   },
   "keywords": [],
   "author": "",
