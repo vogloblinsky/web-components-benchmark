@@ -7,7 +7,8 @@
         "url": "git+https://github.com/vogloblinsky/web-components-benchmark.git"
     },
     "scripts": {
-        "compile-results": "node common/generate-index.js"
+        "compile-results": "node common/generate-index.js",
+        "copy-demos": "node scripts/demos.js"
     },
     "author": "Vincent Oogloblinsky",
     "license": "MIT",

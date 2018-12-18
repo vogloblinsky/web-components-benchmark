@@ -22,6 +22,7 @@ script:
     - npm run run:benchmark
     - cd ../
     - npm run compile-results
+    - npm run copy-demos
     - bash scripts/deploy.sh
 branches:
     only:
