@@ -1,4 +1,4 @@
-import { html, define, dispatch } from 'hybrids';
+import { html, define } from 'hybrids';
 
 let _length = 100;
 
@@ -42,13 +42,8 @@ const PascalTriangle = {
                         html`
                             <div>
                                 ${
-                                    line.map(
-                                        item =>
-                                            html`
-                                                <triangle-item
-                                                    text="${item}"
-                                                ></triangle-item>
-                                            `
+                                    line.map(item =>
+                                        html`<triangle-item text="${item}"></triangle-item>`.key(item)
                                     )
                                 }
                             </div>
