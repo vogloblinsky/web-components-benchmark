@@ -6,7 +6,6 @@ Pascal triangle
 
 [] omi
 [] glimmerjs
-[] svelte
 [] atomico
 [] riot
 [] skatejs

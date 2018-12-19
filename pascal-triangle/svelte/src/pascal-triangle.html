@@ -1,0 +1,62 @@
+<div>
+    <button data-value="10" on:click='handleLoad(event)'>
+        Load 10
+    </button>
+    <button data-value="100" on:click='handleLoad(event)'>
+        Load 100
+    </button>
+    <button data-value="500" on:click='handleLoad(event)'>
+        Load 500
+    </button>
+</div>
+<div>
+    {#if list.length > 0}
+    {#each list as line}
+    <div>
+        {#each line as item}
+        <triangle-item text='{item}'></triangle-item>
+        {/each}
+    </div>
+    {/each}
+    {/if}
+</div>
+<script>
+    let _length = 100;
+
+    function generateData(rows) {
+        const n = rows;
+
+        const data = [];
+        data[0] = [1];
+        data[1] = [1, 1];
+
+        for (let row = 2; row < n; row++) {
+            data[row] = [1];
+
+            for (let col = 1; col <= row - 1; col++) {
+                const prevRow = data[row - 1];
+                data[row][col] = prevRow[col] + prevRow[col - 1];
+                data[row].push(1);
+            }
+        }
+        return data;
+    }
+
+    let list = generateData(_length);
+
+    export default {
+        tag: 'pascal-triangle',
+        data: () => ({
+            list
+        }),
+        methods: {
+            handleLoad(e) {
+                _length = parseInt(e.target.getAttribute('data-value'));
+                list = generateData(_length);
+                this.set({
+                    list
+                });
+            }
+        }
+    }
+</script>

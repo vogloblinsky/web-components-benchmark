@@ -30,7 +30,7 @@ npm ci
 #npm ci
 cd ../stencil
 npm ci
-#cd ../svelte
-#npm ci
+cd ../svelte
+npm ci
 cd ../vue.js
 npm ci

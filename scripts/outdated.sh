@@ -67,7 +67,7 @@ npm outdated
 #npm outdated
 cd ../stencil
 npm outdated
-#cd ../svelte
-#npm outdated
+cd ../svelte
+npm outdated
 cd ../vue.js
 npm outdated

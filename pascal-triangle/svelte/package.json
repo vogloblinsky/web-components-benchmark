@@ -1,0 +1,37 @@
+{
+    "name": "svelte-pascal-triangle",
+    "version": "1.0.0",
+    "description": "pascal-triangle implemented in Svelte",
+    "scripts": {
+        "prebuild": "rm -rf dist && mkdir dist",
+        "build": "npx rollup -c --environment production",
+        "postbuild": "cp index.html dist",
+        "predev": "rm -rf dist && mkdir dist && npm run postbuild",
+        "dev": "npx rollup -c -w",
+        "start": "npx http-server dist & npm run dev"
+    },
+    "files": [
+        "index.html",
+        "public"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sveltejs/svelte-todomvc.git"
+    },
+    "keywords": [
+        "svelte",
+        "todomvc"
+    ],
+    "author": "Rich Harris",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/sveltejs/svelte-todomvc/issues"
+    },
+    "homepage": "https://github.com/sveltejs/svelte-todomvc",
+    "dependencies": {
+        "svelte": "^2.16.0"
+    },
+    "devDependencies": {
+        "rollup-plugin-svelte": "^5.0.0"
+    }
+}
