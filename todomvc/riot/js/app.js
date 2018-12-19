@@ -1,1 +1,1 @@
-riot.mount('my-todo');
+riot.mount('my-todo')

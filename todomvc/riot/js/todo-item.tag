@@ -1,17 +1,19 @@
-<todo-item>
+<todo-item class={completed: opts.todo.checked}>
     <style>
-        :host {
+        :scope {
             display: block;
-        }
-
-        li.item {
             font-size: 24px;
             display: block;
             position: relative;
             border-bottom: 1px solid #ededed;
         }
 
-        li.item input {
+        :scope.completed label {
+            color: #d9d9d9;
+            text-decoration: line-through;
+        }
+
+        input {
             text-align: center;
             width: 40px;
             /* auto, since non-WebKit browsers doesn't support input styling */
@@ -26,15 +28,15 @@
             appearance: none;
         }
 
-        li.item input:after {
+        input:after {
             content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
         }
 
-        li.item input:checked:after {
+        input:checked:after {
             content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
         }
 
-        li.item label {
+        label {
             white-space: pre;
             word-break: break-word;
             padding: 15px 60px 15px 15px;
@@ -44,17 +46,12 @@
             transition: color 0.4s;
         }
 
-        li.item.completed label {
-            color: #d9d9d9;
-            text-decoration: line-through;
-        }
-
-        li.item button,
-            li.item input[type="checkbox"] {
+        button,
+        input[type="checkbox"] {
             outline: none;
         }
 
-        li.item button {
+        button {
             margin: 0;
             padding: 0;
             border: 0;
@@ -71,7 +68,7 @@
             font-smoothing: antialiased;
         }
 
-        li.item .destroy {
+        .destroy {
             position: absolute;
             top: 0;
             right: 10px;
@@ -85,18 +82,23 @@
             transition: color 0.2s ease-out;
         }
 
-        li.item .destroy:hover {
+        .destroy:hover {
             color: #af5b5e;
         }
     </style>
-    <li class="item">
-        <input type="checkbox" checked={todo.checked}>
-        <label>{todo.text}</label>
-        <button class="destroy" onclick={handleOnRemoved}>x</button>
-    </li>
+
+    <input type="checkbox" onchange={onToggle} checked={opts.todo.checked}>
+    <label>{opts.todo.text}</label>
+    <button class="destroy" onclick={onRemove}>
+        x
+    </button>
     <script>
-        handleOnRemoved = function() {
-            this.opts.parentview.removeTodo(this.todo.id);
+        onRemove() {
+            opts.onRemove(opts.todo.id)
+        }
+
+        onToggle(e) {
+            opts.onChange(opts.todo.id, e.target.checked)
         }
     </script>
 </todo-item>
