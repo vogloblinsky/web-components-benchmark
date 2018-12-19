@@ -1,0 +1,27 @@
+{
+    "name": "pascal-triangle-riot",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "minify-html": "npx html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
+        "compile-riot": "npx riot js/pascal-triangle.tag dist && npx riot js/triangle-item.tag dist",
+        "copy-js": "cp js/app.js dist && cp ./node_modules/riot/riot.min.js dist",
+        "concat-js": "npx concat-cli -f dist/riot.min.js dist/pascal-triangle.js dist/triangle-item.js dist/app.js -o dist/bundle_tmp.js",
+        "minify-js": "npx uglifyjs dist/bundle_tmp.js -o dist/bundle.js",
+        "rollup": "rollup -c",
+        "prebuild": "rm -rf dist && mkdir dist",
+        "build": "npm run minify-html && npm run compile-riot && npm run copy-js && npm run concat-js && npm run minify-js",
+        "postbuild": "rm dist/riot.min.js && rm dist/pascal-triangle.js && rm dist/triangle-item.js && rm dist/app.js && rm dist/bundle_tmp.js"
+    },
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "concat-cli": "^4.0.0",
+        "replace": "^1.0.1",
+        "uglify-es": "3.3.9"
+    },
+    "dependencies": {
+        "riot": "^3.13.2"
+    }
+}

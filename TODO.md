@@ -4,9 +4,9 @@ Todomvc
 
 Pascal triangle
 
-[] omi
 [] glimmerjs
+
+[] omi
 [] atomico
-[] riot
 [] skatejs
 [] slimjs

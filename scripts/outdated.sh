@@ -57,8 +57,8 @@ npm outdated
 #npm outdated
 cd ../polymer-3
 npm outdated
-#cd ../riot
-#npm outdated
+cd ../riot
+npm outdated
 #cd ../skatejs-lit-html
 #npm outdated
 #cd ../skatejs-preact
