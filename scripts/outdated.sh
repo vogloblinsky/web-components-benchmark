@@ -53,8 +53,8 @@ cd ../hyperhtml
 npm outdated
 cd ../native-shadow-dom_lit-html
 npm outdated
-#cd ../omi
-#npm outdated
+cd ../omi
+npm outdated
 cd ../polymer-3
 npm outdated
 cd ../riot
