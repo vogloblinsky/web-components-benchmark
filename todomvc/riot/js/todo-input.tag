@@ -1,12 +1,12 @@
 <todo-input>
     <style>
-        #new-todo-form {
+        form {
             position: relative;
             font-size: 24px;
             border-bottom: 1px solid #ededed;
         }
 
-        #new-todo {
+        input {
             padding: 16px 16px 16px 60px;
             border: none;
             background: rgba(0, 0, 0, 0.003);
@@ -26,19 +26,18 @@
             box-sizing: border-box;
         }
     </style>
-    <form id="new-todo-form" onsubmit={ add }>
-        <input id="new-todo" type="text" placeholder="What needs to be done?" ref="input"/>
+    <form onsubmit={add}>
+        <input ref='input' type="text" placeholder="What needs to be done?"/>
     </form>
     <script>
-        oninput = function(e) {
-            this.state = e.target.value;
-        }
-        add = function(e) {
-            var input = this.refs.input
-            e.preventDefault();
-            this.trigger('newtodos', input.value);
-            input.value = '';
-            input.blur();
+        add(e) {
+            const input = this.refs.input
+
+            e.preventDefault()
+            opts.onNewTodo(input.value)
+
+            input.value = ''
+            input.blur()
         }
     </script>
 </todo-input>
