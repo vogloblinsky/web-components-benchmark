@@ -55,7 +55,7 @@ module.exports = {
             slug: 'omi',
             github: 'https://github.com/Tencent/omi',
             version: require('../todomvc/omi/package.json').dependencies['omi'],
-            stars: 5304,
+            stars: 6559,
             paths: ['omi/dist/bundle.js']
         },
         {
