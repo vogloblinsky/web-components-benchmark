@@ -108,7 +108,7 @@ class TodoItem extends WeElement {
 
   render(props) {
     return (
-        <li class="item">
+        <li class={`item${props.checked ? ' completed' : ''}`}>
             <input type="checkbox" checked={props.checked} onChange={this.handleOnChecked.bind(this)}/>
             <label>{props.text}</label>
             <button class="destroy" onClick={this.handleOnRemoved.bind(this)}>x</button>
