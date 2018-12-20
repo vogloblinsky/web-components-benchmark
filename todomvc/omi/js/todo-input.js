@@ -1,8 +1,15 @@
 import { WeElement, h, define } from 'omi'
 
 class TodoInput extends WeElement {
+    constructor() {
+        super();
+        this._root = this;
+    }
+
     install() {
-        this.inputValue = ''
+        this.state = {
+            value: ''
+        };
     }
 
     css() {
@@ -35,25 +42,27 @@ class TodoInput extends WeElement {
         `
     }
 
-    handleInput = (e)=> {
-        this.inputValue = e.target.value
+    handleInput(e) {
+        this.state = {
+            value: e.target.value
+        };
     }
-    handleSubmit = (e)=> {
+    handleSubmit(e) {
         e.preventDefault();
-        if (!this.inputValue) return;
+        if (!this.state.value) return;
         this.fire('submit', {
-            data: this.inputValue
+            data: this.state.value
         });
-
+        this.$input = this._root.shadowRoot.querySelector('#new-todo');
         this.$input.value = '';
-        this.inputValue = '';
+        this.state.value = '';
         this.$input.blur();
     }
 
-    render() {
+    render(props, data, store) {
         return (
-            <form id="new-todo-form" onSubmit={this.handleSubmit}>
-                <input id="new-todo" ref={e=>{ this.$input = e }} type="text" placeholder="What needs to be done?" onInput={this.handleInput} value={this.inputValue}/>
+            <form id="new-todo-form" onSubmit={this.handleSubmit.bind(this)}>
+                <input id="new-todo" type="text" placeholder="What needs to be done?" onInput={this.handleInput.bind(this)} value={this.state.value}/>
             </form>
         )
     }
