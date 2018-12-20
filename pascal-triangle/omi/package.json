@@ -23,7 +23,7 @@
         "concat-cli": "^4.0.0",
         "html-minifier": "^3.5.21",
         "replace": "^1.0.1",
-        "rollup": "^0.68.0",
+        "rollup": "^0.68.1",
         "rollup-plugin-jsx": "^1.0.3",
         "uglify-es": "3.3.9"
     }
