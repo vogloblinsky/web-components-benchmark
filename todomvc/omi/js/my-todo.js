@@ -30,7 +30,7 @@ class MyTodo extends WeElement {
     return { list: null }
   }
 
-  addItem(e) {
+  addItem = (e) => {
     // ... odesn't work with jstransform...  
     let a = this.store.data.list;
     let b = [{
@@ -41,32 +41,32 @@ class MyTodo extends WeElement {
     this.store.data.list = a.concat(b);
   }
 
-  removeItem(e) {
+  removeItem = (e) => {
     const itemIndex = this.store.data.list.findIndex(el => el.id === e.detail.data);
     let a = this.store.data.list.slice(0, itemIndex);
     let b = this.store.data.list.slice(itemIndex + 1);
     this.store.data.list = a.concat(b);
   }
 
-  toggleItem(e) {
+  toggleItem = (e) => {
     const item = this.store.data.list.find(el => el.id === e.detail.data);
     this.store.data.list[e.detail.data] = Object.assign({}, item, {
         checked: !item.checked
     });
   }
 
-  render(props, data, store) {
+  render() {
     return (
       <div>
         <h1>Todos Omi</h1>
         <section>
-          <todo-input onSubmit={this.addItem.bind(this)}></todo-input>
+          <todo-input onSubmit={this.addItem}></todo-input>
           <ul id="list-container">
           {
             this.store.data.list.map(todo => (
               <todo-item text={todo.text} checked={todo.checked} index={todo.id}
-                  onRemoved={this.removeItem.bind(this)}
-                  onChecked={this.toggleItem.bind(this)}></todo-item>
+                  onRemoved={this.removeItem}
+                  onChecked={this.toggleItem}></todo-item>
             ))
           }  
           </ul>
