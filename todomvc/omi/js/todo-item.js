@@ -94,13 +94,13 @@ class TodoItem extends WeElement {
         `
     }
 
-    handleOnRemoved = (e)=> {
+    handleOnRemoved(e) {
         this.fire('removed', {
             data: this.props.index
         });
     }
 
-    handleOnChecked = (e)=> {
+    handleOnChecked(e) {
         this.fire('checked', {
             data: this.props.index
         });
@@ -108,11 +108,11 @@ class TodoItem extends WeElement {
 
   render(props) {
     return (
-      <li class={`item${props.checked ? ' completed' : ''}`}>
-        <input type="checkbox" checked={props.checked} onChange={this.handleOnChecked} />
-        <label>{props.text}</label>
-        <button class="destroy" onClick={this.handleOnRemoved}>x</button>
-      </li>
+        <li class="item">
+            <input type="checkbox" checked={props.checked} onChange={this.handleOnChecked.bind(this)}/>
+            <label>{props.text}</label>
+            <button class="destroy" onClick={this.handleOnRemoved.bind(this)}>x</button>
+        </li>
     )
   }
 }
