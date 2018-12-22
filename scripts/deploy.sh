@@ -10,6 +10,7 @@ ORIGIN_URL_WITH_CREDENTIALS=${ORIGIN_URL/\/\/github.com/\/\/$GITHUB_TOKEN@github
 echo "Compiling new static content"
 mkdir $TEMP_DIRECTORY || exit 1
 cp docs/index.html $TEMP_DIRECTORY || exit 1
+cp common/devtools.png $TEMP_DIRECTORY || exit 1
 cp -R demos $TEMP_DIRECTORY || exit 1
 
 echo "Checking out gh-pages branch"

@@ -53,25 +53,21 @@
                     results are constant between two builds.
                 </p>
                 <p>
-                    For running the benchmark, i use the great Puppeteer Node.js
-                    library for manipulating a Chrome headless instance.
-                    Puppeteer has some APIs for generating a RAW trace file
-                    which can be opened in Chrome DevTools or
+                    The benchmark use the great Puppeteer Node.js library for
+                    manipulating a Chrome headless instance. Puppeteer has some
+                    APIs for generating a RAW trace file which can be opened in
+                    Chrome DevTools or
                     <a
                         href="https://chromedevtools.github.io/timeline-viewer/"
                         target="_blank"
                         >timeline viewer</a
-                    >. In order to automate all the process, i used for parsing
-                    the RAW JSON data a Node.js library called
-                    <a
-                        href="https://github.com/paulirish/devtools-timeline-model"
-                        target="_blank"
-                        >devtools-timeline-model</a
-                    >
-                    created by Paul Irish. The data extracted from the RAW JSON
-                    is the "top down tree" total time in DevTools Performance
-                    tab of Chrome, which is an addition of scripting, rendering
-                    & painting time in the graph below.
+                    >.
+                </p>
+                <p>
+                    The data extracted from the RAW JSON is the "top down tree"
+                    total time in DevTools Performance tab of Chrome, which is
+                    an addition of scripting, rendering & painting time in the
+                    graph below.
                 </p>
                 <p><img src="devtools.png" /></p>
                 <p>Last build : <%= buildDateAndTime %></p>
