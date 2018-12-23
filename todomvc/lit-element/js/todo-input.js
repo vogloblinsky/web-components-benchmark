@@ -3,7 +3,9 @@ import { LitElement, html } from '../node_modules/@polymer/lit-element/lit-eleme
 class TodoInput extends LitElement {
     static get properties() {
         return {
-            newtodo: String
+            newtodo: {
+                type: String
+            }
         };
     }
 

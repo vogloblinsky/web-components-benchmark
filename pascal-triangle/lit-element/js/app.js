@@ -30,7 +30,9 @@ function generateData(rows) {
 class PascalTriangle extends LitElement {
     static get properties() {
         return {
-            list: Array
+            list: { 
+                type: Array 
+            }
         };
     }
 
@@ -40,12 +42,6 @@ class PascalTriangle extends LitElement {
         this.list = generateData(_length);
 
         this._handleLoad = e => this.handleLoad(e);
-    }
-
-    static get properties() {
-        return {
-            list: Array
-        };
     }
 
     ready() {

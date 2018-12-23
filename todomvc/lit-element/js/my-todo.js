@@ -4,7 +4,9 @@ import { repeat } from '../node_modules/lit-html/directives/repeat.js';
 class MyTodo extends LitElement {
     static get properties() {
         return {
-            list: Array
+            list: { 
+                type: Array
+            }
         };
     }
 
