@@ -12,7 +12,7 @@ cd ../native
 npm ci
 cd ../hybrids
 npm ci
-cd ../hyperhtml
+cd ../hyperHTMLElement
 npm ci
 #cd ../native-shadow-dom_lit-html
 #npm ci

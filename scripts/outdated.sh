@@ -13,7 +13,7 @@ cd ../hybrids
 npm outdated
 cd ../lit-element
 npm outdated
-cd ../hyperhtml
+cd ../hyperHTMLElement
 npm outdated
 cd ../native-shadow-dom_lit-html
 npm outdated
@@ -49,7 +49,7 @@ cd ../dojo2
 npm outdated
 cd ../lit-element
 npm outdated
-cd ../hyperhtml
+cd ../hyperHTMLElement
 npm outdated
 cd ../native-shadow-dom_lit-html
 npm outdated

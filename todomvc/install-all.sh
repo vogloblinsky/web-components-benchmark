@@ -12,9 +12,9 @@ cd ../native
 npm ci
 cd ../hybrids
 npm ci
-cd ../hyperhtml
-npm ci
-cd ../native-shadow-dom_lit-html
+cd ../hyperHTMLElement
+#npm ci
+#cd ../native-shadow-dom_lit-html
 npm ci
 cd ../omi
 npm ci

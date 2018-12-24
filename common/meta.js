@@ -2,7 +2,8 @@ const stencilTodoInfos = require('../todomvc/stencil/dist/build/app/app.registry
 const stencilPascalInfos = require('../pascal-triangle/stencil/dist/build/app/app.registry.json');
 
 module.exports = {
-    wc: [{
+    wc: [
+        {
             name: 'Native',
             slug: 'native',
             version: '',
@@ -27,19 +28,20 @@ module.exports = {
             name: 'Hybrids',
             slug: 'hybrids',
             github: 'https://github.com/hybridsjs/hybrids',
-            version: require('../todomvc/hybrids/package.json')
-                .dependencies['hybrids'],
+            version: require('../todomvc/hybrids/package.json').dependencies[
+                'hybrids'
+            ],
             stars: 840,
             paths: ['hybrids/dist/bundle.js']
         },
         {
-            name: 'hyperHTML',
-            slug: 'hyperhtml',
-            github: 'https://github.com/WebReflection/hyperHTML',
-            version: require('../todomvc/hyperhtml/package.json')
-                .dependencies['hyperhtml'],
-            stars: 2045,
-            paths: ['hyperhtml/dist/bundle.js']
+            name: 'HyperHTMLElement',
+            slug: 'hyperHTMLElement',
+            github: 'https://github.com/WebReflection/hyperHTML-Element',
+            version: require('../todomvc/hyperHTMLElement/package.json')
+                .dependencies['hyperhtml-element'],
+            stars: 106,
+            paths: ['hyperHTMLElement/dist/bundle.js']
         },
         {
             name: 'LitElement',
@@ -118,23 +120,23 @@ module.exports = {
             pathsTodo: [
                 `stencil/dist/build/app/${stencilTodoInfos.core}`,
                 `stencil/dist/build/app/${
-                        stencilTodoInfos.components['my-todo'].bundleIds.$
-                    }.entry.js`,
+                    stencilTodoInfos.components['my-todo'].bundleIds.$
+                }.entry.js`,
                 `stencil/dist/build/app/${
-                        stencilTodoInfos.components['todo-input'].bundleIds.$
-                    }.entry.js`,
+                    stencilTodoInfos.components['todo-input'].bundleIds.$
+                }.entry.js`,
                 `stencil/dist/build/app/${
-                        stencilTodoInfos.components['todo-item'].bundleIds.$
-                    }.entry.js`
+                    stencilTodoInfos.components['todo-item'].bundleIds.$
+                }.entry.js`
             ],
             pathsPascal: [
                 `stencil/dist/build/app/${stencilPascalInfos.core}`,
                 `stencil/dist/build/app/${
                     stencilPascalInfos.components['pascal-triangle'].bundleIds.$
-                    }.entry.js`,
+                }.entry.js`,
                 `stencil/dist/build/app/${
                     stencilPascalInfos.components['triangle-item'].bundleIds.$
-                    }.entry.js`
+                }.entry.js`
             ]
         },
         {
@@ -148,7 +150,8 @@ module.exports = {
             paths: ['svelte/dist/bundle.js']
         }
     ],
-    fw: [{
+    fw: [
+        {
             name: 'Angular Elements',
             slug: 'angular-elements',
             github: 'https://github.com/angular/angular',
