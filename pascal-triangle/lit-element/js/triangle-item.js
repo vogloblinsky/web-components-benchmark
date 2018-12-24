@@ -14,12 +14,6 @@ class TriangleItem extends LitElement {
         this.text = '';
     }
 
-    static get properties() {
-        return {
-            text: String
-        };
-    }
-
     render() {
         const {text} = this;
         return html`<span>${text}</span>`;
