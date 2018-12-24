@@ -3,24 +3,24 @@ import HyperHTMLElement from '../node_modules/hyperhtml-element/esm/index.js';
 class TodoInput extends HyperHTMLElement {
     created() {
         this.attachShadow({ mode: 'open' });
-        
+
         this.state = {
             value: ''
         };
-        this._handleSubmit = e => this.handleSubmit(e);
-        this._handleInput = e => this.handleInput(e);
 
         this.render();
     }
 
-    handleInput(e) {
+    oninput(e) {
         this.state = { value: e.target.value };
     }
 
-    handleSubmit(e) {
+    onsubmit(e) {
         e.preventDefault();
         if (!this.state.value) return;
-        this.dispatchEvent(new CustomEvent('submit', { detail: this.state.value }));
+        this.dispatchEvent(
+            new CustomEvent('submit', { detail: this.state.value })
+        );
         this.$input = this.shadowRoot.querySelector('#new-todo');
         this.$input.value = '';
         this.$input.blur();
@@ -55,8 +55,10 @@ class TodoInput extends HyperHTMLElement {
             box-sizing: border-box;
         }
     </style>
-    <form id="new-todo-form" onsubmit=${this._handleSubmit}>
-        <input id="new-todo" type="text" placeholder="What needs to be done?" oninput=${this._handleInput} value="${this.state.value}"/>
+    <form id="new-todo-form" onsubmit=${this}>
+        <input id="new-todo" type="text" placeholder="What needs to be done?" oninput=${this} value="${
+            this.state.value
+        }"/>
     </form>
         `;
     }

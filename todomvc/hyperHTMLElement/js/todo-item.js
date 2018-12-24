@@ -3,9 +3,6 @@ import HyperHTMLElement from '../node_modules/hyperhtml-element/esm/index.js';
 class TodoItem extends HyperHTMLElement {
     created() {
         // this.attachShadow({ mode: 'open' }); // bug with attributeChangedCallback
-        
-        this._handleOnChecked = e => this.handleOnChecked(e);
-        this._handleOnRemoved = e => this.handleOnRemoved(e);
 
         this.render();
     }
@@ -19,12 +16,16 @@ class TodoItem extends HyperHTMLElement {
         this.render();
     }
 
-    handleOnRemoved(e) {
-        this.dispatchEvent(new CustomEvent('removed', { detail: this.index, bubbles: true }));
+    onclick(e) {
+        this.dispatchEvent(
+            new CustomEvent('removed', { detail: this.index, bubbles: true })
+        );
     }
 
-    handleOnChecked(e) {
-        this.dispatchEvent(new CustomEvent('checked', { detail: this.index, bubbles: true }));
+    onchange(e) {
+        this.dispatchEvent(
+            new CustomEvent('checked', { detail: this.index, bubbles: true })
+        );
     }
 
     render() {
@@ -121,9 +122,9 @@ class TodoItem extends HyperHTMLElement {
     }
 </style>
 <li class="item">
-    <input type="checkbox" checked=${this.checked === 'true'} onchange=${this._handleOnChecked}>
+    <input type="checkbox" checked=${this.checked === 'true'} onchange=${this}>
     <label>${this.text}</label>
-    <button class="destroy" onclick=${this._handleOnRemoved}>x</button>
+    <button class="destroy" onclick=${this}>x</button>
 </li>
         `;
     }
