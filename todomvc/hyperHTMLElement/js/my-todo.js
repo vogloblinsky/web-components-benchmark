@@ -26,10 +26,6 @@ class MyTodo extends HyperHTMLElement {
         };
     }
 
-    setState(objOrFn) {
-        this.state.list = objOrFn.list;
-    }
-
     onsubmit(e) {
         let list = [
             ...this.state.list,
@@ -40,20 +36,17 @@ class MyTodo extends HyperHTMLElement {
             }
         ];
         this.setState({ list: list });
-        this.render();
     }
 
     onremoved(e) {
         this.state.list.splice(e.detail, 1);
         this.setState({ list: this.state.list });
-        this.render();
     }
 
     onchecked(e) {
         const item = this.state.list[e.detail];
         item.checked = !item.checked;
         this.setState({ list: this.state.list });
-        this.render();
     }
 
     render() {

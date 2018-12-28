@@ -2,8 +2,7 @@ import HyperHTMLElement from '../node_modules/hyperhtml-element/esm/index.js';
 
 class TodoItem extends HyperHTMLElement {
     created() {
-        // this.attachShadow({ mode: 'open' }); // bug with attributeChangedCallback
-
+        this.attachShadow({ mode: 'open' });
         this.render();
     }
 
