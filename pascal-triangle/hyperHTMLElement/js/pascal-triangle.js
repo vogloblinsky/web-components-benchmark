@@ -39,20 +39,20 @@ class PascalTriangle extends HyperHTMLElement {
     }
 
     render() {
-        return this.html `
+        return this.html`
 <div>
     <button data-value="10" onclick=${this._handleLoad}>Load 10</button>
     <button data-value="100" onclick=${this._handleLoad}>Load 100</button>
     <button data-value="500" onclick=${this._handleLoad}>Load 500</button>
 </div>
 <div>
-${
-    this._list.map((line) => HyperHTMLElement.wire(line)`<div>
-        ${
-            line.map((item) => HyperHTMLElement.wire()`<triangle-item text="${item}"></triangle-item>`)
-        }
-    </div>`)
-}
+${this._list.map(
+            (line, y) => HyperHTMLElement.wire(this, `:${y}`)`
+    <div>${line.map(
+        (item, x) => HyperHTMLElement.wire(this, `:${y}-${x}`)`
+      <triangle-item text="${item}"/>`
+    )}</div>`
+        )}
 </div>`;
     }
 }

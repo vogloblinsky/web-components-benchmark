@@ -2,9 +2,6 @@ import HyperHTMLElement from '../node_modules/hyperhtml-element/esm/index.js';
 
 class TriangleItem extends HyperHTMLElement {
     created() {
-        this.attachShadow({
-            mode: 'open'
-        });
         this.text = '';
         this.render();
     }
@@ -19,7 +16,7 @@ class TriangleItem extends HyperHTMLElement {
     }
 
     render() {
-        return this.html `<span>${this.text}</span>`;
+        return this.html`<span>${this.text}</span>`;
     }
 }
 
