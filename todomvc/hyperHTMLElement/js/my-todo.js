@@ -6,44 +6,53 @@ class MyTodo extends HyperHTMLElement {
             mode: 'open'
         });
 
-        this._list = [
-            {
-                id: 0,
-                text: 'my initial todo',
-                checked: false
-            },
-            {
-                id: 1,
-                text: 'Learn about Web Components',
-                checked: true
-            }
-        ];
-
         this.render();
     }
 
+    get defaultState() {
+        return {
+            list: [
+                {
+                    id: 0,
+                    text: 'my initial todo',
+                    checked: false
+                },
+                {
+                    id: 1,
+                    text: 'Learn about Web Components',
+                    checked: true
+                }
+            ]
+        };
+    }
+
+    setState(objOrFn) {
+        this.state.list = objOrFn.list;
+    }
+
     onsubmit(e) {
-        this._list = [
-            ...this._list,
+        let list = [
+            ...this.state.list,
             {
-                id: this._list.length,
+                id: this.state.list.length,
                 text: e.detail,
                 checked: false
             }
         ];
+        this.setState({ list: list });
         this.render();
     }
 
     onremoved(e) {
-        this._list.splice(e.detail, 1);
+        this.state.list.splice(e.detail, 1);
+        this.setState({ list: this.state.list });
         this.render();
     }
 
     onchecked(e) {
-        const item = this._list[e.detail];
-        this._list[e.detail] = Object.assign({}, item, {
-            checked: !item.checked
-        });
+        const item = this.state.list[e.detail];
+        item.checked = !item.checked;
+        this.setState({ list: this.state.list });
         this.render();
     }
 
@@ -75,18 +84,14 @@ class MyTodo extends HyperHTMLElement {
         <section>
             <todo-input onsubmit=${this}></todo-input>
             <ul id="list-container">
-            ${this._list.map(
+            ${this.state.list.map(
                 (item, index) => HyperHTMLElement.wire(
                     item
                 )`<todo-item index="${index}" 
-                                                                                text="${
-                                                                                    item.text
-                                                                                }" 
-                                                                                checked="${
-                                                                                    item.checked
-                                                                                }" 
-                                                                                onremoved="${this}"
-                                                                                onchecked="${this}"></todo-item>`
+                            text="${item.text}" 
+                            checked="${item.checked}" 
+                            onremoved="${this}"
+                            onchecked="${this}"></todo-item>`
             )}
             </ul>
         </section>
