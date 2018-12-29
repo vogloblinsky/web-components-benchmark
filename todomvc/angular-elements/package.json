@@ -32,7 +32,7 @@
         "compression-webpack-plugin": "2.0.0",
         "typescript": "3.1.6",
         "uglify-es": "3.3.9",
-        "webpack": "^4.28.0",
+        "webpack": "^4.28.3",
         "webpack-cli": "^3.1.2"
     }
 }
