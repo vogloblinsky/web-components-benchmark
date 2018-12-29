@@ -1,29 +1,27 @@
 // @jsx h
 
-import { props } from "skatejs/dist/esnext";
-import { h } from "preact";
-import { Component } from "./util";
+import { Component } from './util';
 
 export default class extends Component {
-  static events = ["submit"];
-  state = {
-    value: ""
-  };
+    static events = ['submit'];
+    state = {
+        value: ''
+    };
 
-  handleInput = e => {
-    this.state = { value: e.target.value };
-  };
-  handleSubmit = e => {
-    e.preventDefault();
-    if (!this.state.value) return;
-    this.onSubmit({ value: this.state.value });
-    this.state = { value: "" };
-  };
+    handleInput = e => {
+        this.state = { value: e.target.value };
+    };
+    handleSubmit = e => {
+        e.preventDefault();
+        if (!this.state.value) return;
+        this.onSubmit({ value: this.state.value });
+        this.state = { value: '' };
+    };
 
-  render({ handleInput, handleSubmit }) {
-    return (
-      <div>
-        <style>{`
+    render({ handleInput, handleSubmit }) {
+        return (
+            <div>
+                <style>{`
           :host {
             display: block;
           }
@@ -54,15 +52,15 @@ export default class extends Component {
             box-sizing: border-box;
           }
         `}</style>
-        <form onSubmit={handleSubmit}>
-          <input
-            value={this.state.value}
-            type="text"
-            placeholder="What needs to be done?"
-            onInput={handleInput}
-          />
-        </form>
-      </div>
-    );
-  }
+                <form onSubmit={handleSubmit}>
+                    <input
+                        value={this.state.value}
+                        type="text"
+                        placeholder="What needs to be done?"
+                        onInput={handleInput}
+                    />
+                </form>
+            </div>
+        );
+    }
 }

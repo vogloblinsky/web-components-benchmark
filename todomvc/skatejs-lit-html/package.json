@@ -1,22 +1,22 @@
 {
-  "private": true,
-  "name": "todomvc-skatejs-lit-html",
-  "scripts": {
-    "prebuild": "rm -rf dist && mkdir dist",
-    "postbuild": "cp index.html dist",
-    "build": "npx webpack --mode production",
-    "start": "webpack --mode development --watch"
-  },
-  "dependencies": {
-    "@skatejs/renderer-lit-html": "^0.2.2",
-    "lit-html": "^0.14.0",
-    "skatejs": "^5.2.4"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-stage-0": "^6.24.1",
-    "webpack": "^4.28.0",
-    "webpack-cli": "^3.1.2"
-  }
+    "private": true,
+    "name": "todomvc-skatejs-lit-html",
+    "scripts": {
+        "prebuild": "rm -rf dist && mkdir dist",
+        "postbuild": "cp index.html dist",
+        "build": "npx webpack --mode production",
+        "start": "webpack --mode development --watch"
+    },
+    "dependencies": {
+        "@skatejs/renderer-lit-html": "^0.2.2",
+        "lit-html": "1.0.0-rc.1",
+        "skatejs": "^5.2.4"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.2.2",
+        "@babel/plugin-proposal-class-properties": "^7.2.3",
+        "babel-loader": "^8.0.4",
+        "webpack": "^4.28.3",
+        "webpack-cli": "^3.1.2"
+    }
 }

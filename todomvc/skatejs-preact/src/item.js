@@ -1,27 +1,26 @@
 // @jsx h
 
-import { props } from "skatejs/dist/esnext";
-import { h } from "preact";
-import { Component } from "./util";
+import { props } from 'skatejs/dist/esnext';
+import { Component } from './util';
 
 export default class extends Component {
-  static events = ["check", "remove"];
-  static props = {
-    checked: props.boolean,
-    index: props.number
-  };
+    static events = ['check', 'remove'];
+    static props = {
+        checked: props.boolean,
+        index: props.number
+    };
 
-  handleCheck = e => {
-    this.onCheck({ index: this.index, value: e.target.checked });
-  };
-  handleRemove = () => {
-    this.onRemove({ index: this.index });
-  };
+    handleCheck = e => {
+        this.onCheck({ index: this.index, value: e.target.checked });
+    };
+    handleRemove = () => {
+        this.onRemove({ index: this.index });
+    };
 
-  render({ checked, handleCheck, handleRemove }) {
-    return (
-      <div>
-        <style>{`
+    render({ checked, handleCheck, handleRemove }) {
+        return (
+            <div>
+                <style>{`
           :host {
             display: block;
           }
@@ -111,14 +110,18 @@ export default class extends Component {
             color: #af5b5e;
           }
         `}</style>
-        <li class={checked ? "completed" : ""}>
-          <input type="checkbox" checked={checked} onChange={handleCheck} />
-          <label>
-            <slot />
-          </label>
-          <button onClick={handleRemove}>x</button>
-        </li>
-      </div>
-    );
-  }
+                <li class={checked ? 'completed' : ''}>
+                    <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={handleCheck}
+                    />
+                    <label>
+                        <slot />
+                    </label>
+                    <button onClick={handleRemove}>x</button>
+                </li>
+            </div>
+        );
+    }
 }
