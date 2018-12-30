@@ -15,10 +15,11 @@
         "build:omi": "cd omi && npm run build",
         "build:polymer3": "cd polymer-3 && npm run build",
         "build:riot": "cd riot && npm run build",
+        "build:skatejs:lithtml": "cd skatejs-lit-html && npm run build",
         "build:stencil": "cd stencil && npm run build",
         "build:svelte": "cd svelte && npm run build",
         "build:vue": "cd vue.js && npm run build",
-        "build:all": "run-s build:native build:angular build:dojo2 build:hybrids build:litelement build:hyperHTMLElement build:omi build:polymer3 build:riot build:stencil build:svelte build:vue"
+        "build:all": "run-s build:native build:angular build:dojo2 build:hybrids build:litelement build:hyperHTMLElement build:omi build:polymer3 build:riot build:skatejs:lithtml build:stencil build:svelte build:vue"
     },
     "repository": {
         "type": "git",
