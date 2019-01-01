@@ -87,6 +87,8 @@ async function benchCreate(element, context) {
         ? selectorInputNoShadowDom
         : selectorInput;
 
+    console.log(selector);
+
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
     let browser;
@@ -110,6 +112,16 @@ async function benchCreate(element, context) {
         });
 
         await page.waitFor('my-todo');
+
+        const mytodo = await page.evaluateHandle(
+            `document.querySelector('my-todo')`
+        );
+        console.log(typeof mytodo);
+
+        const todoinput = await page.evaluateHandle(
+            `document.querySelector('my-todo').shadowRoot.querySelector('todo-input')`
+        );
+        console.log(typeof todoinput);
 
         const inputHandle = await page.evaluateHandle(selector);
         await page.tracing.start({

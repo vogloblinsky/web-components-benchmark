@@ -41,7 +41,7 @@ console.log('**********************');
         console.log('* ' + element.name);
         console.log('********************');
 
-        const resultsFileLoad = '../results/todo-load.json';
+        /*const resultsFileLoad = '../results/todo-load.json';
         if (!fs.pathExistsSync(resultsFileLoad)) {
             fs.outputJsonSync(resultsFileLoad, {});
         }
@@ -65,7 +65,7 @@ console.log('**********************');
             )} ms\n`
         );
         resultsTti[element.slug] = Math.ceil(averageTti);
-        fs.outputJsonSync(resultsFileTti, resultsTti);
+        fs.outputJsonSync(resultsFileTti, resultsTti);*/
 
         const resultsFileCreate = '../results/todo-create.json';
         if (!fs.pathExistsSync(resultsFileCreate)) {

@@ -14,23 +14,23 @@ script:
     - echo '2. todomvc build all implementations'
     - npm run build:all
     - cd ../
-    - echo '3. pascal-triangle global install'
-    - cd pascal-triangle
-    - npm ci
-    - bash install-all.sh
-    - echo '4. pascal-triangle build all implementations'
-    - npm run build:all
-    - cd ../
+    #- echo '3. pascal-triangle global install'
+    #- cd pascal-triangle
+    #- npm ci
+    #- bash install-all.sh
+    #- echo '4. pascal-triangle build all implementations'
+    #- npm run build:all
+    #- cd ../
     - echo '5. copy demos'
     - npm run copy-demos
-    - echo '6. pascal-triangle / run benchmark'
-    - npm run run:benchmark:pascaltriangle
+    #- echo '6. pascal-triangle / run benchmark'
+    #- npm run run:benchmark:pascaltriangle
     - echo '7. todomvc / run benchmark'
     - npm run run:benchmark:todomvc
-    - echo '8. compile results'
-    - npm run compile-results
-    - npm run fix-stencil
-    - bash scripts/deploy.sh
+    #- echo '8. compile results'
+    #- npm run compile-results
+    #- npm run fix-stencil
+    #- bash scripts/deploy.sh
 branches:
     only:
         - master
