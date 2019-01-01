@@ -118,10 +118,12 @@ async function benchCreate(element, context) {
         );
         console.log(typeof mytodo);
 
-        const todoinput = await page.evaluateHandle(
-            `document.querySelector('my-todo').shadowRoot.querySelector('todo-input')`
-        );
-        console.log(typeof todoinput);
+        if (!element.noshadowdom) {
+            const todoinput = await page.evaluateHandle(
+                `document.querySelector('my-todo').shadowRoot.querySelector('todo-input')`
+            );
+            console.log(typeof todoinput);
+        }
 
         const inputHandle = await page.evaluateHandle(selector);
         await page.tracing.start({
