@@ -98,7 +98,7 @@ export class TodoItem extends PolymerElement {
           }
         </style>
         <li class$="item [[isCompleted(checked)]]">
-            <input type="checkbox" value="{{checked}}" checked="{{checked::change}}">
+            <input type="checkbox" value="{{checked}}" checked="{{checked::change}}" on-change="handleOnChecked">
             <label>{{text}}</label>
             <button class="destroy" on-click="handleOnRemove">x</button>
         </li>
