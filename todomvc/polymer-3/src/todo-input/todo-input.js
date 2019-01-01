@@ -3,9 +3,6 @@ import {
     PolymerElement
 } from '@polymer/polymer/polymer-element.js';
 
-import '@polymer/iron-form/iron-form.js';
-import '@polymer/iron-input/iron-input.js';
-
 export class TodoInput extends PolymerElement {
 
     static get template() {
@@ -45,13 +42,9 @@ export class TodoInput extends PolymerElement {
                 box-sizing: border-box;
             }
         </style>
-        <iron-form>
-            <form id="new-todo-form">
-                <iron-input bind-value="{{text}}">
-                    <input is="iron-input" id="new-todo" type="text" placeholder="What needs to be done?">
-                </iron-input>
-            </form>
-        </iron-form>
+        <form id="new-todo-form">
+            <input value="{{text::input}}" id="new-todo" type="text" placeholder="What needs to be done?">
+        </form>
       `
     }
 
@@ -66,8 +59,11 @@ export class TodoInput extends PolymerElement {
 
     ready() {
         super.ready();
-        this.$form = this.shadowRoot.querySelector('iron-form');
-        this.$form.addEventListener('iron-form-submit', (e) => {
+        this.$form = this.shadowRoot.querySelector('form');
+        this.$form.addEventListener('submit', (e) => {
+            if (e) {
+                e.preventDefault();
+            }
             if (!this.text) return;
             this.dispatchEvent(new CustomEvent('onSubmit', {
                 detail: this.text

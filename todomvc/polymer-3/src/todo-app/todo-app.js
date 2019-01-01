@@ -3,6 +3,8 @@ import {
   PolymerElement
 } from '@polymer/polymer/polymer-element.js';
 
+import '@polymer/polymer/lib/elements/dom-repeat.js';
+
 /**
  * @customElement
  * @polymer
@@ -40,9 +42,11 @@ class TodoApp extends PolymerElement {
       <section>
         <todo-input></todo-input>
         <ul id="list-container">
-          <template is="dom-repeat" items="{{list}}">
-            <todo-item text="{{item.text}}" checked="{{item.checked}}" index="{{index}}" on-remove="removeItem" on-toggle="toggleItem"></todo-item>
-          </template>
+          <dom-repeat items="[[list]]">
+            <template>
+              <todo-item text="[[item.text]]" checked="[[item.checked]]" index="[[index]]" on-remove="removeItem" on-toggle="toggleItem"></todo-item>
+            </template>
+          </dom-repeat>
         </ul>
       </section>
     `;
@@ -70,23 +74,21 @@ class TodoApp extends PolymerElement {
   }
 
   addItem(e) {
-    this.set('list', [...this.list, {
+    this.push('list', {
       text: e.detail,
       checked: false,
-    }]);
+    });
   }
 
   removeItem(e) {
-    this.set('list', [...this.list.slice(0, e.detail), ...this.list.slice(e.detail + 1)]);
+    this.splice('list', e.detail, 1);
   }
 
   toggleItem(e) {
-    const list = [...this.list];
-    const item = list[e.detail];
-    list[e.detail] = Object.assign({}, item, {
+    const item = this.list[e.detail];
+    this.set(`list.${e.detail}`, Object.assign({}, item, {
       checked: !item.checked
-    });
-    this.set('list', list);
+    }));
   }
 }
 
