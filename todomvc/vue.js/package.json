@@ -18,7 +18,7 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
-        "@vue/cli-service": "^3.2.0",
+        "@vue/cli-service": "^3.2.2",
         "concat-cli": "^4.0.0",
         "uglify-es": "3.3.9",
         "vue-template-compiler": "^2.5.21",
