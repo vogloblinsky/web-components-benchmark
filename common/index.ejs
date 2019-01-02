@@ -91,7 +91,7 @@
                 <p>Lower numbers are better</p>
                 <br />
                 <h4>Libraries or compilers</h4>
-                <table class="table table-striped">
+                <table class="table table-striped" id="todo-wc-librairies">
                     <thead>
                         <%- include('table_header'); %>
                     </thead>
@@ -102,7 +102,7 @@
                 </table>
                 <br />
                 <h4>Classic frameworks exporting to Web Components</h4>
-                <table class="table table-striped">
+                <table class="table table-striped" id="todo-fw-librairies">
                     <thead>
                         <%- include('table_header'); %>
                     </thead>
@@ -120,7 +120,7 @@
                 <p>Lower numbers are better</p>
                 <br />
                 <h4>Libraries or compilers</h4>
-                <table class="table table-striped">
+                <table class="table table-striped" id="pascal-wc-librairies">
                     <thead>
                         <%- include('table_header_pascal'); %>
                     </thead>
@@ -132,7 +132,7 @@
                 </table>
                 <br />
                 <h4>Classic frameworks exporting to Web Components</h4>
-                <table class="table table-striped">
+                <table class="table table-striped" id="pascal-fw-librairies">
                     <thead>
                         <%- include('table_header_pascal'); %>
                     </thead>
@@ -224,13 +224,55 @@
                 color: #ff9800;
                 margin-top: 2px;
             }
+
+            /* Tabelsort */
+            th[role='columnheader']:not(.no-sort) {
+                cursor: pointer;
+            }
+
+            th[role='columnheader']:not(.no-sort):after {
+                content: '';
+                float: right;
+                margin-top: 7px;
+                border-width: 0 4px 4px;
+                border-style: solid;
+                border-color: #404040 transparent;
+                visibility: hidden;
+                opacity: 0;
+                -ms-user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+            }
+
+            th[aria-sort='ascending']:not(.no-sort):after {
+                border-bottom: none;
+                border-width: 4px 4px 0;
+            }
+
+            th[aria-sort]:not(.no-sort):after {
+                visibility: visible;
+                opacity: 0.4;
+            }
+
+            th[role='columnheader']:not(.no-sort):hover:after {
+                visibility: visible;
+                opacity: 1;
+            }
         </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.1.0/tablesort.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.1.0/sorts/tablesort.number.min.js"></script>
         <script src="https://unpkg.com/ionicons@4.4.6/dist/ionicons.js"></script>
         <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=UA-131047101-1"
         ></script>
         <script>
+            new Tablesort(document.getElementById('todo-wc-librairies'));
+            new Tablesort(document.getElementById('todo-fw-librairies'));
+            new Tablesort(document.getElementById('pascal-wc-librairies'));
+            new Tablesort(document.getElementById('pascal-fw-librairies'));
+
             window.dataLayer = window.dataLayer || [];
 
             function gtag() {
