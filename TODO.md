@@ -6,6 +6,5 @@ Pascal triangle
 
 [] glimmerjs
 
-[] atomico
-[] skatejs
+[] skatejs-preact
 [] slimjs
