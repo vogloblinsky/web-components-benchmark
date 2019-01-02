@@ -125,21 +125,29 @@ async function benchCreate(element, context) {
             console.log('todoinput: ', typeof todoinput);
         }
 
-        const inputHandle = await page.evaluateHandle(selector);
-        console.log('inputHandle: ', typeof inputHandle);
-        if (inputHandle) {
-            await page.tracing.start({
-                path: filename
-            });
+        try {
+            const todoinputshadowdom = await page.evaluateHandle(
+                `document.querySelector('my-todo').shadowRoot.querySelector('todo-input').shadowRoot`
+            );
+            console.log('todoinputshadowdom: ', typeof todoinputshadowdom);
+            const inputHandle = await page.evaluateHandle(selector);
+            console.log('inputHandle: ', typeof inputHandle);
+            if (inputHandle) {
+                await page.tracing.start({
+                    path: filename
+                });
 
-            for (let j = 0; j < numberOfModifications; j++) {
-                await inputHandle.type('New todo');
-                await inputHandle.press('Enter');
+                for (let j = 0; j < numberOfModifications; j++) {
+                    await inputHandle.type('New todo');
+                    await inputHandle.press('Enter');
+                }
+
+                await page.tracing.stop();
+
+                average += processRawData(filename, i);
             }
-
-            await page.tracing.stop();
-
-            average += processRawData(filename, i);
+        } catch (e) {
+            console.log(e);
         }
 
         await browser.close();
