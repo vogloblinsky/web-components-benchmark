@@ -1,6 +1,6 @@
 const format = require('date-fns/format');
 
-const fs = require('fs');
+const fs = require('fs-extra');
 const ejs = require('ejs');
 const zlib = require('zlib');
 
@@ -60,7 +60,8 @@ const filesizeGzipped = (project, namespace) => {
                 const fileContents = fs.readFileSync(`${namespace}/${current}`);
                 const zippedContent = zlib.gzipSync(fileContents.toString());
                 fs.writeFileSync(`${namespace}/${current}.gzip`, zippedContent);
-                const size = previous + fs.statSync(`${namespace}/${current}.gzip`).size;
+                const size =
+                    previous + fs.statSync(`${namespace}/${current}.gzip`).size;
                 fs.unlinkSync(`${namespace}/${current}.gzip`);
                 return size;
             }, 0) / 1000
@@ -207,7 +208,7 @@ data.pascal.max = maxPascal;
 data.buildDateAndTime = format(new Date(), 'DD/MM/YYYY - HH:mm:ss');
 
 ejs.renderFile('./common/index.ejs', data, {}, function(err, str) {
-    fs.writeFile('./docs/index.html', str, err => {
+    fs.outputFile('./docs/index.html', str, err => {
         if (err) throw err;
         console.log('The file has been saved!');
     });
