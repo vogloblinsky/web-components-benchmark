@@ -10,14 +10,14 @@ script:
     - echo '1. todomvc global install'
     - cd todomvc
     - npm ci
-    - install-all.sh
+    - bash install-all.sh
     - echo '2. todomvc build all implementations'
     - npm run build:all
     - cd ../
     - echo '3. pascal-triangle global install'
     - cd pascal-triangle
     - npm ci
-    - install-all.sh
+    - bash install-all.sh
     - echo '4. pascal-triangle build all implementations'
     - npm run build:all
     - cd ../
