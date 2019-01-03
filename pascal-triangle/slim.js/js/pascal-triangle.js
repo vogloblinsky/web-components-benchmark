@@ -34,9 +34,7 @@ Slim.tag(
         </button>
     </div>
     <div>
-        <div s:repeat="list as line">
-            <triangle-item s:repeat="line as item" text="{{item}}"></triangle-item>
-        </div>
+        <triangle-line s:repeat="list as line"></triangle-line>
     </div>
     `,
     class PascalTriangle extends Slim {
@@ -45,12 +43,10 @@ Slim.tag(
         }
         onBeforeCreated() {
             this.list = generateData(_length);
-            console.log(this.list);
         }
         handleLoad(e) {
             let length = parseInt(e.target.getAttribute('data-value'));
             this.list = generateData(length);
-            console.log(this.list);
         }
     }
 );

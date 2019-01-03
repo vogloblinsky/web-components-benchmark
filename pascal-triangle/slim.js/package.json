@@ -6,12 +6,12 @@
     "scripts": {
         "minify-html": "npx html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
         "copy-js": "cp js/* dist && cp ./node_modules/slim-js/Slim.nomodule.js dist && cp ./node_modules/slim-js/directives/repeat.nomodule.js dist",
-        "concat-js": "npx concat-cli -f dist/Slim.nomodule.js dist/repeat.nomodule.js dist/triangle-item.js dist/pascal-triangle.js -o dist/bundle_tmp.js",
+        "concat-js": "npx concat-cli -f dist/Slim.nomodule.js dist/repeat.nomodule.js dist/triangle-item.js dist/triangle-line.js dist/pascal-triangle.js -o dist/bundle_tmp.js",
         "minify-js": "npx uglifyjs dist/bundle.js -o dist/bundle.js",
         "rollup": "npx rollup -c",
         "prebuild": "rm -rf dist && mkdir dist",
         "build": "npm run minify-html && npm run copy-js && npm run concat-js && npm run rollup && npm run minify-js",
-        "postbuild": "cd dist && rm bundle_tmp.js && rm pascal-triangle.js && rm triangle-item.js && rm repeat.nomodule.js && rm Slim.nomodule.js"
+        "postbuild": "cd dist && rm bundle_tmp.js && rm pascal-triangle.js && rm triangle-item.js && rm triangle-line.js && rm repeat.nomodule.js && rm Slim.nomodule.js"
     },
     "author": "",
     "license": "MIT",
