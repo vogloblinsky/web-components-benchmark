@@ -3,7 +3,7 @@ const stencilPascalInfos = require('../pascal-triangle/stencil/dist/build/app/ap
 
 module.exports = {
     wc: [
-        {
+        /*{
             name: 'Native',
             slug: 'native',
             version: '',
@@ -89,7 +89,7 @@ module.exports = {
                 .dependencies['@skatejs/renderer-lit-html'],
             stars: 2796,
             paths: ['skatejs-lit-html/dist/main.js']
-        },
+        },*/
         {
             name: 'SkateJS & Preact',
             slug: 'skatejs-preact',
@@ -98,7 +98,7 @@ module.exports = {
                 .dependencies['@skatejs/renderer-preact'],
             stars: 2796,
             paths: ['skatejs-preact/dist/main.js']
-        },
+        } /*,
         {
             name: 'Slim.js',
             slug: 'slim.js',
@@ -148,10 +148,10 @@ module.exports = {
             ],
             stars: 8306,
             paths: ['svelte/dist/bundle.js']
-        }
+        }*/
     ],
     fw: [
-        {
+        /*{
             name: 'Angular Elements',
             slug: 'angular-elements',
             github: 'https://github.com/angular/angular',
@@ -181,6 +181,6 @@ module.exports = {
             stars: 80,
             noshadowdom: true,
             paths: ['dojo2/dist/dist/index/index-1.0.0.js']
-        }
+        }*/
     ]
 };
