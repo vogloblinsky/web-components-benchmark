@@ -87,16 +87,12 @@ async function benchCreate(element, context) {
         ? selectorInputNoShadowDom
         : selectorInput;
 
-    console.log(selector);
-
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
     let browser;
     let page;
     let average = 0;
     let filename;
-
-    console.log(`${LOCALHOST}/demos/${context}/${element.slug}`);
 
     for (let i = 0; i < numberOftests; i++) {
         browser = await puppeteer.launch({
@@ -113,42 +109,19 @@ async function benchCreate(element, context) {
 
         await page.waitFor('my-todo');
 
-        const mytodo = await page.evaluateHandle(
-            `document.querySelector('my-todo')`
-        );
-        console.log('mytodo: ', typeof mytodo);
+        const inputHandle = await page.evaluateHandle(selector);
+        await page.tracing.start({
+            path: filename
+        });
 
-        if (!element.noshadowdom) {
-            const todoinput = await page.evaluateHandle(
-                `document.querySelector('my-todo').shadowRoot.querySelector('todo-input')`
-            );
-            console.log('todoinput: ', typeof todoinput);
+        for (let j = 0; j < numberOfModifications; j++) {
+            await inputHandle.type('New todo');
+            await inputHandle.press('Enter');
         }
 
-        try {
-            const todoinputshadowdom = await page.evaluateHandle(
-                `document.querySelector('my-todo').shadowRoot.querySelector('todo-input').shadowRoot`
-            );
-            console.log('todoinputshadowdom: ', typeof todoinputshadowdom);
-            const inputHandle = await page.evaluateHandle(selector);
-            console.log('inputHandle: ', typeof inputHandle);
-            if (inputHandle) {
-                await page.tracing.start({
-                    path: filename
-                });
+        await page.tracing.stop();
 
-                for (let j = 0; j < numberOfModifications; j++) {
-                    await inputHandle.type('New todo');
-                    await inputHandle.press('Enter');
-                }
-
-                await page.tracing.stop();
-
-                average += processRawData(filename, i);
-            }
-        } catch (e) {
-            console.log(e);
-        }
+        average += processRawData(filename, i);
 
         await browser.close();
     }
