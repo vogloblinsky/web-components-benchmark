@@ -2,7 +2,7 @@
     "name": "pascal-atomico",
     "version": "0.0.1",
     "description": "This is a small skeleton to create distributable components based on Atomico",
-    "iife": "dist/pascal-triangle.iife.js",
+    "iife": "dist/atomico-app.iife.js",
     "source": "src/index.js",
     "author": "Matias Trujillo Olivares",
     "license": "ISC",

@@ -21,7 +21,7 @@ module.exports = {
             stars: 160,
             paths: [
                 'atomico/dist/atomico.umd.js',
-                'atomico/dist/atom-todo.iife.js'
+                'atomico/dist/atomico-app.iife.js'
             ]
         },
         {
