@@ -1,6 +1,8 @@
 import { LitElement, html } from '../node_modules/@polymer/lit-element/lit-element.js';
 import { repeat } from '../node_modules/lit-html/directives/repeat.js';
 
+let nextId = 0;
+
 class MyTodo extends LitElement {
     static get properties() {
         return {
@@ -12,14 +14,7 @@ class MyTodo extends LitElement {
 
     constructor() {
         super();
-        this.list = [{ id: 0, text: 'my initial todo', checked: false }, { id: 1, text: 'Learn about Web Components', checked: true }];
-        this._addItem = e => this.addItem(e);
-        this._removeItem = e => this.removeItem(e);
-        this._toggleItem = e => this.toggleItem(e);
-    }
-
-    ready() {
-        super.ready();
+        this.list = [{ id: nextId++, text: 'my initial todo', checked: false }, { id: nextId++, text: 'Learn about Web Components', checked: true }];
     }
 
     render() {
@@ -46,35 +41,39 @@ section {
     border-top: 1px solid #e6e6e6;
 }
 </style>
-<h1>Todos LitElement</h1>
+<h1>Todos WC</h1>
 <section>
-    <todo-input @submit=${this._addItem}></todo-input>
+    <todo-input @submit=${this.addItem}></todo-input>
     <ul id="list-container">
         ${repeat(
             this.list,
             item => item.id,
-            (item, index) => html`<todo-item 
-                                    .text="${item.text}" 
-                                    .checked="${item.checked}" 
-                                    .index="${index}" 
-                                    @removed=${this._removeItem}
-                                    @checked=${this._toggleItem}></todo-item>`
-        )}
+            (item, index) => html`
+                <todo-item 
+                    .text="${item.text}" 
+                    .checked="${item.checked}" 
+                    .index="${index}" 
+                    @removed=${this.removeItem}
+                    @checked=${this.toggleItem}>
+                </todo-item>`)}
     </ul>
 </section>`;
     }
 
     addItem(e) {
-        this.list = [...this.list, { id: this.list.length, text: e.detail, checked: false }];
+        this.list.splice(this.list.length, 0, { id: nextId++, text: e.detail, checked: false });
+        this.requestUpdate();
     }
 
     removeItem(e) {
-        this.list = [...this.list.slice(0, e.detail), ...this.list.slice(e.detail + 1)];
+        this.list.splice(e.detail, 1);
+        this.requestUpdate();
     }
 
     toggleItem(e) {
         const item = this.list[e.detail];
-        this.list[e.detail] = Object.assign({}, item, { checked: !item.checked });
+        item.checked = !item.checked;
+        this.requestUpdate();
     }
 }
 

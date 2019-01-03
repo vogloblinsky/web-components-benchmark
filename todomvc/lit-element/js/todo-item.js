@@ -5,14 +5,11 @@ class TodoItem extends LitElement {
         return {
             checked: {
                 type: Boolean,
-                attrName: 'checked'
             },
             index: {
                 type: Number
             },
-            text: {
-                type: String
-            }
+            text: {}
         };
     }
 
@@ -21,12 +18,6 @@ class TodoItem extends LitElement {
         this.checked = false;
         this.text = '';
         this.index = 0;
-        this._handleOnChecked = e => this.handleOnChecked(e);
-        this._handleOnRemoved = e => this.handleOnRemoved(e);
-    }
-
-    ready() {
-        super.ready();
     }
 
     render() {
@@ -122,10 +113,10 @@ class TodoItem extends LitElement {
         color: #af5b5e;
     }
 </style>
-<li class="item">
-    <input type="checkbox" .checked=${checked} @change=${this._handleOnChecked}>
+<li class="item ${checked ? 'completed' : ''}">
+    <input type="checkbox" .checked=${checked} @change=${this.handleOnChecked}>
     <label>${text}</label>
-    <button class="destroy" @click=${this._handleOnRemoved}>x</button>
+    <button class="destroy" @click=${this.handleOnRemoved}>x</button>
 </li>`;
     }
 

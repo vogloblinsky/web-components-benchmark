@@ -1,23 +1,6 @@
 import { LitElement, html } from '../node_modules/@polymer/lit-element/lit-element.js';
 
 class TodoInput extends LitElement {
-    static get properties() {
-        return {
-            newtodo: {
-                type: String
-            }
-        };
-    }
-
-    constructor() {
-        super();
-        this._handleSubmit = e => this.handleSubmit(e);
-        this._handleInput = e => this.handleInput(e);
-    }
-
-    ready() {
-        super.ready();
-    }
 
     render() {
         return html`
@@ -48,21 +31,17 @@ class TodoInput extends LitElement {
         box-sizing: border-box;
     }
 </style>
-<form id="new-todo-form" @submit=${this._handleSubmit}>
-    <input id="new-todo" type="text" placeholder="What needs to be done?" value="" @input=${this._handleInput}/>
+<form id="new-todo-form" @submit=${this.handleSubmit}>
+    <input id="new-todo" type="text" placeholder="What needs to be done?"/>
 </form>`;
-    }
-
-    handleInput(e) {
-        this.newtodo = e.target.value;
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.dispatchEvent(new CustomEvent('submit', { detail: this.newtodo }));
-        this.$input = this.shadowRoot.querySelector('#new-todo');
-        this.$input.value = '';
-        this.$input.blur();
+        const input = this.shadowRoot.querySelector('#new-todo');
+        this.dispatchEvent(new CustomEvent('submit', { detail: input.value }));
+        input.value = '';
+        input.blur();
     }
 }
 
