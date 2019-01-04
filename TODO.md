@@ -5,5 +5,3 @@ Todomvc
 Pascal triangle
 
 [] glimmerjs
-
-[] skatejs-preact
