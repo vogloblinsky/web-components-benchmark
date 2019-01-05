@@ -12,15 +12,16 @@
 			"es2015.symbol",
 			"es2015.symbol.wellknown"
 		],
-		"module": "esnext",
+		"module": "umd",
 		"moduleResolution": "node",
 		"noUnusedLocals": true,
 		"outDir": "_build/",
 		"removeComments": false,
-		"sourceMap": false,
+		"importHelpers": true,
+		"downlevelIteration": true,
+		"sourceMap": true,
 		"strict": true,
-		"target": "es6",
-		"types": []
+		"target": "es5"
 	},
 	"include": [
 		"./src/**/*.ts"
