@@ -1,5 +1,5 @@
-import * as PascalTriangle from './pascaltriangle/PascalTriangle';
-import * as TriangleItem from './triangleitem/TriangleItem';
+import * as PascalTriangle from './pascaltriangle/pascaltriangle';
+import * as TriangleItem from './triangleitem/triangleitem';
 
 import { register } from '@dojo/framework/widget-core/registerCustomElement';
 
