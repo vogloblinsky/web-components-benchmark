@@ -1,0 +1,8 @@
+{
+	"build-widget": {
+		"elements": [
+			"src/pascaltriangle/pascaltriangle",
+			"src/triangleitem/triangleitem"
+		]
+	}
+}

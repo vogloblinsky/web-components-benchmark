@@ -1,0 +1,21 @@
+{
+    "name": "pascaltriangle-dojo",
+    "version": "0.0.0",
+    "description": "",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "prebuild": "rm -rf dist",
+        "build": "npx dojo build widget",
+        "postbuild": "cp src/index.html output && rm -rf output/info && mv output dist"
+    },
+    "devDependencies": {
+        "@dojo/cli": "^4.0.0",
+        "@dojo/cli-build-widget": "^4.0.0",
+        "typescript": "^3.2.2"
+    },
+    "dependencies": {
+        "@dojo/framework": "^4.0.2"
+    }
+}

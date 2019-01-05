@@ -173,14 +173,14 @@ module.exports = {
         },
         {
             name: 'Dojo',
-            slug: 'dojo2',
+            slug: 'dojo',
             github: 'https://github.com/dojo/framework',
             version: require('../todomvc/dojo2/package.json').dependencies[
                 '@dojo/core'
             ],
-            stars: 80,
+            stars: 96,
             noshadowdom: true,
-            paths: ['dojo2/dist/dist/index/index-1.0.0.js']
+            paths: ['dojo/dist/dist/index/index-1.0.0.js']
         }
     ]
 };
