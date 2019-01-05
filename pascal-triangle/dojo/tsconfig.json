@@ -20,7 +20,7 @@
         "sourceMap": false,
         "strict": true,
         "target": "es6",
-        "types": ["intern"]
+        "types": []
     },
     "include": ["./src/**/*.ts"]
 }

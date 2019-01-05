@@ -175,8 +175,8 @@ module.exports = {
             name: 'Dojo',
             slug: 'dojo',
             github: 'https://github.com/dojo/framework',
-            version: require('../todomvc/dojo2/package.json').dependencies[
-                '@dojo/core'
+            version: require('../todomvc/dojo/package.json').dependencies[
+                '@dojo/framework'
             ],
             stars: 96,
             noshadowdom: true,

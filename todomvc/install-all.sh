@@ -4,7 +4,7 @@ cd angular-elements
 npm ci
 cd ../atomico
 npm ci
-cd ../dojo2
+cd ../dojo
 npm ci
 cd ../lit-element
 npm ci
@@ -13,8 +13,6 @@ npm ci
 cd ../hybrids
 npm ci
 cd ../hyperHTMLElement
-#npm ci
-#cd ../native-shadow-dom_lit-html
 npm ci
 cd ../omi
 npm ci

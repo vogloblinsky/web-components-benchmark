@@ -1,9 +1,7 @@
-import { DNode } from '@dojo/framework/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/framework/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
+import customElement from '@dojo/framework/widget-core/decorators/customElement';
 import { v } from '@dojo/framework/widget-core/d';
-
-import { customElement } from '@dojo/framework/widget-core/decorators/customElement';
+import { ThemedMixin } from '@dojo/framework/widget-core/mixins/Themed';
 
 let _length = 100;
 
@@ -26,28 +24,17 @@ function generateData(rows) {
     return data;
 }
 
-/**
- * @type PascalTriangleProperties
- *
- * Properties that can be set on PascalTriangle components
- */
-export interface PascalTriangleProperties {}
-
-export const ThemedBase = ThemedMixin(WidgetBase);
-
 @customElement({
     tag: 'pascal-triangle',
     attributes: [],
     properties: [],
     events: []
 })
-export class PascalTriangle<
-    P extends PascalTriangleProperties = PascalTriangleProperties
-> extends ThemedBase<P> {
+export default class PascalTriangle extends ThemedMixin(WidgetBase) {
     length = _length;
     list: any = generateData(this.length);
 
-    protected render(): DNode | DNode[] {
+    protected render() {
         return v('div', [
             v('div', [
                 v(
@@ -92,9 +79,8 @@ export class PascalTriangle<
     }
 
     handleLoad(e) {
+        console.log('handleLoad: ', e.target.getAttribute('data-value'));
         this.length = parseInt(e.target.getAttribute('data-value'));
         this.list = generateData(this.length);
     }
 }
-
-export default PascalTriangle;

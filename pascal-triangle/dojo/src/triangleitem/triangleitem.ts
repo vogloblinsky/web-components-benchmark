@@ -1,32 +1,17 @@
-import { DNode } from '@dojo/framework/widget-core/interfaces';
-import { ThemedMixin, theme } from '@dojo/framework/widget-core/mixins/Themed';
 import { WidgetBase } from '@dojo/framework/widget-core/WidgetBase';
+import customElement from '@dojo/framework/widget-core/decorators/customElement';
 import { v } from '@dojo/framework/widget-core/d';
-
-import { customElement } from '@dojo/framework/widget-core/decorators/customElement';
-
-/**
- * @type TriangleItemProperties
- *
- * Properties that can be set on TriangleItem components
- */
-export interface TriangleItemProperties {}
-
-export const ThemedBase = ThemedMixin(WidgetBase);
+import { ThemedMixin } from '@dojo/framework/widget-core/mixins/Themed';
 
 @customElement({
     tag: 'triangle-item',
+    events: [],
     attributes: ['text'],
-    properties: [],
-    events: []
+    properties: []
 })
-export class TriangleItem<
-    P extends TriangleItemProperties = TriangleItemProperties
-> extends ThemedBase<P> {
-    protected render(): DNode | DNode[] {
+export default class TriangleItem extends ThemedMixin(WidgetBase) {
+    protected render() {
         const { text } = this.properties;
         return v('span', {}, [text]);
     }
 }
-
-export default TriangleItem;
