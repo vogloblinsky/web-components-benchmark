@@ -3,7 +3,7 @@
     "name": "pascal-triangle-skatejs-preact",
     "scripts": {
         "prebuild": "rm -rf dist && mkdir dist",
-        "build": "npx parcel build src/index.html --detailed-report --no-source-maps --public-url ./"
+        "build": "node build.js"
     },
     "dependencies": {
         "@skatejs/element-preact": "0.0.1",

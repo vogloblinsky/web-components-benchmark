@@ -97,7 +97,8 @@ module.exports = {
             version: require('../todomvc/skatejs-preact/package.json')
                 .dependencies['@skatejs/renderer-preact'],
             stars: 2796,
-            paths: ['skatejs-preact/dist/main.js']
+            pathsTodo: ['skatejs-preact/dist/main.js'],
+            pathsPascal: ['skatejs-preact/dist/src.e31bb0bc.js']
         },
         {
             name: 'Slim.js',
