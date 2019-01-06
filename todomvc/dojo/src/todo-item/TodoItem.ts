@@ -3,14 +3,14 @@ import customElement from '@dojo/framework/widget-core/decorators/customElement'
 import { v } from '@dojo/framework/widget-core/d';
 import { theme, ThemedMixin } from '@dojo/framework/widget-core/mixins/Themed';
 
-import * as css from './TodoItem.css';
+import * as css from './TodoItem.m.css';
 
 export interface TodoItemProperties {
     text?: string;
     checked?: boolean;
     index?: number;
-    onChecked?: (data: any) => void;
-    onRemoved?: (data: any) => void;
+    onChecked: (data: any) => void;
+    onRemoved: (data: any) => void;
 }
 
 @theme(css)
@@ -24,7 +24,7 @@ export default class TodoItem extends ThemedMixin(WidgetBase)<
     TodoItemProperties
 > {
     protected render() {
-        const { text, checked } = this.properties;
+        const { text, checked, onRemoved, onChecked } = this.properties;
 
         return [
             v(
@@ -39,27 +39,23 @@ export default class TodoItem extends ThemedMixin(WidgetBase)<
                     v('input', {
                         type: 'checkbox',
                         checked: checked,
-                        onchange: this.handleOnChecked
+                        onchange: () => {
+                            onChecked(this.properties);
+                        }
                     }),
                     v('label', {}, [text]),
                     v(
                         'button',
                         {
                             classes: this.theme(css.destroy),
-                            onclick: this.handleOnRemoved
+                            onclick: () => {
+                                onRemoved(this.properties);
+                            }
                         },
                         ['X']
                     )
                 ]
             )
         ];
-    }
-
-    handleOnRemoved(e) {
-        this.properties.onRemoved(this.properties);
-    }
-
-    handleOnChecked(e) {
-        this.properties.onChecked(this.properties);
     }
 }

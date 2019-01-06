@@ -3,12 +3,12 @@ import customElement from '@dojo/framework/widget-core/decorators/customElement'
 import { v } from '@dojo/framework/widget-core/d';
 import { theme, ThemedMixin } from '@dojo/framework/widget-core/mixins/Themed';
 
-import * as css from './TodoInput.css';
+import * as css from './TodoInput.m.css';
 import { watch } from '@dojo/framework/widget-core/decorators/watch';
 
 export interface TodoInputProperties {
     text?: string;
-    onSubmit?: (data: any) => void;
+    onSubmit: (data: any) => void;
 }
 
 @theme(css)
@@ -32,7 +32,13 @@ export default class TodoInput extends ThemedMixin(WidgetBase)<
                 'form',
                 {
                     classes: this.theme(css.newtodoform),
-                    onsubmit: this.handleSubmit
+                    onsubmit: (e: Event) => {
+                        const { onSubmit } = this.properties;
+                        e.preventDefault();
+                        e.stopPropagation();
+                        this.finaltodo = this.newtodo;
+                        onSubmit(this.finaltodo);
+                    }
                 },
                 [
                     v('input', {
@@ -40,21 +46,12 @@ export default class TodoInput extends ThemedMixin(WidgetBase)<
                         type: 'text',
                         value: '',
                         placeholder: 'What needs to be done?',
-                        oninput: this.handleInput
+                        oninput: (e: Event) => {
+                            this.newtodo = (e.target as HTMLInputElement).value;
+                        }
                     })
                 ]
             )
         ];
-    }
-
-    handleInput(e) {
-        this.newtodo = e.target.value;
-    }
-
-    handleSubmit(e: Event) {
-        e.preventDefault();
-        e.stopPropagation();
-        this.finaltodo = this.newtodo;
-        this.properties.onSubmit(this.finaltodo);
     }
 }
