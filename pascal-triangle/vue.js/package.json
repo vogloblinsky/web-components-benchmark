@@ -11,7 +11,7 @@
         "minify-html": "rm -rf dist && mkdir dist && npx html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
         "prebuild": "rm -rf dist && mkdir dist",
         "build": "npm run minify-html && npm run build-triangle-item && npm run build-pascal-triangle && npm run concat-js && npm run minify-js && rm -rf build",
-        "postbuild": "cp node_modules/vue/dist/vue.min.js dist"
+        "postbuild": "cp node_modules/vue/dist/vue.runtime.min.js dist"
     },
     "keywords": [],
     "author": "",
