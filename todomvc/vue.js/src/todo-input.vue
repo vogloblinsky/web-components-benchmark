@@ -6,7 +6,7 @@
 <script>
 const mktodo = _ => ({ text: "", checked: false })
 
-module.exports = {
+export default {
   name: "TodoInput",
   data() {
     return { newtodo: mktodo() };

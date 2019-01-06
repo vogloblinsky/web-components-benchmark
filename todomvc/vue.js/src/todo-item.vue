@@ -7,7 +7,7 @@
 </template>
 
 <script>
-module.exports = {
+export default {
   name: "TodoItem",
   props: ["todo-text", "todo-checked"],
   methods: {

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-module.exports = {
+export default {
   name: "TriangleItem",
   props: ["text"]
 };

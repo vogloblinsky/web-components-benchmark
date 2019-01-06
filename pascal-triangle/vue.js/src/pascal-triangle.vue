@@ -34,7 +34,7 @@ function generateData(rows) {
     }
     return data;
 }
-module.exports = {
+export default {
   name: "PascalTriangle",
   data() {
     return {
