@@ -16,6 +16,6 @@
     "devDependencies": {
         "@dojo/cli": "^4.0.0",
         "@dojo/cli-build-app": "^4.0.4",
-        "typescript": "^3.2.2"
+        "typescript": "3.0.3"
     }
 }
