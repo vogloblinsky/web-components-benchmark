@@ -12,17 +12,16 @@
     },
     "private": true,
     "dependencies": {
-        "@angular/common": "7.1.4",
-        "@angular/compiler": "7.1.4",
-        "@angular/core": "7.1.4",
-        "@angular/elements": "7.1.4",
-        "@angular/platform-browser": "7.1.4",
-        "@angular/platform-browser-dynamic": "7.1.4",
+        "@angular/common": "7.2.0-rc.0",
+        "@angular/compiler": "7.2.0-rc.0",
+        "@angular/core": "7.2.0-rc.0",
+        "@angular/elements": "7.2.0-rc.0",
+        "@angular/platform-browser": "7.2.0-rc.0",
+        "@angular/platform-browser-dynamic": "7.2.0-rc.0",
         "@webcomponents/custom-elements": "^1.2.1",
         "core-js": "2.6.1",
         "mutation-observer": "1.0.3",
         "rxjs": "6.3.3",
-        "rxjs-compat": "6.3.3",
         "zone.js": "0.8.26"
     },
     "devDependencies": {
@@ -32,6 +31,6 @@
         "typescript": "3.1.6",
         "uglify-es": "3.3.9",
         "webpack": "^4.28.3",
-        "webpack-cli": "^3.1.2"
+        "webpack-cli": "^3.2.1"
     }
 }

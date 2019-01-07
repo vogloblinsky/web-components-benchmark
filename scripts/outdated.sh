@@ -1,8 +1,8 @@
 echo ""
-echo "TODO"
+echo "PASCAL-TRIANGLE"
 echo ""
 
-cd todomvc
+cd pascal-triangle
 cd angular-elements
 npm outdated
 cd ../atomico
@@ -14,8 +14,6 @@ npm outdated
 cd ../lit-element
 npm outdated
 cd ../hyperHTMLElement
-npm outdated
-cd ../native-shadow-dom_lit-html
 npm outdated
 cd ../omi
 npm outdated
@@ -37,21 +35,21 @@ cd ../vue.js
 npm outdated
 
 echo ""
-echo "PASCAL-TRIANGLE"
+echo "TODO"
 echo ""
 
-cd ../../pascal-triangle
+cd ../../todomvc
 cd angular-elements
 npm outdated
 cd ../atomico
 npm outdated
 cd ../dojo
 npm outdated
+cd ../hybrids
+npm outdated
 cd ../lit-element
 npm outdated
 cd ../hyperHTMLElement
-npm outdated
-cd ../native-shadow-dom_lit-html
 npm outdated
 cd ../omi
 npm outdated
