@@ -2,8 +2,7 @@ const stencilTodoInfos = require('../todomvc/stencil/dist/build/app/app.registry
 const stencilPascalInfos = require('../pascal-triangle/stencil/dist/build/app/app.registry.json');
 
 module.exports = {
-    wc: [
-        {
+    wc: [{
             name: 'Native',
             slug: 'native',
             version: '',
@@ -48,7 +47,7 @@ module.exports = {
             slug: 'lit-element',
             github: 'https://github.com/Polymer/lit-element',
             version: require('../todomvc/lit-element/package.json')
-                .dependencies['@polymer/lit-element'],
+                .dependencies['lit-element'],
             stars: 897,
             paths: ['lit-element/dist/bundle.js']
         },
@@ -151,8 +150,7 @@ module.exports = {
             paths: ['svelte/dist/bundle.js']
         }
     ],
-    fw: [
-        {
+    fw: [{
             name: 'Angular Elements',
             slug: 'angular-elements',
             github: 'https://github.com/angular/angular',
