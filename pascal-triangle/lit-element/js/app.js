@@ -1,7 +1,7 @@
 import {
     LitElement,
     html
-} from '../node_modules/@polymer/lit-element/lit-element.js';
+} from '../node_modules/lit-element/lit-element.js';
 import { repeat } from '../node_modules/lit-html/directives/repeat.js';
 
 import './triangle-item.js';
