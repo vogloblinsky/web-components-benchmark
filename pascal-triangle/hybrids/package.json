@@ -11,10 +11,10 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
-        "webpack": "^4.28.3",
+        "webpack": "^4.28.4",
         "webpack-cli": "^3.2.1"
     },
     "dependencies": {
-        "hybrids": "^1.5.0"
+        "hybrids": "^2.0.0"
     }
 }
