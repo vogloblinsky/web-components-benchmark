@@ -105,7 +105,6 @@
         },
         methods: {
             onToggle(node) {
-                console.log('onToggle: ', this.index);
                 const event = new CustomEvent('toggle', {
                     detail: this.index,
                     bubbles: true,
@@ -115,7 +114,6 @@
                 this.dispatchEvent(event);
             },
             onRemove(node) {
-                console.log('onRemove');
                 const event = new CustomEvent('remove', {
                     detail: this.index,
                     bubbles: true,
