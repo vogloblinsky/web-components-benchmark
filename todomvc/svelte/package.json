@@ -6,7 +6,7 @@
         "build": "npx rollup -c --environment production",
         "postbuild": "cp public/index.html dist",
         "dev": "npx rollup -c -w",
-        "start": "npx http-server public & npm run dev"
+        "start": "npx http-server dist & npm run dev"
     },
     "files": [
         "index.html",

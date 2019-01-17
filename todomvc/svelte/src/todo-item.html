@@ -89,38 +89,17 @@
     }
 </style>
 <li class="item {statusClass}">
-    <input type="checkbox" checked="{checked}" on:click='fire("toggle", { index })'>
+    <input type="checkbox" checked="{checked}" on:click="fire('toggle')">
     <label>{text}</label>
-    <button class="destroy" on:click='fire("remove", { index })'>x</button>
+    <button class="destroy" on:click="fire('remove')">x</button>
 </li>
 <script>
     export default {
         tag: 'todo-item',
         props: ['text', 'checked', 'index'],
-        oncreate() {},
         computed: {
-            statusClass: data => {
-                return (data.checked) ? 'completed' : '';
-            }
-        },
-        methods: {
-            onToggle(node) {
-                const event = new CustomEvent('toggle', {
-                    detail: this.index,
-                    bubbles: true,
-                    cancelable: true,
-                    composed: true
-                });
-                this.dispatchEvent(event);
-            },
-            onRemove(node) {
-                const event = new CustomEvent('remove', {
-                    detail: this.index,
-                    bubbles: true,
-                    cancelable: true,
-                    composed: true
-                });
-                this.dispatchEvent(event);
+            statusClass ({ checked }) {
+                return checked ? 'completed' : '';
             }
         }
     }

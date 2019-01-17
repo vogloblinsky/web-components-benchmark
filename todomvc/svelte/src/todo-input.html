@@ -25,46 +25,32 @@
         box-sizing: border-box;
     }
 </style>
-<form id="new-todo-form">
-    <input ref:input id="new-todo" type="text" placeholder="What needs to be done?" on:enter='create(event)' />
+<form id="new-todo-form" on:submit|preventDefault="create(text)">
+    <input bind:value="text" id="new-todo" type="text" placeholder="What needs to be done?" />
 </form>
 <script>
-    const ENTER_KEY = 13;
-
-    function keyEvent(code) {
-        return function (node, callback) {
-            function keydownHandler(event) {
-                if (event.which === code) callback.call(this, event);
-            }
-
-            node.addEventListener('keydown', keydownHandler, false);
-
-            return {
-                teardown() {
-                    node.removeEventListener('keydown', keydownHandler, false);
-                }
-            };
-        };
-    }
     export default {
         tag: 'todo-input',
+        props: [],
 
-        events: {
-            enter: keyEvent(ENTER_KEY)
+        data () {
+            return {
+                text: ''
+            }
         },
 
         methods: {
-            create(event) {
-                event.preventDefault();
-                const input = this.refs.input;
+            create(detail) {
                 const createEvent = new CustomEvent('create', {
-                    detail: input.value,
+                    detail,
                     bubbles: true,
                     cancelable: true,
                     composed: true
                 });
                 this.dispatchEvent(createEvent);
-                this.refs.input.value = '';
+                this.set({
+                    text: ''
+                })
             }
         }
     }
