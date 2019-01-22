@@ -2,8 +2,6 @@
 
 cd angular-elements
 npm ci
-cd ../atomico
-npm ci
 cd ../dojo
 npm ci
 cd ../lit-element

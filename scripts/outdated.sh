@@ -5,8 +5,6 @@ echo ""
 cd pascal-triangle
 cd angular-elements
 npm outdated
-cd ../atomico
-npm outdated
 cd ../dojo
 npm outdated
 cd ../hybrids
@@ -40,8 +38,6 @@ echo ""
 
 cd ../../todomvc
 cd angular-elements
-npm outdated
-cd ../atomico
 npm outdated
 cd ../dojo
 npm outdated

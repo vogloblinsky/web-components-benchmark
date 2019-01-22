@@ -8,7 +8,6 @@
         "install:all": "./install-all.sh",
         "run:benchmark": "npm run benchmark",
         "build:angular": "cd angular-elements && npm run build",
-        "build:atomico": "cd atomico && npm run build",
         "build:dojo": "cd dojo && npm run build",
         "build:hybrids": "cd hybrids && npm run build",
         "build:litelement": "cd lit-element && npm run build",
@@ -23,7 +22,7 @@
         "build:stencil": "cd stencil && npm run build",
         "build:svelte": "cd svelte && npm run build",
         "build:vue": "cd vue.js && npm run build",
-        "build:all": "run-s build:angular build:atomico build:dojo build:hybrids build:litelement build:native build:hyperHTMLElement build:omi build:polymer3 build:riot build:skatejs:lithtml build:skatejs:preact build:slim build:stencil build:svelte build:vue"
+        "build:all": "run-s build:angular build:dojo build:hybrids build:litelement build:native build:hyperHTMLElement build:omi build:polymer3 build:riot build:skatejs:lithtml build:skatejs:preact build:slim build:stencil build:svelte build:vue"
     },
     "repository": {
         "type": "git",

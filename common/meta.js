@@ -11,19 +11,6 @@ module.exports = {
             paths: ['native/dist/bundle.js']
         },
         {
-            name: 'Atomico',
-            slug: 'atomico',
-            github: 'https://github.com/UpperCod/Atomico',
-            version: require('../todomvc/atomico/package.json').dependencies[
-                'atomico'
-            ],
-            stars: 160,
-            paths: [
-                'atomico/dist/atomico.umd.js',
-                'atomico/dist/atomico-app.iife.js'
-            ]
-        },
-        {
             name: 'Hybrids',
             slug: 'hybrids',
             github: 'https://github.com/hybridsjs/hybrids',
