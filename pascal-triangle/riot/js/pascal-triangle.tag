@@ -12,7 +12,7 @@
     </div>
     <div>
         <div each={line in list}>
-            <triangle-item each={item in line} text={item}></triangle-item>
+            <triangle-item each={item in line} no-reorder text={item}></triangle-item>
         </div>
     </div>
     <script>
