@@ -1,71 +1,56 @@
-import { h, Element } from 'atomico';
-import TriangleItem from './triangle-item';
+import { h, render, useState } from "@atomico/core";
+import Element from "@atomico/element";
+import TriangleItem from "./components/TiangleItem";
 
-export const PASCAL_TRIANGLE = 'pascal-triangle';
-export const TRIANGLE_ITEM = 'triangle-item';
-
-let _length = 100;
+let memo = {};
 
 function generateData(rows) {
-    const n = rows;
+	const n = rows;
 
-    const data = [];
-    data[0] = [1];
-    data[1] = [1, 1];
+	const data = [];
+	data[0] = [1];
+	data[1] = [1, 1];
 
-    for (let row = 2; row < n; row++) {
-        data[row] = [1];
+	for (let row = 2; row < n; row++) {
+		data[row] = [1];
 
-        for (let col = 1; col <= row - 1; col++) {
-            const prevRow = data[row - 1];
-            data[row][col] = prevRow[col] + prevRow[col - 1];
-            data[row].push(1);
-        }
-    }
-    return data;
+		for (let col = 1; col <= row - 1; col++) {
+			const prevRow = data[row - 1];
+			data[row][col] = prevRow[col] + prevRow[col - 1];
+			data[row].push(1);
+		}
+	}
+	return data;
 }
 
 export default class PascalTriangle extends Element {
-    constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
-        this.state.list = generateData(_length);
-    }
-    handleLoad(e) {
-        let length = parseInt(e.target.getAttribute('data-value'));
-        let list = generateData(length);
-        this.setState({
-            list: list
-        });
-    }
-    render() {
-        let { list = [] } = this.state;
-        return (
-            <div>
-                <div>
-                    <button data-value="10" click={this.handleLoad.bind(this)}>
-                        Load 10
-                    </button>
-                    <button data-value="100" click={this.handleLoad.bind(this)}>
-                        Load 100
-                    </button>
-                    <button data-value="500" click={this.handleLoad.bind(this)}>
-                        Load 500
-                    </button>
-                </div>
-                <div>
-                    {list.map(line => (
-                        <div>
-                            {line.map(item => (
-                                <triangle-item text={item} />
-                            ))}
-                        </div>
-                    ))}
-                </div>
-            </div>
-        );
-    }
+	render() {
+		let [state, setState] = useState(100);
+		if (!memo[state]) memo[state] = generateData(state);
+		let list = memo[state];
+		return (
+			<host shadowDom>
+				<div>
+					<button onClick={() => state != 10 && setState(10)}>Load 10</button>
+					<button onClick={() => state != 100 && setState(100)}>
+						Load 100
+					</button>
+					<button onClick={() => state != 500 && setState(500)}>
+						Load 500
+					</button>
+				</div>
+				<div>
+					{list.map(line => (
+						<div>
+							{line.map(item => (
+								<TriangleItem text={item} />
+							))}
+						</div>
+					))}
+				</div>
+			</host>
+		);
+	}
 }
 
-customElements.define(TRIANGLE_ITEM, TriangleItem);
-customElements.define(PASCAL_TRIANGLE, PascalTriangle);
+customElements.define("pascal-triangle", PascalTriangle);

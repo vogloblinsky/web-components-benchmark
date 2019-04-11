@@ -1,28 +1,32 @@
 {
-    "name": "pascal-atomico",
-    "version": "0.0.1",
-    "description": "This is a small skeleton to create distributable components based on Atomico",
-    "iife": "dist/atomico-app.iife.js",
-    "source": "src/index.js",
-    "author": "Matias Trujillo Olivares",
-    "license": "ISC",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/UpperCod/atomico-starter-component.git"
-    },
-    "scripts": {
-        "watch": "npx rollup -c -w",
-        "prebuild": "rm -rf dist && mkdir dist",
-        "build": "npx rollup -c",
-        "postbuild": "cp -R public/* dist"
-    },
-    "dependencies": {
-        "atomico": "0.5.4"
-    },
-    "globals": {
-        "atomico": "atomico"
-    },
-    "devDependencies": {
-        "uglify-es": "3.3.9"
-    }
+	"name": "atomico",
+	"version": "0.0.0",
+	"description": "pascal-triangle",
+	"source": "src/index.js",
+	"module": "public/dist/atomico.mjs",
+	"unpkg": "public/dist/atomico.umd.js",
+	"author": "Matias Trujillo ",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/"
+	},
+	"scripts": {
+		"build": "rollup -c",
+		"dev": "rollup -c -w",
+		"postbuild": "cp -R public/* dist"
+	},
+	"dependencies": {
+		"@atomico/core": "latest",
+		"@atomico/element": "latest"
+	},
+	"devDependencies": {
+		"rollup": "^1.7.4",
+		"rollup-plugin-browsersync": "^1.0.0",
+		"rollup-plugin-bundle-size": "^1.0.3",
+		"rollup-plugin-delete": "^0.2.1",
+		"rollup-plugin-node-resolve": "^4.0.1",
+		"rollup-plugin-postcss": "^2.0.3",
+		"rollup-plugin-sucrase": "^2.1.0",
+		"rollup-plugin-terser": "^4.0.4"
+	}
 }

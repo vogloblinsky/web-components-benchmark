@@ -1,52 +1,74 @@
-import buble from 'rollup-plugin-buble';
-import resolve from 'rollup-plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
-import commonjs from 'rollup-plugin-commonjs';
-import filesize from 'rollup-plugin-filesize';
-import pkg from './package.json';
-import colors from 'colors';
-import prepare from 'rollup-prepare';
-import postcss from 'rollup-plugin-postcss';
-import copy from 'rollup-plugin-copy';
-import cssnano from 'cssnano';
+import pkg from "./package.json";
+import size from "rollup-plugin-bundle-size";
+import resolve from "rollup-plugin-node-resolve";
+import { terser } from "rollup-plugin-terser";
+import sucrase from "rollup-plugin-sucrase";
+import del from "rollup-plugin-delete";
+import postcss from "rollup-plugin-postcss";
+import browsersync from "rollup-plugin-browsersync";
 
-const rollupConfig = {
-    ...prepare({
-        pkg
-    }),
-    plugins: plugins(false)
+let globals = {
+	"@atomico/core": "@atomico/core",
+	"@atomico/element": "@atomico/element"
 };
 
-rollupConfig.output[0].sourcemap = false;
+let plugins = [
+	del({
+		targets: [pkg.module.replace(/\/[^\/]+$/, "")]
+	}),
+	resolve({
+		extensions: [".js", ".ts"]
+	}),
+	postcss({
+		minimize: true
+	}),
+	sucrase({
+		production: true,
+		exclude: ["node_modules/**"],
+		jsxPragma: "h",
+		transforms: ["typescript", "jsx"]
+	})
+	/**
+	 * Optional configuration recommended for buble
+	 * coverage es6 >=95% in 2019(https://caniuse.com/)
+	 * install before: `yarn add -D rollup-plugin-buble`
+	 */
+	// buble({
+	// 		target: {
+	// 			chrome: 58,
+	// 			edge: 15,
+	// 			safari: 10
+	// 		},
+	// 		jsx: "h",
+	// 		objectAssign: "Object.assign"
+	// 	})
+];
 
-export default rollupConfig;
-
-/**
- * Returns the generic plugins to be used for packaging
- * @param {boolean} classes - lets you disable the transformation of classes
- * @return {Array}
- */
-function plugins(classes = true) {
-    return [
-        commonjs({
-            include: 'node_modules/**'
-        }),
-        resolve(),
-        postcss({
-            plugins: [cssnano]
-        }),
-        buble({
-            jsx: 'h',
-            transforms: {
-                classes
-            },
-            objectAssign: 'Object.assign'
-        }),
-        terser(),
-        copy({
-            'node_modules/atomico/dist/atomico.umd.js': 'dist/atomico.umd.js',
-            verbose: true
-        }),
-        filesize()
-    ];
+if (process.env.ROLLUP_WATCH) {
+	plugins.push(browsersync({ server: "public" }));
+} else {
+	process.env.BUILD = "production";
+	plugins.push(terser());
 }
+
+plugins.push(size());
+
+export default {
+	input: pkg.source,
+	output: [
+		{
+			name: pkg.name,
+			file: pkg.unpkg,
+			format: "umd",
+			sourcemap: true,
+			globals
+		},
+		{
+			file: pkg.module,
+			format: "esm",
+			sourcemap: true,
+			globals
+		}
+	],
+	plugins
+};
