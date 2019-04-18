@@ -24,6 +24,8 @@ cd ../skatejs-preact
 npm ci
 cd ../slim.js
 npm ci
+cd ../solid
+npm ci
 cd ../stencil
 npm ci
 cd ../svelte
