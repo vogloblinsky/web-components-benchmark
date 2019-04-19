@@ -97,6 +97,16 @@ module.exports = {
             paths: ['slim.js/dist/bundle.js']
         },
         {
+            name: 'Solid',
+            slug: 'solid',
+            github: 'https://github.com/ryansolid/solid',
+            version: require('../todomvc/slim.js/package.json').dependencies[
+                'solid-js'
+            ],
+            stars: 461,
+            paths: ['solid/dist/bundle.js']
+        },
+        {
             name: 'Stencil',
             slug: 'stencil',
             github: 'https://github.com/ionic-team/stencil',
