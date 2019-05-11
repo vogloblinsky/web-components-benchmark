@@ -1,6 +1,5 @@
-import { h, render, useState } from "@atomico/core";
-import Element from "@atomico/element";
-import TriangleItem from "./components/TiangleItem";
+import { useState } from "@atomico/core";
+import { h, customElement } from "@atomico/element";
 
 let memo = {};
 
@@ -23,34 +22,32 @@ function generateData(rows) {
 	return data;
 }
 
-export default class PascalTriangle extends Element {
-	render() {
-		let [state, setState] = useState(100);
-		if (!memo[state]) memo[state] = generateData(state);
-		let list = memo[state];
-		return (
-			<host shadowDom>
-				<div>
-					<button onClick={() => state != 10 && setState(10)}>Load 10</button>
-					<button onClick={() => state != 100 && setState(100)}>
-						Load 100
-					</button>
-					<button onClick={() => state != 500 && setState(500)}>
-						Load 500
-					</button>
-				</div>
-				<div>
-					{list.map(line => (
-						<div>
-							{line.map(item => (
-								<TriangleItem text={item} />
-							))}
-						</div>
-					))}
-				</div>
-			</host>
-		);
-	}
+function TriangleItem({ text }) {
+	return <span>{text}</span>;
 }
 
-customElements.define("pascal-triangle", PascalTriangle);
+function PascalTriangle() {
+	let [state, setState] = useState(100);
+	if (!memo[state]) memo[state] = generateData(state);
+	let list = memo[state];
+	return (
+		<host shadowDom>
+			<div>
+				<button onClick={() => state != 10 && setState(10)}>Load 10</button>
+				<button onClick={() => state != 100 && setState(100)}>Load 100</button>
+				<button onClick={() => state != 500 && setState(500)}>Load 500</button>
+			</div>
+			<div>
+				{list.map(line => (
+					<div>
+						{line.map(item => (
+							<TriangleItem text={item} />
+						))}
+					</div>
+				))}
+			</div>
+		</host>
+	);
+}
+
+customElement("pascal-triangle", PascalTriangle);
