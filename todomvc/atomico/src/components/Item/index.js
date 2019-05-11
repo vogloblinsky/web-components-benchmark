@@ -1,27 +1,37 @@
-import { h } from "@atomico/core";
+import { h, customElement } from "@atomico/element";
 import style from "./style.css";
+import { useEffect } from "@atomico/core";
 /**
  * Component article, shows the task and allows you to mark how the
- * elimination(props.onRemove) of this has been done(props.onToggle) or eliminated
+ * elimination(props.handlerRemove) of this has been done(props.handlerToggle) or eliminated
  * @param {object} props
  * @param {integer|string} props.key
- * @param {function} props.onToggle
+ * @param {function} props.handlerToggle
  * @param {boolean} props.checked
  * @param {string} props.text
- * @param {function} props.onRemove
+ * @param {function} props.handlerRemove
  * @return {object}
  */
-export default function Item(props) {
+export  function Item(props) {
 	return (
-		<div shadowDom key={props.key}>
+		<host shadowDom key={props.key}>
 			<style>{style}</style>
 			<input
 				type="checkbox"
-				onChange={props.onToggle}
+				onChange={props.handlerToggle}
 				checked={props.checked}
 			/>
 			<div class="text">{props.text}</div>
-			<button onClick={props.onRemove}>x</button>
-		</div>
+			<button onClick={props.handlerRemove}>x</button>
+		</host>
 	);
 }
+
+Item.observables = {
+	handlerToggle : Function,
+	handlerRemove : Function,
+	checked : Boolean,
+	text : String,
+}
+
+export default customElement("atomico-todo-item",Item);

@@ -8,7 +8,6 @@ import postcss from "rollup-plugin-postcss";
 import browsersync from "rollup-plugin-browsersync";
 
 let globals = {
-	"@atomico/core": "@atomico/core",
 	"@atomico/element": "@atomico/element"
 };
 
@@ -28,20 +27,6 @@ let plugins = [
 		jsxPragma: "h",
 		transforms: ["typescript", "jsx"]
 	})
-	/**
-	 * Optional configuration recommended for buble
-	 * coverage es6 >=95% in 2019(https://caniuse.com/)
-	 * install before: `yarn add -D rollup-plugin-buble`
-	 */
-	// buble({
-	// 		target: {
-	// 			chrome: 58,
-	// 			edge: 15,
-	// 			safari: 10
-	// 		},
-	// 		jsx: "h",
-	// 		objectAssign: "Object.assign"
-	// 	})
 ];
 
 if (process.env.ROLLUP_WATCH) {

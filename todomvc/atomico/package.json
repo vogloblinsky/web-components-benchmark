@@ -16,8 +16,8 @@
 		"postbuild": "cp -R public/* dist"
 	},
 	"dependencies": {
-		"@atomico/core": "latest",
-		"@atomico/element": "latest"
+		"@atomico/core": "^1.4.1",
+		"@atomico/element": "^0.6.4"
 	},
 	"devDependencies": {
 		"rollup": "^1.7.4",
