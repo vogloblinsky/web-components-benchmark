@@ -2,8 +2,6 @@
 
 cd angular-elements
 npm ci
-cd ../atomico
-npm ci
 cd ../dojo
 npm ci
 cd ../lit-element
@@ -25,6 +23,8 @@ npm ci
 cd ../skatejs-preact
 npm ci
 cd ../slim.js
+npm ci
+cd ../solid
 npm ci
 cd ../stencil
 npm ci

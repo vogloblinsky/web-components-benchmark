@@ -11,19 +11,6 @@ module.exports = {
             paths: ['native/dist/bundle.js']
         },
         {
-            name: 'Atomico',
-            slug: 'atomico',
-            github: 'https://github.com/UpperCod/Atomico',
-            version: require('../todomvc/atomico/package.json').dependencies[
-                'atomico'
-            ],
-            stars: 160,
-            paths: [
-                'atomico/dist/atomico.umd.js',
-                'atomico/dist/atomico-app.iife.js'
-            ]
-        },
-        {
             name: 'Hybrids',
             slug: 'hybrids',
             github: 'https://github.com/hybridsjs/hybrids',
@@ -108,6 +95,16 @@ module.exports = {
             ],
             stars: 548,
             paths: ['slim.js/dist/bundle.js']
+        },
+        {
+            name: 'Solid',
+            slug: 'solid',
+            github: 'https://github.com/ryansolid/solid',
+            version: require('../todomvc/slim.js/package.json').dependencies[
+                'solid-js'
+            ],
+            stars: 461,
+            paths: ['solid/dist/bundle.js']
         },
         {
             name: 'Stencil',
