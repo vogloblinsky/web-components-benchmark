@@ -15,6 +15,6 @@
         "webpack-cli": "^3.2.1"
     },
     "dependencies": {
-        "hybrids": "^2.0.0"
+        "hybrids": "^4.0.0"
     }
 }
