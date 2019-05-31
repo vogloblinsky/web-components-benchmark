@@ -14,8 +14,6 @@ cd ../hyperHTMLElement
 npm ci
 cd ../omi
 npm ci
-cd ../polymer-3
-npm ci
 cd ../riot
 npm ci
 cd ../skatejs-lit-html
