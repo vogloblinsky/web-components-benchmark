@@ -100,8 +100,8 @@ module.exports = {
             name: 'Solid',
             slug: 'solid',
             github: 'https://github.com/ryansolid/solid',
-            version: require('../todomvc/slim.js/package.json').dependencies[
-                'solid-js'
+            version: require('../todomvc/solid/package.json').dependencies[
+                'solid-components'
             ],
             stars: 461,
             paths: ['solid/dist/bundle.js']
