@@ -1,8 +1,8 @@
 const stencilTodoInfos = require('../todomvc/stencil/dist/build/app/app.registry.json');
-const stencilPascalInfos = require('../pascal-triangle/stencil/dist/build/app/app.registry.json');
 
 module.exports = {
-    wc: [{
+    wc: [
+        {
             name: 'Native',
             slug: 'native',
             version: '',
@@ -45,7 +45,7 @@ module.exports = {
             version: require('../todomvc/omi/package.json').dependencies['omi'],
             stars: 5304,
             paths: ['omi/dist/bundle.js']
-        }
+        },
         /*,
                 {
                     name: 'Polymer 3',
@@ -57,7 +57,6 @@ module.exports = {
                     stars: 20380,
                     paths: ['polymer-3/dist/bundle.js']
                 }*/
-        ,
         {
             name: 'Riot',
             slug: 'riot',
@@ -129,13 +128,9 @@ module.exports = {
                 }.entry.js`
             ],
             pathsPascal: [
-                `stencil/dist/build/app/${stencilPascalInfos.core}`,
-                `stencil/dist/build/app/${
-                    stencilPascalInfos.components['pascal-triangle'].bundleIds.$
-                }.entry.js`,
-                `stencil/dist/build/app/${
-                    stencilPascalInfos.components['triangle-item'].bundleIds.$
-                }.entry.js`
+                `stencil/dist/demos/pascal-triangle/stencil/build/app.esm.js`,
+                `stencil/dist/demos/pascal-triangle/stencil/build/p-458528c5.js`,
+                `stencil/dist/demos/pascal-triangle/stencil/build/pascal-triangle_2.entry.js`
             ]
         },
         {
@@ -149,7 +144,8 @@ module.exports = {
             paths: ['svelte/dist/bundle.js']
         }
     ],
-    fw: [{
+    fw: [
+        {
             name: 'Angular Elements',
             slug: 'angular-elements',
             github: 'https://github.com/angular/angular',
