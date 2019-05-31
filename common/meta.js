@@ -95,7 +95,7 @@ module.exports = {
             version: require('../todomvc/slim.js/package.json').dependencies[
                 'slim-js'
             ],
-            stars: 548,
+            stars: 643,
             paths: ['slim.js/dist/bundle.js']
         },
         {
