@@ -5,38 +5,19 @@
  */
 
 
-import '@stencil/core';
-
-
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-
   interface PascalTriangle {
     '_list': any;
   }
-  interface PascalTriangleAttributes extends StencilHTMLAttributes {
-    '_list'?: any;
-  }
-
   interface TriangleItem {
     'text': string;
-  }
-  interface TriangleItemAttributes extends StencilHTMLAttributes {
-    'text'?: string;
   }
 }
 
 declare global {
-  interface StencilElementInterfaces {
-    'PascalTriangle': Components.PascalTriangle;
-    'TriangleItem': Components.TriangleItem;
-  }
-
-  interface StencilIntrinsicElements {
-    'pascal-triangle': Components.PascalTriangleAttributes;
-    'triangle-item': Components.TriangleItemAttributes;
-  }
 
 
   interface HTMLPascalTriangleElement extends Components.PascalTriangle, HTMLStencilElement {}
@@ -50,24 +31,33 @@ declare global {
     prototype: HTMLTriangleItemElement;
     new (): HTMLTriangleItemElement;
   };
-
   interface HTMLElementTagNameMap {
-    'pascal-triangle': HTMLPascalTriangleElement
-    'triangle-item': HTMLTriangleItemElement
-  }
-
-  interface ElementTagNameMap {
     'pascal-triangle': HTMLPascalTriangleElement;
     'triangle-item': HTMLTriangleItemElement;
   }
-
-
-  export namespace JSX {
-    export interface Element {}
-    export interface IntrinsicElements extends StencilIntrinsicElements {
-      [tagName: string]: any;
-    }
-  }
-  export interface HTMLAttributes extends StencilHTMLAttributes {}
-
 }
+
+declare namespace LocalJSX {
+  interface PascalTriangle extends JSXBase.HTMLAttributes<HTMLPascalTriangleElement> {
+    '_list'?: any;
+  }
+  interface TriangleItem extends JSXBase.HTMLAttributes<HTMLTriangleItemElement> {
+    'text'?: string;
+  }
+
+  interface IntrinsicElements {
+    'pascal-triangle': PascalTriangle;
+    'triangle-item': TriangleItem;
+  }
+}
+
+export { LocalJSX as JSX };
+
+
+declare module "@stencil/core" {
+  export namespace JSX {
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+  }
+}
+
+
