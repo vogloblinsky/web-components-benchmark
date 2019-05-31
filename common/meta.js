@@ -45,17 +45,19 @@ module.exports = {
             version: require('../todomvc/omi/package.json').dependencies['omi'],
             stars: 5304,
             paths: ['omi/dist/bundle.js']
-        },
-        {
-            name: 'Polymer 3',
-            slug: 'polymer-3',
-            github: 'https://github.com/Polymer/polymer',
-            version: require('../todomvc/polymer-3/package.json').dependencies[
-                '@polymer/polymer'
-            ],
-            stars: 20380,
-            paths: ['polymer-3/dist/bundle.js']
-        },
+        }
+        /*,
+                {
+                    name: 'Polymer 3',
+                    slug: 'polymer-3',
+                    github: 'https://github.com/Polymer/polymer',
+                    version: require('../todomvc/polymer-3/package.json').dependencies[
+                        '@polymer/polymer'
+                    ],
+                    stars: 20380,
+                    paths: ['polymer-3/dist/bundle.js']
+                }*/
+        ,
         {
             name: 'Riot',
             slug: 'riot',
