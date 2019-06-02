@@ -2,7 +2,7 @@
 
 cd angular-elements
 npm ci
-cd angular-elements-ivy
+cd ../angular-elements-ivy
 npm ci
 cd ../dojo
 npm ci
