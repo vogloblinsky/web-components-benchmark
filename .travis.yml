@@ -7,6 +7,7 @@ node_js:
 script:
     - echo '0. Global install'
     - npm ci
+    - npm i -g @angular/cli
     - echo '1. todomvc global install'
     - cd todomvc
     - npm ci

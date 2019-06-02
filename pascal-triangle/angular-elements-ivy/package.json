@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --aot",
-    "build": "./node_modules/.bin/ng build --prod --single-bundle --baseHref=./ --outputHashing=media",
+    "build": "ng build --prod --single-bundle --baseHref=./ --outputHashing=media",
     "postbuild": "cp -r dist/angular-elements-ivy/* dist && rm -rf dist/angular-elements-ivy",
     "test": "ng test",
     "lint": "ng lint",
