@@ -37,6 +37,10 @@ console.log('**********************');
     for (let i = 0; i < ELEMENTS.length; i++) {
         let element = ELEMENTS[i];
 
+        if (element.slug === 'angular-elements-ivy') {
+            continue;
+        }
+
         console.log('********************');
         console.log('* ' + element.name);
         console.log('********************');
