@@ -6,7 +6,6 @@ exports.config = {
     {
       type: 'www',
       dir: 'dist',
-      baseUrl: '/demos/pascal-triangle/stencil/',
       serviceWorker: false
     }
   ],

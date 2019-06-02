@@ -1,8 +1,8 @@
-const replace = require("replace");
+const replace = require('replace');
 
 replace({
-    regex: '/demos/pascal-triangle/stencil/build/app/',
-    replacement: '/web-components-benchmark/demos/pascal-triangle/stencil/build/app/',
+    regex: '/build',
+    replacement: './build',
     paths: ['demos/pascal-triangle/stencil/index.html']
 });
 
