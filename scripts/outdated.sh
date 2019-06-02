@@ -5,6 +5,8 @@ echo ""
 cd pascal-triangle
 cd angular-elements
 npm outdated
+cd ../angular-elements-ivy
+npm outdated
 cd ../dojo
 npm outdated
 cd ../hybrids

@@ -17,7 +17,7 @@ module.exports = {
             version: require('../todomvc/hybrids/package.json').dependencies[
                 'hybrids'
             ],
-            stars: 840,
+            stars: 1288,
             paths: ['hybrids/dist/bundle.js']
         },
         {
@@ -26,7 +26,7 @@ module.exports = {
             github: 'https://github.com/WebReflection/hyperHTML-Element',
             version: require('../todomvc/hyperHTMLElement/package.json')
                 .dependencies['hyperhtml-element'],
-            stars: 106,
+            stars: 141,
             paths: ['hyperHTMLElement/dist/bundle.js']
         },
         {
@@ -35,7 +35,7 @@ module.exports = {
             github: 'https://github.com/Polymer/lit-element',
             version: require('../todomvc/lit-element/package.json')
                 .dependencies['lit-element'],
-            stars: 897,
+            stars: 2169,
             paths: ['lit-element/dist/bundle.js']
         },
         {
@@ -43,7 +43,7 @@ module.exports = {
             slug: 'omi',
             github: 'https://github.com/Tencent/omi',
             version: require('../todomvc/omi/package.json').dependencies['omi'],
-            stars: 5304,
+            stars: 8900,
             paths: ['omi/dist/bundle.js']
         },
         /*,
@@ -64,7 +64,7 @@ module.exports = {
             version: require('../todomvc/riot/package.json').dependencies[
                 'riot'
             ],
-            stars: 13320,
+            stars: 13682,
             noshadowdom: true,
             paths: ['riot/dist/bundle.js']
         },
@@ -74,7 +74,7 @@ module.exports = {
             github: 'https://github.com/skatejs/skatejs',
             version: require('../todomvc/skatejs-lit-html/package.json')
                 .dependencies['@skatejs/renderer-lit-html'],
-            stars: 2796,
+            stars: 2991,
             paths: ['skatejs-lit-html/dist/main.js']
         },
         {
@@ -83,7 +83,7 @@ module.exports = {
             github: 'https://github.com/skatejs/skatejs',
             version: require('../todomvc/skatejs-preact/package.json')
                 .dependencies['@skatejs/renderer-preact'],
-            stars: 2796,
+            stars: 2991,
             pathsTodo: ['skatejs-preact/dist/main.js'],
             pathsPascal: ['skatejs-preact/dist/src.e31bb0bc.js']
         },
@@ -104,7 +104,7 @@ module.exports = {
             version: require('../todomvc/solid/package.json').dependencies[
                 'solid-components'
             ],
-            stars: 461,
+            stars: 533,
             paths: ['solid/dist/bundle.js']
         },
         {
@@ -114,7 +114,7 @@ module.exports = {
             version: require('../todomvc/stencil/package.json').dependencies[
                 '@stencil/core'
             ],
-            stars: 4238,
+            stars: 5608,
             pathsTodo: [
                 `stencil/dist/build/app/${stencilTodoInfos.core}`,
                 `stencil/dist/build/app/${
@@ -140,7 +140,7 @@ module.exports = {
             version: require('../todomvc/svelte/package.json').dependencies[
                 'svelte'
             ],
-            stars: 8306,
+            stars: 17839,
             paths: ['svelte/dist/bundle.js']
         }
     ],
@@ -151,15 +151,24 @@ module.exports = {
             github: 'https://github.com/angular/angular',
             version: require('../todomvc/angular-elements/package.json')
                 .dependencies['@angular/core'],
-            stars: 42492,
+            stars: 48702,
             paths: ['angular-elements/dist/main.bundle.js']
+        },
+        {
+            name: 'Angular Elements Ivy',
+            slug: 'angular-elements-ivy',
+            github: 'https://github.com/angular/angular',
+            version: require('../todomvc/angular-elements-ivy/package.json')
+                .dependencies['@angular/core'],
+            stars: 48702,
+            paths: ['angular-elements-ivy/dist/main-es2015.js']
         },
         {
             name: 'Vue.js',
             slug: 'vue.js',
             github: 'https://github.com/vuejs/vue',
             version: require('../todomvc/vue.js/package.json').dependencies.vue,
-            stars: 118622,
+            stars: 140129,
             paths: [
                 'vue.js/node_modules/vue/dist/vue.min.js',
                 'vue.js/dist/build.js'
@@ -172,7 +181,7 @@ module.exports = {
             version: require('../todomvc/dojo/package.json').dependencies[
                 '@dojo/framework'
             ],
-            stars: 96,
+            stars: 150,
             noshadowdom: true,
             paths: ['dojo/dist/dist/index/index-1.0.0.js']
         }

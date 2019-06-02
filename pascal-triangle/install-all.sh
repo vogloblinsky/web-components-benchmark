@@ -2,6 +2,8 @@
 
 cd angular-elements
 npm ci
+cd angular-elements-ivy
+npm ci
 cd ../dojo
 npm ci
 cd ../lit-element

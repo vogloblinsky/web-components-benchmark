@@ -1,0 +1,34 @@
+{
+  "name": "angular-elements-ivy",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --aot",
+    "build": "ng build --prod --single-bundle --baseHref=./ --outputHashing=media",
+    "postbuild": "cp -r dist/angular-elements-ivy/* dist && rm -rf dist/angular-elements-ivy",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "~8.0.0",
+    "@angular/compiler": "~8.0.0",
+    "@angular/core": "~8.0.0",
+    "@angular/platform-browser": "~8.0.0",
+    "rxjs": "~6.4.0",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.9.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.800.0",
+    "@angular/cli": "~8.0.1",
+    "@angular/compiler-cli": "~8.0.0",
+    "@angular/language-service": "~8.0.0",
+    "@types/node": "~8.9.4",
+    "ngx-build-plus": "^8.0.3",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.15.0",
+    "typescript": "~3.4.3"
+  }
+}
