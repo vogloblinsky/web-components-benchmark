@@ -1,8 +1,12 @@
+import nodeResolve from 'rollup-plugin-node-resolve';
+
 export default {
-    input: 'dist/bundle_tmp.js',
+    input: 'dist/app.js',
     output: {
-        file: 'dist/bundle.js',
+        file: 'dist/bundle_tmp.js',
         format: 'es',
         sourcemap: false
-    }
+    },
+    plugins: [nodeResolve({ jsnext: true })],
+    external: ['moment']
 };
