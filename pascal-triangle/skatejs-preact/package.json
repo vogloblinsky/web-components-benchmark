@@ -4,7 +4,7 @@
     "scripts": {
         "prebuild": "rm -rf dist && mkdir dist",
         "build": "node build.js",
-        "postbuild": "find dist -type f -name '*.js' -execdir mv {} main.js ';' && node fix-build.js"
+        "postbuild": "sh fix-build.sh && node fix-build-index.js"
     },
     "dependencies": {
         "@skatejs/element-preact": "0.0.1",
