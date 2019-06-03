@@ -1,443 +1,444 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Web Components Benchmark</title>
-        <meta
-            name="Description"
-            content="Two simple examples built with various Web Components technologies and benchmarked"
-        />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-        />
-        <meta name="theme-color" content="#16161d" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
 
-        <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+<head>
+    <meta charset="utf-8" />
+    <title>Web Components Benchmark</title>
+    <meta name="Description"
+        content="Two simple examples built with various Web Components technologies and benchmarked" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta name="theme-color" content="#16161d" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
-        <link
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-            crossorigin="anonymous"
-        />
-    </head>
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
 
-    <body>
-        <section class="colored-block">
-            <div class="container">
-                <h1 class="title">Web Components Benchmark</h1>
-                <h2 class="subtitle">Benchmark Web Components technologies with various examples</h2>
-                <a href="https://github.com/vogloblinsky/web-components-benchmark" class="github-corner" aria-label="View source on GitHub"><svg
-                        width="80" height="80" viewBox="0 0 250 250" style="fill:#fff;
-                    color:#38ada9; position: absolute; top: 0; border: 0; right: 0;"
-                        aria-hidden="true">
-                        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+</head>
+
+<body>
+    <section class="colored-block">
+        <div class="container">
+            <h1 class="title">Web Components Benchmark</h1>
+            <h2 class="subtitle">Benchmark Web Components technologies with various examples</h2>
+            <a href="https://github.com/vogloblinsky/web-components-benchmark" class="github-corner"
+                aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff;
+                    color:#38ada9; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+                    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0
                     Z"></path>
-                        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6
+                    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6
                     C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3
-                    C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-                            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-                        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5
+                    C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor"
+                        style="transform-origin: 130px 106px;" class="octo-arm"></path>
+                    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5
                     119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0
                     127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4
                     163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6
                     187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2
                     216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4
                     203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9
-                    156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-                            fill="currentColor" class="octo-body"></path>
-                    </svg></a>
-                <style>
+                    156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor"
+                        class="octo-body"></path>
+                </svg></a>
+            <style>
+                .github-corner:hover .octo-arm {
+                    animation: octocat-wave 560ms ease-in-out
+                }
+
+                @keyframes octocat-wave {
+
+                    0%,
+                    100% {
+                        transform: rotate(0)
+                    }
+
+                    20%,
+                    60% {
+                        transform: rotate(-25deg)
+                    }
+
+                    40%,
+                    80% {
+                        transform: rotate(10deg)
+                    }
+                }
+
+                @media (max-width:500px) {
                     .github-corner:hover .octo-arm {
+                        animation: none
+                    }
+
+                    .github-corner .octo-arm {
                         animation: octocat-wave 560ms ease-in-out
                     }
-        
-                    @keyframes octocat-wave {
-        
-                        0%,
-                        100% {
-                            transform: rotate(0)
-                        }
-        
-                        20%,
-                        60% {
-                            transform: rotate(-25deg)
-                        }
-        
-                        40%,
-                        80% {
-                            transform: rotate(10deg)
-                        }
-                    }
-        
-                    @media (max-width:500px) {
-                        .github-corner:hover .octo-arm {
-                            animation: none
-                        }
-        
-                        .github-corner .octo-arm {
-                            animation: octocat-wave 560ms ease-in-out
-                        }
-                    }
-                </style>
-            </div>
-        </section>
-        <section class="description">
-            <div class="container">
-                <div class="py-5">
-                    <h2>What's this ?</h2>
-                    <p>The purpose of this project is to benchmark all available Web Components technologies with different implementations :</p>
-                    <ul>
-                        <li>simple one with TodoMVC</li>
-                        <li>extreme with Pascal Triangle</li>
-                        <li>and soon real with RealWorld example implementation</li>
-                    </ul>
-                    <h2>Frequently Asked Questions</h2>
-                    <h3>Which code is served for the benchmark ?</h3>
-                    <p>
-                        The demos do not use any Polyfill & are build to ES6/ES2015
-                        code for benchmarks purpose. Please use Chrome, Safari or Firefox > v63.
-                    </p>
-                    <h3>Where did the benchmarks are running ?</h3>
-                    <p>
-                        The benchmark is running on Travis during a CI process,
-                        results are constant between two builds.
-                    </p>
-                    <h3>Where did the results came from ?</h3>
-                    <p>
-                        The benchmark use the great Puppeteer Node.js library for
-                        manipulating a Chrome headless instance.<br/>Puppeteer has some
-                        APIs for generating a RAW trace file which can be opened in
-                        Chrome DevTools or
-                        <a
-                            href="https://chromedevtools.github.io/timeline-viewer/"
-                            target="_blank"
-                            >timeline viewer</a
-                        >.
-                    </p>
-                    <p>
-                        The data extracted from the RAW JSON is the "top down tree"
-                        total time in DevTools Performance tab of Chrome, which is
-                        an addition of scripting, rendering & painting time in the
-                        graph below.
-                    </p>
-                    <p><img src="devtools.png" /></p>
-                    <h3>Why two different categories "Libraries or compilers" & "Classic frameworks exporting to Web Components" ?</h3>
-                    <p>
-                        The first one is for libraries or compilers that are "Web components" friendly first. The second one is for mainstream front-end frameworks which support "Web Components" and can also "export" their own "component" material to standard "Web Components".
-                    </p>
-                    <h3>When did the last build run ?</h3>
-                    <p>The last build run : <%= buildDateAndTime %></p>
-                    <br/>
-                    <h2>Anchors to implementation's results</h2>
-                    <p>
-                        <a href="#todo">Todo List</a> |
-                        <a href="#pascal">Pascal triangle</a>
-                    </p>
-                </div>
-            </div>
-        </section>
+                }
+            </style>
+        </div>
+    </section>
+    <section class="description">
         <div class="container">
-            <div class="py-5 text-center clear-padding-top">
-                <br/>
-                <br/>
-                <a id="todo"></a>
-                <h2 class="text-primary">Todo List</h2>
-                <br/>
+            <div class="py-5">
+                <h2>What's this ?</h2>
+                <p>The purpose of this project is to benchmark all available Web Components technologies with different
+                    implementations :</p>
+                <ul>
+                    <li>simple one with TodoMVC</li>
+                    <li>extreme with Pascal Triangle</li>
+                    <li>and soon real with RealWorld example implementation</li>
+                </ul>
+                <h2>Frequently Asked Questions</h2>
+                <h3>Which code is served for the benchmark ?</h3>
                 <p>
-                    This benchmark consist of 4 scenarios : page load, create 50
-                    todos, delete 50 todos, editing 50 todos. Lower numbers are
-                    better.
+                    The demos do not use any Polyfill & are build to ES6/ES2015
+                    code for benchmarks purpose. Please use Chrome, Safari or Firefox > v63.
                 </p>
-                <br />
-                <h4>Libraries or compilers</h4>
-                <table class="table table-striped" id="todo-wc-librairies">
-                    <thead>
-                        <%- include('table_header'); %>
-                    </thead>
-                    <tbody>
-                        <% todo.WClibraries.forEach(function(library){ %> <%-
-                        include('table', {library: library}); %> <% }); %>
-                    </tbody>
-                </table>
-                <br />
-                <h4>Classic frameworks exporting to Web Components</h4>
-                <table class="table table-striped" id="todo-fw-librairies">
-                    <thead>
-                        <%- include('table_header'); %>
-                    </thead>
-                    <tbody>
-                        <% todo.FW.forEach(function(library){ %> <%-
-                        include('table', {library: library}); %> <% }); %>
-                    </tbody>
-                </table>
-            </div>
-            <div class="py-5 text-center">
-                <a id="pascal"></a>
-                <h2 class="text-primary">Pascal triangle</h2>
-                <br/>
+                <h3>Where did the benchmarks are running ?</h3>
                 <p>
-                    This benchmark display a Pascal Triangle. Lower numbers are
-                    better.
+                    The benchmark is running on Travis during a CI process,
+                    results are constant between two builds.
+                    Benchmarks are run by the lighthouse library with fast 4g throttling set up (Network slow down with
+                    4x CPU slower).
                 </p>
+                <h3>Where did the results came from ?</h3>
+                <p>
+                    The benchmark use the great Puppeteer Node.js library for
+                    manipulating a Chrome headless instance.<br />Puppeteer has some
+                    APIs for generating a RAW trace file which can be opened in
+                    Chrome DevTools or
+                    <a href="https://chromedevtools.github.io/timeline-viewer/" target="_blank">timeline viewer</a>.
+                </p>
+                <p>
+                    The data extracted from the RAW JSON is the "top down tree"
+                    total time in DevTools Performance tab of Chrome, which is
+                    an addition of scripting, rendering & painting time in the
+                    graph below.
+                </p>
+                <p><img src="devtools.png" /></p>
+                <h3>Why two different categories "Libraries or compilers" & "Classic frameworks exporting to Web
+                    Components" ?</h3>
+                <p>
+                    The first one is for libraries or compilers that are "Web components" friendly first. The second one
+                    is for mainstream front-end frameworks which support "Web Components" and can also "export" their
+                    own "component" material to standard "Web Components".
+                </p>
+                <h3>When did the last build run ?</h3>
+                <p>The last build run : <%= buildDateAndTime %></p>
                 <br />
-                <h4>Libraries or compilers</h4>
-                <table class="table table-striped" id="pascal-wc-librairies">
-                    <thead>
-                        <%- include('table_header_pascal'); %>
-                    </thead>
-                    <tbody>
-                        <% pascal.WClibraries.forEach(function(library){ %> <%-
-                        include('table_pascal', {library: library}); %> <% });
-                        %>
-                    </tbody>
-                </table>
-                <br />
-                <h4>Classic frameworks exporting to Web Components</h4>
-                <table class="table table-striped" id="pascal-fw-librairies">
-                    <thead>
-                        <%- include('table_header_pascal'); %>
-                    </thead>
-                    <tbody>
-                        <% pascal.FW.forEach(function(library){ %> <%-
-                        include('table_pascal', {library: library}); %> <% });
-                        %>
-                    </tbody>
-                </table>
+                <h2>Anchors to implementation's results</h2>
+                <p>
+                    <a href="#todo">Todo List</a> |
+                    <a href="#pascal">Pascal triangle</a>
+                </p>
             </div>
         </div>
-        <section class="colored-block bottom-block">
+    </section>
+    <div class="container">
+        <div class="py-5 text-center clear-padding-top">
+            <br />
+            <br />
+            <a id="todo"></a>
+            <h2 class="text-primary">Todo List</h2>
+            <br />
+            <p>
+                This benchmark consist of 4 scenarios : page load, create 50
+                todos, delete 50 todos, editing 50 todos. Lower numbers are
+                better.
+            </p>
+            <br />
+            <h4>Libraries or compilers</h4>
+            <table class="table table-striped" id="todo-wc-librairies">
+                <thead>
+                    <%- include('table_header'); %>
+                </thead>
+                <tbody>
+                    <% todo.WClibraries.forEach(function(library){ %> <%-
+                        include('table', {library: library}); %> <% }); %>
+                </tbody>
+            </table>
+            <br />
+            <h4>Classic frameworks exporting to Web Components</h4>
+            <table class="table table-striped" id="todo-fw-librairies">
+                <thead>
+                    <%- include('table_header'); %>
+                </thead>
+                <tbody>
+                    <% todo.FW.forEach(function(library){ %> <%-
+                        include('table', {library: library}); %> <% }); %>
+                </tbody>
+            </table>
+        </div>
+        <div class="py-5 text-center">
+            <a id="pascal"></a>
+            <h2 class="text-primary">Pascal triangle</h2>
+            <br />
+            <p>
+                This benchmark display a Pascal Triangle. Lower numbers are
+                better.
+            </p>
+            <br />
+            <h4>Libraries or compilers</h4>
+            <table class="table table-striped" id="pascal-wc-librairies">
+                <thead>
+                    <%- include('table_header_pascal'); %>
+                </thead>
+                <tbody>
+                    <% pascal.WClibraries.forEach(function(library){ %> <%-
+                        include('table_pascal', {library: library}); %> <% });
+                        %>
+                </tbody>
+            </table>
+            <br />
+            <h4>Classic frameworks exporting to Web Components</h4>
+            <table class="table table-striped" id="pascal-fw-librairies">
+                <thead>
+                    <%- include('table_header_pascal'); %>
+                </thead>
+                <tbody>
+                    <% pascal.FW.forEach(function(library){ %> <%-
+                        include('table_pascal', {library: library}); %> <% });
+                        %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <section class="colored-block bottom-block">
+        <div>
+            <p>
+                <strong>Web Components Benchmark</strong> by <a href="https://twitter.com/vogloblinsky">Vincent
+                    Ogloblinsky</a>.
+                Licensed under <strong>MIT</strong>.
+            </p>
             <div>
-                <p>
-                    <strong>Web Components Benchmark</strong> by <a href="https://twitter.com/vogloblinsky">Vincent
-                        Ogloblinsky</a>.
-                    Licensed under <strong>MIT</strong>.
-                </p>
-                <div>
-                    <a href="https://github.com/vogloblinsky/web-components-benchmark">
-                        <svg width="25px" height="25px" viewBox="0 0 121 118" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
-                            <title>Page 1</title>
-                            <desc>Created with Sketch.</desc>
-                            <defs>
-                                <polygon id="path-1" points="0 118 0 0.207 120.775 0.207 120.775 118"></polygon>
-                            </defs>
-                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g transform="translate(0.000000, -1.000000)">
-                                    <g id="Group-3" transform="translate(0.000000, 0.793000)">
-                                        <mask id="mask-2" fill="white">
-                                            <use xlink:href="#path-1"></use>
-                                        </mask>
-                                        <g id="Clip-2"></g>
-                                        <path d="M60.3877,0.2066 C27.0407,0.2066 -0.0003,27.2416 -0.0003,60.5946 C-0.0003,87.2746 17.3027,109.9106 41.2967,117.8956 C44.3147,118.4546 45.4227,116.5856 45.4227,114.9906 C45.4227,113.5516 45.3677,108.7936 45.3407,103.7476 C28.5407,107.4006 24.9957,96.6226 24.9957,96.6226 C22.2487,89.6436 18.2907,87.7866 18.2907,87.7866 C12.8117,84.0386 18.7037,84.1156 18.7037,84.1156 C24.7677,84.5416 27.9607,90.3396 27.9607,90.3396 C33.3467,99.5706 42.0877,96.9016 45.5337,95.3586 C46.0767,91.4566 47.6407,88.7916 49.3677,87.2836 C35.9547,85.7576 21.8547,80.5786 21.8547,57.4396 C21.8547,50.8476 24.2137,45.4596 28.0767,41.2306 C27.4497,39.7096 25.3827,33.5676 28.6627,25.2496 C28.6627,25.2496 33.7337,23.6276 45.2727,31.4406 C50.0897,30.1026 55.2557,29.4316 60.3877,29.4076 C65.5197,29.4316 70.6897,30.1026 75.5157,31.4406 C87.0417,23.6276 92.1057,25.2496 92.1057,25.2496 C95.3927,33.5676 93.3257,39.7096 92.6987,41.2306 C96.5707,45.4596 98.9127,50.8476 98.9127,57.4396 C98.9127,80.6346 84.7867,85.7406 71.3387,87.2356 C73.5047,89.1096 75.4347,92.7846 75.4347,98.4186 C75.4347,106.4986 75.3657,113.0016 75.3657,114.9906 C75.3657,116.5986 76.4527,118.4816 79.5127,117.8886 C103.4947,109.8946 120.7757,87.2666 120.7757,60.5946 C120.7757,27.2416 93.7387,0.2066 60.3877,0.2066"
-                                            id="Fill-1" fill="#FEFEFE" mask="url(#mask-2)"></path>
-                                    </g>
-                                    <path d="M22.8721,87.7028 C22.7391,88.0038 22.2671,88.0938 21.8371,87.8868 C21.3981,87.6898 21.1531,87.2808 21.2951,86.9798 C21.4251,86.6718 21.8971,86.5858 22.3351,86.7918 C22.7731,86.9888 23.0231,87.4018 22.8721,87.7028"
-                                        id="Fill-4" fill="#FEFEFE"></path>
-                                    <path d="M25.3184,90.4313 C25.0304,90.6983 24.4664,90.5743 24.0854,90.1523 C23.6894,89.7313 23.6164,89.1673 23.9084,88.8973 C24.2054,88.6303 24.7514,88.7553 25.1464,89.1763 C25.5424,89.6023 25.6194,90.1603 25.3184,90.4313"
-                                        id="Fill-6" fill="#FEFEFE"></path>
-                                    <path d="M27.6993,93.9088 C27.3293,94.1668 26.7233,93.9258 26.3493,93.3888 C25.9793,92.8508 25.9793,92.2068 26.3583,91.9488 C26.7323,91.6908 27.3293,91.9238 27.7083,92.4558 C28.0773,93.0018 28.0773,93.6458 27.6993,93.9088"
-                                        id="Fill-8" fill="#FEFEFE"></path>
-                                    <path d="M30.961,97.2692 C30.63,97.6342 29.925,97.5362 29.409,97.0372 C28.881,96.5512 28.734,95.8602 29.066,95.4952 C29.401,95.1292 30.11,95.2322 30.63,95.7262 C31.154,96.2122 31.314,96.9082 30.961,97.2692"
-                                        id="Fill-10" fill="#FEFEFE"></path>
-                                    <path d="M35.461,99.2203 C35.315,99.6933 34.636,99.9073 33.952,99.7063 C33.269,99.4993 32.822,98.9463 32.96,98.4683 C33.102,97.9913 33.784,97.7683 34.473,97.9833 C35.155,98.1893 35.603,98.7393 35.461,99.2203"
-                                        id="Fill-12" fill="#FEFEFE"></path>
-                                    <path d="M40.4034,99.5817 C40.4204,100.0797 39.8404,100.4927 39.1224,100.5017 C38.4004,100.5177 37.8154,100.1147 37.8074,99.6247 C37.8074,99.1217 38.3754,98.7137 39.0964,98.7007 C39.8144,98.6867 40.4034,99.0877 40.4034,99.5817"
-                                        id="Fill-14" fill="#FEFEFE"></path>
-                                    <path d="M45.002,98.7994 C45.088,99.2844 44.589,99.7834 43.876,99.9164 C43.175,100.0454 42.526,99.7444 42.437,99.2634 C42.35,98.7654 42.857,98.2664 43.558,98.1374 C44.272,98.0134 44.911,98.3054 45.002,98.7994"
-                                        id="Fill-16" fill="#FEFEFE"></path>
+                <a href="https://github.com/vogloblinsky/web-components-benchmark">
+                    <svg width="25px" height="25px" viewBox="0 0 121 118" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+                        <title>Page 1</title>
+                        <desc>Created with Sketch.</desc>
+                        <defs>
+                            <polygon id="path-1" points="0 118 0 0.207 120.775 0.207 120.775 118"></polygon>
+                        </defs>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g transform="translate(0.000000, -1.000000)">
+                                <g id="Group-3" transform="translate(0.000000, 0.793000)">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <g id="Clip-2"></g>
+                                    <path
+                                        d="M60.3877,0.2066 C27.0407,0.2066 -0.0003,27.2416 -0.0003,60.5946 C-0.0003,87.2746 17.3027,109.9106 41.2967,117.8956 C44.3147,118.4546 45.4227,116.5856 45.4227,114.9906 C45.4227,113.5516 45.3677,108.7936 45.3407,103.7476 C28.5407,107.4006 24.9957,96.6226 24.9957,96.6226 C22.2487,89.6436 18.2907,87.7866 18.2907,87.7866 C12.8117,84.0386 18.7037,84.1156 18.7037,84.1156 C24.7677,84.5416 27.9607,90.3396 27.9607,90.3396 C33.3467,99.5706 42.0877,96.9016 45.5337,95.3586 C46.0767,91.4566 47.6407,88.7916 49.3677,87.2836 C35.9547,85.7576 21.8547,80.5786 21.8547,57.4396 C21.8547,50.8476 24.2137,45.4596 28.0767,41.2306 C27.4497,39.7096 25.3827,33.5676 28.6627,25.2496 C28.6627,25.2496 33.7337,23.6276 45.2727,31.4406 C50.0897,30.1026 55.2557,29.4316 60.3877,29.4076 C65.5197,29.4316 70.6897,30.1026 75.5157,31.4406 C87.0417,23.6276 92.1057,25.2496 92.1057,25.2496 C95.3927,33.5676 93.3257,39.7096 92.6987,41.2306 C96.5707,45.4596 98.9127,50.8476 98.9127,57.4396 C98.9127,80.6346 84.7867,85.7406 71.3387,87.2356 C73.5047,89.1096 75.4347,92.7846 75.4347,98.4186 C75.4347,106.4986 75.3657,113.0016 75.3657,114.9906 C75.3657,116.5986 76.4527,118.4816 79.5127,117.8886 C103.4947,109.8946 120.7757,87.2666 120.7757,60.5946 C120.7757,27.2416 93.7387,0.2066 60.3877,0.2066"
+                                        id="Fill-1" fill="#FEFEFE" mask="url(#mask-2)"></path>
                                 </g>
+                                <path
+                                    d="M22.8721,87.7028 C22.7391,88.0038 22.2671,88.0938 21.8371,87.8868 C21.3981,87.6898 21.1531,87.2808 21.2951,86.9798 C21.4251,86.6718 21.8971,86.5858 22.3351,86.7918 C22.7731,86.9888 23.0231,87.4018 22.8721,87.7028"
+                                    id="Fill-4" fill="#FEFEFE"></path>
+                                <path
+                                    d="M25.3184,90.4313 C25.0304,90.6983 24.4664,90.5743 24.0854,90.1523 C23.6894,89.7313 23.6164,89.1673 23.9084,88.8973 C24.2054,88.6303 24.7514,88.7553 25.1464,89.1763 C25.5424,89.6023 25.6194,90.1603 25.3184,90.4313"
+                                    id="Fill-6" fill="#FEFEFE"></path>
+                                <path
+                                    d="M27.6993,93.9088 C27.3293,94.1668 26.7233,93.9258 26.3493,93.3888 C25.9793,92.8508 25.9793,92.2068 26.3583,91.9488 C26.7323,91.6908 27.3293,91.9238 27.7083,92.4558 C28.0773,93.0018 28.0773,93.6458 27.6993,93.9088"
+                                    id="Fill-8" fill="#FEFEFE"></path>
+                                <path
+                                    d="M30.961,97.2692 C30.63,97.6342 29.925,97.5362 29.409,97.0372 C28.881,96.5512 28.734,95.8602 29.066,95.4952 C29.401,95.1292 30.11,95.2322 30.63,95.7262 C31.154,96.2122 31.314,96.9082 30.961,97.2692"
+                                    id="Fill-10" fill="#FEFEFE"></path>
+                                <path
+                                    d="M35.461,99.2203 C35.315,99.6933 34.636,99.9073 33.952,99.7063 C33.269,99.4993 32.822,98.9463 32.96,98.4683 C33.102,97.9913 33.784,97.7683 34.473,97.9833 C35.155,98.1893 35.603,98.7393 35.461,99.2203"
+                                    id="Fill-12" fill="#FEFEFE"></path>
+                                <path
+                                    d="M40.4034,99.5817 C40.4204,100.0797 39.8404,100.4927 39.1224,100.5017 C38.4004,100.5177 37.8154,100.1147 37.8074,99.6247 C37.8074,99.1217 38.3754,98.7137 39.0964,98.7007 C39.8144,98.6867 40.4034,99.0877 40.4034,99.5817"
+                                    id="Fill-14" fill="#FEFEFE"></path>
+                                <path
+                                    d="M45.002,98.7994 C45.088,99.2844 44.589,99.7834 43.876,99.9164 C43.175,100.0454 42.526,99.7444 42.437,99.2634 C42.35,98.7654 42.857,98.2664 43.558,98.1374 C44.272,98.0134 44.911,98.3054 45.002,98.7994"
+                                    id="Fill-16" fill="#FEFEFE"></path>
                             </g>
-                        </svg>
-                    </a>
-                </div>
+                        </g>
+                    </svg>
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <style>
-            body {
-                background: #f4f4f4;
-                color: #4a4a4a;
-            }
+    <style>
+        body {
+            background: #f4f4f4;
+            color: #4a4a4a;
+        }
 
-            .table-light .name {
-                color: #333;
-                font-size: 1.2rem;
-            }
+        .table-light .name {
+            color: #333;
+            font-size: 1.2rem;
+        }
 
-            .progress {
-                background-color: #d1d2d3;
-                color: white;
-                font-weight: bold;
-                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-            }
+        .progress {
+            background-color: #d1d2d3;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+        }
 
-            .progress-bar {
-                font-weight: bold;
-            }
+        .progress-bar {
+            font-weight: bold;
+        }
 
-            table {
-                width: 100%;
-                table-layout: fixed;
-                border-top: none;
-            }
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border-top: none;
+        }
 
-            .table th {
-                border-top: none;
-            }
+        .table th {
+            border-top: none;
+        }
 
-            .clear-padding-top {
-                padding-top: 0 !important;
-            }
+        .clear-padding-top {
+            padding-top: 0 !important;
+        }
 
-            hr {
-                margin: 40px 0 0 0;
-            }
+        hr {
+            margin: 40px 0 0 0;
+        }
 
-            .bg-1 {
-                background-color: #f6b93b !important;
-            }
+        .bg-1 {
+            background-color: #f6b93b !important;
+        }
 
-            .bg-2 {
-                background-color: #e55039 !important;
-            }
+        .bg-2 {
+            background-color: #e55039 !important;
+        }
 
-            .bg-3 {
-                background-color: #b71540 !important;
-            }
+        .bg-3 {
+            background-color: #b71540 !important;
+        }
 
-            .bg-4 {
-                background-color: #4a69bd !important;
-            }
+        .bg-4 {
+            background-color: #4a69bd !important;
+        }
 
-            .bg-5 {
-                background-color: #b8e994 !important;
-            }
+        .bg-5 {
+            background-color: #b8e994 !important;
+        }
 
-            .bg-6 {
-                background-color: #079992 !important;
-            }
+        .bg-6 {
+            background-color: #079992 !important;
+        }
 
-            .light {
-                font-weight: normal;
-            }
+        .light {
+            font-weight: normal;
+        }
 
-            .element-infos {
-                display: flex;
-                flex-direction: column;
-            }
+        .element-infos {
+            display: flex;
+            flex-direction: column;
+        }
 
-            .element-infos__stars {
-                display: flex;
-                justify-content: center;
-                font-weight: normal;
-            }
+        .element-infos__stars {
+            display: flex;
+            justify-content: center;
+            font-weight: normal;
+        }
 
-            .element-infos__stars ion-icon[name='star'] {
-                color: #ff9800;
-                margin-top: 2px;
-            }
+        .element-infos__stars ion-icon[name='star'] {
+            color: #ff9800;
+            margin-top: 2px;
+        }
 
-            /* Tabelsort */
-            th[role='columnheader']:not(.no-sort) {
-                cursor: pointer;
-            }
+        /* Tabelsort */
+        th[role='columnheader']:not(.no-sort) {
+            cursor: pointer;
+        }
 
-            th[role='columnheader']:not(.no-sort):after {
-                content: '';
-                float: right;
-                margin-top: 7px;
-                border-width: 0 4px 4px;
-                border-style: solid;
-                border-color: #404040 transparent;
-                visibility: hidden;
-                opacity: 0;
-                -ms-user-select: none;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                user-select: none;
-            }
+        th[role='columnheader']:not(.no-sort):after {
+            content: '';
+            float: right;
+            margin-top: 7px;
+            border-width: 0 4px 4px;
+            border-style: solid;
+            border-color: #404040 transparent;
+            visibility: hidden;
+            opacity: 0;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
 
-            th[aria-sort='ascending']:not(.no-sort):after {
-                border-bottom: none;
-                border-width: 4px 4px 0;
-            }
+        th[aria-sort='ascending']:not(.no-sort):after {
+            border-bottom: none;
+            border-width: 4px 4px 0;
+        }
 
-            th[aria-sort]:not(.no-sort):after {
-                visibility: visible;
-                opacity: 0.4;
-            }
+        th[aria-sort]:not(.no-sort):after {
+            visibility: visible;
+            opacity: 0.4;
+        }
 
-            th[role='columnheader']:not(.no-sort):hover:after {
-                visibility: visible;
-                opacity: 1;
-            }
+        th[role='columnheader']:not(.no-sort):hover:after {
+            visibility: visible;
+            opacity: 1;
+        }
 
-            .colored-block {
-                background-color: #38ada9;
-                color: white;
-            }
+        .colored-block {
+            background-color: #38ada9;
+            color: white;
+        }
 
-            .title {
-                font-size: 3rem;
-                padding: 5rem;
-                padding-bottom: 0;
-                padding-left: 0;
-            }
+        .title {
+            font-size: 3rem;
+            padding: 5rem;
+            padding-bottom: 0;
+            padding-left: 0;
+        }
 
-            .subtitle {
-                font-size: 1.5rem;
-                padding: 5rem;
-                padding-top: 0;
-                padding-left: 0;
-            }
+        .subtitle {
+            font-size: 1.5rem;
+            padding: 5rem;
+            padding-top: 0;
+            padding-left: 0;
+        }
 
-            .bottom-block {
-                text-align: center;
-                padding: 3rem;
-            }
+        .bottom-block {
+            text-align: center;
+            padding: 3rem;
+        }
 
-            .bottom-block a {
-                color: white;
-                text-decoration: underline;
-            }
+        .bottom-block a {
+            color: white;
+            text-decoration: underline;
+        }
 
-            .description {
-                background-color: white;
-                border-bottom: 1px solid rgba(0,0,0,.1);
-            }
+        .description {
+            background-color: white;
+            border-bottom: 1px solid rgba(0, 0, 0, .1);
+        }
 
-            .description h2, .description h3 {
-                margin-bottom: 1.5rem;
-            }
-            .description h3 {
-                font-size: 1.5rem;
-            }
-        </style>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.1.0/tablesort.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.1.0/sorts/tablesort.number.min.js"></script>
-        <script src="https://unpkg.com/ionicons@4.4.6/dist/ionicons.js"></script>
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=UA-131047101-1"
-        ></script>
-        <script>
-            new Tablesort(document.getElementById('todo-wc-librairies'));
-            new Tablesort(document.getElementById('todo-fw-librairies'));
-            new Tablesort(document.getElementById('pascal-wc-librairies'));
-            new Tablesort(document.getElementById('pascal-fw-librairies'));
+        .description h2,
+        .description h3 {
+            margin-bottom: 1.5rem;
+        }
 
-            window.dataLayer = window.dataLayer || [];
+        .description h3 {
+            font-size: 1.5rem;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.1.0/tablesort.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.1.0/sorts/tablesort.number.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.4.6/dist/ionicons.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131047101-1"></script>
+    <script>
+        new Tablesort(document.getElementById('todo-wc-librairies'));
+        new Tablesort(document.getElementById('todo-fw-librairies'));
+        new Tablesort(document.getElementById('pascal-wc-librairies'));
+        new Tablesort(document.getElementById('pascal-fw-librairies'));
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-            gtag('config', 'UA-131047101-1');
-        </script>
-    </body>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-131047101-1');
+    </script>
+</body>
+
 </html>
