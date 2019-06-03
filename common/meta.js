@@ -84,8 +84,7 @@ module.exports = {
             version: require('../todomvc/skatejs-preact/package.json')
                 .dependencies['@skatejs/renderer-preact'],
             stars: 2991,
-            pathsTodo: ['skatejs-preact/dist/main.js'],
-            pathsPascal: ['skatejs-preact/dist/src.e31bb0bc.js']
+            paths: ['skatejs-preact/dist/main.js']
         },
         {
             name: 'Slim.js',
@@ -128,9 +127,9 @@ module.exports = {
                 }.entry.js`
             ],
             pathsPascal: [
-                `stencil/dist/demos/pascal-triangle/stencil/build/app.esm.js`,
-                `stencil/dist/demos/pascal-triangle/stencil/build/p-458528c5.js`,
-                `stencil/dist/demos/pascal-triangle/stencil/build/pascal-triangle_2.entry.js`
+                `stencil/dist/build/app.esm.js`,
+                `stencil/dist/build/p-458528c5.js`,
+                `stencil/dist/build/pascal-triangle_2.entry.js`
             ]
         },
         {
