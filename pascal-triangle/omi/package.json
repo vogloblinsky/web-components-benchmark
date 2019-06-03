@@ -17,13 +17,13 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "omi": "^6.3.17"
+        "omi": "^6.4.4"
     },
     "devDependencies": {
         "concat-cli": "^4.0.0",
         "html-minifier": "^4.0.0",
         "replace": "^1.1.0",
-        "rollup": "^1.13.0",
+        "rollup": "^1.13.1",
         "rollup-plugin-jsx": "^1.0.3",
         "uglify-es": "3.3.9"
     }
