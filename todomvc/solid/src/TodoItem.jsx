@@ -1,5 +1,4 @@
-import { Component } from 'solid-components'
-import { r } from 'solid-js/dom'
+import { customElement } from 'solid-element';
 
 import style from './TodoItem.css'
 
@@ -19,4 +18,4 @@ const TodoItem = (props, { element }) => (
   </>
 );
 
-Component('todo-item', { checked: false }, TodoItem);
+customElement('todo-item', { checked: false }, TodoItem);
