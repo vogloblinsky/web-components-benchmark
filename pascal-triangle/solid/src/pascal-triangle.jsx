@@ -1,6 +1,5 @@
-import { Component } from 'solid-components';
+import { customElement } from 'solid-element';
 import { createSignal } from 'solid-js';
-import { r } from 'solid-js/dom';
 
 import './triangle-item';
 
@@ -46,4 +45,4 @@ const PascalTriangle = () => {
   </>);
 }
 
-Component('pascal-triangle', PascalTriangle);
+customElement('pascal-triangle', PascalTriangle);

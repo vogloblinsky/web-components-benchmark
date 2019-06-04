@@ -1,6 +1,5 @@
-import { Component } from 'solid-components';
-import { r } from 'solid-js/dom';
+import { customElement } from 'solid-element';
 
-Component('triangle-item', { text: '' }, ({ text }) =>
+customElement('triangle-item', { text: '' }, ({ text }) =>
   <span textContent={ text } />
 );
