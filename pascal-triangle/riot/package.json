@@ -16,11 +16,11 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
-        "@riotjs/cli": "^4.0.1",
+        "@riotjs/cli": "^4.0.2",
         "rollup-plugin-node-resolve": "^5.0.1",
         "uglify-es": "3.3.9"
     },
     "dependencies": {
-        "riot": "^4.0.4"
+        "riot": "^4.0.8"
     }
 }
