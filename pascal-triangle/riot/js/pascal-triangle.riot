@@ -39,7 +39,7 @@
         export default {
             onBeforeMount() {
                 this.state.list = generateData(_length);
-            }
+            },
             handleLoad(e) {
                 _length = parseInt(e.target.getAttribute('data-value'));
                 this.update({
