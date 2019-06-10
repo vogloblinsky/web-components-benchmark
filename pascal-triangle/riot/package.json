@@ -21,6 +21,6 @@
         "uglify-es": "3.3.9"
     },
     "dependencies": {
-        "riot": "^4.0.8"
+        "riot": "^4.1.1"
     }
 }
