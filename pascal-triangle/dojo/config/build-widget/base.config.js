@@ -17,8 +17,7 @@ const testPath = path.join(basePath, 'tests');
 const allPaths = [srcPath, testPath];
 const packageJsonPath = path.join(basePath, 'package.json');
 const packageJson = fs_1.existsSync(packageJsonPath) ?
-    require(packageJsonPath) :
-    {};
+    require(packageJsonPath) : {};
 const packageName = packageJson.name || '';
 const tsLintPath = path.join(basePath, 'tslint.json');
 const tsLint = fs_1.existsSync(tsLintPath) ? require(tsLintPath) : false;
@@ -99,20 +98,14 @@ function colorToColorMod(style) {
 function webpackConfigFactory(args) {
     const elements = args.element ? [args.element] : args.elements;
     const jsonpIdent = args.element ? args.element.name : 'custom-elements';
-    const extensions = args.legacy ?
-        ['.ts', '.tsx', '.js'] :
-        ['.ts', '.tsx', '.mjs', '.js'];
-    const compilerOptions = args.legacy ?
-        {} :
-        {
-            target: 'es6',
-            module: 'esnext'
-        };
+    const extensions = args.legacy ? ['.ts', '.tsx', '.js'] : ['.ts', '.tsx', '.mjs', '.js'];
+    const compilerOptions = args.legacy ? {} : {
+        target: 'es6',
+        module: 'esnext'
+    };
     const features = args.legacy ? args.features : ['chrome'];
     const postcssPresetConfig = {
-        browsers: args.legacy ?
-            ['last 2 versions', 'ie >= 10'] :
-            ['last 2 versions'],
+        overrideBrowserslist: args.legacy ? ['last 2 versions', 'ie >= 10'] : ['last 2 versions'],
         insertBefore: {
             'color-mod-function': colorToColorMod
         },
