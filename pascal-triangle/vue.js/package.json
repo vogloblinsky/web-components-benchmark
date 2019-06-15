@@ -17,11 +17,11 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
-        "@vue/cli-service": "^3.8.0",
+        "@vue/cli-service": "^3.8.4",
         "concat-cli": "^4.0.0",
         "uglify-es": "3.3.9",
         "vue-template-compiler": "^2.6.10",
-        "webpack": "^4.32.2"
+        "webpack": "^4.34.0"
     },
     "dependencies": {
         "vue": "^2.6.10"

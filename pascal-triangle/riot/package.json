@@ -17,7 +17,7 @@
     "license": "MIT",
     "devDependencies": {
         "@riotjs/cli": "^4.0.2",
-        "rollup-plugin-node-resolve": "^5.0.1",
+        "rollup-plugin-node-resolve": "^5.0.2",
         "uglify-es": "3.3.9"
     },
     "dependencies": {
