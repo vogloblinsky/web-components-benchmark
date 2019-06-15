@@ -1,3 +1,5 @@
+<svelte:options tag="pascal-triangle"/>
+
 <script>
 	function generateData(rows) {
 		const n = rows;

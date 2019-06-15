@@ -14,8 +14,7 @@ export default {
 		svelte({
 			// enable run-time checks when not in production
 			dev: false,
-			customElement: true,
-			tag: 'triangle-item'
+			customElement: true
 		}),
 
 		resolve({
