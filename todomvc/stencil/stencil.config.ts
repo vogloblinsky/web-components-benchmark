@@ -4,8 +4,9 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'www',
-      baseUrl: '/demos/todomvc/stencil/',
+      dir: 'dist',
       serviceWorker: null // disable service workers
     }
-  ]
+  ],
+  hashFileNames: false
 };

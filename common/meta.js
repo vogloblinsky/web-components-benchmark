@@ -1,5 +1,3 @@
-const stencilTodoInfos = require('../todomvc/stencil/dist/build/app/app.registry.json');
-
 module.exports = {
     wc: [
         {
@@ -115,16 +113,9 @@ module.exports = {
             ],
             stars: 5608,
             pathsTodo: [
-                `stencil/dist/build/app/${stencilTodoInfos.core}`,
-                `stencil/dist/build/app/${
-                    stencilTodoInfos.components['my-todo'].bundleIds.$
-                }.entry.js`,
-                `stencil/dist/build/app/${
-                    stencilTodoInfos.components['todo-input'].bundleIds.$
-                }.entry.js`,
-                `stencil/dist/build/app/${
-                    stencilTodoInfos.components['todo-item'].bundleIds.$
-                }.entry.js`
+                `stencil/dist/build/app.esm.js`,
+                `stencil/dist/build/p-6f3fc90b.js`,
+                `stencil/dist/build/my-todo_3.entry.js`
             ],
             pathsPascal: [
                 `stencil/dist/build/app.esm.js`,
