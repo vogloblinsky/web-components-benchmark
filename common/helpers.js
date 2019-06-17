@@ -104,7 +104,7 @@ async function benchCreate(element, context) {
         filename = `benchmarks-results/${slug}/create-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`, {
-            waitUntil: 'load'
+            waitUntil: 'networkidle0'
         });
 
         await page.waitFor('my-todo');
@@ -152,7 +152,7 @@ async function benchDelete(element, context) {
         filename = `benchmarks-results/${slug}/delete-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`, {
-            waitUntil: 'load'
+            waitUntil: 'networkidle0'
         });
 
         await page.setViewport({
@@ -213,7 +213,7 @@ async function benchEdit(element, context) {
         filename = `benchmarks-results/${slug}/edit-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`, {
-            waitUntil: 'load'
+            waitUntil: 'networkidle0'
         });
 
         await page.setViewport({
@@ -263,7 +263,7 @@ async function benchTti(element, context) {
     await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`);
     const lighthouseMetrics = await gatherLighthouseMetrics(page, perfConfig);
     const firstInteractive = parseInt(
-        lighthouseMetrics.audits['first-interactive']['rawValue'],
+        lighthouseMetrics.lhr.audits['interactive']['numericValue'],
         10
     );
 
