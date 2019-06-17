@@ -23,8 +23,7 @@ async function gatherLighthouseMetrics(page, config) {
         .split(':')[2]
         .split('/')[0];
     return await lighthouse(
-        page.url(),
-        {
+        page.url(), {
             port: port
         },
         config
@@ -70,7 +69,9 @@ async function benchPageLoad(element, context) {
         await page.tracing.start({
             path: filename
         });
-        await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`);
+        await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`, {
+            waitUntil: 'load'
+        });
         await page.tracing.stop();
 
         average += processRawData(filename, i);
@@ -83,9 +84,9 @@ async function benchPageLoad(element, context) {
 
 async function benchCreate(element, context) {
     const slug = element.slug;
-    const selector = element.noshadowdom
-        ? selectorInputNoShadowDom
-        : selectorInput;
+    const selector = element.noshadowdom ?
+        selectorInputNoShadowDom :
+        selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -104,10 +105,10 @@ async function benchCreate(element, context) {
         filename = `benchmarks-results/${slug}/create-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`, {
-            waitUntil: 'networkidle0'
+            waitUntil: 'load'
         });
 
-        await page.waitFor('my-todo');
+        await page.waitFor(2000);
 
         const inputHandle = await page.evaluateHandle(selector);
         await page.tracing.start({
@@ -131,9 +132,9 @@ async function benchCreate(element, context) {
 
 async function benchDelete(element, context) {
     const slug = element.slug;
-    const selector = element.noshadowdom
-        ? selectorInputNoShadowDom
-        : selectorInput;
+    const selector = element.noshadowdom ?
+        selectorInputNoShadowDom :
+        selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -152,7 +153,7 @@ async function benchDelete(element, context) {
         filename = `benchmarks-results/${slug}/delete-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`, {
-            waitUntil: 'networkidle0'
+            waitUntil: 'load'
         });
 
         await page.setViewport({
@@ -160,7 +161,7 @@ async function benchDelete(element, context) {
             height: 6000
         });
 
-        await page.waitFor('my-todo');
+        await page.waitFor(2000);
 
         const inputHandle = await page.evaluateHandle(selector);
 
@@ -192,9 +193,9 @@ async function benchDelete(element, context) {
 
 async function benchEdit(element, context) {
     const slug = element.slug;
-    const selector = element.noshadowdom
-        ? selectorInputNoShadowDom
-        : selectorInput;
+    const selector = element.noshadowdom ?
+        selectorInputNoShadowDom :
+        selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -213,7 +214,7 @@ async function benchEdit(element, context) {
         filename = `benchmarks-results/${slug}/edit-todos_${i}.json`;
 
         await page.goto(`${LOCALHOST}/demos/${context}/${element.slug}`, {
-            waitUntil: 'networkidle0'
+            waitUntil: 'load'
         });
 
         await page.setViewport({
@@ -221,7 +222,7 @@ async function benchEdit(element, context) {
             height: 6000
         });
 
-        await page.waitFor('my-todo');
+        await page.waitFor(2000);
 
         const inputHandle = await page.evaluateHandle(selector);
 
