@@ -40,6 +40,9 @@ const data = {
 const cleanVersion = version => version.replace('^', '');
 
 const filesizeGzipped = (project, namespace) => {
+    console.log('');
+    console.log('filesizeGzipped: ', namespace);
+
     let paths = project.paths;
     if (project.slug === 'stencil') {
         switch (namespace) {
@@ -53,19 +56,25 @@ const filesizeGzipped = (project, namespace) => {
         }
     }
     if (paths) {
-        return (
+        let fileSize = 0;
+        console.log('paths: ', paths);
+        fileSize = (
             paths.reduce((previous, current) => {
                 const exists = fs.existsSync(`${namespace}/${current}`);
                 if (!exists) return undefined;
                 const fileContents = fs.readFileSync(`${namespace}/${current}`);
+                console.log('gzip: ', `${namespace}/${current}`, previous);
                 const zippedContent = zlib.gzipSync(fileContents.toString());
                 fs.writeFileSync(`${namespace}/${current}.gzip`, zippedContent);
                 const size =
                     previous + fs.statSync(`${namespace}/${current}.gzip`).size;
+                console.log('size: ', size);
                 fs.unlinkSync(`${namespace}/${current}.gzip`);
                 return size;
             }, 0) / 1000
         ).toFixed(1);
+        console.log('fileSize: ', fileSize);
+        return fileSize;
     } else {
         return 0;
     }

@@ -2,23 +2,7 @@
 
 [Live results](https://vogloblinsky.github.io/web-components-benchmark/)
 
-Benchmarks of libraries and implementation of Web Components :
-
--   native
--   Angular Elements
--   Atomico
--   Dojo 2
--   hybrids
--   lit-element
--   hyperHTML
--   omi
--   Polymer 3
--   riot
--   SkateJS
--   Slim.js
--   Stencil
--   Svelte
--   Vue.js
+Benchmarks of libraries and implementation of Web Components.
 
 The benchmark consists of two different applications :
 
@@ -46,7 +30,7 @@ Node.js
 > npm run build:all
 ```
 
-## Run for todos
+## Run benchmark for todos
 
 In one tab
 
@@ -61,7 +45,7 @@ In another tab
 > npm run run:benchmark
 ```
 
-## Run for pascal-triangle
+## Run benchmark for pascal-triangle
 
 In one tab
 
@@ -74,6 +58,13 @@ In another tab
 
 ```
 > npm run run:benchmark
+```
+
+## Compile results
+
+```
+> npm run compile-results
+> npm run fix-stencil
 ```
 
 # Current results

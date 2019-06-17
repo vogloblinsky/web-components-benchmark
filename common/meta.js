@@ -1,7 +1,8 @@
 const stencilTodoInfos = require('../todomvc/stencil/dist/build/app/app.registry.json');
 
 module.exports = {
-    wc: [{
+    wc: [
+        {
             name: 'Native',
             slug: 'native',
             version: '',
@@ -127,7 +128,7 @@ module.exports = {
             ],
             pathsPascal: [
                 `stencil/dist/build/app.esm.js`,
-                `stencil/dist/build/p-ae5c2bee.js`,
+                `stencil/dist/build/p-f2464ba1.js`,
                 `stencil/dist/build/pascal-triangle_2.entry.js`
             ]
         },
@@ -142,7 +143,8 @@ module.exports = {
             paths: ['svelte/dist/bundle.js']
         }
     ],
-    fw: [{
+    fw: [
+        {
             name: 'Angular Elements',
             slug: 'angular-elements',
             github: 'https://github.com/angular/angular',
