@@ -20,6 +20,6 @@
         "uglify-es": "3.3.9"
     },
     "dependencies": {
-        "slim-js": "^4.0.5"
+        "slim-js": "^4.0.7"
     }
 }

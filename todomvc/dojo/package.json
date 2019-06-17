@@ -11,11 +11,11 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@dojo/framework": "^4.0.3"
+        "@dojo/framework": "^5.0.4"
     },
     "devDependencies": {
-        "@dojo/cli": "^4.0.0",
-        "@dojo/cli-build-app": "^4.0.4",
-        "typescript": "3.0.3"
+        "@dojo/cli": "^5.0.0",
+        "@dojo/cli-build-app": "^5.0.4",
+        "typescript": "3.5.2"
     }
 }

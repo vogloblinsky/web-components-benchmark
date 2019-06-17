@@ -18,13 +18,13 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
-        "@vue/cli-service": "^3.3.0",
+        "@vue/cli-service": "^3.8.4",
         "concat-cli": "^4.0.0",
         "uglify-es": "3.3.9",
-        "vue-template-compiler": "^2.5.22",
-        "webpack": "^4.28.4"
+        "vue-template-compiler": "^2.6.10",
+        "webpack": "^4.34.0"
     },
     "dependencies": {
-        "vue": "^2.5.22"
+        "vue": "^2.6.10"
     }
 }
