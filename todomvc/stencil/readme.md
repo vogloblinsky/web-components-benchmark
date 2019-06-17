@@ -13,24 +13,13 @@ Stencil also enables a number of key capabilities on top of Web Components, in p
 To start a new project using Stencil, clone this repo to a new directory:
 
 ```bash
-git clone https://github.com/ionic-team/stencil-starter.git my-app
-cd my-app
-git remote rm origin
+npm init stencil app
 ```
 
 and run:
 
 ```bash
-npm install
 npm start
-```
-
-To view the build, start an HTTP server inside of the `/www` directory.
-
-To watch for file changes during development, run:
-
-```bash
-npm run dev
 ```
 
 To build the app for production, run:

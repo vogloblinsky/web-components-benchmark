@@ -1,4 +1,4 @@
-import { Component, State, Listen } from '@stencil/core';
+import { h, Component, State, Listen } from '@stencil/core';
 
 interface TodoItem {
   text: string;

@@ -5,47 +5,20 @@
  */
 
 
-import '@stencil/core';
-
-
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-
   interface MyTodo {}
-  interface MyTodoAttributes extends StencilHTMLAttributes {}
-
   interface TodoInput {}
-  interface TodoInputAttributes extends StencilHTMLAttributes {
-    'onOnTodoInputSubmit'?: (event: CustomEvent) => void;
-  }
-
   interface TodoItem {
     'checked': boolean;
     'index': number;
     'text': string;
   }
-  interface TodoItemAttributes extends StencilHTMLAttributes {
-    'checked'?: boolean;
-    'index'?: number;
-    'onOnTodoItemChecked'?: (event: CustomEvent) => void;
-    'onOnTodoItemRemove'?: (event: CustomEvent) => void;
-    'text'?: string;
-  }
 }
 
 declare global {
-  interface StencilElementInterfaces {
-    'MyTodo': Components.MyTodo;
-    'TodoInput': Components.TodoInput;
-    'TodoItem': Components.TodoItem;
-  }
-
-  interface StencilIntrinsicElements {
-    'my-todo': Components.MyTodoAttributes;
-    'todo-input': Components.TodoInputAttributes;
-    'todo-item': Components.TodoItemAttributes;
-  }
 
 
   interface HTMLMyTodoElement extends Components.MyTodo, HTMLStencilElement {}
@@ -65,26 +38,40 @@ declare global {
     prototype: HTMLTodoItemElement;
     new (): HTMLTodoItemElement;
   };
-
   interface HTMLElementTagNameMap {
-    'my-todo': HTMLMyTodoElement
-    'todo-input': HTMLTodoInputElement
-    'todo-item': HTMLTodoItemElement
-  }
-
-  interface ElementTagNameMap {
     'my-todo': HTMLMyTodoElement;
     'todo-input': HTMLTodoInputElement;
     'todo-item': HTMLTodoItemElement;
   }
-
-
-  export namespace JSX {
-    export interface Element {}
-    export interface IntrinsicElements extends StencilIntrinsicElements {
-      [tagName: string]: any;
-    }
-  }
-  export interface HTMLAttributes extends StencilHTMLAttributes {}
-
 }
+
+declare namespace LocalJSX {
+  interface MyTodo extends JSXBase.HTMLAttributes<HTMLMyTodoElement> {}
+  interface TodoInput extends JSXBase.HTMLAttributes<HTMLTodoInputElement> {
+    'onOnTodoInputSubmit'?: (event: CustomEvent<any>) => void;
+  }
+  interface TodoItem extends JSXBase.HTMLAttributes<HTMLTodoItemElement> {
+    'checked'?: boolean;
+    'index'?: number;
+    'onOnTodoItemChecked'?: (event: CustomEvent<any>) => void;
+    'onOnTodoItemRemove'?: (event: CustomEvent<any>) => void;
+    'text'?: string;
+  }
+
+  interface IntrinsicElements {
+    'my-todo': MyTodo;
+    'todo-input': TodoInput;
+    'todo-item': TodoItem;
+  }
+}
+
+export { LocalJSX as JSX };
+
+
+declare module "@stencil/core" {
+  export namespace JSX {
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+  }
+}
+
+
