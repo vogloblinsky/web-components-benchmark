@@ -1,14 +1,14 @@
 {
-  "name": "@stencil/starter",
+  "name": "todo-stencil",
   "private": true,
   "version": "0.0.1",
-  "description": "Stencil App Starter",
+  "description": "",
   "scripts": {
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve"
   },
   "dependencies": {
-    "@stencil/core": "^1.0.4"
+    "@stencil/core": "^1.0.6"
   },
   "repository": {
     "type": "git",
