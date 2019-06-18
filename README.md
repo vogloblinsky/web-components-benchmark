@@ -16,7 +16,7 @@ The benchmark consists of two different applications :
 
 # Requirements
 
-Node.js
+Node.js 10+
 
 ## Setup
 
@@ -35,7 +35,7 @@ Node.js
 In one tab
 
 ```
-> cd todomvc
+// In root folder
 > npm run serve
 ```
 
@@ -50,7 +50,7 @@ In another tab
 In one tab
 
 ```
-> cd pascal-triangle
+// In root folder
 > npm run serve
 ```
 

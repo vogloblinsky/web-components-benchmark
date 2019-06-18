@@ -2,10 +2,7 @@ const fs = require('fs-extra');
 
 const meta = require('../../common/meta');
 
-const {
-    benchPageLoad,
-    benchTti
-} = require('../../common/helpers');
+const { benchPageLoad, benchTti } = require('../../common/helpers');
 
 let ELEMENTS = [...meta.wc, ...meta.fw];
 
@@ -35,7 +32,6 @@ console.log('*****************************');
         let element = ELEMENTS[i];
 
         if (fs.pathExistsSync(`../demos/pascal-triangle/${element.slug}`)) {
-
             console.log('********************');
             console.log('* ' + element.name);
             console.log('********************');
@@ -53,7 +49,7 @@ console.log('*****************************');
             resultsLoad[element.slug] = Math.ceil(averageLoad);
             fs.outputJsonSync(resultsFileLoad, resultsLoad);
 
-            const resultsFileTti = '../results/pascal-triangle-tti.json';
+            /*const resultsFileTti = '../results/pascal-triangle-tti.json';
             if (!fs.pathExistsSync(resultsFileTti)) {
                 fs.outputJsonSync(resultsFileTti, {});
             }
@@ -65,8 +61,7 @@ console.log('*****************************');
                     )} ms\n`
             );
             resultsTti[element.slug] = Math.ceil(averageTti);
-            fs.outputJsonSync(resultsFileTti, resultsTti);
+            fs.outputJsonSync(resultsFileTti, resultsTti);*/
         }
-
     }
 })();

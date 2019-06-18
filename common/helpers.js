@@ -2,7 +2,7 @@
 
 // https://github.com/llatinov/sample-performance-testing-in-browser
 
-const lighthouse = require('lighthouse');
+//const lighthouse = require('lighthouse');
 const puppeteer = require('puppeteer');
 const fs = require('fs-extra');
 const DevtoolsTimelineModel = require('devtools-timeline-model');
@@ -23,7 +23,8 @@ async function gatherLighthouseMetrics(page, config) {
         .split(':')[2]
         .split('/')[0];
     return await lighthouse(
-        page.url(), {
+        page.url(),
+        {
             port: port
         },
         config
@@ -84,9 +85,9 @@ async function benchPageLoad(element, context) {
 
 async function benchCreate(element, context) {
     const slug = element.slug;
-    const selector = element.noshadowdom ?
-        selectorInputNoShadowDom :
-        selectorInput;
+    const selector = element.noshadowdom
+        ? selectorInputNoShadowDom
+        : selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -132,9 +133,9 @@ async function benchCreate(element, context) {
 
 async function benchDelete(element, context) {
     const slug = element.slug;
-    const selector = element.noshadowdom ?
-        selectorInputNoShadowDom :
-        selectorInput;
+    const selector = element.noshadowdom
+        ? selectorInputNoShadowDom
+        : selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
@@ -193,9 +194,9 @@ async function benchDelete(element, context) {
 
 async function benchEdit(element, context) {
     const slug = element.slug;
-    const selector = element.noshadowdom ?
-        selectorInputNoShadowDom :
-        selectorInput;
+    const selector = element.noshadowdom
+        ? selectorInputNoShadowDom
+        : selectorInput;
 
     fs.ensureDirSync(`benchmarks-results/${slug}`);
 
