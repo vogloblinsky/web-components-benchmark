@@ -2,7 +2,7 @@
 
 // https://github.com/llatinov/sample-performance-testing-in-browser
 
-//const lighthouse = require('lighthouse');
+const lighthouse = require('lighthouse');
 const puppeteer = require('puppeteer');
 const fs = require('fs-extra');
 const DevtoolsTimelineModel = require('devtools-timeline-model');

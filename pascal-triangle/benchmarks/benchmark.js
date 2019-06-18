@@ -49,7 +49,7 @@ console.log('*****************************');
             resultsLoad[element.slug] = Math.ceil(averageLoad);
             fs.outputJsonSync(resultsFileLoad, resultsLoad);
 
-            /*const resultsFileTti = '../results/pascal-triangle-tti.json';
+            const resultsFileTti = '../results/pascal-triangle-tti.json';
             if (!fs.pathExistsSync(resultsFileTti)) {
                 fs.outputJsonSync(resultsFileTti, {});
             }
@@ -57,11 +57,11 @@ console.log('*****************************');
             let averageTti = await benchTti(element, 'pascal-triangle');
             console.log(
                 `\nAverage time for time to interactive : ${Math.ceil(
-                        averageTti
-                    )} ms\n`
+                    averageTti
+                )} ms\n`
             );
             resultsTti[element.slug] = Math.ceil(averageTti);
-            fs.outputJsonSync(resultsFileTti, resultsTti);*/
+            fs.outputJsonSync(resultsFileTti, resultsTti);
         }
     }
 })();
