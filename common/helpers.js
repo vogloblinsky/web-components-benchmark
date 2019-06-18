@@ -10,8 +10,9 @@ const DevtoolsTimelineModel = require('devtools-timeline-model');
 const perfConfig = require('./config.performance.js');
 
 const LOCALHOST = 'http://localhost:3000';
-const numberOftests = 8;
+const numberOftests = 10;
 const numberOfModifications = 50;
+const waitPageTiming = 1000;
 const selectorInput = `document.querySelector('my-todo').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`;
 const selectorInputNoShadowDom = `document.querySelector('my-todo').querySelector('todo-input').querySelector('input')`;
 
@@ -109,7 +110,7 @@ async function benchCreate(element, context) {
             waitUntil: 'load'
         });
 
-        await page.waitFor(2000);
+        await page.waitFor(waitPageTiming);
 
         const inputHandle = await page.evaluateHandle(selector);
         await page.tracing.start({
@@ -162,7 +163,7 @@ async function benchDelete(element, context) {
             height: 6000
         });
 
-        await page.waitFor(2000);
+        await page.waitFor(waitPageTiming);
 
         const inputHandle = await page.evaluateHandle(selector);
 
@@ -223,7 +224,7 @@ async function benchEdit(element, context) {
             height: 6000
         });
 
-        await page.waitFor(2000);
+        await page.waitFor(waitPageTiming);
 
         const inputHandle = await page.evaluateHandle(selector);
 
