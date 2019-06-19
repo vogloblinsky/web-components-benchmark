@@ -1,11 +1,9 @@
-import Element, {
-    h
-} from '@skatejs/element-lit-html';
-export default class TriangleItem extends Element {
+import Element, { h } from '@skatejs/element-lit-html';
+export class TriangleItem extends Element {
     static props = {
         text: String
     };
     render() {
-        return h `<span>${this.text}</span>`;
+        return h`<span>${this.text}</span>`;
     }
 }

@@ -19,10 +19,8 @@ function generateData(rows) {
     return data;
 }
 
-import Element, {
-    h
-} from '@skatejs/element-lit-html';
-export default class PascalTriangle extends Element {
+import Element, { h } from '@skatejs/element-lit-html';
+export class PascalTriangle extends Element {
     static get props() {
         return {
             list: Array
@@ -37,7 +35,7 @@ export default class PascalTriangle extends Element {
         this.list = generateData(this._length);
     }
     render() {
-        return h `
+        return h`
             <div>
                 <button data-value="10" @click=${() => this.handleLoad(10)}>
                     Load 10
@@ -50,25 +48,21 @@ export default class PascalTriangle extends Element {
                 </button>
             </div>
             <div>
-                ${
-                    this.list.map(
-                        line =>
-                            h`
+                ${this.list.map(
+                    line =>
+                        h`
                                 <div>
-                                    ${
-                                        line.map(
-                                            item =>
-                                                h`
+                                    ${line.map(
+                                        item =>
+                                            h`
                                                     <triangle-item
                                                         text="${item}"
                                                     ></triangle-item>
                                                 `
-                                        )
-                                    }
+                                    )}
                                 </div>
                             `
-                    )
-                }
+                )}
             </div>
         `;
     }
