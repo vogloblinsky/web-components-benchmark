@@ -10,7 +10,7 @@ const DevtoolsTimelineModel = require('devtools-timeline-model');
 const perfConfig = require('./config.performance.js');
 
 const LOCALHOST = 'http://localhost:3000';
-const numberOftests = 8;
+const numberOftests = 7;
 const numberOfModifications = 50;
 const waitPageTiming = 1000;
 const selectorInput = `document.querySelector('my-todo').shadowRoot.querySelector('todo-input').shadowRoot.querySelector('input')`;
