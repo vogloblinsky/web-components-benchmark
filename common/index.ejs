@@ -96,13 +96,17 @@
                 <p>
                     The benchmark is running on Travis during a CI process,
                     results are constant between two builds.
-                    Benchmarks are run by the lighthouse library with fast 4g throttling set up (Network slow down with
+                    Benchmarks are run by the <a href="https://developers.google.com/web/tools/lighthouse/"
+                        target="_blank">Lighthouse</a> library with fast 4g throttling set up (Network slow down with
                     4x CPU slower).
                 </p>
                 <h3>Where did the results came from ?</h3>
+                <b>Page load and specific use-cases like creating 50 todos</b>
                 <p>
-                    The benchmark use the great Puppeteer Node.js library for
-                    manipulating a Chrome headless instance.<br />Puppeteer has some
+                    The benchmark use the great <a href="https://pptr.dev/" target="_blank">Puppeteer</a> Node.js
+                    library for
+                    manipulating a Chrome headless instance.<br /><a href="https://pptr.dev/"
+                        target="_blank">Puppeteer</a> has some
                     APIs for generating a RAW trace file which can be opened in
                     Chrome DevTools or
                     <a href="https://chromedevtools.github.io/timeline-viewer/" target="_blank">timeline viewer</a>.
@@ -114,6 +118,14 @@
                     graph below.
                 </p>
                 <p><img src="devtools.png" /></p>
+                <b>Time to interactive</b>
+                <p>
+                    The benchmark use <a href="https://developers.google.com/web/tools/lighthouse/"
+                        target="_blank">Lighthouse</a> Node.js library under the hood. The <a
+                        href="https://developers.google.com/web/tools/lighthouse/" target="_blank">Lighthouse</a>
+                    configuration use the
+                    interactive audit where you can have "Time to interactive" number.
+                </p>
                 <h3>Why two different categories "Libraries or compilers" & "Classic frameworks exporting to Web
                     Components" ?</h3>
                 <p>

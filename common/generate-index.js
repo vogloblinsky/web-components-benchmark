@@ -216,9 +216,12 @@ data.todo.max = maxTodo;
 data.pascal.max = maxPascal;
 data.buildDateAndTime = format(new Date(), 'DD/MM/YYYY - HH:mm:ss');
 
-console.log('data: ', data);
+console.log('data.todo.WClibraries: ', data.todo.WClibraries);
+console.log('data.todo.FW: ', data.todo.FW);
+console.log('data.pascal.WClibraries: ', data.pascal.WClibraries);
+console.log('data.pascal.FW: ', data.pascal.FW);
 
-ejs.renderFile('./common/index.ejs', data, {}, function(err, str) {
+ejs.renderFile('./common/index.ejs', data, {}, function (err, str) {
     fs.outputFile('./docs/index.html', str, err => {
         if (err) throw err;
         console.log('The file has been saved!');
