@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "parcel build src/index.html --no-source-maps --experimental-scope-hoisting",
+        "build": "parcel build src/index.html --no-source-maps --public-url '/pascal-triangle/skatejs-lit-html/dist/'",
         "start": "parcel src/index.html"
     },
     "dependencies": {
