@@ -35,4 +35,4 @@ Input.observables = {
 	placeholder: String
 }
 
-export default customElement("atomico-todo-input",Input)
+export default customElement("todo-input",Input)

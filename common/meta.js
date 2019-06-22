@@ -14,8 +14,7 @@ module.exports = {
             version: require('../todomvc/atomico/package.json').dependencies[
                 '@atomico/core'
             ],
-            stars: 1288,
-            noshadowdom: true,
+            stars: 250,
             paths: ['atomico/dist/dist/atomico.mjs']
         },
         {

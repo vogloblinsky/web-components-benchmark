@@ -46,4 +46,4 @@ function Todo(){
 	);
 }
 
-customElement("atomico-todo",Todo);
+customElement("my-todo",Todo);
