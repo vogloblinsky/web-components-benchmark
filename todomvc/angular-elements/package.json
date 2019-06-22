@@ -12,13 +12,13 @@
     },
     "private": true,
     "dependencies": {
-        "@angular/common": "8.0.1",
-        "@angular/compiler": "8.0.1",
-        "@angular/core": "8.0.1",
-        "@angular/elements": "8.0.1",
-        "@angular/forms": "8.0.1",
-        "@angular/platform-browser": "8.0.1",
-        "@angular/platform-browser-dynamic": "8.0.1",
+        "@angular/common": "8.0.2",
+        "@angular/compiler": "8.0.2",
+        "@angular/core": "8.0.2",
+        "@angular/elements": "8.0.2",
+        "@angular/forms": "8.0.2",
+        "@angular/platform-browser": "8.0.2",
+        "@angular/platform-browser-dynamic": "8.0.2",
         "@webcomponents/custom-elements": "^1.2.4",
         "core-js": "3.1.4",
         "mutation-observer": "1.0.3",
@@ -26,12 +26,12 @@
         "zone.js": "0.9.1"
     },
     "devDependencies": {
-        "@angular/compiler-cli": "8.0.1",
+        "@angular/compiler-cli": "8.0.2",
         "@ngtools/webpack": "8.0.3",
         "compression-webpack-plugin": "3.0.0",
         "typescript": "3.4.5",
         "uglify-es": "3.3.9",
-        "webpack": "^4.34.0",
+        "webpack": "^4.35.0",
         "webpack-cli": "^3.3.4"
     }
 }

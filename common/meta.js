@@ -1,12 +1,21 @@
 module.exports = {
-    wc: [
-        {
+    wc: [{
             name: 'Native',
             slug: 'native',
             version: '',
             github: 'https://github.com/webcomponents/webcomponentsjs',
             stars: '',
             paths: ['native/dist/bundle.js']
+        },
+        {
+            name: 'Atomico',
+            slug: 'atomico',
+            github: 'https://github.com/atomicojs/atomico',
+            version: require('../todomvc/atomico/package.json').dependencies[
+                '@atomico/core'
+            ],
+            stars: 1288,
+            paths: ['atomico/dist/dist/atomico.mjs']
         },
         {
             name: 'Hybrids',
@@ -134,8 +143,7 @@ module.exports = {
             paths: ['svelte/dist/bundle.js']
         }
     ],
-    fw: [
-        {
+    fw: [{
             name: 'Angular Elements',
             slug: 'angular-elements',
             github: 'https://github.com/angular/angular',

@@ -22,7 +22,7 @@
         "concat-cli": "^4.0.0",
         "uglify-es": "3.3.9",
         "vue-template-compiler": "^2.6.10",
-        "webpack": "^4.34.0"
+        "webpack": "^4.35.0"
     },
     "dependencies": {
         "vue": "^2.6.10"
