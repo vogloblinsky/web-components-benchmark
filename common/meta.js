@@ -15,6 +15,7 @@ module.exports = {
                 '@atomico/core'
             ],
             stars: 1288,
+            noshadowdom: true,
             paths: ['atomico/dist/dist/atomico.mjs']
         },
         {
