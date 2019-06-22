@@ -13,11 +13,11 @@
 	"scripts": {
 		"build": "rollup -c",
 		"dev": "rollup -c -w",
-		"postbuild": "cp -R public/* dist"
+		"postbuild": "rm -rf dist && mkdir dist && cp -R public/* dist"
 	},
 	"dependencies": {
-		"@atomico/core": "^1.4.1",
-		"@atomico/element": "^0.6.4"
+		"@atomico/core": "^1.5.2",
+		"@atomico/element": "^0.6.7"
 	},
 	"devDependencies": {
 		"rollup": "^1.7.4",

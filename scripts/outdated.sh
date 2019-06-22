@@ -7,6 +7,8 @@ cd angular-elements
 npm outdated
 cd ../angular-elements-ivy
 npm outdated
+cd ../atomico
+npm outdated
 cd ../dojo
 npm outdated
 cd ../hybrids
@@ -24,6 +26,8 @@ npm outdated
 cd ../skatejs-preact
 npm outdated
 cd ../slim.js
+npm outdated
+cd ../solid
 npm outdated
 cd ../stencil
 npm outdated
@@ -39,6 +43,8 @@ echo ""
 cd ../../todomvc
 cd angular-elements
 npm outdated
+cd ../atomico
+npm outdated
 cd ../dojo
 npm outdated
 cd ../hybrids
@@ -56,6 +62,8 @@ npm outdated
 cd ../skatejs-preact
 npm outdated
 cd ../slim.js
+npm outdated
+cd ../solid
 npm outdated
 cd ../stencil
 npm outdated
