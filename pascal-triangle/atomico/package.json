@@ -20,13 +20,13 @@
 		"@atomico/element": "^0.6.7"
 	},
 	"devDependencies": {
-		"rollup": "^1.7.4",
+		"rollup": "^1.16.2",
 		"rollup-plugin-browsersync": "^1.0.0",
 		"rollup-plugin-bundle-size": "^1.0.3",
-		"rollup-plugin-delete": "^0.2.1",
-		"rollup-plugin-node-resolve": "^4.0.1",
+		"rollup-plugin-delete": "^1.0.0",
+		"rollup-plugin-node-resolve": "^5.0.4",
 		"rollup-plugin-postcss": "^2.0.3",
 		"rollup-plugin-sucrase": "^2.1.0",
-		"rollup-plugin-terser": "^4.0.4"
+		"rollup-plugin-terser": "^5.0.0"
 	}
 }

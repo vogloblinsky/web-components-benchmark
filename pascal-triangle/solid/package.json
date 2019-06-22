@@ -19,8 +19,8 @@
   },
   "devDependencies": {
     "@babel/core": "7.4.5",
-    "rollup": "1.16.1",
-    "rollup-plugin-babel": "4.3.2",
+    "rollup": "1.16.2",
+    "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-node-resolve": "5.0.4",
     "rollup-plugin-terser": "5.0.0"
   }
