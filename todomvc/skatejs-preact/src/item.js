@@ -1,27 +1,25 @@
 // @jsx h
 
-import { props } from 'skatejs/dist/esnext';
-import { h } from 'preact';
-import { Component } from './util';
+import Element, { h } from '@skatejs/element-preact';
+import { html } from "./_";
 
-export default class extends Component {
-    static events = ['check', 'remove'];
-    static props = {
-        checked: props.boolean,
-        index: props.number
-    };
+export class Item extends Element {
+  static props = {
+    index: Number,
+    checked: Boolean
+  }
 
-    handleCheck = e => {
-        this.onCheck({ index: this.index, value: e.target.checked });
-    };
-    handleRemove = () => {
-        this.onRemove({ index: this.index });
-    };
+  handleCheck(e) {
+    this.dispatchEvent(new CustomEvent("check", { detail: { index: this.index, value: this.checked } }));
+  }
+  handleRemove() {
+    this.dispatchEvent(new CustomEvent("remove", { detail: { index: this.index, value: this.checked } }));
+  }
 
-    render({ checked, handleCheck, handleRemove }) {
-        return (
-            <div>
-                <style>{`
+  render() {
+    return html`
+      <div>
+        <style>
           :host {
             display: block;
           }
@@ -43,19 +41,9 @@ export default class extends Component {
             bottom: 0;
             margin: auto 0;
             border: none;
-            /* Mobile Safari */
-            -webkit-appearance: none;
-            appearance: none;
           }
 
-          li input:after {
-            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
-          }
-
-          li input:checked:after {
-            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
-          }
-
+          
           li label {
             white-space: pre;
             word-break: break-word;
@@ -110,19 +98,13 @@ export default class extends Component {
           li button:hover {
             color: #af5b5e;
           }
-        `}</style>
-                <li class={checked ? 'completed' : ''}>
-                    <input
-                        type="checkbox"
-                        checked={checked}
-                        onChange={handleCheck}
-                    />
-                    <label>
-                        <slot />
-                    </label>
-                    <button onClick={handleRemove}>x</button>
-                </li>
-            </div>
-        );
-    }
+        </style>
+        <li class="${this.checked ? "completed" : ""}">
+          <input type="checkbox" checked="${this.checked}" onChange="${this.handleCheck.bind(this)}"/>
+          <label><slot></slot></label>
+          <button onClick="${this.handleRemove.bind(this)}">x</button>
+        </li>
+      </div>
+    `;
+  }
 }

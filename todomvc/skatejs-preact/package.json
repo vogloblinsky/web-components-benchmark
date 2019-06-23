@@ -3,21 +3,20 @@
     "name": "todomvc-skatejs-preact",
     "scripts": {
         "prebuild": "rm -rf dist && mkdir dist",
-        "postbuild": "cp index.html dist",
-        "build": "npx webpack --mode production",
-        "start": "webpack --mode development --watch"
+        "build": "node build.js",
+        "postbuild": "sh fix-build.sh && node fix-build-index.js",
+        "start": "parcel src/index.html",
+        "rebuild": "parcel build src/index.html"
     },
     "dependencies": {
-        "@skatejs/renderer-preact": "^0.3.3",
-        "preact": "^8.4.2",
-        "skatejs": "^5.2.4"
+        "@skatejs/element-preact": "0.0.1",
+        "htm": "^2.1.1",
+        "preact": "^8.4.2"
     },
     "devDependencies": {
         "@babel/core": "^7.4.5",
         "@babel/plugin-proposal-class-properties": "^7.4.4",
         "@babel/preset-react": "^7.0.0",
-        "babel-loader": "^8.0.6",
-        "webpack": "^4.35.0",
-        "webpack-cli": "^3.3.4"
+        "parcel-bundler": "^1.12.3"
     }
 }

@@ -1,0 +1,1 @@
+find dist -depth -name "*.js" -exec sh -c 'f="{}"; mv -- "$f" "dist/main.js"' \;
