@@ -2,7 +2,7 @@
     "private": true,
     "name": "todomvc-skatejs-lit-html",
     "scripts": {
-        "build": "parcel build src/index.html --no-source-maps --public-url '/todomvc/skatejs-lit-html/dist/'",
+        "build": "parcel build src/index.html --no-source-maps --public-url '/web-components-benchmark/demos/todomvc/skatejs-lit-html/'",
         "start": "parcel src/index.html"
     },
     "dependencies": {
