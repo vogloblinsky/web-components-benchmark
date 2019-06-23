@@ -3,12 +3,12 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 
 export default {
-	input: 'src/pascal-triangle.js',
+	input: 'src/main.js',
 	output: {
 		sourcemap: false,
 		format: 'iife',
 		name: 'pascalTriangle',
-		file: 'dist/pascal-triangle.js'
+		file: 'dist/bundle.js'
 	},
 	plugins: [
 		svelte({
