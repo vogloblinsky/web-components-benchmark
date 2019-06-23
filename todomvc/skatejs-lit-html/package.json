@@ -2,21 +2,19 @@
     "private": true,
     "name": "todomvc-skatejs-lit-html",
     "scripts": {
-        "prebuild": "rm -rf dist && mkdir dist",
-        "postbuild": "cp index.html dist",
-        "build": "npx webpack --mode production",
-        "start": "webpack --mode development --watch"
+        "build": "parcel build src/index.html --no-source-maps --public-url '/todomvc/skatejs-lit-html/dist/'",
+        "start": "parcel src/index.html"
     },
     "dependencies": {
+        "@skatejs/element": "^0.0.1",
+        "@skatejs/element-lit-html": "^0.0.1",
         "@skatejs/renderer-lit-html": "^0.2.2",
-        "lit-html": "1.1.0",
+        "lit-html": "^0.11.4",
         "skatejs": "^5.2.4"
     },
     "devDependencies": {
         "@babel/core": "^7.4.5",
         "@babel/plugin-proposal-class-properties": "^7.4.4",
-        "babel-loader": "^8.0.6",
-        "webpack": "^4.34.0",
-        "webpack-cli": "^3.3.4"
+        "parcel-bundler": "^1.9.7"
     }
 }

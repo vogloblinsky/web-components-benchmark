@@ -1,23 +1,20 @@
-import { props } from "skatejs/dist/esnext";
-import { html } from "lit-html";
-import { Component } from "./util";
+import Element, { h } from '@skatejs/element-lit-html';
 
-export default class extends Component {
-  static events = ["check", "remove"];
+export class Item extends Element {
   static props = {
-    checked: props.boolean,
-    index: props.number
-  };
+    index: Number,
+    checked: Boolean
+  }
 
-  handleCheck = e => {
-    this.onCheck({ index: this.index, value: e.target.checked });
-  };
-  handleRemove = () => {
-    this.onRemove({ index: this.index });
-  };
+  handleCheck(e) {
+    this.dispatchEvent(new CustomEvent("check", { detail: { index: this.index, value: this.checked } }));
+  }
+  handleRemove() {
+    this.dispatchEvent(new CustomEvent("remove", { detail: { index: this.index, value: this.checked } }));
+  }
 
-  render({ checked, handleCheck, handleRemove }) {
-    return html`
+  render() {
+    return h`
       <style>
         :host {
           display: block;
@@ -46,11 +43,10 @@ export default class extends Component {
         }
 
         li input:after {
-          content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
+          content: url('data:image/svg+xml;utf8,<svg%20xmlns%3D"http%3A//www.w3.org/2000/svg"%20width%3D"40"%20height%3D"40"%20viewBox%3D"-10%20-18%20100%20135"><circle%20cx%3D"50"%20cy%3D"50"%20r%3D"50"%20fill%3D"none"%20stroke%3D"%23ededed"%20stroke-width%3D"3"/></svg>');
         }
-
         li input:checked:after {
-          content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+            content: url('data:image/svg+xml;utf8,<svg%20xmlns%3D"http%3A//www.w3.org/2000/svg"%20width%3D"40"%20height%3D"40"%20viewBox%3D"-10%20-18%20100%20135"><circle%20cx%3D"50"%20cy%3D"50"%20r%3D"50"%20fill%3D"none"%20stroke%3D"%23bddad5"%20stroke-width%3D"3"/><path%20fill%3D"%235dc2af"%20d%3D"M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z"/></svg>');
         }
 
         li label {
@@ -108,10 +104,10 @@ export default class extends Component {
           color: #af5b5e;
         }
       </style>
-      <li class="${checked ? "completed" : ""}">
-        <input type="checkbox" ?checked="${checked}" @change="${handleCheck}" />
+      <li class="${this.checked ? "completed" : ""}">
+        <input type="checkbox" ?checked="${this.checked}" @change="${() => this.handleCheck()}" />
         <label><slot></slot></label>
-        <button @click="${handleRemove}">x</button>
+        <button @click="${() => this.handleRemove()}">x</button>
       </li>
     `;
   }

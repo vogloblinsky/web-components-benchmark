@@ -1,24 +1,22 @@
-import { html } from 'lit-html';
-import { Component } from './util';
+import Element, { h } from '@skatejs/element-lit-html';
 
-export default class extends Component {
-    static events = ['submit'];
-    state = {
-        value: ''
-    };
+export class Input extends Element {
+    static props = {
+        value: String
+    }
 
     handleInput = e => {
-        this.state = { value: e.target.value };
+        this.value = e.target.value;
     };
     handleSubmit = e => {
         e.preventDefault();
-        if (!this.state.value) return;
-        this.onSubmit({ value: this.state.value });
-        this.state = { value: '' };
+        if (!this.value) return;
+        this.dispatchEvent(new CustomEvent("submit", { detail: { value: this.value } }));
+        this.shadowRoot.querySelector('input').value = '';
     };
 
-    render({ handleInput, handleSubmit }) {
-        return html`
+    render() {
+        return h`
             <style>
                 :host {
                     display: block;
@@ -50,12 +48,12 @@ export default class extends Component {
                     box-sizing: border-box;
                 }
             </style>
-            <form @submit="${handleSubmit}">
+            <form @submit="${(e) => this.handleSubmit(e)}">
                 <input
-                    value="${this.state.value}"
+                    value="${this.value}"
                     type="text"
                     placeholder="What needs to be done?"
-                    @input="${handleInput}"
+                    @input="${(e) => this.handleInput(e)}"
                 />
             </form>
         `;

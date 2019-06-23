@@ -1,33 +1,44 @@
-import { html } from 'lit-html';
-import { Component } from './util';
+import Element, {
+    h
+} from '@skatejs/element-lit-html';
 
-export default class extends Component {
-    state = {
-        list: [
-            { text: 'my initial todo', checked: false },
-            { text: 'Learn about Web Components', checked: true }
-        ]
-    };
+export class App extends Element {
+    static get props() {
+        return {
+            list: Array
+        };
+    }
+
+    constructor() {
+        super();
+        this.list = [{
+                text: 'my initial todo',
+                checked: false
+            },
+            {
+                text: 'Learn about Web Components',
+                checked: true
+            }
+        ];
+    }
 
     handleCheck = e => {
-        this.state.list[e.detail.index].checked = e.detail.value;
-        this.state = this.state;
+        this.list[e.detail.index].checked = e.detail.value;
     };
     handleRemove = e => {
-        this.state = {
-            list: this.state.list.filter(
+        this.list = this.list.filter(
                 (item, index) => index !== e.detail.index
-            )
-        };
+            );
     };
     handleSubmit = e => {
-        this.state = {
-            list: [...this.state.list, { text: e.detail.value, checked: false }]
-        };
+        this.list = [...this.list, {
+                text: e.detail.value,
+                checked: false
+            }];
     };
 
-    render({ handleCheck, handleRemove, handleSubmit }) {
-        return html`
+    render() {
+        return h`
             <style>
                 :host {
                     display: block;
@@ -57,21 +68,9 @@ export default class extends Component {
             </style>
             <h1>SkateJS & lit-html</h1>
             <section>
-                <todo-input @submit="${handleSubmit}"></todo-input>
+                <todo-input @submit="${(e) => this.handleSubmit(e)}"></todo-input>
                 <ul id="list-container">
-                    ${
-                        this.state.list.map(
-                            ({ checked, text }, index) => html`
-                                <todo-item
-                                    .checked="${checked}"
-                                    .index="${index}"
-                                    @check="${handleCheck}"
-                                    @remove="${handleRemove}"
-                                    >${text}</todo-item
-                                >
-                            `
-                        )
-                    }
+                    ${this.list.map(({ checked, text }, index) => h`<todo-item ?checked="${checked}" index="${index}" @check="${(e) => this.handleCheck(e)}" @remove="${(e) => this.handleRemove(e)}">${text}</todo-item>`)}
                 </ul>
             </section>
         `;
