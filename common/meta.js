@@ -80,7 +80,7 @@ module.exports = {
             slug: 'skatejs-lit-html',
             github: 'https://github.com/skatejs/skatejs',
             version: require('../todomvc/skatejs-lit-html/package.json')
-                .dependencies['@skatejs/renderer-lit-html'],
+                .dependencies['@skatejs/element-lit-html'],
             stars: 2991,
             paths: ['skatejs-lit-html/dist/main.js']
         },
@@ -89,7 +89,7 @@ module.exports = {
             slug: 'skatejs-preact',
             github: 'https://github.com/skatejs/skatejs',
             version: require('../todomvc/skatejs-preact/package.json')
-                .dependencies['@skatejs/renderer-preact'],
+                .dependencies['@skatejs/element-preact'],
             stars: 2991,
             paths: ['skatejs-preact/dist/main.js']
         },
