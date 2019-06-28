@@ -1,32 +1,32 @@
 {
-	"name": "atomico",
-	"version": "0.0.0",
-	"description": "todo",
-	"source": "src/index.js",
-	"module": "public/dist/atomico.mjs",
-	"unpkg": "public/dist/atomico.umd.js",
-	"author": "Matias Trujillo ",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/"
-	},
-	"scripts": {
-		"build": "rollup -c",
-		"dev": "rollup -c -w",
-		"postbuild": "rm -rf dist && mkdir dist && cp -R public/* dist"
-	},
-	"dependencies": {
-		"@atomico/core": "^1.5.2",
-		"@atomico/element": "^0.6.7"
-	},
-	"devDependencies": {
-		"rollup": "^1.16.2",
-		"rollup-plugin-browsersync": "^1.0.0",
-		"rollup-plugin-bundle-size": "^1.0.3",
-		"rollup-plugin-delete": "^1.0.0",
-		"rollup-plugin-node-resolve": "^5.0.4",
-		"rollup-plugin-postcss": "^2.0.3",
-		"rollup-plugin-sucrase": "^2.1.0",
-		"rollup-plugin-terser": "^5.0.0"
-	}
+    "name": "atomico",
+    "version": "0.0.0",
+    "description": "todo",
+    "source": "src/index.js",
+    "module": "public/dist/atomico.mjs",
+    "unpkg": "public/dist/atomico.umd.js",
+    "author": "Matias Trujillo ",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/"
+    },
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "postbuild": "rm -rf dist && mkdir dist && cp -R public/* dist"
+    },
+    "dependencies": {
+        "@atomico/core": "^1.5.2",
+        "@atomico/element": "^0.6.7"
+    },
+    "devDependencies": {
+        "rollup": "^1.16.2",
+        "rollup-plugin-browsersync": "^1.0.0",
+        "rollup-plugin-bundle-size": "^1.0.3",
+        "rollup-plugin-delete": "^1.0.0",
+        "rollup-plugin-node-resolve": "^5.1.0",
+        "rollup-plugin-postcss": "^2.0.3",
+        "rollup-plugin-sucrase": "^2.1.0",
+        "rollup-plugin-terser": "^5.0.0"
+    }
 }

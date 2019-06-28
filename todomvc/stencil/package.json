@@ -8,7 +8,7 @@
     "start": "stencil build --dev --watch --serve"
   },
   "dependencies": {
-    "@stencil/core": "^1.0.7"
+    "@stencil/core": "^1.1.2"
   },
   "repository": {
     "type": "git",
