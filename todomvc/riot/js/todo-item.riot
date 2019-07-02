@@ -1,19 +1,26 @@
-<todo-item class={completed: opts.todo.checked}>
+<todo-item>
+    
+    <li class="item">
+        <input type="checkbox" onchange={onToggle} checked={props.todo.checked}>
+        <label>{props.todo.text}</label>
+        <button class="destroy" onclick={onRemove}>
+            x
+        </button>
+    </li>
+
     <style>
-        :scope {
+        :host {
             display: block;
+        }
+
+        li.item {
             font-size: 24px;
             display: block;
             position: relative;
             border-bottom: 1px solid #ededed;
         }
 
-        :scope.completed label {
-            color: #d9d9d9;
-            text-decoration: line-through;
-        }
-
-        input {
+        li.item input {
             text-align: center;
             width: 40px;
             /* auto, since non-WebKit browsers doesn't support input styling */
@@ -23,20 +30,9 @@
             bottom: 0;
             margin: auto 0;
             border: none;
-            /* Mobile Safari */
-            -webkit-appearance: none;
-            appearance: none;
         }
 
-        input:after {
-            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
-        }
-
-        input:checked:after {
-            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
-        }
-
-        label {
+        li.item label {
             white-space: pre;
             word-break: break-word;
             padding: 15px 60px 15px 15px;
@@ -46,12 +42,17 @@
             transition: color 0.4s;
         }
 
-        button,
-        input[type="checkbox"] {
+        li.item.completed label {
+            color: #d9d9d9;
+            text-decoration: line-through;
+        }
+
+        li.item button,
+            li.item input[type="checkbox"] {
             outline: none;
         }
 
-        button {
+        li.item button {
             margin: 0;
             padding: 0;
             border: 0;
@@ -68,7 +69,7 @@
             font-smoothing: antialiased;
         }
 
-        .destroy {
+        li.item .destroy {
             position: absolute;
             top: 0;
             right: 10px;
@@ -82,23 +83,23 @@
             transition: color 0.2s ease-out;
         }
 
-        .destroy:hover {
+        li.item .destroy:hover {
             color: #af5b5e;
         }
-    </style>
+  </style>
 
-    <input type="checkbox" onchange={onToggle} checked={opts.todo.checked}>
-    <label>{opts.todo.text}</label>
-    <button class="destroy" onclick={onRemove}>
-        x
-    </button>
-    <script>
+  <script>
+    export default {
+        onMounted(props) {
+            const {todo} = props;
+        },
         onRemove() {
-            opts.onRemove(opts.todo.id)
-        }
+            this.props.onRemove(this.props.todo.id)
+        },
 
         onToggle(e) {
-            opts.onChange(opts.todo.id, e.target.checked)
+            this.props.onChange(this.props.todo.id, e.target.checked)
         }
-    </script>
+    }
+  </script>
 </todo-item>

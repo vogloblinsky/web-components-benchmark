@@ -30,14 +30,17 @@
         <input ref='input' type="text" placeholder="What needs to be done?"/>
     </form>
     <script>
-        add(e) {
-            const input = this.refs.input
+        export default {
+            add(e) {
+                 e.preventDefault()
+                const input = this.root.querySelector('input')
+                console.log(this.root);
+               
+                this.props.onNewTodo(input.value)
 
-            e.preventDefault()
-            opts.onNewTodo(input.value)
-
-            input.value = ''
-            input.blur()
+                input.value = ''
+                input.blur();
+            }
         }
     </script>
 </todo-input>
