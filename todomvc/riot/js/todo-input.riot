@@ -32,10 +32,9 @@
     <script>
         export default {
             add(e) {
-                 e.preventDefault()
-                const input = this.root.querySelector('input')
-                console.log(this.root);
-               
+                e.preventDefault()
+                const input = this.$('input')
+                
                 this.props.onNewTodo(input.value)
 
                 input.value = ''

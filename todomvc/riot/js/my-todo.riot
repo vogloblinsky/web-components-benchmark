@@ -41,10 +41,6 @@
                     { id: 1, text: 'Learn about Web Components', checked: true }
                 ]
             },
-            onMounted(props, state) {
-                // right after the component is mounted on the page
-                console.log(this.state)
-            },
             onNewTodo(text) {
                 this.update({
                     list: [
@@ -55,16 +51,13 @@
             },
 
             onChangeTodo(id, checked) {
-                console.log(id, checked);
                 const todo = this.state.list.find(e => e.id === id);
-
                 todo.checked = checked;
                 this.update();
             },
 
             onRemoveTodo(id) {
                 const index = this.state.list.findIndex(e => e.id === id)
-                console.log(id, index)
                 this.update({
                     list : [
                         ...this.state.list.slice(0, index),
