@@ -4,11 +4,11 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build-triangle-item": "npx vue-cli-service build --target wc --name triangle-item src/triangle-item.vue --dest build/triangle-item",
-        "build-pascal-triangle": "npx vue-cli-service build --target wc --name pascal-triangle src/pascal-triangle.vue --dest build/pascal-triangle",
-        "concat-js": "npx concat-cli -f build/triangle-item/triangle-item.min.js build/pascal-triangle/pascal-triangle.min.js -o dist/build.js",
-        "minify-js": "npx uglifyjs dist/build.js -o dist/build.js",
-        "minify-html": "rm -rf dist && mkdir dist && npx html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
+        "build-triangle-item": "../../node_modules/.bin/vue-cli-service build --target wc --name triangle-item src/triangle-item.vue --dest build/triangle-item",
+        "build-pascal-triangle": "../../node_modules/.bin/vue-cli-service build --target wc --name pascal-triangle src/pascal-triangle.vue --dest build/pascal-triangle",
+        "concat-js": "../../node_modules/.bin/concat-cli -f build/triangle-item/triangle-item.min.js build/pascal-triangle/pascal-triangle.min.js -o dist/build.js",
+        "minify-js": "../../node_modules/.bin/uglifyjs dist/build.js -o dist/build.js",
+        "minify-html": "rm -rf dist && mkdir dist && ../../node_modules/.bin/html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
         "prebuild": "rm -rf dist && mkdir dist",
         "build": "npm run minify-html && npm run build-triangle-item && npm run build-pascal-triangle && npm run concat-js && npm run minify-js && rm -rf build",
         "postbuild": "cp node_modules/vue/dist/vue.runtime.min.js dist"
@@ -16,13 +16,6 @@
     "keywords": [],
     "author": "",
     "license": "MIT",
-    "devDependencies": {
-        "@vue/cli-service": "^3.8.4",
-        "concat-cli": "^4.0.0",
-        "uglify-es": "3.3.9",
-        "vue-template-compiler": "^2.6.10",
-        "webpack": "^4.35.0"
-    },
     "dependencies": {
         "vue": "^2.6.10"
     }

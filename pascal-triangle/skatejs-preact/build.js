@@ -17,7 +17,6 @@ const options = {
 
 const bundler = new Bundler(entryFiles, options);
 bundler.on('buildEnd', () => {
-    console.log('buildEnd');
     process.exit(0);
 });
 bundler.on('buildError', error => {

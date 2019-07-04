@@ -1,4 +1,10 @@
 echo ""
+echo "GLOBAL"
+echo ""
+
+npm outdated
+
+echo ""
 echo "PASCAL-TRIANGLE"
 echo ""
 

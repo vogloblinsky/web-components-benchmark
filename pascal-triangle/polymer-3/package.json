@@ -9,7 +9,7 @@
         "concat-js": "npx concat-cli -f build/es6-unbundled/src/pascal-triangle.js build/es6-unbundled/src/triangle-item.js -o build/es6-unbundled/bundle_tmp.js",
         "rollup": "npx rollup -c",
         "minify-js": "npx uglifyjs build/es6-unbundled/bundle.js -o build/es6-unbundled/bundle.js",
-        "minify-html": "npx html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments"
+        "minify-html": "../../node_modules/.bin/html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments"
     },
     "dependencies": {
         "@polymer/iron-form": "^3.0.1",

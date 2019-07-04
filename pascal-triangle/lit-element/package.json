@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "minify-html": "npx html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
+        "minify-html": "../../node_modules/.bin/html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
         "copy-js": "cp js/* dist",
         "clean-js": "npx replace \"import { LitElement, html } from '../node_modules/lit-element/lit-element.js';\" \"\" dist/triangle-item.js dist/triangle-item.js",
         "concat-js": "npx concat-cli -f dist/app.js dist/triangle-item.js -o dist/bundle_tmp.js",
