@@ -16,6 +16,6 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "riot": "^4.2.0"
+        "riot": "^4.3.2"
     }
 }
