@@ -4,21 +4,17 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "minify-html": "npx html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
-        "compile-riot": "npx riot js --output dist",
+        "minify-html": "../../node_modules/.bin/html-minifier index.dist.html -o dist/index.html --collapse-whitespace --remove-comments",
+        "compile-riot": "../../node_modules/.bin/riot js --output dist",
         "copy-js": "cp js/app.js dist",
-        "minify-js": "npx uglifyjs dist/bundle_tmp.js -o dist/bundle.js",
-        "rollup": "rollup -c",
+        "minify-js": "../../node_modules/.bin/uglifyjs dist/bundle_tmp.js -o dist/bundle.js",
+        "rollup": "../../node_modules/.bin/rollup -c",
         "prebuild": "rm -rf dist && mkdir dist",
         "build": "npm run minify-html && npm run compile-riot && npm run copy-js && npm run rollup && npm run minify-js",
-        "postbuilde": "rm dist/my-todo.js && rm dist/todo-input.js && rm dist/todo-item.js && rm dist/app.js && rm dist/bundle_tmp.js"
+        "postbuild": "rm dist/my-todo.js && rm dist/todo-input.js && rm dist/todo-item.js && rm dist/app.js && rm dist/bundle_tmp.js"
     },
     "author": "",
     "license": "MIT",
-    "devDependencies": {
-        "@riotjs/cli": "^4.0.2",
-        "uglify-es": "3.3.9"
-    },
     "dependencies": {
         "riot": "^4.3.2"
     }

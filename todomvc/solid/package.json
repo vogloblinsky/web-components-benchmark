@@ -8,20 +8,12 @@
     "scripts": {
         "prebuild": "rm -rf dist && mkdir dist",
         "postbuild": "cp index.html dist",
-        "build": "rollup -c",
-        "dev": "rollup -c -w",
-        "start": "npx http-server dist & npm run dev"
+        "build": "../../node_modules/.bin/rollup -c",
+        "dev": "../../node_modules/.bin/rollup -c -w",
+        "start": "../../node_modules/.bin/http-server dist & npm run dev"
     },
     "dependencies": {
         "babel-plugin-jsx-dom-expressions": "0.10.0",
         "solid-element": "0.5.1"
-    },
-    "devDependencies": {
-        "@babel/core": "7.4.5",
-        "rollup": "1.16.2",
-        "rollup-plugin-babel": "4.3.3",
-        "rollup-plugin-node-resolve": "5.1.0",
-        "rollup-plugin-postcss": "2.0.3",
-        "rollup-plugin-terser": "5.0.0"
     }
 }

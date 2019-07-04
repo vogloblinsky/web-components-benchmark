@@ -4,21 +4,21 @@
     "license": "MIT",
     "scripts": {
         "prebuild": "rm -rf dist && mkdir dist",
-        "build": "npm run minify-html && npm run build-js && npm run minify-js",
-        "build-js": "webpack",
-        "minify-js": "npx uglifyjs dist/main.bundle.js -o dist/main.bundle.js",
-        "minify-html": "npx html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
+        "build": "../../node_modules/.bin/run-s minify-html build-js minify-js",
+        "build-js": "../../node_modules/.bin/webpack",
+        "minify-js": "../../node_modules/.bin/uglifyjs dist/main.bundle.js -o dist/main.bundle.js",
+        "minify-html": "../../node_modules/.bin/html-minifier index.html -o dist/index.html --collapse-whitespace --remove-comments",
         "serve": "npm run build && npx http-server ."
     },
     "private": true,
     "dependencies": {
-        "@angular/common": "8.0.3",
-        "@angular/compiler": "8.0.3",
-        "@angular/core": "8.0.3",
-        "@angular/elements": "8.0.3",
-        "@angular/forms": "8.0.3",
-        "@angular/platform-browser": "8.0.3",
-        "@angular/platform-browser-dynamic": "8.0.3",
+        "@angular/common": "8.1.0",
+        "@angular/compiler": "8.1.0",
+        "@angular/core": "8.1.0",
+        "@angular/elements": "8.1.0",
+        "@angular/forms": "8.1.0",
+        "@angular/platform-browser": "8.1.0",
+        "@angular/platform-browser-dynamic": "8.1.0",
         "@webcomponents/custom-elements": "^1.2.4",
         "core-js": "3.1.4",
         "mutation-observer": "1.0.3",
@@ -26,12 +26,7 @@
         "zone.js": "0.9.1"
     },
     "devDependencies": {
-        "@angular/compiler-cli": "8.0.3",
-        "@ngtools/webpack": "8.0.6",
-        "compression-webpack-plugin": "3.0.0",
-        "typescript": "3.4.5",
-        "uglify-es": "3.3.9",
-        "webpack": "^4.35.0",
-        "webpack-cli": "^3.3.5"
+        "@angular/compiler-cli": "8.1.0",
+        "@ngtools/webpack": "8.0.6"
     }
 }

@@ -5,15 +5,11 @@
     "main": "index.js",
     "scripts": {
         "prebuild": "rm -rf dist && mkdir dist",
-        "build": "npx webpack",
+        "build": "../../node_modules/.bin/webpack",
         "postbuild": "cp index.html dist"
     },
     "author": "",
     "license": "MIT",
-    "devDependencies": {
-        "webpack": "^4.35.0",
-        "webpack-cli": "^3.3.5"
-    },
     "dependencies": {
         "hybrids": "^4.0.2"
     }
