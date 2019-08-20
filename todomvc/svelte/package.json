@@ -15,6 +15,7 @@
         "prebuild": "rm -rf dist && mkdir dist",
         "minify-js": "./node_modules/.bin/uglifyjs dist/bundle.js -o dist/bundle.js",
         "build": "run-s svelte",
-        "postbuild": "cp index.html dist"
+        "postbuild": "cp index.html dist",
+        "serve": "npm run build && npx http-server dist"
     }
 }
