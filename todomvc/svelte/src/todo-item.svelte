@@ -89,28 +89,26 @@
 </style>
 
 <script>
-    import { createEventDispatcher } from 'svelte';
+    import { createEventDispatcher, onMount } from 'svelte';
     const dispatch = createEventDispatcher();
 
-    import { onMount } from 'svelte';
-
-    onMount(async () => {
-		console.log('onMount item: ', checked);
-	});
-
-	export let text = '';
+    export let text = '';
     export let checked = false;
     export let index = 0;
 
     $: statusClass = checked ? 'completed' : '';
 
-    function fire() {
-        dispatch('toggle');
+    function toggle() {
+        dispatch('toggle', index);
+    }
+
+    function remove() {
+        dispatch('remove', index);
     }
 </script>
 
 <li class="item {statusClass}">
-    <input type="checkbox" bind:checked={checked} on:click={fire()}>
+    <input type="checkbox" bind:checked={checked} on:click={() => toggle()}>
     <label>{text}</label>
-    <button class="destroy" on:click={fire()}>x</button>
+    <button class="destroy" on:click={() => remove()}>x</button>
 </li>

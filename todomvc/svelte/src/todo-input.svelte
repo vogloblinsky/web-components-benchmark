@@ -29,15 +29,21 @@
 </style>
 
 <script>
-    import { createEventDispatcher } from 'svelte';
+    import { createEventDispatcher, onMount } from 'svelte';
     const dispatch = createEventDispatcher();
 	export let text = '';
 
+    let input;
+
+    onMount(async () => {
+		input = document.querySelector('my-todo').shadowRoot.querySelector('todo-input');
+	});
+
     function create(e) {
         e.preventDefault();
-        console.log('dispatch: ', dispatch);
-        dispatch('createee', text);
-        console.log('create: ', text);
+        dispatch('create', text);
+        text = '';
+        input.blur();
     }
 </script>
 

@@ -24,6 +24,8 @@
 </style>
 
 <script>
+    import { onMount } from 'svelte';
+
 	let todoList = [{
             text: 'my initial todo',
             checked: false,
@@ -37,58 +39,77 @@
     ];
 
     let input;
+    let items;
+    let offs = {};
+    let toggles = {};
 
-    import { onMount } from 'svelte';
-
-    onMount(async () => {
+    onMount(() => {
 		input = document.querySelector('my-todo').shadowRoot.querySelector('todo-input');
-        console.log(input);
+        syncItems();
 
-        input.addEventListener('createee', function (ev) {
-            console.log('createee');
-        });
+        setTimeout(() => {
+            input.$on('create', (ev) => {
+                addItem(ev.detail);
+            });
+            listemItems();
+        }, 1000);
 	});
 
-    console.log(todoList);
+    function syncItems() {
+        items = document.querySelector('my-todo').shadowRoot.querySelectorAll('todo-item');
+    }
+
+    function listemItems() {
+        items.forEach((item) => {
+            const off = item.$on('remove', removeItem);
+            if (typeof offs[item.index] !== 'undefined') {
+                offs[item.index]();
+            } else {
+                offs[item.index] = off;
+            }
+            const toggle = item.$on('toggle', toggleItem);
+            if (typeof toggles[item.index] !== 'undefined') {
+                toggles[item.index]();
+            } else {
+                toggles[item.index] = toggle;
+            }
+        });
+    }
 
     function addItem(text) {
-        console.log('addItem: ', text);
-        const { todoList } = this.get();
-        todoList.push({
+        todoList = [...todoList, {
             text,
             checked: false,
             id: todoList[todoList.length - 1].id + 1
-        });
-        this.set({
-            todoList
-        });
+        }];
+        setTimeout(() => {
+            syncItems();
+            listemItems();
+        }, 1000);
     }
 
-    function removeItem(index) {
-        console.log('removeItem: ', index);
-        const { todoList } = this.get();
-        todoList.splice(index, 1);
-        this.set({
-            todoList
-        });
+    function removeItem(ev) {
+        todoList.splice(parseInt(ev.detail), 1);
+        todoList = todoList;
     }
 
-    function toggleItem(item) {
-        console.log('toggleItem: ', item);
-        item.checked = !item.checked
-        this.set({
-            todoList: this.get().todoList
-        });
+    function toggleItem(ev) {
+        const item = todoList[parseInt(ev.detail)];
+        todoList[parseInt(ev.detail)] = {
+            ...item,
+            checked: !item.checked
+        };
+        todoList = todoList;
     }
 </script>
 
 <div>
     <h1>Todos Svelte</h1>
     <section>
-        <todo-input on:createee={addItem}></todo-input>
+        <todo-input on:create={addItem}></todo-input>
         <ul id="list-container">
             {#each todoList as todo, index (todo.id)}
-                <todo-item text={todo.text} checked={todo.checked} on:toggle={toggleItem} on:remove={removeItem}></todo-item>
+                <todo-item text={todo.text} checked={todo.checked} index={todo.id} on:toggle={toggleItem} on:remove={removeItem}></todo-item>
             {/each}
         </ul>
     </section>
