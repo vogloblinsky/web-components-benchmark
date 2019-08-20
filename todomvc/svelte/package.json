@@ -7,7 +7,6 @@
         "rollup-plugin-commonjs": "^10.0.2",
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-svelte": "^5.1.0",
-        "svelte": "^3.8.1",
         "uglify-es": "^3.3.9"
     },
     "scripts": {
@@ -17,5 +16,8 @@
         "build": "run-s svelte",
         "postbuild": "cp index.html dist",
         "serve": "npm run build && npx http-server dist"
+    },
+    "dependencies": {
+        "svelte": "^3.8.1"
     }
 }
