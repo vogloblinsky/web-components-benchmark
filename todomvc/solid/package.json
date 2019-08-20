@@ -13,7 +13,7 @@
         "start": "../../node_modules/.bin/http-server dist & npm run dev"
     },
     "dependencies": {
-        "babel-plugin-jsx-dom-expressions": "0.10.0",
-        "solid-element": "0.5.1"
+        "babel-plugin-jsx-dom-expressions": "0.11.2",
+        "solid-element": "0.6.0"
     }
 }
