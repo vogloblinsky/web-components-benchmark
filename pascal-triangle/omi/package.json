@@ -17,6 +17,6 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "omi": "^6.6.8"
+        "omi": "^6.9.0"
     }
 }
