@@ -1,28 +1,25 @@
 import svelte from 'rollup-plugin-svelte';
-import uglify from 'rollup-plugin-uglify-es';
-import filesize from 'rollup-plugin-filesize';
-
-const plugins = [
-    svelte({
-        customElement: true
-    })
-];
-if (process.env.production) {
-    plugins.push(
-        uglify({
-            compress: true,
-            mangle: true
-        }),
-        filesize()
-    );
-}
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
 
 export default {
-    input: 'src/main.js',
+    input: 'src/app.js',
     output: {
-        file: 'dist/bundle.js',
+        sourcemap: false,
         format: 'iife',
-        sourcemap: process.env.production ? false : true
+        name: 'myTodo',
+        file: 'dist/bundle.js'
     },
-    plugins
+    plugins: [
+        svelte({
+            // enable run-time checks when not in production
+            dev: false,
+            customElement: true
+        }),
+
+        resolve({
+            browser: true
+        }),
+        commonjs()
+    ]
 };

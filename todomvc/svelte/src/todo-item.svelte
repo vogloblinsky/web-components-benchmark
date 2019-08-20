@@ -1,3 +1,5 @@
+<svelte:options tag="todo-item"/>
+
 <style>
     :host {
         display: block;
@@ -20,16 +22,13 @@
         bottom: 0;
         margin: auto 0;
         border: none;
-        /* Mobile Safari */
-        -webkit-appearance: none;
-        appearance: none;
     }
 
-    li.item input:after {
+    li input:after {
         content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
     }
 
-    li.item input:checked:after {
+    li input:checked:after {
         content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
     }
 
@@ -88,19 +87,28 @@
         color: #af5b5e;
     }
 </style>
-<li class="item {statusClass}">
-    <input type="checkbox" checked="{checked}" on:click="fire('toggle')">
-    <label>{text}</label>
-    <button class="destroy" on:click="fire('remove')">x</button>
-</li>
+
 <script>
-    export default {
-        tag: 'todo-item',
-        props: ['text', 'checked', 'index'],
-        computed: {
-            statusClass ({ checked }) {
-                return checked ? 'completed' : '';
-            }
-        }
+    import { createEventDispatcher, onMount } from 'svelte';
+    const dispatch = createEventDispatcher();
+
+    export let text = '';
+    export let checked = false;
+    export let index = 0;
+
+    $: statusClass = checked ? 'completed' : '';
+
+    function toggle() {
+        dispatch('toggle', index);
+    }
+
+    function remove() {
+        dispatch('remove', index);
     }
 </script>
+
+<li class="item {statusClass}">
+    <input type="checkbox" bind:checked={checked} on:click={() => toggle()}>
+    <label>{text}</label>
+    <button class="destroy" on:click={() => remove()}>x</button>
+</li>
