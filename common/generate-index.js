@@ -214,7 +214,7 @@ metas.fw.forEach(lib => {
 
 data.todo.max = maxTodo;
 data.pascal.max = maxPascal;
-data.buildDateAndTime = format(new Date(), 'DD/MM/YYYY - HH:mm:ss');
+data.buildDateAndTime = format(new Date(), 'dd/MM/YYYY - HH:mm:ss');
 
 console.log('data.todo.WClibraries: ', data.todo.WClibraries);
 console.log('data.todo.FW: ', data.todo.FW);
