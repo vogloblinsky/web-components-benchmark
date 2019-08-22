@@ -1,23 +1,16 @@
 {
     "name": "svelte-todomvc",
     "version": "1.0.0",
-    "devDependencies": {
-        "npm-run-all": "^4.1.5",
-        "rollup": "^1.20.0",
-        "rollup-plugin-commonjs": "^10.0.2",
-        "rollup-plugin-node-resolve": "^5.2.0",
-        "rollup-plugin-svelte": "^5.1.0",
-        "uglify-es": "^3.3.9"
-    },
+    "devDependencies": {},
     "scripts": {
-        "svelte": "rollup -c rollup.config.js",
+        "svelte": "../../node_modules/.bin/rollup -c rollup.config.js",
         "prebuild": "rm -rf dist && mkdir dist",
-        "minify-js": "./node_modules/.bin/uglifyjs dist/bundle.js -o dist/bundle.js",
-        "build": "run-s svelte",
+        "minify-js": "../../node_modules/.bin/uglifyjs dist/bundle.js -o dist/bundle.js",
+        "build": "../../node_modules/.bin/run-s svelte",
         "postbuild": "cp index.html dist",
         "serve": "npm run build && npx http-server dist"
     },
     "dependencies": {
-        "svelte": "^3.9.0"
+        "svelte": "^3.9.1"
     }
 }
