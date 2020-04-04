@@ -1,0 +1,23 @@
+{
+  "bootstrap.css": "bootstrap.b45c2d555bc0e7d10ffa.bundle.css",
+  "bootstrap.js": "bootstrap.187c65916ead42f59eec.bundle.js",
+  "bootstrap.css.map": "bootstrap.b45c2d555bc0e7d10ffa.bundle.css.map",
+  "bootstrap.js.map": "bootstrap.187c65916ead42f59eec.bundle.js.map",
+  "main.css": "main.5260289d1ef7a8a106dc.bundle.css",
+  "main.js": "main.a7d7ede42cfaf2ec6920.bundle.js",
+  "main.css.map": "main.5260289d1ef7a8a106dc.bundle.css.map",
+  "main.js.map": "main.a7d7ede42cfaf2ec6920.bundle.js.map",
+  "platform/IntersectionObserver.js": "platform/IntersectionObserver.9e3241263afb790d6713.bundle.js",
+  "platform/IntersectionObserver.js.map": "platform/IntersectionObserver.9e3241263afb790d6713.bundle.js.map",
+  "platform/ResizeObserver.js": "platform/ResizeObserver.dee3826459406e065b3c.bundle.js",
+  "platform/ResizeObserver.js.map": "platform/ResizeObserver.dee3826459406e065b3c.bundle.js.map",
+  "platform/WebAnimations.js": "platform/WebAnimations.345fd7b9bbe52fe18faf.bundle.js",
+  "platform/WebAnimations.js.map": "platform/WebAnimations.345fd7b9bbe52fe18faf.bundle.js.map",
+  "platform/client.js": "platform/client.939e4bd3dc18d60a40aa.bundle.js",
+  "platform/client.js.map": "platform/client.939e4bd3dc18d60a40aa.bundle.js.map",
+  "platform/fetch.js": "platform/fetch.50b77c399903651d382c.bundle.js",
+  "platform/fetch.js.map": "platform/fetch.50b77c399903651d382c.bundle.js.map",
+  "platform/pointerEvents.js": "platform/pointerEvents.9c821513987b5ffe2f6e.bundle.js",
+  "platform/pointerEvents.js.map": "platform/pointerEvents.9c821513987b5ffe2f6e.bundle.js.map",
+  "index.html": "index.html"
+}

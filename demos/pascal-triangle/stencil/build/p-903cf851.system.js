@@ -1,0 +1,1 @@
+System.register(["./p-61cfc501.system.js"],function(){"use strict";var t,e;return{setters:[function(n){t=n.p;e=n.b}],execute:function(){t().then(function(t){return e([["pascal-triangle_2.system",[[1,"pascal-triangle",{_list:[1032]}],[0,"triangle-item",{text:[1]}]]]],t)})}}});

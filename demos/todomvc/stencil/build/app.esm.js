@@ -1,0 +1,1 @@
+import{p as o,b as e}from"./p-8a4a1b08.js";o().then(o=>e([["my-todo_3",[[1,"my-todo",{list:[32]},[[0,"onTodoInputSubmit","todoInputSubmiHandler"],[0,"onTodoItemChecked","todoItemCheckedHandler"],[0,"onTodoItemRemove","todoItemRemoveHandler"]]],[1,"todo-input",{value:[32]}],[1,"todo-item",{checked:[4],text:[1],index:[2]}]]]],o));
