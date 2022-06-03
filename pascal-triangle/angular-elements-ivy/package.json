@@ -14,7 +14,7 @@
     "dependencies": {
         "@angular/common": "~8.2.3",
         "@angular/compiler": "~8.2.3",
-        "@angular/core": "~8.2.3",
+        "@angular/core": "~11.0.5",
         "@angular/platform-browser": "~8.2.3",
         "rxjs": "~6.5.2",
         "tslib": "^1.10.0",
