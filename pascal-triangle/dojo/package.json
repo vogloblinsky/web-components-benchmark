@@ -30,7 +30,7 @@
         "istanbul-instrumenter-loader": "^3.0.1",
         "json-css-module-loader": "^1.0.2",
         "jsonfile": "^5.0.0",
-        "loader-utils": "^1.2.3",
+        "loader-utils": "^1.4.2",
         "log-symbols": "^3.0.0",
         "log-update": "^3.2.0",
         "optimize-css-assets-webpack-plugin": "^5.0.3",
