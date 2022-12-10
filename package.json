@@ -33,7 +33,7 @@
         "cssnano": "^4.1.10",
         "devtools-timeline-model": "^1.4.0",
         "ejs": "^2.6.2",
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "fs-extra": "^8.1.0",
         "google-closure-compiler": "^20190819.0.0",
         "html-minifier": "^4.0.0",
